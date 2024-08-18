@@ -1,0 +1,98 @@
+.flower-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+    max-width: 100%;
+}
+
+.flower {
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    position: relative;
+}
+
+.center-element {
+    position: absolute;
+    top: 45%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+}
+
+.center-element input {
+    border: none;
+    padding: 15px;
+    width: 350px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #DDDDDD;
+    margin-bottom: 20px;
+}
+
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.title-subtitle {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    color: #333;
+}
+
+.subtitle {
+    font-size: 0.875rem;
+    color: #666666;
+    margin-top: 10px;
+}
+
+.language-select select {
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #CCCCCC;
+    background-color: #FFFFFF;
+    font-size: 16px;
+}
+
+.App-header p {
+    font-size: 1rem;
+    color: #666666;
+    margin-top: 0;
+    text-align: left;
+    margin-bottom: 10px;
+}
+
+.harmony {
+    color: #3285D2;
+  }
+  
+  .link {
+    color: #32B926;
+  }
