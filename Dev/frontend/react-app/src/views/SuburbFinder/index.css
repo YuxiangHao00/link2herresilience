@@ -5,3 +5,108 @@
 .ant-tabs-ink-bar{
     background: #00BD90 !important;
 }
+
+/* SuburbFinder 组件的整体样式 */
+.text-center {
+    text-align: center;
+  }
+  
+  /* 地图容器样式 */
+  .map-container {
+    height: 500px;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .leaflet-container {
+    height: 100%;
+    width: 100%;
+  }
+  
+  /* 自定义图标样式 */
+  .custom-marker-icon {
+    background-color: #00BD90;
+    border-radius: 50%;
+    border: 2px solid white;
+  }
+  
+  /* Ant Design Tabs 自定义样式 */
+  .ant-tabs-tab-btn {
+    color: #00BD90 !important;
+  }
+  
+  .ant-tabs-ink-bar {
+    background: #00BD90 !important;
+  }
+  
+  /* 按钮和选择器样式 */
+  .flex {
+    display: flex;
+  }
+  
+  .justify-center {
+    justify-content: center;
+  }
+  
+  .gap-4 {
+    gap: 1rem;
+  }
+  
+  .mt-\[40px\] {
+    margin-top: 40px;
+  }
+  
+  .w-\[300px\] {
+    width: 300px;
+  }
+  
+  /* 按钮样式 */
+  .bg-\[#00BD90\] {
+    background-color: #00BD90;
+  }
+  
+  .text-white {
+    color: white;
+  }
+  
+  /* 响应式设计 */
+  @media (max-width: 768px) {
+    .map-container {
+      height: 300px;
+    }
+  
+    .w-\[300px\] {
+      width: 100%;
+    }
+  
+    .flex {
+      flex-direction: column;
+    }
+  
+    .gap-4 {
+      gap: 0.5rem;
+    }
+  }
+  
+  /* Leaflet 弹出窗口样式 */
+  .leaflet-popup-content-wrapper {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.4);
+  }
+  
+  .leaflet-popup-content {
+    margin: 13px 19px;
+    line-height: 1.4;
+  }
+  
+  /* 加载状态样式 */
+  .ant-spin-lg .ant-spin-dot {
+    font-size: 32px;
+  }
+  
+  .ant-spin-lg .ant-spin-dot i {
+    width: 14px;
+    height: 14px;
+  }
+  
