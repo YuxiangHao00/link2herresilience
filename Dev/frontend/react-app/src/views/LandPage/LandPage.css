@@ -1,0 +1,32 @@
+.land-page {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  border: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-image {
+  z-index: 0;
+  width: 70%;
+  height: 10vh;
+  margin: 0 auto;
+  display: block;
+  margin-top: 17%;
+  margin-bottom: -20px;
+}
+
+.explore-image {
+  width: 20%;
+  height: auto;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
