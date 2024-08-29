@@ -13,9 +13,9 @@
   
   /* 地图容器样式 */
   .map-container {
-    height: 500px;
-    width: 100%;
-    margin-top: 20px;
+    height: 700px;
+    width: 90%;
+    margin: 20px auto 0 auto;
   }
   
   .leaflet-container {
