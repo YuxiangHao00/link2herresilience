@@ -4,6 +4,7 @@ import './App.css';
 import LandPage from './views/LandPage';
 import HealthIssues from './views/HealthIssues';
 import SuburbFinder from './views/SuburbFinder';
+import siteName from './images/SitName.svg';
 
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -85,23 +86,32 @@ function App() {
         <div className="flex min-h-screen bg-gray-100">
           <aside className="w-64 bg-blue-900 text-white py-4">
             <div className="flex items-center justify-center h-20">
+              <Link to="/land-page">
+                <img
+                  src="/logo.jpg"
+                  alt="Logo"
+                  className="h-12 w-12"
+                  width="80"
+                  height="80"
+                  style={{ aspectRatio: "50/50", objectFit: "cover" }}
+                />
+              </Link>
+            </div>
+            <div className="flex items-center justify-center h-10">
               <img
-                src="/logo.jpg"
-                alt="Logo"
-                className="h-12 w-12"
-                width="80"
-                height="80"
-                style={{ aspectRatio: "50/50", objectFit: "cover" }}
-              />
+                  src={siteName}
+                  alt="Site Name"
+                  className="mt-1"
+                />
             </div>
             <nav className="mt-10 flex flex-col justify-around w-full">
               <Link to="/land-page">
                 <div 
                   onClick={() => setCurrentPath('/land-page')} 
-                  className={`flex items-center mb-4 px-4 py-6 cursor-pointer transition-colors duration-200 
+                  className={`flex items-center mb-4 px-4 py-6 cursor-pointer  
                     ${currentPath === '/land-page' 
                       ? 'bg-white text-blue-900 font-bold menu-active' 
-                      : 'text-white hover:bg-blue-800'}`}
+                      : 'text-white '}`}
                 >
                   <HomeIcon className="w-5 h-5 mr-3" />
                   Land page
@@ -110,10 +120,10 @@ function App() {
               <Link to="/health-issues">
                 <div 
                   onClick={() => setCurrentPath('/health-issues')} 
-                  className={`flex items-center mb-4 px-4 py-6 cursor-pointer transition-colors duration-200 
+                  className={`flex items-center mb-4 px-4 py-6 cursor-pointer  
                     ${currentPath === '/health-issues' 
                       ? 'bg-white text-blue-900 font-bold menu-active' 
-                      : 'text-white hover:bg-blue-800'}`}
+                      : 'text-white '}`}
                 >
                   <HospitalIcon className="w-5 h-5 mr-3" />
                   Health issues
@@ -122,10 +132,10 @@ function App() {
               <Link to="/suburb-finder">
                 <div 
                   onClick={() => setCurrentPath('/suburb-finder')} 
-                  className={`flex items-center mb-4 px-4 py-6 cursor-pointer transition-colors duration-200 
+                  className={`flex items-center mb-4 px-4 py-6 cursor-pointer  
                     ${currentPath === '/suburb-finder' 
                       ? 'bg-white text-blue-900 font-bold menu-active' 
-                      : 'text-white hover:bg-blue-800'}`}
+                      : 'text-white '}`}
                 >
                   <MapIcon className="w-5 h-5 mr-3" />
                   Suburb Finder
@@ -133,7 +143,7 @@ function App() {
               </Link>
             </nav>
           </aside>
-          <main className="flex-1 p-10">
+          <main className="flex-1">
             <Routes>
               <Route path="/" element={<LandPage />} />
               <Route path="/land-page" element={<LandPage />} />

@@ -224,7 +224,7 @@ function City({ city }) {
             }
         },
         series: [{
-            name: "Allergic Pollens",
+            name: "Air Quality",
             type: "map",
             geoIndex: 0,
             data: seriesData
