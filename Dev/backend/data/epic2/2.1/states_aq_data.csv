@@ -1,0 +1,8 @@
+state_code,state,date,pm2_5,pm2_5_hr,pm10,co_hr,co,so2,no2,o3,visibility,aqc,aqi
+1,New South Wales,28/08/24,4.2,6.5,27.6,0.12,0.1,0,6,26,70,Good,28
+2,Victoria,28/08/24,2.7,5.1,0,-,0,0.94,9,0,-,Good,5
+3,Queensland,28/08/24,2.1,2.6,0,-,0,0,0,0,-,Good,3
+4,South Australia,28/08/24,4.4,8.6,0,-,0,0,0,0,-,Good,9
+5,Western Australia,28/08/24,2,2.3,0,-,0,0,0,0,-,Good,2
+6,Tasmania,28/08/24,7.3,12.4,0,-,0,0,0,0,-,Good,12
+7,Northern Territory,28/08/24,4.9,7.7,29.5,-,0,0,0,0,70,Good,30
