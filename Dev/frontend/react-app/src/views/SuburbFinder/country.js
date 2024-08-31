@@ -1,40 +1,61 @@
-import React from 'react';
-import ReactECharts from 'echarts-for-react'; // 引入 ECharts 组件
-import { useEffect } from 'react';
-import * as echarts from 'echarts/core';
+import React, { useState, useEffect } from 'react';
+import ReactECharts from 'echarts-for-react';
 import { registerMap } from 'echarts/core';
-import geoJson from '../../data/australian-states.json'; // 引入 GeoJSON 文件
+import geoJson from '../../data/australian-states.json';
+import axios from 'axios'; // Make sure to install axios: npm install axios
 
 function Country() {
+  const [stateData, setStateData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-  window.dataList = [
-    { name: "Northern Territory", value: 10 },
-    { name: "New South Wales", value: 114 },
-    { name: "Victoria", value: 45 },
-    { name: "Queensland", value: 76 },
-    { name: "Western Australia", value: 75 },
-    { name: "South Australia", value: 30 },
-    { name: "Tasmania", value: 20 },
-    { name: "Australian Capital Territory", value: 15 },
-  ];
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Replace with your actual AWS endpoint
+        const response = await axios.get('https://your-aws-endpoint.com/air_quality/v1/states');
+        const data = response.data;
+        
+        // Process the data to get the latest AQI for each state
+        const processedData = Object.entries(data).map(([state, values]) => {
+          const latestDate = Object.keys(values).sort().pop();
+          return { 
+            name: state, 
+            value: values[latestDate].AQI 
+          };
+        });
+
+        setStateData(processedData);
+      } catch (error) {
+        console.error('Error fetching state data:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   registerMap('australia', geoJson);
+
   const option = {
     title: {
       top: "5%",
       x: 'center',
+      text: 'Australia Air Quality Index',
       textStyle: {
-        color: '#fff'
+        color: '#000'
       }
     },
     tooltip: {
       trigger: 'item',
+      formatter: '{b}: {c}'
     },
     visualMap: {
       min: 0,
-      max: 200,
+      max: 300, // Adjust based on your AQI range
       calculable: true,
       inRange: {
-        color: ['#d4f1c4', '#097F54'] // 修改为绿色渐变
+        color: ['#d4f1c4', '#097F54']
       },
       textStyle: {
         color: '#000'
@@ -45,15 +66,15 @@ function Country() {
       top: '10%'
     },
     geo: {
-      map: 'australia',//必须与初始注册的地图名称一致;
+      map: 'australia',
       roam: true,
       aspectScale: 1,
-      scaleLimit: {//通过鼠标控制的缩放
+      scaleLimit: {
         min: 1,
         max: 2
       },
-      zoom: 1,//当前缩放比例
-      top: 120,//组件离容器上方的距离
+      zoom: 1,
+      top: 120,
       label: {
         normal: {
           show: true,
@@ -72,12 +93,16 @@ function Country() {
       }
     },
     series: [{
-      name: "air quality",
+      name: "Air Quality Index",
       type: "map",
       geoIndex: 0,
-      data: window.dataList
+      data: stateData
     }]
   };
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <ReactECharts option={option} style={{ height: '800px', width: '100%' }} />

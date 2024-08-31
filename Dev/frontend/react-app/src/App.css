@@ -27,8 +27,8 @@
   background-color:rgb(30, 58, 138) ; /* 内翻部分的背景颜色 */
   border-radius: 50%;
   box-shadow: 50px 50px 0 0 #F3F4F6; /* 侧边栏的颜色，创造内翻效果 */
-  opacity: 1; /* 初始状态为完全透明 */
-  transition: opacity 0.5s ease-in-out; /* 设置淡入淡出的动画 */
+  /* opacity: 1; 初始状态为完全透明 */
+  /* transition: opacity 0.5s ease-in-out; 设置淡入淡出的动画 */
 }
 
 .menu-active::after {
@@ -42,8 +42,8 @@
   background-color:rgb(30, 58, 138) ; /* 内翻部分的背景颜色 */
   border-radius: 50%;
   box-shadow: 50px -50px 0 0 #F3F4F6; /* 侧边栏的颜色，创造内翻效果 */
-  opacity: 1; /* 初始状态为完全透明 */
-  transition: opacity 0.5s ease-in-out; /* 设置淡入淡出的动画 */
+  /* opacity: 1; 初始状态为完全透明 */
+  /* transition: opacity 0.5s ease-in-out; 设置淡入淡出的动画 */
 }
 
 @media (max-width: 768px) {
