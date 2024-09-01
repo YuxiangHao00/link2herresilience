@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import ReactECharts from 'echarts-for-react';
 import { registerMap } from 'echarts/core';
 import geoJson from '../../data/australian-states.json';
-import axios from 'axios'; // Make sure to install axios: npm install axios
+import axios from 'axios';
 
 function Country() {
   const [stateData, setStateData] = useState([]);
@@ -11,18 +11,16 @@ function Country() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Replace with your actual AWS endpoint
-        const response = await axios.get('https://your-aws-endpoint.com/air_quality/v1/states');
+        const response = await axios.get('http://127.0.0.1:5001/air_quality/v1/states');
         const data = response.data;
-        
-        // Process the data to get the latest AQI for each state
-        const processedData = Object.entries(data).map(([state, values]) => {
-          const latestDate = Object.keys(values).sort().pop();
-          return { 
-            name: state, 
-            value: values[latestDate].AQI 
-          };
-        });
+
+
+        const processedData = data.map(state => ({
+          name: state.state,
+          value: state.aqi, 
+          date: state.date,
+          aqc: state.aqc
+        }));
 
         setStateData(processedData);
       } catch (error) {
@@ -48,11 +46,18 @@ function Country() {
     },
     tooltip: {
       trigger: 'item',
-      formatter: '{b}: {c}'
+      formatter: function (params) {
+        if (!params.data) {
+          return 'No data available'; // 当数据不存在时，显示提示
+        }
+
+        const { name, value, date, aqc } = params.data;
+        return `${name}<br/>Updated: ${date}<br/>AQI: ${value}<br/>Condition: ${aqc}`;
+      }
     },
     visualMap: {
       min: 0,
-      max: 300, // Adjust based on your AQI range
+      max: 300, // 根据您的AQI范围调整
       calculable: true,
       inRange: {
         color: ['#d4f1c4', '#097F54']
@@ -76,27 +81,27 @@ function Country() {
       zoom: 1,
       top: 120,
       label: {
-        normal: {
-          show: true,
-          color: "#000"
-        },
-        emphasis: {
-          show: true,
-          color: "#fff"
-        }
+        show: true,
+        color: "#000"
       },
       itemStyle: {
-        normal: {
-          areaColor: '',
-          borderColor: "rgba(0, 0, 0, 0.5)"
+        areaColor: '#f3f3f3',
+        borderColor: "rgba(0, 0, 0, 0.5)"
+      },
+      emphasis: {
+        label: {
+          color: "#fff"
         },
+        itemStyle: {
+          areaColor: '#369'
+        }
       }
     },
     series: [{
       name: "Air Quality Index",
       type: "map",
       geoIndex: 0,
-      data: stateData
+      data: stateData  // 使用处理后的数据
     }]
   };
 
