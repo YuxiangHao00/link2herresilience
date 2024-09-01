@@ -1,117 +1,94 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import ReactECharts from 'echarts-for-react';
 import { registerMap } from 'echarts/core';
 import geoJson from '../../data/australian-states.json';
 import axios from 'axios';
 
 function Country() {
-  const [stateData, setStateData] = useState([]);
-  const [loading, setLoading] = useState(true);
+    const [stateData, setStateData] = useState([]);
+    const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('http://127.0.0.1:5001/air_quality/v1/states');
-        const data = response.data;
+    useEffect(() => {
+        registerMap('australia', geoJson);
 
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://127.0.0.1:5001/air_quality/v1/states');
+                console.log('API response:', response.data);
+                
+                const transformedData = response.data.map(item => ({
+                    name: item.state,
+                    value: item.aqi,
+                    date: item.date ?? 'N/A',
+                    aqc: item.aqc ?? 'N/A'
+                }));
+                
+                setStateData(transformedData);
+            } catch (error) {
+                console.error('Error fetching state data:', error);
+            } finally {
+                setLoading(false);
+            }
+        };
 
-        const processedData = data.map(state => ({
-          name: state.state,
-          value: state.aqi, 
-          date: state.date,
-          aqc: state.aqc
-        }));
+        fetchData();
+    }, []);
 
-        setStateData(processedData);
-      } catch (error) {
-        console.error('Error fetching state data:', error);
-      } finally {
-        setLoading(false);
-      }
+    const getAQILevel = (value) => {
+        if (value <= 50) return 'Good';
+        if (value <= 100) return 'Fair';
+        if (value <= 150) return 'Poor';
+        if (value <= 200) return 'Very poor';
+        return 'Extremely poor';
     };
 
-    fetchData();
-  }, []);
-
-  registerMap('australia', geoJson);
-
-  const option = {
-    title: {
-      top: "5%",
-      x: 'center',
-      text: 'Australia Air Quality Index',
-      textStyle: {
-        color: '#000'
-      }
-    },
-    tooltip: {
-      trigger: 'item',
-      formatter: function (params) {
-        if (!params.data) {
-          return 'No data available'; // 当数据不存在时，显示提示
-        }
-
-        const { name, value, date, aqc } = params.data;
-        return `${name}<br/>Updated: ${date}<br/>AQI: ${value}<br/>Condition: ${aqc}`;
-      }
-    },
-    visualMap: {
-      min: 0,
-      max: 300, // 根据您的AQI范围调整
-      calculable: true,
-      inRange: {
-        color: ['#d4f1c4', '#097F54']
-      },
-      textStyle: {
-        color: '#000'
-      },
-      show: true,
-      orient: 'horizontal',
-      right: '10%',
-      top: '10%'
-    },
-    geo: {
-      map: 'australia',
-      roam: true,
-      aspectScale: 1,
-      scaleLimit: {
-        min: 1,
-        max: 2
-      },
-      zoom: 1,
-      top: 120,
-      label: {
-        show: true,
-        color: "#000"
-      },
-      itemStyle: {
-        areaColor: '#f3f3f3',
-        borderColor: "rgba(0, 0, 0, 0.5)"
-      },
-      emphasis: {
-        label: {
-          color: "#fff"
+    const option = useMemo(() => ({
+        title: {
+            text: 'Australia Air Quality Index',
+            left: 'center'
         },
-        itemStyle: {
-          areaColor: '#369'
-        }
-      }
-    },
-    series: [{
-      name: "Air Quality Index",
-      type: "map",
-      geoIndex: 0,
-      data: stateData  // 使用处理后的数据
-    }]
-  };
+        tooltip: {
+            trigger: 'item',
+            formatter: ({ name, value, data }) => {
+                if (!data) return `${name}: No data available`;
+                return `${name}<br/>AQI: ${value}<br/>Level: ${getAQILevel(value)}<br/>Date: ${data.date}`;
+            }
+        },
+        visualMap: {
+            type: 'piecewise',
+            pieces: [
+                { max: 50, label: 'Good', color: '#7ec251' },
+                { min: 51, max: 100, label: 'Fair', color: '#f9c446' },
+                { min: 101, max: 150, label: 'Poor', color: '#ef8d3e' },
+                { min: 151, max: 200, label: 'Very poor', color: '#c04c4d' },
+                { min: 201, label: 'Extremely poor', color: '#76235d' }
+            ],
+            orient: 'vertical',
+            right: '5%',
+            top: 'center',
+            textStyle: {
+                color: '#000'
+            }
+        },
+        series: [{
+            name: 'Australia AQI',
+            type: 'map',
+            map: 'australia',
+            roam: true,
+            data: stateData,
+            emphasis: {
+                label: {
+                    show: true
+                }
+            }
+        }]
+    }), [stateData]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
-  return (
-    <ReactECharts option={option} style={{ height: '800px', width: '100%' }} />
-  );
+    return <ReactECharts option={option} style={{ height: '800px', width: '100%' }} />;
 }
 
 export default Country;

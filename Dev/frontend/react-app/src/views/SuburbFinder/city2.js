@@ -1,11 +1,8 @@
 import React from 'react';
-import ReactECharts from 'echarts-for-react'; // 引入 ECharts 组件
-import { useEffect } from 'react';
-import * as echarts from 'echarts/core';
+import ReactECharts from 'echarts-for-react';
 import { registerMap } from 'echarts/core';
-import Melbourne from '../../data/Melbourne.json'; // 引入 GeoJSON 文件
-import Sydney from '../../data/Sydney.json'; // 引入 GeoJSON 文件
-
+import Melbourne from '../../data/Melbourne.json';
+import Sydney from '../../data/Sydney.json';
 
 function City({city}) {
     const data_melbourne = [
@@ -187,7 +184,7 @@ function City({city}) {
             max: 200,
             calculable: true,
             inRange: {
-                color: ['#d4f1c4', '#097F54'] // 修改为绿色渐变
+                color: ['#d4f1c4', '#097F54']
             },
             textStyle: {
                 color: '#000'
@@ -198,15 +195,15 @@ function City({city}) {
             top: '10%'
         },
         geo: {
-            map: 'city',//必须与初始注册的地图名称一致;
+            map: 'city',
             roam: true,
             aspectScale: 1,
-            scaleLimit: {//通过鼠标控制的缩放
+            scaleLimit: {
                 min: 1,
                 max: 10
             },
-            zoom: 1,//当前缩放比例
-            top: 50,//组件离容器上方的距离
+            zoom: 1,
+            top: 50,
             label: {
                 normal: {
                     show: false,
@@ -232,13 +229,10 @@ function City({city}) {
         }]
     };
 
-
     return (
         <div>
             <ReactECharts option={option_map} style={{ height: '800px', width: '100%' }} />
         </div>
-
-
     );
 }
 
