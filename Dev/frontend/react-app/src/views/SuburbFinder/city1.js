@@ -63,7 +63,7 @@ function City({ city }) {
                 let state = '';
                 if (city === 'Melbourne') state = 'vic';
 
-                const response = await axios.get(`http://52.64.13.221:5001/air_quality/v1/suburbs?state=${state}`);
+                const response = await axios.get(`https://52.64.13.221:5001/air_quality/v1/suburbs?state=${state}`);
                 const geojsonFeatures = Melbourne.features;
 
                 const transformedData = response.data.map(item => {

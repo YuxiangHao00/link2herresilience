@@ -13,7 +13,7 @@ function Country() {
 
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://52.64.13.221:5001/air_quality/v1/states');
+                const response = await axios.get('https://52.64.13.221:5001/air_quality/v1/states');
                 console.log('API response:', response.data);
                 
                 const transformedData = response.data.map(item => ({
