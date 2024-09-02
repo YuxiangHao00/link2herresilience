@@ -1,99 +1,103 @@
 import React, { useState, useEffect } from 'react';
 import { Tabs, Select, Button, Spin } from 'antd';
-import { MapContainer, TileLayer, CircleMarker, Popup, ZoomControl } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from 'react-leaflet';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import * as d3 from 'd3-scale-chromatic';
+import axios from 'axios';
 import './index.css';
 import Country from './country';
 import City from './city1';
 
-function getColor(value, min, max) {
-    const scale = d3.interpolateRdYlGn((value - min) / (max - min)); // 从红到绿的颜色渐变
-    return scale;
-}
+const { Option } = Select;
 
-function Legend({ min, max }) {
+// 自定义 Tooltip 组件
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
     return (
-        <div className="legend">
-            <h4>Pollen Count</h4>
-            <i style={{ background: getColor(max, min, max) }}></i> {`> ${max}`} <br />
-            <i style={{ background: getColor((min + max) / 2, min, max) }}></i> {`${(min + max) / 2} - ${max}`} <br />
-            <i style={{ background: getColor(min, min, max) }}></i> {`≤ ${min}`} <br />
-        </div>
+      <div className="custom-tooltip" style={{ backgroundColor: 'white', padding: '10px', border: '1px solid #ccc' }}>
+        <p className="label">{`Week: ${label}`}</p>
+        {payload.map((pld) => (
+          <p key={pld.dataKey} style={{ color: pld.color }}>
+            {`${pld.dataKey}: ${pld.value.toFixed(1)}`}
+          </p>
+        ))}
+      </div>
     );
-}
+  }
+  return null;
+};
 
+// PollenChart 组件
+const PollenChart = ({ data }) => {
+  const processedData = Array.from({ length: 53 }, (_, i) => ({
+    week: i,
+    '2009': 0,
+    '2010': 0,
+    '2011': 0
+  }));
+
+  data.forEach(item => {
+    const weekIndex = parseInt(item.week_number);
+    if (weekIndex >= 0 && weekIndex <= 52) {
+      processedData[weekIndex][item.year] = item.count || 0;
+    }
+  });
+
+  return (
+    <ResponsiveContainer width="100%" height={400}>
+      <LineChart
+        data={processedData}
+        margin={{
+          top: 5,
+          right: 30,
+          left: 20,
+          bottom: 5,
+        }}
+      >
+        <CartesianGrid vertical={false} horizontal={true} stroke="#e0e0e0" />
+        <XAxis dataKey="week" />
+        <YAxis domain={['auto', 'auto']} />
+        <Tooltip content={<CustomTooltip />} />
+        <Legend />
+        <Line type="monotone" dataKey="2009" stroke="#8884d8" strokeWidth={2} dot={false} activeDot={{ r: 8 }} />
+        <Line type="monotone" dataKey="2010" stroke="#82ca9d" strokeWidth={2} dot={false} activeDot={{ r: 8 }} />
+        <Line type="monotone" dataKey="2011" stroke="#ffc658" strokeWidth={2} dot={false} activeDot={{ r: 8 }} />
+      </LineChart>
+    </ResponsiveContainer>
+  );
+};
+
+// SuburbFinder 主组件
 function SuburbFinder() {
     const [showCity, setShowCity] = useState(false);
     const [selectedState, setSelectedState] = useState('');
     const [selectedCity, setSelectedCity] = useState('');
     const [activeTab, setActiveTab] = useState('1');
-    const [siteData, setSiteData] = useState([]);
+    const [pollenData, setPollenData] = useState({});
     const [loading, setLoading] = useState(false);
-    const [minPollenCount, setMinPollenCount] = useState(0);
-    const [maxPollenCount, setMaxPollenCount] = useState(0);
-
-    const stateOptions = [
-        { value: 'New South Wales', cities: ['Sydney'] },
-        { value: 'Victoria', cities: ['Melbourne'] },
-    ];
+    const [selectedPollen, setSelectedPollen] = useState('');
+    const [chartData, setChartData] = useState([]);
+    const [mapView, setMapView] = useState({
+        center: [-25.2744, 133.7751],
+        zoom: 4
+    });
 
     useEffect(() => {
         if (activeTab === '2') {
-            fetchPollenData(); // 请求花粉数据
+            fetchPollenData();
+            setMapView({
+                center: [-25.2744, 133.7751],
+                zoom: 4
+            });
         }
     }, [activeTab]);
 
     const fetchPollenData = async () => {
         setLoading(true);
         try {
-            // mock data
-            const fakeData = [
-                {
-                    "id": 1,
-                    "name": "Sydney Central",
-                    "latitude": -33.8688,
-                    "longitude": 151.2093,
-                    "pollenCount": 120
-                },
-                {
-                    "id": 2,
-                    "name": "Melbourne CBD",
-                    "latitude": -37.8136,
-                    "longitude": 144.9631,
-                    "pollenCount": 90
-                },
-                {
-                    "id": 3,
-                    "name": "Brisbane",
-                    "latitude": -27.4698,
-                    "longitude": 153.0251,
-                    "pollenCount": 70
-                },
-                {
-                    "id": 4,
-                    "name": "Perth",
-                    "latitude": -31.9505,
-                    "longitude": 115.8605,
-                    "pollenCount": 150
-                },
-                {
-                    "id": 5,
-                    "name": "Adelaide",
-                    "latitude": -34.9285,
-                    "longitude": 138.6007,
-                    "pollenCount": 110
-                }
-            ];
-
-            const minCount = Math.min(...fakeData.map(d => d.pollenCount));
-            const maxCount = Math.max(...fakeData.map(d => d.pollenCount));
-
-            setMinPollenCount(minCount);
-            setMaxPollenCount(maxCount);
-
-            // 模拟API调用
-            setSiteData(fakeData);
+            const response = await axios.get('http://127.0.0.1:5002/allergic_pollen/v1/pollens');
+            setPollenData(response.data);
         } catch (error) {
             console.error('Error fetching pollen data:', error);
         } finally {
@@ -107,24 +111,38 @@ function SuburbFinder() {
 
     const handleStateChange = (value) => {
         setSelectedState(value);
-        setSelectedCity('');
+        setSelectedPollen('');
     };
 
-    const handleCityChange = (value) => {
-        setSelectedCity(value);
+    const handlePollenChange = (value) => {
+        setSelectedPollen(value);
     };
 
-    const handleSwitch = () => {
-        if (selectedState && selectedCity) {
-            setShowCity(true);
+    const handleSearch = async () => {
+        if (selectedState && selectedPollen) {
+            try {
+                const response = await axios.get(`http://127.0.0.1:5002/allergic_pollen/v1/stateCount?state=${selectedState}&pollen=${selectedPollen}`);
+                setChartData(response.data.pollens_count);
+                
+                const stateData = pollenData[selectedState];
+                if (stateData && stateData.coordinates) {
+                    setMapView({
+                        center: [stateData.coordinates[1], stateData.coordinates[0]],
+                        zoom: 8
+                    });
+                }
+            } catch (error) {
+                console.error('Error fetching chart data:', error);
+            }
         }
     };
 
-    const handleReturn = () => {
-        setShowCity(false);
-        setSelectedState('');
-        setSelectedCity('');
-    };
+    const customIcon = new L.Icon({
+        iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+    });
 
     return (
         <div className="text-center">
@@ -145,37 +163,35 @@ function SuburbFinder() {
                             className="w-[300px]" 
                             placeholder="Select State" 
                             value={selectedState} 
-                            onChange={handleStateChange}
+                            onChange={(value) => setSelectedState(value)}
                         >
-                            {stateOptions.map((state) => (
-                                <Select.Option key={state.value} value={state.value}>
-                                    {state.value}
-                                </Select.Option>
-                            ))}
+                            <Option value="New South Wales">New South Wales</Option>
+                            <Option value="Victoria">Victoria</Option>
                         </Select>
                         <Select 
                             className="w-[300px]" 
                             placeholder="Select City" 
                             value={selectedCity} 
-                            onChange={handleCityChange}
+                            onChange={(value) => setSelectedCity(value)}
                             disabled={!selectedState}
                         >
-                            {selectedState && stateOptions.find(state => state.value === selectedState).cities.map((city) => (
-                                <Select.Option key={city} value={city}>
-                                    {city}
-                                </Select.Option>
-                            ))}
+                            {selectedState === 'New South Wales' && <Option value="Sydney">Sydney</Option>}
+                            {selectedState === 'Victoria' && <Option value="Melbourne">Melbourne</Option>}
                         </Select>
                         <Button
                             className="bg-[#00BD90] text-white"
-                            onClick={handleSwitch}
+                            onClick={() => setShowCity(true)}
                             disabled={!selectedState || !selectedCity}
                         >
                             Switch
                         </Button>
                         <Button 
                             className="bg-[#00BD90] text-white" 
-                            onClick={handleReturn}
+                            onClick={() => {
+                                setShowCity(false);
+                                setSelectedState('');
+                                setSelectedCity('');
+                            }}
                         >
                             Return
                         </Button>
@@ -186,13 +202,40 @@ function SuburbFinder() {
             
             {activeTab === '2' && (
                 <div>
-                    <div className="map-container h-[600px]">
+                    <div className="flex justify-center gap-4 mt-[40px]">
+                        <Select 
+                            style={{ width: 200 }}
+                            placeholder="Select State"
+                            onChange={handleStateChange}
+                            value={selectedState}
+                        >
+                            {Object.keys(pollenData).map(state => (
+                                <Option key={state} value={state}>{state.toUpperCase()}</Option>
+                            ))}
+                        </Select>
+                        <Select
+                            style={{ width: 200 }}
+                            placeholder="Select Pollen"
+                            onChange={handlePollenChange}
+                            value={selectedPollen}
+                            disabled={!selectedState}
+                        >
+                            {selectedState && pollenData[selectedState]?.pollen_grains.map(pollen => (
+                                <Option key={pollen} value={pollen}>{pollen}</Option>
+                            ))}
+                        </Select>
+                        <Button onClick={handleSearch} disabled={!selectedState || !selectedPollen}>
+                            Search
+                        </Button>
+                    </div>
+                    <div className="map-container h-[400px] mt-[20px]">
                         {loading ? (
                             <Spin size="large" />
                         ) : (
                             <MapContainer 
-                                center={[-25.2744, 133.7751]} 
-                                zoom={4} 
+                                key={`${mapView.center[0]}-${mapView.center[1]}-${mapView.zoom}`}
+                                center={mapView.center}
+                                zoom={mapView.zoom}
                                 scrollWheelZoom={true}
                                 zoomControl={false}
                                 className="h-full w-full"
@@ -202,25 +245,25 @@ function SuburbFinder() {
                                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                                 />
-                                {siteData.map((site) => (
-                                    <CircleMarker 
-                                        key={site.id}
-                                        center={[site.latitude, site.longitude]} 
-                                        radius={10} // Adjust size as needed
-                                        fillColor={getColor(site.pollenCount, minPollenCount, maxPollenCount)} 
-                                        color={getColor(site.pollenCount, minPollenCount, maxPollenCount)}
-                                        weight={1}
-                                        fillOpacity={0.8}
+                                {Object.entries(pollenData).map(([state, data]) => (
+                                    <Marker 
+                                        key={state}
+                                        position={[data.coordinates[1], data.coordinates[0]]}
+                                        icon={customIcon}
                                     >
                                         <Popup>
-                                            {site.name}: {site.pollenCount}
+                                            {data.location_name}
                                         </Popup>
-                                    </CircleMarker>
+                                    </Marker>
                                 ))}
-                                <Legend min={minPollenCount} max={maxPollenCount} />
                             </MapContainer>
                         )}
                     </div>
+                    {chartData.length > 0 && (
+                        <div className="chart-container mt-[20px]">
+                            <PollenChart data={chartData} />
+                        </div>
+                    )}
                 </div>
             )}
         </div>
