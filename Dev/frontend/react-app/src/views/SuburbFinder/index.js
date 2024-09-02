@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Tabs, Select, Button, Spin } from 'antd';
-import { MapContainer, TileLayer, Marker, Popup, ZoomControl } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup, ZoomControl, useMap } from 'react-leaflet';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -30,11 +30,11 @@ const CustomTooltip = ({ active, payload, label }) => {
 
 // PollenChart 组件
 const PollenChart = ({ data }) => {
+  const years = [...new Set(data.map(item => item.year))].sort();
+  
   const processedData = Array.from({ length: 53 }, (_, i) => ({
     week: i,
-    '2009': 0,
-    '2010': 0,
-    '2011': 0
+    ...Object.fromEntries(years.map(year => [year, 0]))
   }));
 
   data.forEach(item => {
@@ -43,6 +43,8 @@ const PollenChart = ({ data }) => {
       processedData[weekIndex][item.year] = item.count || 0;
     }
   });
+
+  const colors = ['#8884d8', '#82ca9d', '#ffc658', '#ff8042', '#00C49F'];
 
   return (
     <ResponsiveContainer width="100%" height={400}>
@@ -60,12 +62,29 @@ const PollenChart = ({ data }) => {
         <YAxis domain={['auto', 'auto']} />
         <Tooltip content={<CustomTooltip />} />
         <Legend />
-        <Line type="monotone" dataKey="2009" stroke="#8884d8" strokeWidth={2} dot={false} activeDot={{ r: 8 }} />
-        <Line type="monotone" dataKey="2010" stroke="#82ca9d" strokeWidth={2} dot={false} activeDot={{ r: 8 }} />
-        <Line type="monotone" dataKey="2011" stroke="#ffc658" strokeWidth={2} dot={false} activeDot={{ r: 8 }} />
+        {years.map((year, index) => (
+          <Line 
+            key={year}
+            type="monotone" 
+            dataKey={year} 
+            stroke={colors[index % colors.length]} 
+            strokeWidth={2} 
+            dot={false} 
+            activeDot={{ r: 8 }} 
+          />
+        ))}
       </LineChart>
     </ResponsiveContainer>
   );
+};
+
+// MapUpdater 组件
+const MapUpdater = ({ center, zoom }) => {
+  const map = useMap();
+  useEffect(() => {
+    map.setView(center, zoom);
+  }, [center, zoom, map]);
+  return null;
 };
 
 // SuburbFinder 主组件
@@ -86,6 +105,7 @@ function SuburbFinder() {
     useEffect(() => {
         if (activeTab === '2') {
             fetchPollenData();
+            resetView();
             setMapView({
                 center: [-25.2744, 133.7751],
                 zoom: 4
@@ -112,10 +132,21 @@ function SuburbFinder() {
     const handleStateChange = (value) => {
         setSelectedState(value);
         setSelectedPollen('');
+        updateMapView(value);
     };
 
     const handlePollenChange = (value) => {
         setSelectedPollen(value);
+    };
+
+    const updateMapView = (state) => {
+        const stateData = pollenData[state];
+        if (stateData && stateData.coordinates) {
+            setMapView({
+                center: [stateData.coordinates[1], stateData.coordinates[0]],
+                zoom: 30  
+            });
+        }
     };
 
     const handleSearch = async () => {
@@ -123,18 +154,21 @@ function SuburbFinder() {
             try {
                 const response = await axios.get(`http://127.0.0.1:5002/allergic_pollen/v1/stateCount?state=${selectedState}&pollen=${selectedPollen}`);
                 setChartData(response.data.pollens_count);
-                
-                const stateData = pollenData[selectedState];
-                if (stateData && stateData.coordinates) {
-                    setMapView({
-                        center: [stateData.coordinates[1], stateData.coordinates[0]],
-                        zoom: 8
-                    });
-                }
+                updateMapView(selectedState);
             } catch (error) {
                 console.error('Error fetching chart data:', error);
             }
         }
+    };
+
+    const resetView = () => {
+        setSelectedState('');
+        setSelectedPollen('');
+        setChartData([]);
+        setMapView({
+            center: [-25.2744, 133.7751],
+            zoom: 4
+        });
     };
 
     const customIcon = new L.Icon({
@@ -227,19 +261,22 @@ function SuburbFinder() {
                         <Button onClick={handleSearch} disabled={!selectedState || !selectedPollen}>
                             Search
                         </Button>
+                        <Button onClick={resetView}>
+                            Return
+                        </Button>
                     </div>
                     <div className="map-container h-[400px] mt-[20px]">
                         {loading ? (
                             <Spin size="large" />
                         ) : (
                             <MapContainer 
-                                key={`${mapView.center[0]}-${mapView.center[1]}-${mapView.zoom}`}
                                 center={mapView.center}
                                 zoom={mapView.zoom}
                                 scrollWheelZoom={true}
                                 zoomControl={false}
                                 className="h-full w-full"
                             >
+                                <MapUpdater center={mapView.center} zoom={mapView.zoom} />
                                 <ZoomControl position="bottomright" />
                                 <TileLayer
                                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -261,6 +298,9 @@ function SuburbFinder() {
                     </div>
                     {chartData.length > 0 && (
                         <div className="chart-container mt-[20px]">
+                            <h2 className="text-xl font-bold mb-4">
+                                {selectedState.toUpperCase()} {selectedPollen} changes over the years:
+                            </h2>
                             <PollenChart data={chartData} />
                         </div>
                     )}
