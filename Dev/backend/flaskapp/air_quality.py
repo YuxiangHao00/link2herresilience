@@ -15,9 +15,9 @@ from flask_restful import Resource, Api, reqparse
 import json
 from flask_cors import CORS
 
-app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
-api = Api(app, prefix="/air_quality/v1")
+app2_1 = Flask(__name__)
+CORS(app2_1, resources={r"/*": {"origins": "*"}})
+api = Api(app2_1, prefix="/air_quality/v1")
 
 
 class AirQuality(Resource):
@@ -179,4 +179,4 @@ api.add_resource(SuburbAirQuality, "/suburbs")
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5001)
+    app2_1.run(port=5001)

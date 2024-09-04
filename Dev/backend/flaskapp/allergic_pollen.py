@@ -16,9 +16,9 @@ import json
 import datetime
 from flask_cors import CORS
 
-app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "*"}})
-api = Api(app, prefix="/allergic_pollen/v1")
+app2_2 = Flask(__name__)
+CORS(app2_2, resources={r"/*": {"origins": "*"}})
+api = Api(app2_2, prefix="/allergic_pollen/v1")
 
 
 class AllergicPollen(Resource):
@@ -157,4 +157,4 @@ api.add_resource(StatePollenCount, "/stateCount")
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5002)
+    app2_2.run(port=5002)
