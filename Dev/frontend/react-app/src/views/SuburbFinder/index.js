@@ -116,7 +116,7 @@ function SuburbFinder() {
     const fetchPollenData = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('https://52.64.13.221:5002/allergic_pollen/v1/pollens');
+            const response = await axios.get('http://127.0.0.1:5002/allergic_pollen/v1/pollens');
             setPollenData(response.data);
         } catch (error) {
             console.error('Error fetching pollen data:', error);
@@ -152,7 +152,7 @@ function SuburbFinder() {
     const handleSearch = async () => {
         if (selectedState && selectedPollen) {
             try {
-                const response = await axios.get(`https://52.64.13.221:5002/allergic_pollen/v1/stateCount?state=${selectedState}&pollen=${selectedPollen}`);
+                const response = await axios.get(`http://127.0.0.1:5002/allergic_pollen/v1/stateCount?state=${selectedState}&pollen=${selectedPollen}`);
                 setChartData(response.data.pollens_count);
                 updateMapView(selectedState);
             } catch (error) {
