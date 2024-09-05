@@ -157,4 +157,4 @@ api.add_resource(StatePollenCount, "/stateCount")
 
 
 if __name__ == "__main__":
-    app2_2.run(port=5002)
+    app2_2.run()
