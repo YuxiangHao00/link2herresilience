@@ -179,4 +179,4 @@ api.add_resource(SuburbAirQuality, "/suburbs")
 
 
 if __name__ == "__main__":
-    app2_1.run(port=5001)
+    app2_1.run()
