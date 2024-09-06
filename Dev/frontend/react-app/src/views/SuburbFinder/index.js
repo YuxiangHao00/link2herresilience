@@ -258,10 +258,15 @@ function SuburbFinder() {
                                 <Option key={pollen} value={pollen}>{pollen}</Option>
                             ))}
                         </Select>
-                        <Button onClick={handleSearch} disabled={!selectedState || !selectedPollen}>
+                        <Button 
+                            className="bg-[#00BD90] text-white"
+                            onClick={handleSearch}
+                            disabled={!selectedState || !selectedPollen}>
                             Search
                         </Button>
-                        <Button onClick={resetView}>
+                        <Button
+                            className="bg-[#00BD90] text-white"
+                            onClick={resetView}>
                             Return
                         </Button>
                     </div>
