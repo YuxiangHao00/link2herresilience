@@ -236,7 +236,7 @@ function SuburbFinder() {
             
             {activeTab === '2' && (
                 <div>
-                    <div className="flex justify-center gap-4 mt-[40px]">
+                    <div className="flex justify-center gap-4 mb-[10px]">
                         <Select 
                             style={{ width: 200 }}
                             placeholder="Select State"
@@ -270,45 +270,57 @@ function SuburbFinder() {
                             Return
                         </Button>
                     </div>
-                    <div className="map-container h-[400px] mt-[20px]">
-                        {loading ? (
-                            <Spin size="large" />
-                        ) : (
-                            <MapContainer 
-                                center={mapView.center}
-                                zoom={mapView.zoom}
-                                scrollWheelZoom={true}
-                                zoomControl={false}
-                                className="h-full w-full"
-                            >
-                                <MapUpdater center={mapView.center} zoom={mapView.zoom} />
-                                <ZoomControl position="bottomright" />
-                                <TileLayer
-                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                                />
-                                {Object.entries(pollenData).map(([state, data]) => (
-                                    <Marker 
-                                        key={state}
-                                        position={[data.coordinates[1], data.coordinates[0]]}
-                                        icon={customIcon}
+                    <div className="flex mx-[10px] mt-[5%] mr-[5%]">
+                        <div className="w-1/2">
+                            <div className="map-container h-[500px]">
+                                {loading ? (
+                                    <Spin size="large" />
+                                ) : (
+                                    <MapContainer 
+                                        center={mapView.center}
+                                        zoom={mapView.zoom}
+                                        scrollWheelZoom={true}
+                                        zoomControl={false}
+                                        className="h-full w-full"
                                     >
-                                        <Popup>
-                                            {data.location_name}
-                                        </Popup>
-                                    </Marker>
-                                ))}
-                            </MapContainer>
-                        )}
-                    </div>
-                    {chartData.length > 0 && (
-                        <div className="chart-container mt-[20px]">
-                            <h2 className="text-xl font-bold mb-4">
-                                {selectedState.toUpperCase()} {selectedPollen} changes over the years:
-                            </h2>
-                            <PollenChart data={chartData} />
+                                        <MapUpdater center={mapView.center} zoom={mapView.zoom} />
+                                        <ZoomControl position="bottomright" />
+                                        <TileLayer
+                                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                        />
+                                        {Object.entries(pollenData).map(([state, data]) => (
+                                            <Marker 
+                                                key={state}
+                                                position={[data.coordinates[1], data.coordinates[0]]}
+                                                icon={customIcon}
+                                            >
+                                                <Popup>
+                                                    {data.location_name}
+                                                </Popup>
+                                            </Marker>
+                                        ))}
+                                    </MapContainer>
+                                )}
+                            </div>
                         </div>
-                    )}
+                        <div className="w-1/2 mt-[5%] ml-[-10%]">
+                            {chartData.length > 0 ? (
+                                <div className="chart-container h-[500px]">
+                                    <h2 className="text-xl font-bold mb-2">
+                                        {selectedState.toUpperCase()} {selectedPollen} changes over the years:
+                                    </h2>
+                                    <PollenChart data={chartData} />
+                                </div>
+                            ) : (
+                                <div className="flex items-center justify-center h-[500px]">
+                                    <p className="text-lg text-gray-600">
+                                        Please select a state and pollen type to view historical trends.
+                                    </p>
+                                </div>
+                            )}
+                        </div>
+                    </div>
                 </div>
             )}
         </div>

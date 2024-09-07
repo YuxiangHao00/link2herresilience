@@ -4,6 +4,7 @@ import './App.css';
 import LandPage from './views/LandPage';
 import HealthIssues from './views/HealthIssues';
 import SuburbFinder from './views/SuburbFinder';
+import NoiseDetection from './views/NoiseDetection'; // Import the new component
 import siteName from './images/SitName.svg';
 
 function App() {
@@ -80,6 +81,26 @@ function App() {
     </svg>
   );
 
+  // Add new icon component for Noise Detection
+  const MicrophoneIcon = (props) => (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+      <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+      <line x1="12" x2="12" y1="19" y2="22" />
+    </svg>
+  );
+
   return (
     <Router>
       <div className="App">
@@ -141,6 +162,18 @@ function App() {
                   Suburb Finder
                 </div>
               </Link>
+              <Link to="/noise-detection">
+                <div 
+                  onClick={() => setCurrentPath('/noise-detection')} 
+                  className={`flex items-center mb-4 px-4 py-6 cursor-pointer  
+                    ${currentPath === '/noise-detection' 
+                      ? 'bg-white text-blue-900 font-bold menu-active' 
+                      : 'text-white '}`}
+                >
+                  <MicrophoneIcon className="w-5 h-5 mr-3" />
+                  Noise Detection
+                </div>
+              </Link>
             </nav>
           </aside>
           <main className="flex-1">
@@ -149,6 +182,7 @@ function App() {
               <Route path="/land-page" element={<LandPage />} />
               <Route path="/health-issues" element={<HealthIssues />} />
               <Route path="/suburb-finder" element={<SuburbFinder />} />
+              <Route path="/noise-detection" element={<NoiseDetection />} />
             </Routes>
           </main>
         </div>
