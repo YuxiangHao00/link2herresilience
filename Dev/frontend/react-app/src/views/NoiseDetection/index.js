@@ -54,6 +54,7 @@ function NoiseDetection() {
     const finalRecordingTime = recordingTime;
     if (finalRecordingTime < 10000) {
       setErrorMessage('Recording time is less than 10 seconds. Please try again.');
+      setSuccessMessage(''); // Clear success message
       setRecordingTime(0);
       return;
     }
@@ -70,10 +71,12 @@ function NoiseDetection() {
       });
       console.log('Server response:', response.data);
       setSuccessMessage('Audio successfully uploaded and processed.');
+      setErrorMessage(''); // Clear error message
       // Handle server response here
     } catch (error) {
       console.error('Error sending audio to server:', error);
       setErrorMessage('Error uploading audio file. Please try again later.');
+      setSuccessMessage(''); // Clear success message
     }
 
     setRecordingTime(0);
