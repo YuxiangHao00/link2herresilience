@@ -4,8 +4,28 @@ import './App.css';
 import LandPage from './views/LandPage';
 import HealthIssues from './views/HealthIssues';
 import SuburbFinder from './views/SuburbFinder';
-import NoiseDetection from './views/NoiseDetection'; // Import the new component
 import siteName from './images/SitName.svg';
+import SleepQuality from './views/SleepQuality';
+
+const SleepIcon = (props) => (
+  <svg
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M2 4v16"/>
+    <path d="M2 8h18a2 2 0 0 1 2 2v10"/>
+    <path d="M2 17h20"/>
+    <path d="M6 8v9"/>
+  </svg>
+);
 
 function App() {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -81,26 +101,6 @@ function App() {
     </svg>
   );
 
-  // Add new icon component for Noise Detection
-  const MicrophoneIcon = (props) => (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
-      <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-      <line x1="12" x2="12" y1="19" y2="22" />
-    </svg>
-  );
-
   return (
     <Router>
       <div className="App">
@@ -135,7 +135,7 @@ function App() {
                       : 'text-white '}`}
                 >
                   <HomeIcon className="w-5 h-5 mr-3" />
-                  Land page
+                  Home
                 </div>
               </Link>
               <Link to="/health-issues">
@@ -162,16 +162,16 @@ function App() {
                   Suburb Finder
                 </div>
               </Link>
-              <Link to="/noise-detection">
+              <Link to="/sleep-quality">
                 <div 
-                  onClick={() => setCurrentPath('/noise-detection')} 
+                  onClick={() => setCurrentPath('/sleep-quality')} 
                   className={`flex items-center mb-4 px-4 py-6 cursor-pointer  
-                    ${currentPath === '/noise-detection' 
+                    ${currentPath === '/sleep-quality' 
                       ? 'bg-white text-blue-900 font-bold menu-active' 
                       : 'text-white '}`}
                 >
-                  <MicrophoneIcon className="w-5 h-5 mr-3" />
-                  Noise Detection
+                  <SleepIcon className="w-5 h-5 mr-3" />
+                  Sleep Quality
                 </div>
               </Link>
             </nav>
@@ -182,7 +182,7 @@ function App() {
               <Route path="/land-page" element={<LandPage />} />
               <Route path="/health-issues" element={<HealthIssues />} />
               <Route path="/suburb-finder" element={<SuburbFinder />} />
-              <Route path="/noise-detection" element={<NoiseDetection />} />
+              <Route path="/sleep-quality" element={<SleepQuality />} />
             </Routes>
           </main>
         </div>

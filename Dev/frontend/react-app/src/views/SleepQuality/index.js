@@ -1,7 +1,8 @@
 import React, { useState, useRef } from 'react';
 import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 
-function NoiseDetection() {
+function SleepQuality() {
   const [isRecording, setIsRecording] = useState(false);
   const [recordingTime, setRecordingTime] = useState(0);
   const [errorMessage, setErrorMessage] = useState('');
@@ -9,13 +10,20 @@ function NoiseDetection() {
   const mediaRecorderRef = useRef(null);
   const audioChunksRef = useRef([]);
   const timerRef = useRef(null);
+  const recordingTimeRef = useRef(0);
+  const recordingUUID = useRef('');
 
   const startRecording = async () => {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      mediaRecorderRef.current = new MediaRecorder(stream);
+      const options = { 
+        audioBitsPerSecond : 128000,  // 设置比特率为 128 kbps
+        mimeType : 'audio/webm'
+      };
+      mediaRecorderRef.current = new MediaRecorder(stream, options);
       
-      audioChunksRef.current = []; // Clear previous audio chunks
+      audioChunksRef.current = [];
+      recordingUUID.current = uuidv4();
       
       mediaRecorderRef.current.ondataavailable = (event) => {
         audioChunksRef.current.push(event.data);
@@ -31,6 +39,7 @@ function NoiseDetection() {
       const startTime = Date.now();
       timerRef.current = setInterval(() => {
         const elapsedTime = Date.now() - startTime;
+        recordingTimeRef.current = elapsedTime;
         setRecordingTime(elapsedTime);
         if (elapsedTime >= 30000) {
           stopRecording();
@@ -51,17 +60,20 @@ function NoiseDetection() {
   };
 
   const handleStop = async () => {
-    const finalRecordingTime = recordingTime;
+    const finalRecordingTime = recordingTimeRef.current;
+    console.log('Final recording time:', finalRecordingTime);
+
     if (finalRecordingTime < 10000) {
       setErrorMessage('Recording time is less than 10 seconds. Please try again.');
-      setSuccessMessage(''); // Clear success message
+      setSuccessMessage('');
       setRecordingTime(0);
       return;
     }
 
     const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/wav' });
     const formData = new FormData();
-    formData.append('audio', audioBlob, 'recording.wav');
+    const fileName = `SQ_Recording_${recordingUUID.current}.wav`;
+    formData.append('audio', audioBlob, fileName);
 
     try {
       const response = await axios.post('https://link2herresilience.com.au/api/noise-detection', formData, {
@@ -70,19 +82,17 @@ function NoiseDetection() {
         },
       });
       console.log('Server response:', response.data);
-      setSuccessMessage('Audio successfully uploaded and processed.');
-      setErrorMessage(''); // Clear error message
-      // Handle server response here
+      setSuccessMessage(`Audio successfully uploaded and processed. File name: ${fileName}`);
+      setErrorMessage('');
     } catch (error) {
       console.error('Error sending audio to server:', error);
       setErrorMessage('Error uploading audio file. Please try again later.');
-      setSuccessMessage(''); // Clear success message
+      setSuccessMessage('');
     }
 
     setRecordingTime(0);
   };
 
-  // Format time to display seconds with milliseconds
   const formatTime = (time) => {
     const seconds = Math.floor(time / 1000);
     const milliseconds = time % 1000;
@@ -91,7 +101,7 @@ function NoiseDetection() {
 
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">Noise Detection</h1>
+      <h1 className="text-2xl font-bold mb-4">Sleep Quality</h1>
       <div className="mb-4">
         <button
           className={`px-4 py-2 rounded ${
@@ -113,4 +123,4 @@ function NoiseDetection() {
   );
 }
 
-export default NoiseDetection;
+export default SleepQuality;
