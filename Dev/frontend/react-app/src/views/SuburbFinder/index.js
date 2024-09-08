@@ -213,14 +213,14 @@ function SuburbFinder() {
                             {selectedState === 'Victoria' && <Option value="Melbourne">Melbourne</Option>}
                         </Select>
                         <Button
-                            className="bg-[#00BD90] text-white"
+                            className="bg-[#00BD90] text-white hover:bg-[#00A77D]"
                             onClick={() => setShowCity(true)}
                             disabled={!selectedState || !selectedCity}
                         >
                             Switch
                         </Button>
                         <Button 
-                            className="bg-[#00BD90] text-white" 
+                            className="bg-[#00BD90] text-white hover:bg-[#00A77D]" 
                             onClick={() => {
                                 setShowCity(false);
                                 setSelectedState('');
@@ -259,13 +259,13 @@ function SuburbFinder() {
                             ))}
                         </Select>
                         <Button 
-                            className="bg-[#00BD90] text-white"
+                            className="bg-[#00BD90] text-white hover:bg-[#00A77D]"
                             onClick={handleSearch}
                             disabled={!selectedState || !selectedPollen}>
                             Search
                         </Button>
                         <Button
-                            className="bg-[#00BD90] text-white"
+                            className="bg-[#00BD90] text-white hover:bg-[#00A77D]"
                             onClick={resetView}>
                             Return
                         </Button>
