@@ -1,32 +1,234 @@
 .land-page {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: #F3F4F6;
+  min-height: 100vh;
   width: 100%;
-  height: 100vh;
-  border: none;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  flex-direction: column;
+  display: flex;
+  flex-direction: column; /* 改为纵向排列 */
+  justify-content: flex-start; /* 从顶部开始排列 */
+  align-items: center;
+  overflow-y: auto;
+  padding: 2rem 0; /* 添加上下内边距 */
+  box-sizing: border-box; /* 确保内边距不会增加元素总大小 */
+}
+
+h1 {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: bold;
+  text-align: center;
+  margin: 1rem 0; /* 调整上下外边距 */
+}
+
+.image-wrapper {
+  width: 100%;
+  display: flex;
   justify-content: center;
   align-items: center;
+  margin: 1rem 0; /* 添加上下外边距 */
+}
+
+.land-page-image {
+  width: 100%;
+  max-width: 100%; /* 限制最大宽度 */
+  height: auto;
+  object-fit: contain;
+  margin-top: -10%; /* 调整顶部外边距 */
+  margin-bottom: 0; /* 调整底部外边距 */
 }
 
 .title-image {
-  z-index: 0;
-  width: 70%;
-  height: 10vh;
-  margin: 0 auto;
-  display: block;
-  margin-top: 17%;
-  margin-bottom: -20px;
+  width: 50%;
+  max-width: 400px; /* 限制最大宽度 */
+  float: right;
+  margin-right: -50%;
+  margin-top: -15%;
+}
+
+.description-image {
+  width: 100%;
+  max-width: 1000px; /* 限制最大宽度 */
+  height: auto;
+  object-fit: contain;
+  margin-top: -8%;
+  position: relative;
 }
 
 .explore-image {
-  width: 20%;
+  width: 100%;
   height: auto;
   cursor: pointer;
-  display: block;
-  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.explore-image:hover {
+  transform: scale(1.05);
+}
+
+.hp_l_1-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 水平居中 */
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 1500px; /* 限制最大宽度 */
+}
+
+.hp_l_1 {
+  width: 30%;
+  height: auto;
+  padding: 1rem;
+}
+
+.hp_l_1-text {
+  width: 30%;
+  padding-left: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  position: relative;
+  text-align: center; /* 文本居中对齐 */
+}
+
+.jump-page {
+  width: 30%;
+  max-width: 150px; /* 限制最大宽度 */
+  height: auto;
+  display: block; /* 确保在下一行 */
+  margin: 1rem auto 0; /* 上外边距1rem，左右自动居中 */
+  float: none; /* 取消浮动 */
+}
+
+.hp_l_2-wrapper {
+  display: flex;
+  flex-direction: row-reverse; /* 反转子元素的顺序 */
+  align-items: center;
+  justify-content: center; /* 水平居中 */
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 1500px; /* 限制最大宽度 */
+}
+
+.hp_l_2 {
+  width: 30%;
+  height: auto;
+  padding: 1rem;
+}
+
+.hp_l_2-text {
+  width: 30%;
+  padding-right: 1rem; /* 改为右侧内边距 */
+  font-size: 1rem;
+  line-height: 1.5;
+  position: relative;
+  text-align: center; /* 文本居中对齐 */
+}
+
+.jump-page_2 {
+  width: 30%;
+  max-width: 150px; /* 限制最大宽度 */
+  height: auto;
+  display: block; /* 确保在下一行 */
+  margin: 1rem auto 0; /* 上外边距1rem，左右自动居中 */
+  float: none; /* 取消浮动 */
+}
+
+.hp_l_3-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* 水平居中 */
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 1500px; /* 限制最大宽度 */
+}
+
+.hp_l_3 {
+  width: 30%;
+  height: auto;
+  padding: 1rem;
+}
+
+.hp_l_3-text {
+  width: 30%;
+  padding-left: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  position: relative;
+  text-align: center; /* 文本居中对齐 */
+}
+
+.jump-page_3 {
+  width: 30%;
+  max-width: 150px; /* 限制最大宽度 */
+  height: auto;
+  display: block; /* 确保在下一行 */
+  margin: 1rem auto 0; /* 上外边距1rem，左右自动居中 */
+  float: none; /* 取消浮动 */
+}
+
+.hp_l_4-wrapper {
+  display: flex;
+  flex-direction: row-reverse; /* 反转子元素的顺序 */
+  align-items: center;
+  justify-content: center; /* 水平居中 */
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 1500px; /* 限制最大宽度 */
+}
+
+.hp_l_4 {
+  width: 30%;
+  height: auto;
+  padding: 1rem;
+}
+
+.hp_l_4-text {
+  width: 30%;
+  padding-right: 1rem; /* 改为右侧内边距 */
+  font-size: 1rem;
+  line-height: 1.5;
+  position: relative;
+  text-align: center; /* 文本居中对齐 */
+  }
+
+.jump-page_4 {
+  width: 30%;
+  max-width: 150px; /* 限制最大宽度 */
+  height: auto;
+  display: block; /* 确保在下一行 */
+  margin: 1rem auto 0; /* 上外边距1rem，左右自动居中 */
+  float: none; /* 取消浮动 */
+}
+
+@media (max-width: 768px) {
+  .land-page {
+    padding: 1rem;
+  }
+
+  .description-image,
+  .title-image {
+    width: 100%;
+    float: none; /* 在移动设备上取消浮动 */
+    margin-right: 0; /* 在移动设备上取消右边距 */
+    left: 0; /* 在移动设备上取消左边距 */
+  }
+
+  .hp_l_1-wrapper {
+    flex-direction: column;
+    align-items: center; /* 在移动设备上居中对齐 */
+  }
+
+  .hp_l_1,
+  .hp_l_1-text {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .jump-page {
+    width: 20%; /* 在移动设备上调整大小 */
+    margin-top: 1rem; /* 在移动设备上调整位置 */
+  }
+}
+
+@media (max-height: 600px) {
+  .content-container {
+    justify-content: flex-start;
+  }
 }

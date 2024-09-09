@@ -1,5 +1,9 @@
 .App {
   text-align: center;
+  display: flex;
+  min-height: 100vh; /* 改回 min-height */
+  background-color: #F3F4F6;
+  overflow: hidden; /* 防止整个应用出现滚动条 */
 }
 
 .menu{
@@ -27,8 +31,6 @@
   background-color:rgb(30, 58, 138) ; /* 内翻部分的背景颜色 */
   border-radius: 50%;
   box-shadow: 50px 50px 0 0 #F3F4F6; /* 侧边栏的颜色，创造内翻效果 */
-  /* opacity: 1; 初始状态为完全透明 */
-  /* transition: opacity 0.5s ease-in-out; 设置淡入淡出的动画 */
 }
 
 .menu-active::after {
@@ -42,8 +44,24 @@
   background-color:rgb(30, 58, 138) ; /* 内翻部分的背景颜色 */
   border-radius: 50%;
   box-shadow: 50px -50px 0 0 #F3F4F6; /* 侧边栏的颜色，创造内翻效果 */
-  /* opacity: 1; 初始状态为完全透明 */
-  /* transition: opacity 0.5s ease-in-out; 设置淡入淡出的动画 */
+}
+
+/* 主内容区域样式 */
+main {
+  flex-grow: 1;
+  background-color: #F3F4F6;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; /* 允许垂直滚动 */
+}
+
+/* 确保所有页面内容都继承主内容区域的样式 */
+main > div {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* 防止子元素出现滚动条 */
 }
 
 @media (max-width: 768px) {
@@ -62,6 +80,10 @@
   }
   main {
     padding: 20px; /* 主内容区内边距 */
+    background-color: #F3F4F6;  /* 确保在移动设备上也应用背景颜色 */
+    flex-grow: 1;
+    overflow-y: auto; /* 允许垂直滚动 */
+    height: auto; /* 允许内容决定高度 */
+    min-height: 100vh;
   }
-
 }
