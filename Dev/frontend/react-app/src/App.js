@@ -6,6 +6,7 @@ import HealthIssues from './views/HealthIssues';
 import SuburbFinder from './views/SuburbFinder';
 import siteName from './images/SitName.svg';
 import SleepQuality from './views/SleepQuality';
+import NoiseDetection from './views/SleepQuality/NoiseDetection';
 
 const SleepIcon = (props) => (
   <svg
@@ -175,6 +176,7 @@ function AppContent() {
           <Route path="/health-issues" element={<HealthIssues />} />
           <Route path="/suburb-finder" element={<SuburbFinder />} />
           <Route path="/sleep-quality" element={<SleepQuality />} />
+          <Route path="/sleep-quality/noise-detection" element={<NoiseDetection />} />
         </Routes>
       </main>
     </div>
