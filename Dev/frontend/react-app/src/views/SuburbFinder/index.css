@@ -5,12 +5,10 @@
     background: #00BD90 !important;
 }
 
-/* SuburbFinder 组件的整体样式 */
 .text-center {
     text-align: center;
   }
   
-  /* 地图容器样式 */
   .map-container {
     height: 600px;
     width: 70%;
@@ -22,14 +20,12 @@
     width: 100%;
   }
   
-  /* 自定义图标样式 */
   .custom-marker-icon {
     background-color: #00BD90;
     border-radius: 50%;
     border: 2px solid white;
   }
   
-  /* Ant Design Tabs 自定义样式 */
   .ant-tabs-tab-btn {
     color: #00BD90 !important;
   }
@@ -38,7 +34,6 @@
     background: #00BD90 !important;
   }
   
-  /* 按钮和选择器样式 */
   .flex {
     display: flex;
   }
@@ -59,7 +54,6 @@
     width: 300px;
   }
   
-  /* 按钮样式 */
   .bg-\[#00BD90\] {
     background-color: #00BD90;
   }
@@ -72,7 +66,6 @@
     color: white;
   }
   
-  /* 响应式设计 */
   @media (max-width: 768px) {
     .map-container {
       height: 300px;
@@ -91,7 +84,6 @@
     }
   }
   
-  /* Leaflet 弹出窗口样式 */
   .leaflet-popup-content-wrapper {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 4px;
@@ -103,7 +95,6 @@
     line-height: 1.4;
   }
   
-  /* 加载状态样式 */
   .ant-spin-lg .ant-spin-dot {
     font-size: 32px;
   }

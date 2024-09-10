@@ -7,7 +7,7 @@ import SuburbFinder from './views/SuburbFinder';
 import siteName from './images/SitName.svg';
 import SleepQuality from './views/SleepQuality';
 import NoiseDetection from './views/SleepQuality/NoiseDetection';
-import SleepPattern from './views/SleepQuality/SleepPattern'; // 添加这行
+import SleepPattern from './views/SleepQuality/SleepPattern';
 import SexualReproductiveHealth from './views/SexualReproductiveHealth';
 
 const SleepIcon = (props) => (
@@ -115,6 +115,28 @@ function AppContent() {
     </svg>
   );
 
+  const MenuItem = ({ to, icon: Icon, label }) => {
+    const isActive = currentPath === to;
+    return (
+      <Link to={to}>
+        <div 
+          onClick={() => setCurrentPath(to)} 
+          className={`menu-item flex items-center mb-4 px-4 py-6 cursor-pointer  
+            ${isActive ? 'menu-active' : 'text-white'}`}
+        >
+          {isActive && (
+            <>
+              <div className="menu-decoration menu-decoration-top"></div>
+              <div className="menu-decoration menu-decoration-bottom"></div>
+            </>
+          )}
+          <Icon className="w-5 h-5 mr-3" />
+          {label}
+        </div>
+      </Link>
+    );
+  };
+
   return (
     <div className="App flex h-screen overflow-hidden">
       <aside className="w-64 bg-blue-900 text-white py-4 flex-shrink-0 overflow-y-auto fixed h-full">
@@ -138,66 +160,11 @@ function AppContent() {
           />
         </div>
         <nav className="mt-10 flex flex-col justify-around w-full">
-          <Link to="/land-page">
-            <div 
-              onClick={() => setCurrentPath('/land-page')} 
-              className={`flex items-center mb-4 px-4 py-6 cursor-pointer  
-                ${currentPath === '/land-page' 
-                  ? 'bg-white text-blue-900 font-bold menu-active' 
-                  : 'text-white'}`}
-            >
-              <HomeIcon className="w-5 h-5 mr-3" />
-              Home
-            </div>
-          </Link>
-          <Link to="/health-issues">
-            <div 
-              onClick={() => setCurrentPath('/health-issues')} 
-              className={`flex items-center mb-4 px-4 py-6 cursor-pointer  
-                ${currentPath === '/health-issues' 
-                  ? 'bg-white text-blue-900 font-bold menu-active' 
-                  : 'text-white'}`}
-            >
-              <HospitalIcon className="w-5 h-5 mr-3" />
-              Health issues
-            </div>
-          </Link>
-          <Link to="/suburb-finder">
-            <div 
-              onClick={() => setCurrentPath('/suburb-finder')} 
-              className={`flex items-center mb-4 px-4 py-6 cursor-pointer  
-                ${currentPath === '/suburb-finder' 
-                  ? 'bg-white text-blue-900 font-bold menu-active' 
-                  : 'text-white'}`}
-            >
-              <MapIcon className="w-5 h-5 mr-3" />
-              Suburb Finder
-            </div>
-          </Link>
-          <Link to="/sleep-quality">
-            <div 
-              onClick={() => setCurrentPath('/sleep-quality')} 
-              className={`flex items-center mb-4 px-4 py-6 cursor-pointer  
-                ${currentPath === '/sleep-quality' 
-                  ? 'bg-white text-blue-900 font-bold menu-active' 
-                  : 'text-white'}`}
-            >
-              <SleepIcon className="w-5 h-5 mr-3" />
-              Sleep Quality
-            </div>
-          </Link>
-          <Link to="/sexual-reproductive-health">
-            <div 
-              onClick={() => setCurrentPath('/sexual-reproductive-health')} 
-              className={`flex items-center mb-4 px-4 py-6 cursor-pointer  
-                ${currentPath === '/sexual-reproductive-health' 
-                  ? 'bg-white text-blue-900 font-bold menu-active' 
-                  : 'text-white'}`}
-            >
-              <HeartIcon className="w-5 h-5 mr-3" />
-              Sexual&Reproductive
-            </div>
-          </Link>
+          <MenuItem to="/land-page" icon={HomeIcon} label="Home" />
+          <MenuItem to="/health-issues" icon={HospitalIcon} label="Health issues" />
+          <MenuItem to="/suburb-finder" icon={MapIcon} label="Suburb Finder" />
+          <MenuItem to="/sleep-quality" icon={SleepIcon} label="Sleep Quality" />
+          <MenuItem to="/sexual-reproductive-health" icon={HeartIcon} label="Sexual&Reproductive" />
         </nav>
       </aside>
       <main className="flex-1 overflow-y-auto bg-[#F3F4F6] ml-64">
