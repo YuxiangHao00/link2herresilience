@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.b65b167b.css",
-    "main.js": "/static/js/main.561ceb3c.js",
+    "main.css": "/static/css/main.1eecda05.css",
+    "main.js": "/static/js/main.72f85b1d.js",
     "static/js/453.a4931bc7.chunk.js": "/static/js/453.a4931bc7.chunk.js",
     "static/media/SQ_US1.svg": "/static/media/SQ_US1.cbf935c6c8c4406d8ae46169aec9b8c7.svg",
     "static/media/HP_description.svg": "/static/media/HP_description.6ca296edb72620e505ceb9891b1149db.svg",
@@ -19,12 +19,12 @@
     "static/media/JumpPage.svg": "/static/media/JumpPage.297daf2287d22d291c50aef97d095627.svg",
     "static/media/ExploreIcon.svg": "/static/media/ExploreIcon.bcaedbd1f7a8652d045ac22aba7e57ef.svg",
     "index.html": "/index.html",
-    "main.b65b167b.css.map": "/static/css/main.b65b167b.css.map",
-    "main.561ceb3c.js.map": "/static/js/main.561ceb3c.js.map",
+    "main.1eecda05.css.map": "/static/css/main.1eecda05.css.map",
+    "main.72f85b1d.js.map": "/static/js/main.72f85b1d.js.map",
     "453.a4931bc7.chunk.js.map": "/static/js/453.a4931bc7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b65b167b.css",
-    "static/js/main.561ceb3c.js"
+    "static/css/main.1eecda05.css",
+    "static/js/main.72f85b1d.js"
   ]
 }

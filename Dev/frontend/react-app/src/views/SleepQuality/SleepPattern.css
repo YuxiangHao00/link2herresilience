@@ -1,0 +1,244 @@
+.sleep-pattern-wrapper {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.sleep-pattern-container {
+  max-width: 100%; /* 增加最大宽度 */
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: auto;
+}
+
+.sleep-pattern-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.time-scale {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+  padding-left: 80px; /* 稍微增加左边距 */
+}
+
+.time-scale-hour {
+  width: 46.66px; /* 调整宽度以适应更宽的容器 (1120px / 24) */
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  flex: none; /* 移除 flex 属性 */
+}
+
+.patterns-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.pattern-row {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.pattern-label {
+  width: 80px; /* 增加标签宽度 */
+  font-weight: bold;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.pattern-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.time-blocks {
+  display: flex;
+  width: 100%;
+}
+
+.time-block {
+  width: 23.33px; /* 调整宽度以适应更宽的容器 (1120px / 48) */
+  height: 32px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  position: relative;
+  flex: none; /* 移除 flex 属性 */
+}
+
+.time-block:hover {
+  background-color: #e6e6e6;
+}
+
+.time-block.selected {
+  background-color: #4a90e2;
+}
+
+.time-block.start {
+  background-color: #34c759;
+}
+
+.pattern-info {
+  display: flex;
+  justify-content: space-between; /* 改为两端对齐 */
+  align-items: center;
+  width: 100%;
+  margin-top: 5px;
+}
+
+.pattern-info span {
+  flex: 1; /* 让文本占据剩余空间 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.add-pattern-button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.2s;
+}
+
+.add-pattern-button:hover {
+  background-color: #3a7bc8;
+}
+
+.add-pattern-button:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+/* 添加以下样式来改善悬停效果 */
+.time-block:hover::after {
+  content: attr(title);
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 1;
+  bottom: 100%; /* 将提示放在格子上方 */
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none; /* 防止提示框影响鼠标事件 */
+}
+
+.clear-button {
+  padding: 3px 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  background-color: #f44336;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-left: auto;
+}
+
+.clear-button:hover {
+  background-color: #d32f2f;
+}
+
+.pattern-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.control-button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-button {
+  background-color: #4a90e2;
+  color: white;
+}
+
+.add-button:hover {
+  background-color: #3a7bc8;
+}
+
+.remove-button {
+  background-color: #f44336;
+  color: white;
+}
+
+.remove-button:hover {
+  background-color: #d32f2f;
+}
+
+.control-button:disabled {
+  background-color: #a0a0a0;
+  cursor: not-allowed;
+}
+
+.pattern-count {
+  margin: 0 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.total-sleep-time {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.analyze-button {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin: 20px auto 0;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+}
+
+.analyze-button.enabled:hover {
+  background-color: #3a7bc8;
+}
+
+.analyze-button.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

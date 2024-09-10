@@ -1,9 +1,10 @@
 .App {
   text-align: center;
   display: flex;
-  min-height: 100vh; /* 改回 min-height */
+  min-height: 100vh;
   background-color: #F3F4F6;
-  overflow: hidden; /* 防止整个应用出现滚动条 */
+  overflow-x: hidden; /* 防止水平滚动 */
+  overflow-y: visible; /* 允许垂直滚动 */
 }
 
 .menu{
@@ -16,34 +17,40 @@
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
   margin-left: 2vh;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease; /* 减少过渡时间 */
   position: relative;
+  z-index: 2; /* Add this line */
+  padding-right: 25px; /* Slightly reduce padding */
+}
+
+.menu-active::before,
+.menu-active::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background-color: #1E3A8A; /* 使用与侧边栏相同的背景色 */
+  border-radius: 50%;
+  transition: all 0.3s ease; /* 添加过渡效果 */
+  opacity: 1; /* 改为始终可见 */
+  z-index: -1; /* 确保在文字下方 */
 }
 
 .menu-active::before {
-  z-index: 1;
-  content: '';
-  position: absolute;
-  top: -100px; /* 调整位置以实现正确的效果 */
-  right: 0px;
-  width: 100px; /* 圆的直径 */
-  height: 100px;
-  background-color:rgb(30, 58, 138) ; /* 内翻部分的背景颜色 */
-  border-radius: 50%;
-  box-shadow: 50px 50px 0 0 #F3F4F6; /* 侧边栏的颜色，创造内翻效果 */
+  top: -60px; /* Adjust the distance */
+  box-shadow: 30px 30px 0 0 #F3F4F6; /* Adjust shadow size */
 }
 
 .menu-active::after {
-  z-index: 1;
-  content: '';
-  position: absolute;
-  bottom: -100px; /* 调整位置以实现正确的效果 */
-  right: 0px;
-  width: 100px; /* 圆的直径 */
-  height: 100px;
-  background-color:rgb(30, 58, 138) ; /* 内翻部分的背景颜色 */
-  border-radius: 50%;
-  box-shadow: 50px -50px 0 0 #F3F4F6; /* 侧边栏的颜色，创造内翻效果 */
+  bottom: -60px; /* Adjust the distance */
+  box-shadow: 30px -30px 0 0 #F3F4F6; /* Adjust shadow size */
+}
+
+/* 当菜单项激活时显示半圆 */
+.menu-active.active::before,
+.menu-active.active::after {
+  opacity: 1;
 }
 
 /* 主内容区域样式 */
@@ -53,7 +60,8 @@ main {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  overflow-y: auto; /* 允许垂直滚动 */
+  overflow-y: visible; /* 允许内容超出容器 */
+  min-height: 100vh; /* 确保最小高度为视口高度 */
 }
 
 /* 确保所有页面内容都继承主内容区域的样式 */
@@ -61,7 +69,7 @@ main > div {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* 防止子元素出现滚动条 */
+  overflow: visible; /* 允许内容超出容器 */
 }
 
 @media (max-width: 768px) {
@@ -82,7 +90,7 @@ main > div {
     padding: 20px; /* 主内容区内边距 */
     background-color: #F3F4F6;  /* 确保在移动设备上也应用背景颜色 */
     flex-grow: 1;
-    overflow-y: auto; /* 允许垂直滚动 */
+    overflow-y: visible; /* 允许内容超出容器 */
     height: auto; /* 允许内容决定高度 */
     min-height: 100vh;
   }

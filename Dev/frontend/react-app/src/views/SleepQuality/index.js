@@ -13,7 +13,7 @@ function SleepQuality() {
   const features = [
     { image: US1, path: '/sleep-quality/noise-detection' },
     { image: US2, path: '/sleep-quality/feature2' },
-    { image: US3, path: '/sleep-quality/feature3' },
+    { image: US3, path: '/sleep-quality/sleep-pattern' }, // 更改这里的路径
   ];
 
   const handleNavigate = (path) => {

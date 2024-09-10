@@ -7,6 +7,8 @@ import SuburbFinder from './views/SuburbFinder';
 import siteName from './images/SitName.svg';
 import SleepQuality from './views/SleepQuality';
 import NoiseDetection from './views/SleepQuality/NoiseDetection';
+import SleepPattern from './views/SleepQuality/SleepPattern'; // 添加这行
+import SexualReproductiveHealth from './views/SexualReproductiveHealth';
 
 const SleepIcon = (props) => (
   <svg
@@ -25,6 +27,23 @@ const SleepIcon = (props) => (
     <path d="M2 8h18a2 2 0 0 1 2 2v10"/>
     <path d="M2 17h20"/>
     <path d="M6 8v9"/>
+  </svg>
+);
+
+const HeartIcon = (props) => (
+  <svg
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
   </svg>
 );
 
@@ -125,7 +144,7 @@ function AppContent() {
               className={`flex items-center mb-4 px-4 py-6 cursor-pointer  
                 ${currentPath === '/land-page' 
                   ? 'bg-white text-blue-900 font-bold menu-active' 
-                  : 'text-white '}`}
+                  : 'text-white'}`}
             >
               <HomeIcon className="w-5 h-5 mr-3" />
               Home
@@ -137,7 +156,7 @@ function AppContent() {
               className={`flex items-center mb-4 px-4 py-6 cursor-pointer  
                 ${currentPath === '/health-issues' 
                   ? 'bg-white text-blue-900 font-bold menu-active' 
-                  : 'text-white '}`}
+                  : 'text-white'}`}
             >
               <HospitalIcon className="w-5 h-5 mr-3" />
               Health issues
@@ -149,7 +168,7 @@ function AppContent() {
               className={`flex items-center mb-4 px-4 py-6 cursor-pointer  
                 ${currentPath === '/suburb-finder' 
                   ? 'bg-white text-blue-900 font-bold menu-active' 
-                  : 'text-white '}`}
+                  : 'text-white'}`}
             >
               <MapIcon className="w-5 h-5 mr-3" />
               Suburb Finder
@@ -161,10 +180,22 @@ function AppContent() {
               className={`flex items-center mb-4 px-4 py-6 cursor-pointer  
                 ${currentPath === '/sleep-quality' 
                   ? 'bg-white text-blue-900 font-bold menu-active' 
-                  : 'text-white '}`}
+                  : 'text-white'}`}
             >
               <SleepIcon className="w-5 h-5 mr-3" />
               Sleep Quality
+            </div>
+          </Link>
+          <Link to="/sexual-reproductive-health">
+            <div 
+              onClick={() => setCurrentPath('/sexual-reproductive-health')} 
+              className={`flex items-center mb-4 px-4 py-6 cursor-pointer  
+                ${currentPath === '/sexual-reproductive-health' 
+                  ? 'bg-white text-blue-900 font-bold menu-active' 
+                  : 'text-white'}`}
+            >
+              <HeartIcon className="w-5 h-5 mr-3" />
+              Sexual&Reproductive
             </div>
           </Link>
         </nav>
@@ -177,6 +208,8 @@ function AppContent() {
           <Route path="/suburb-finder" element={<SuburbFinder />} />
           <Route path="/sleep-quality" element={<SleepQuality />} />
           <Route path="/sleep-quality/noise-detection" element={<NoiseDetection />} />
+          <Route path="/sleep-quality/sleep-pattern" element={<SleepPattern />} />
+          <Route path="/sexual-reproductive-health" element={<SexualReproductiveHealth />} />
         </Routes>
       </main>
     </div>
