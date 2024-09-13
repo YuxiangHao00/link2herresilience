@@ -78,7 +78,6 @@ const PollenChart = ({ data }) => {
   );
 };
 
-// MapUpdater 组件
 const MapUpdater = ({ center, zoom }) => {
   const map = useMap();
   useEffect(() => {
@@ -87,7 +86,6 @@ const MapUpdater = ({ center, zoom }) => {
   return null;
 };
 
-// SuburbFinder 主组件
 function SuburbFinder() {
     const [showCity, setShowCity] = useState(false);
     const [selectedState, setSelectedState] = useState('');

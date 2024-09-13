@@ -1,57 +1,54 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import './SleepPattern.css';
 
 const SleepPattern = () => {
-  const [patterns, setPatterns] = useState([
+  const initialPatterns = [
     { start: null, end: null },
     { start: null, end: null },
     { start: null, end: null }
-  ]);
+  ];
 
+  const [patterns, setPatterns] = useState(initialPatterns);
   const [isAnalyzeEnabled, setIsAnalyzeEnabled] = useState(false);
+  const [currentDate, setCurrentDate] = useState(() => {
+    const yesterday = new Date();
+    yesterday.setDate(yesterday.getDate() - 1);
+    return yesterday;
+  });
+  const [analysisResults, setAnalysisResults] = useState([]);
+  const [isAnalyzed, setIsAnalyzed] = useState(false);
 
   useEffect(() => {
     const allPatternsComplete = patterns.every(pattern => pattern.start !== null && pattern.end !== null);
-    setIsAnalyzeEnabled(allPatternsComplete);
-  }, [patterns]);
+    setIsAnalyzeEnabled(allPatternsComplete && !isAnalyzed);
+  }, [patterns, isAnalyzed]);
 
-  // Function to add a new pattern row
   const addPattern = () => {
     if (patterns.length < 7) {
       setPatterns([...patterns, { start: null, end: null }]);
     }
   };
 
-  // Function to remove the last pattern row
   const removePattern = () => {
     if (patterns.length > 3) {
       setPatterns(patterns.slice(0, -1));
     }
   };
 
-  // Add this function to clear a specific pattern
   const clearPattern = (index) => {
     const updatedPatterns = [...patterns];
     updatedPatterns[index] = { start: null, end: null };
     setPatterns(updatedPatterns);
+    setAnalysisResults(prev => {
+      const newResults = [...prev];
+      newResults[index] = null;
+      return newResults;
+    });
   };
 
-  // Render time scale
-  const renderTimeScale = () => {
-    const hours = Array.from({ length: 24 }, (_, i) => (i + 18) % 24);
-    return (
-      <div className="time-scale">
-        {hours.map((hour) => (
-          <div key={hour} className="time-scale-hour">
-            {hour.toString().padStart(2, '0')}
-          </div>
-        ))}
-      </div>
-    );
-  };
-
-  // Handle time selection
   const handleTimeSelection = (index, time) => {
+    if (isAnalyzed) return;
     const updatedPatterns = [...patterns];
     const currentPattern = updatedPatterns[index];
 
@@ -67,23 +64,16 @@ const SleepPattern = () => {
     setPatterns(updatedPatterns);
   };
 
-  // Format time
   const formatTime = (time) => {
     const hours = Math.floor(time);
     const minutes = Math.round((time - hours) * 60);
     return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
   };
 
-  // Calculate duration for a single pattern
   const calculateDuration = (start, end) => {
     if (start === null || end === null) return '0h 0m';
     
-    let duration;
-    if (end >= start) {
-      duration = end - start;
-    } else {
-      duration = 24 - start + end;
-    }
+    let duration = end >= start ? end - start : 24 - start + end;
     
     const hours = Math.floor(duration);
     const minutes = Math.round((duration - hours) * 60);
@@ -91,7 +81,6 @@ const SleepPattern = () => {
     return `${hours}h ${minutes}m`;
   };
 
-  // Calculate total sleep time
   const calculateTotalSleepTime = () => {
     let totalHours = 0;
     let totalMinutes = 0;
@@ -111,13 +100,85 @@ const SleepPattern = () => {
     return `${totalHours}h ${totalMinutes}m`;
   };
 
-  // Update the renderPatternRow function
+  const getDayName = (index) => {
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    return days[(currentDate.getDay() - index + 7) % 7];
+  };
+
+  const getFormattedDate = (index) => {
+    const date = new Date(currentDate);
+    date.setDate(date.getDate() - index);
+    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+  };
+
+  const handleAnalyze = async () => {
+    const validPatterns = patterns.filter(pattern => pattern.start !== null && pattern.end !== null);
+    
+    if (validPatterns.length === 0) {
+      console.error('No valid sleep patterns to analyze');
+      return;
+    }
+
+    const days = validPatterns.map((_, index) => {
+      const day = (currentDate.getDay() - index + 7) % 7;
+      return day === 0 ? 7 : day;
+    }).reverse();
+
+    const start = validPatterns.map(pattern => {
+      const hours = Math.floor(pattern.start);
+      const minutes = Math.round((pattern.start - hours) * 60);
+      return `${hours.toString().padStart(2, '0')}${minutes.toString().padStart(2, '0')}`;
+    }).reverse();
+
+    const durations = validPatterns.map(pattern => {
+      let duration = pattern.end >= pattern.start ? pattern.end - pattern.start : 24 - pattern.start + pattern.end;
+      return Number(duration.toFixed(1));
+    }).reverse();
+
+    const params = new URLSearchParams({
+      days: `[${days.join(',')}]`,
+      start: `[${start.join(',')}]`,
+      durations: `[${durations.join(',')}]`
+    });
+
+    console.log('API request URL:', `https://link2herresilience.com.au/sleep_quality/v1/analyse?${params.toString()}`);
+
+    try {
+      const response = await axios.get(`https://link2herresilience.com.au/sleep_quality/v1/analyse?${params.toString()}`);
+      console.log('API response:', response.data);
+      setAnalysisResults(response.data.quality_category);
+      setIsAnalyzed(true);
+    } catch (error) {
+      console.error('Error analyzing sleep patterns:', error);
+      if (error.response) {
+        console.error('Error response:', error.response.data);
+        console.error('Error status:', error.response.status);
+      }
+    }
+  };
+
+  const handleReset = () => {
+    setPatterns(initialPatterns);
+    setAnalysisResults([]);
+    setIsAnalyzed(false);
+    setCurrentDate(() => {
+      const yesterday = new Date();
+      yesterday.setDate(yesterday.getDate() - 1);
+      return yesterday;
+    });
+  };
+
   const renderPatternRow = (pattern, index) => {
     const hours = Array.from({ length: 48 }, (_, i) => (i * 0.5 + 18) % 24);
     const duration = calculateDuration(pattern.start, pattern.end);
+    const quality = analysisResults[index];
+    const colorClass = quality ? (quality === 'GOOD' ? 'good' : 'bad') : '';
     return (
       <div key={index} className="pattern-row">
-        <div className="pattern-label">Day {index + 1}:</div>
+        <div className="pattern-label">
+          <div>{getDayName(index)}</div>
+          <div className="date-label">{getFormattedDate(index)}</div>
+        </div>
         <div className="pattern-content">
           <div className="time-blocks">
             {hours.map((time) => (
@@ -127,7 +188,7 @@ const SleepPattern = () => {
                   (pattern.start !== null && pattern.end !== null &&
                     ((pattern.start <= pattern.end && time >= pattern.start && time < pattern.end) ||
                      (pattern.start > pattern.end && (time >= pattern.start || time < pattern.end))))
-                    ? 'selected'
+                    ? `selected ${colorClass}`
                     : pattern.start === time
                     ? 'start'
                     : ''
@@ -150,6 +211,7 @@ const SleepPattern = () => {
             <button 
               className="clear-button" 
               onClick={() => clearPattern(index)}
+              disabled={isAnalyzed}
             >
               Clear
             </button>
@@ -159,10 +221,17 @@ const SleepPattern = () => {
     );
   };
 
-  const handleAnalyze = () => {
-    // 这里添加分析逻辑
-    console.log("Analyzing sleep patterns...");
-    // 可以在这里添加更多的分析逻辑或者调用API等
+  const renderTimeScale = () => {
+    const hours = Array.from({ length: 24 }, (_, i) => (i + 18) % 24);
+    return (
+      <div className="time-scale">
+        {hours.map((hour) => (
+          <div key={hour} className="time-scale-hour">
+            {hour.toString().padStart(2, '0')}
+          </div>
+        ))}
+      </div>
+    );
   };
 
   return (
@@ -180,7 +249,7 @@ const SleepPattern = () => {
           <button
             onClick={removePattern}
             className="control-button remove-button"
-            disabled={patterns.length <= 3}
+            disabled={patterns.length <= 3 || isAnalyzed}
           >
             -
           </button>
@@ -188,18 +257,26 @@ const SleepPattern = () => {
           <button
             onClick={addPattern}
             className="control-button add-button"
-            disabled={patterns.length >= 7}
+            disabled={patterns.length >= 7 || isAnalyzed}
           >
             +
           </button>
         </div>
-        <button
-          onClick={handleAnalyze}
-          className={`analyze-button ${isAnalyzeEnabled ? 'enabled' : 'disabled'}`}
-          disabled={!isAnalyzeEnabled}
-        >
-          Analyze
-        </button>
+        <div className="action-buttons">
+          <button
+            onClick={handleAnalyze}
+            className={`action-button analyze-button ${isAnalyzeEnabled ? 'enabled' : 'disabled'}`}
+            disabled={!isAnalyzeEnabled}
+          >
+            Analyze
+          </button>
+          <button
+            onClick={handleReset}
+            className="action-button reset-button"
+          >
+            Reset
+          </button>
+        </div>
       </div>
     </div>
   );

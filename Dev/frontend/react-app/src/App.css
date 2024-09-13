@@ -1,5 +1,6 @@
+
+
 .App {
-  text-align: center;
   display: flex;
   min-height: 100vh;
   background-color: #F3F4F6;
@@ -55,12 +56,12 @@ main {
   overflow-y: auto;
 }
 
-main > div {
+/* main > div {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-}
+} */
 
 @media (max-width: 768px) {
   .flex {
