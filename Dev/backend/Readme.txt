@@ -20,3 +20,16 @@ Epic2:
 		127.0.0.1:5002/allergic_pollen/v1/stateCount?state=vic&pollen=betula
 	- List of 1 pollen grain's count (for a duration of <int:N> weeks) along with pollen grains list in that state:
 		127.0.0.1:5002/allergic_pollen/v1/stateCount?state=vic&pollen=betula&duration=4
+
+
+Epic3:
+* Sleep Quality
+** API call for Sleep Pattern analysis:
+	-  0.0.0.0:5004/sleep_quality/v1/analyse?days=[2,3,4]&start=[2122,1133,1134]&durations=[4,5.1,2]
+	
+	Note:
+	- days, start, durations: str type which is parsed when in correct format
+	- days range: [1, 7] (int)
+	- start range: 0000 - 2359 (HHMM format)
+	- durations range: 0.0 - 24.0  (float)
+	- included request input checks w/ err_codes having range: [0, 31]
