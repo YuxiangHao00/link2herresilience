@@ -1,9 +1,17 @@
 .main-page {
+  &.img {
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    background-size: 40%;
+  }
+
+
   background: #ecf0ff;
   border-radius: 30px;
   padding: 20px;
   height: 100%;
   position: relative;
+
   header {
 
 
@@ -21,6 +29,12 @@
 
 }
 
+.main-card {
+  background-color: rgba(186, 222, 162, 0.264);
+  padding: 20px;
+  border-radius: 8px;
+}
+
 .subtitle {
   color: #0F296D;
   font-family: 'MyCustomFont';
@@ -28,28 +42,34 @@
   text-align: left;
   font-size: 30px;
 }
-.info-list{
+
+.info-list {
   color: #333;
   text-align: left;
-  .info-item{
+
+  .info-item {
     margin-bottom: 20px;
-    .info-details{
+
+    .info-details {
       font-size: 22px;
       font-family: cursive;
 
     }
-    .description-list {
-      list-style-type: disc;
-      margin-left: 20px;
-      font-size: 22px;
-    }
+
+    
   }
 }
-
-.main-btn{
+.description-list {
+  list-style-type: disc;
+  margin-left: 20px;
+  font-size: 22px;
+}
+.main-btn {
   padding: 10px;
   font-size: 30px;
   font-family: 'MyCustomFont';
   background-color: #0F296D;
   color: #fff;
+  min-width: 120px;
+  text-align: center;
 }

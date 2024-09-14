@@ -1,12 +1,17 @@
-import React from 'react';
-import './style.less'
+import React, { useState } from 'react';
+import '../../style.less'
 import bg from './images/bg.png'
+import Triage1 from './triage-1';
+import Triage from './triage';
 function SexualReproductiveHealth() {
-  return (
-    <div className="main-page">
+  const [type, setType] = useState(0)
+  const actType = (val) => {
+    setType(val)
+  }
+  return (<>
+    {type === 0 && <div className="main-page">
       <header>
         <h1 className="page-title">Empowering Migrant Women for a Healthier Future</h1>
-
       </header>
       <ul className='info-list'>
         <li className='info-item'>
@@ -31,9 +36,15 @@ function SexualReproductiveHealth() {
         </li>
       </ul>
       <h3 className='subtitle'>Get Started By Clicking the button below</h3>
-      <button className='main-btn' style={{ margin: '58px 0 0 52px' }}>Start Learning</button>
-      <img src={bg} style={{height: '80%', width: '40%', position: 'absolute', right: '20px', bottom: '20px' }} />
-    </div>
+      <button onClick={() => {
+        setType(1)
+
+      }} className='main-btn' style={{ margin: '58px 0 0 52px' }}>Start Learning</button>
+      <img src={bg} style={{ height: '80%', width: '40%', position: 'absolute', right: '20px', bottom: '20px' }} />
+    </div>}
+    {type === 1 && <Triage actType={(val) => { actType(val) }} />}
+    {type === 2 && <Triage1 actType={(val) => { actType(val) }} />}
+  </>
   );
 }
 
