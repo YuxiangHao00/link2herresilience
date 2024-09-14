@@ -33,3 +33,14 @@ Epic3:
 	- start range: 0000 - 2359 (HHMM format)
 	- durations range: 0.0 - 24.0  (float)
 	- included request input checks w/ err_codes having range: [0, 31]
+
+** API call for sleep quality estimation using J48 pruning tree
+	- http://0.0.0.0:5004/sleep_quality/v1.1/analyse?days=[2,3,4]&start=[2122,1133,1134]&durations=[6,5,5.5]&stress_levels=[5,5,9]
+	- http://0.0.0.0:5004/sleep_quality/v1.1/analyse?days=[2,3,4]&start=[2122,1133,1134]&durations=[6,5,5.5]&stress_levels=[5,5,9]&age=30
+	- http://0.0.0.0:5004/sleep_quality/v1.1/analyse?days=[2,3,4]&start=[2122,1133,1134]&durations=[6,5,5.5]&stress_levels=[5,5,9]&age=30&heart_rates=[70,73,75]
+
+	Note:
+	- Included other factors: stress_levels, heart_rates, age which have significant correlation with the sleep quality (with option to have inputs from user for any combination of these 3)
+	- stress_levels range: [0, 10] (float)
+	- heart_rates range: [40, 140] (float)
+	- age range: [0, 150] (float)
