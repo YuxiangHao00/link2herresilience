@@ -4,7 +4,6 @@ import STI from './images/STI.png'
 import '../../style.less'
 import './triage.less'
 export default (props) => {
-  console.log(props)
   return <div className="main-page img" style={{ backgroundImage: 'url(' + bg + ')' }}>
     <header>
       <h1 className="page-title">We Offer the two modules which focuses on Sexual and Reproductive Health for Migrant

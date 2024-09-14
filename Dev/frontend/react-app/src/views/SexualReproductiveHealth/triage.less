@@ -4,14 +4,17 @@
 
   .li {
     width: 42%;
+
     img {
       width: 70%;
       margin: 0 auto;
     }
-    .main-card{
+
+    .main-card {
       height: 37.25rem;
 
     }
+
     .main-card-tit {
       font-size: 22px;
     }
@@ -29,4 +32,38 @@
       margin-left: 20px;
     }
   }
+}
+
+.flex {
+  display: flex;
+}
+
+.small-card {
+  margin-bottom: 30px;
+
+  img {
+    height: 200px;
+  }
+
+  ul {
+    margin-left: 30px;
+
+    li {
+      margin-bottom: 10px;
+      font-size: 20px;
+      font-family: cursive;
+    }
+
+    li:last-child {
+      margin-bottom: -10px;
+    }
+  }
+}
+.zigzag-card:nth-child(odd) {
+  background-color: rgba(255, 97, 97, 0.264);
+}
+.item-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
