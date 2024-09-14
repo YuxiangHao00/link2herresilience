@@ -4,7 +4,8 @@ import './triage.less'
 import img19 from './images/19.png'
 import img20 from './images/20.png'
 import img21 from './images/21.png'
-export default (props) => {
+
+const FamilyPlanningModule = (props) => {
   return <div className="main-page img" style={{ backgroundImage: 'url(' + bg + ')' }}>
     <header>
       <h1 className="page-title">Know About Family Planning</h1>
@@ -76,4 +77,6 @@ export default (props) => {
     <button onClick={() => { props.actType(2) }} className='size-btn' style={{ float: 'right', marginRight: '20px' }}>Jump back to the Module</button>
 
   </div>
-}   
+}
+
+export default FamilyPlanningModule;

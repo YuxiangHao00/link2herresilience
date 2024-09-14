@@ -9,6 +9,9 @@ import Triage2 from './Module_1_Planning_1';
 import Triage3 from './Module_1_Concent_1';
 import Triage31 from './Module_1_Concent_2';
 import Triage32 from './Module_1_Concent_3';
+import Triage4 from './Module_2_Triage';
+import Triage5 from './Module_2_STI_1';
+import Triage6 from './Module_2_HI_1';
 
 function SexualReproductiveHealth() {
   const [type, setType] = useState(0)
@@ -48,7 +51,7 @@ function SexualReproductiveHealth() {
         actType(1)
 
       }} className='main-btn' style={{ margin: '58px 0 0 52px' }}>Start Learning</button>
-      <img src={bg} style={{ height: '80%', width: '40%', position: 'absolute', right: '20px', bottom: '20px' }} />
+      <img src={bg} style={{ height: '80%', width: '40%', position: 'absolute', right: '20px', bottom: '20px' }} alt=''/>
     </div>}
     {type === 1 && <Triage actType={(val) => { actType(val) }} />}
     {type === 2 && <Triage1 actType={(val) => { actType(val) }} />}
@@ -58,7 +61,9 @@ function SexualReproductiveHealth() {
     {type === 6 && <Triage3 actType={(val) => { actType(val) }} />}
     {type === 7 && <Triage31 actType={(val) => { actType(val) }} />}
     {type === 8 && <Triage32 actType={(val) => { actType(val) }} />}
-
+    {type === 9 && <Triage4 actType={(val) => { actType(val) }} />}
+    {type === 10 && <Triage5 actType={(val) => { actType(val) }} />}
+    {type === 11 && <Triage6 actType={(val) => { actType(val) }} />}
   </>
   );
 }

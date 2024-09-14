@@ -16,7 +16,7 @@
     }
 
     .main-card-tit {
-      font-size: 22px;
+      font-size: 30px;
     }
 
     .main-btn {
@@ -42,23 +42,25 @@
   margin-bottom: 30px;
 
   img {
-    height: 200px;
+    height: 500px;
   }
 
   ul {
     margin-left: 30px;
+    padding: 20px 0;
 
     li {
-      margin-bottom: 10px;
-      font-size: 20px;
+      margin-bottom: 15px;
+      font-size: 22px;
       font-family: cursive;
     }
 
     li:last-child {
-      margin-bottom: -10px;
+      margin-bottom: 0;
     }
   }
 }
+
 .zigzag-card:nth-child(odd) {
   background-color: rgba(255, 97, 97, 0.264);
 }
@@ -66,4 +68,75 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.big-card {
+  padding: 20px;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: visible;
+  margin: 60px 20px;
+}
+
+.big-card-content {
+  display: flex;
+  align-items: center;
+}
+
+.big-card-image {
+  width: 300px;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.big-card:nth-child(odd) {
+  padding-right: 240px;
+  margin-right: 80px;
+
+  .big-card-content {
+    flex-direction: row-reverse;
+  }
+
+  .big-card-image {
+    right: -80px;
+  }
+}
+
+.big-card:nth-child(even) {
+  padding-left: 240px;
+  margin-left: 80px;
+
+  .big-card-image {
+    left: -80px;
+  }
+}
+
+.big-card-text {
+  flex: 1;
+  padding: 0 20px;
+}
+
+.big-card-sti {
+  &:nth-child(odd) {
+    background-color: #81D2EB;
+  }
+
+  &:nth-child(even) {
+    background-color: #81EBB2;
+  }
+}
+
+.big-card-hi {
+  &:nth-child(odd) {
+    background-color: #F3EFDB;
+
+  }
+
+  &:nth-child(even) {
+    background-color: #ECF2ED;
+
+  }
 }

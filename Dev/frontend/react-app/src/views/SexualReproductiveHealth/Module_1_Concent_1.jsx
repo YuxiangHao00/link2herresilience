@@ -1,8 +1,7 @@
 import bg from './images/bg40.png'
 import '../../style.less'
 import './triage.less'
-import img15 from './images/15.png'
-export default (props) => {
+const Module1Consent1 = (props) => {
   return <div className="main-page img" style={{ backgroundImage: 'url(' + bg + ')' }}>
     <header>
       <h1 className="page-title">Consent and Healthy Relationships</h1>
@@ -24,4 +23,6 @@ export default (props) => {
     </ul>
     <button onClick={() => { props.actType(7) }} className='size-btn' style={{ position:'absolute',right:'30px',bottom:'30px' }}>Next →</button>
   </div>
-}   
+}
+
+export default Module1Consent1;

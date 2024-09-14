@@ -10,6 +10,7 @@
   border-radius: 30px;
   padding: 20px;
   height: 100%;
+  overflow: auto;
   position: relative;
 
   header {
@@ -49,21 +50,22 @@
 
   .info-item {
     margin-bottom: 20px;
-
-    .info-details {
-      font-size: 22px;
-      font-family: cursive;
-
-    }
-
-    
   }
 }
+
+.info-details {
+  font-size: 22px;
+  font-family: cursive;
+
+}
+
 .description-list {
   list-style-type: disc;
   margin-left: 20px;
-  font-size: 22px;
+  font-size: 30px;
+  font-family: 'MyCustomFont';
 }
+
 .main-btn {
   padding: 10px;
   font-size: 30px;
@@ -72,4 +74,25 @@
   color: #fff;
   min-width: 120px;
   text-align: center;
+}
+
+.size-btn {
+
+  font-size: 30px;
+  color: #0F296D;
+  font-family: 'MyCustomFont';
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.size-btn:hover {
+  transform: scale(1.3);
+}
+.zigzag-card {
+  width: 70%;
+}
+
+.zigzag-card:nth-child(even) {
+  float: right
 }

@@ -4,7 +4,7 @@ import './triage.less'
 import img16 from './images/16.png'
 import img17 from './images/17.png'
 import img18 from './images/18.png'
-export default (props) => {
+const Module1Rights2 = (props) => {
   return <div className="main-page img" style={{ backgroundImage: 'url(' + bg + ')' }}>
     <div className='main-card flex zigzag-card small-card'>
       <img src={img18} alt="" />
@@ -52,4 +52,6 @@ export default (props) => {
     <button onClick={()=>{props.actType(2)}} className='size-btn' style={{float:'right',marginRight:'20px'}}>Jump back to the Module</button>
     
   </div>
-}   
+}
+
+export default Module1Rights2;

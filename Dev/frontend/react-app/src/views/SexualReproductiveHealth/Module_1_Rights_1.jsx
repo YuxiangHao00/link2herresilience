@@ -2,7 +2,8 @@ import bg from './images/bg40.png'
 import '../../style.less'
 import './triage.less'
 import img15 from './images/15.png'
-export default (props) => {
+
+const Module1Rights1 = (props) => {
   return <div className="main-page img" style={{ backgroundImage: 'url(' + bg + ')' }}>
     <div>
       <header>
@@ -32,4 +33,6 @@ export default (props) => {
     </div>
 
   </div>
-}   
+}
+
+export default Module1Rights1;

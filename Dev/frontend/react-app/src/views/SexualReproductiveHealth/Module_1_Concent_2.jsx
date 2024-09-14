@@ -3,8 +3,8 @@ import '../../style.less'
 import './triage.less'
 import img22 from './images/22.png'
 import img23 from './images/23.png'
-import img18 from './images/18.png'
-export default (props) => {
+
+const Module1Consent2 = (props) => {
   return <div className="main-page img" style={{ backgroundImage: 'url(' + bg + ')' }}>
     <div className='main-card flex  small-card'>
       <img src={img22} alt="" />
@@ -48,4 +48,6 @@ export default (props) => {
     <button onClick={() => { props.actType(8) }} className='size-btn' style={{ position: 'absolute', right: '30px', bottom: '30px' }}>Next →</button>
 
   </div>
-}   
+}
+
+export default Module1Consent2;

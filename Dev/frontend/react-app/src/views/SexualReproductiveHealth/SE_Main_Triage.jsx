@@ -3,7 +3,8 @@ import srh from './images/srh.png'
 import STI from './images/STI.png'
 import '../../style.less'
 import './triage.less'
-export default (props) => {
+
+const SE_Main_Triage = (props) => {
   return <div className="main-page img" style={{ backgroundImage: 'url(' + bg + ')' }}>
     <header>
       <h1 className="page-title">We Offer the two modules which focuses on Sexual and Reproductive Health for Migrant
@@ -12,7 +13,7 @@ export default (props) => {
     <ul className='flex-box'>
       <li className='li'>
         <div className='main-card'>
-          <img src={srh} />
+          <img src={srh} alt="Sexual and Reproductive Health" />
           <span className='main-card-tit'>This module covers,</span>
           <ul className='description-list'>
             <li>Reproductive Rights in Australia</li>
@@ -24,7 +25,7 @@ export default (props) => {
       </li>
       <li className='li'>
         <div className='main-card'>
-          <img src={STI} />
+          <img src={STI} alt="STI Prevention and Health Awareness" />
           <span className='main-card-tit'>This module covers,</span>
           <ul className='description-list'>
             <li>Common STIs in Australia</li>
@@ -32,8 +33,10 @@ export default (props) => {
             <li>Healthcare Resources for Migrant Women</li>
           </ul>
         </div>
-        <button className='main-btn'>Start</button>
+        <button onClick={() => { props.actType(9) }} className='main-btn'>Start</button>
       </li>
     </ul>
   </div>
 }
+
+export default SE_Main_Triage;
