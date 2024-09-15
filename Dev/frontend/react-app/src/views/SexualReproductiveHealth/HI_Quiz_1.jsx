@@ -94,7 +94,8 @@ const HIQuiz1 = (props) => {
 
       {!quizCompleted ? (
         <div className="quiz-container">
-          {questions.length > 0 && questions[currentQuestion] && questions[currentQuestion].options && (
+          {questions.length > 0 && questions[currentQuestion] && questions[currentQuestion].options && 
+           Object.keys(questions[currentQuestion].options).length > 0 && (
             <>
               <h2>
                 Question {currentQuestion + 1} / {questions.length}
