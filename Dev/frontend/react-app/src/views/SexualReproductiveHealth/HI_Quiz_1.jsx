@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import bg from './images/bg40.png'
-import '../../style.less'
-import './triage.less'
+import bg from './images/bg40.png';
+import '../../style.less';
+import './triage.less';
 
 const HIQuiz1 = (props) => {
   const [questions, setQuestions] = useState([]);
@@ -36,7 +36,7 @@ const HIQuiz1 = (props) => {
   };
 
   const handleAnswerSelect = (questionId, answer) => {
-    setSelectedAnswers(prev => ({ ...prev, [questionId]: answer }));
+    setSelectedAnswers((prev) => ({ ...prev, [questionId]: answer }));
   };
 
   const handleNextQuestion = () => {
@@ -48,12 +48,16 @@ const HIQuiz1 = (props) => {
   };
 
   const submitQuiz = async () => {
-    const questionIds = questions.map(q => q.question_id);
-    const answers = questionIds.map(id => selectedAnswers[id]);
-    
+    const questionIds = questions.map((q) => q.question_id);
+    const answers = questionIds.map((id) => selectedAnswers[id]);
+
     try {
       setLoading(true);
-      const response = await fetch(`https://link2herresilience.com.au/health_education/v1/quiz?topic=sexual health&questions=[${questionIds.join(',')}]&answers=[${answers.join(',')}]`);
+      const response = await fetch(
+        `https://link2herresilience.com.au/health_education/v1/quiz?topic=sexual health&questions=[${questionIds.join(
+          ','
+        )}]&answers=[${answers.join(',')}]`
+      );
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -90,22 +94,26 @@ const HIQuiz1 = (props) => {
 
       {!quizCompleted ? (
         <div className="quiz-container">
-          {questions.length > 0 && (
+          {questions.length > 0 && questions[currentQuestion] && questions[currentQuestion].options && (
             <>
-              <h2>Question {currentQuestion + 1} / {questions.length}</h2>
+              <h2>
+                Question {currentQuestion + 1} / {questions.length}
+              </h2>
               <h3>{questions[currentQuestion].question}</h3>
               {Object.entries(questions[currentQuestion].options).map(([key, value]) => (
                 <button
                   key={key}
                   onClick={() => handleAnswerSelect(questions[currentQuestion].question_id, key)}
-                  className={`quiz-option ${selectedAnswers[questions[currentQuestion].question_id] === key ? 'selected' : ''}`}
+                  className={`quiz-option ${
+                    selectedAnswers[questions[currentQuestion].question_id] === key ? 'selected' : ''
+                  }`}
                 >
                   {key}. {value}
                 </button>
               ))}
-              <button 
-                onClick={handleNextQuestion} 
-                disabled={!selectedAnswers[questions[currentQuestion].question_id]} 
+              <button
+                onClick={handleNextQuestion}
+                disabled={!selectedAnswers[questions[currentQuestion].question_id]}
                 className="next-button"
               >
                 {currentQuestion + 1 === questions.length ? 'Finish Quiz' : 'Next Question'}
@@ -121,11 +129,23 @@ const HIQuiz1 = (props) => {
               <p>Your score: {quizResults.score} / {questions.length}</p>
               <p>Percentage: {quizResults.percentage}%</p>
               {questions.map((question, index) => (
-                <div key={index} className={`result-detail ${quizResults.details[index].is_right ? 'correct' : 'incorrect'}`}>
-                  <h3>Question {index + 1}: {question.question}</h3>
+                <div
+                  key={index}
+                  className={`result-detail ${quizResults.details[index].is_right ? 'correct' : 'incorrect'}`}
+                >
+                  <h3>
+                    Question {index + 1}: {question.question}
+                  </h3>
                   {Object.entries(question.options).map(([key, value]) => (
-                    <p key={key} className={`option ${selectedAnswers[question.question_id] === key ? 'selected' : ''} ${key === quizResults.details[index].correct_answer ? 'correct' : ''}`}>
-                      {key}. {value} {selectedAnswers[question.question_id] === key ? '(Your choice)' : ''} {key === quizResults.details[index].correct_answer ? '(Correct answer)' : ''}
+                    <p
+                      key={key}
+                      className={`option ${
+                        selectedAnswers[question.question_id] === key ? 'selected' : ''
+                      } ${key === quizResults.details[index].correct_answer ? 'correct' : ''}`}
+                    >
+                      {key}. {value}{' '}
+                      {selectedAnswers[question.question_id] === key ? '(Your choice)' : ''}{' '}
+                      {key === quizResults.details[index].correct_answer ? '(Correct answer)' : ''}
                     </p>
                   ))}
                   <hr className="answer-explanation-divider" />
