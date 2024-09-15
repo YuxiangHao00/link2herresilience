@@ -5,7 +5,7 @@
 }
 
 .sleep-pattern-container {
-  max-width: 100%; /* 增加最大宽度 */
+  max-width: 100%;
   width: 80%;
   margin: 0 auto;
   padding: 20px;
@@ -27,15 +27,15 @@
   border-bottom: 1px solid #ddd;
   padding-bottom: 5px;
   margin-bottom: 10px;
-  padding-left: 80px; /* 稍微增加左边距 */
+  padding-left: 80px;
 }
 
 .time-scale-hour {
-  width: 46.66px; /* 调整宽度以适应更宽的容器 (1120px / 24) */
+  width: 46.66px;
   text-align: center;
   font-size: 12px;
   color: #666;
-  flex: none; /* 移除 flex 属性 */
+  flex: none;
 }
 
 .patterns-container {
@@ -78,13 +78,13 @@
 }
 
 .time-block {
-  width: 23.33px; /* 调整宽度以适应更宽的容器 (1120px / 48) */
+  width: 23.33px;
   height: 32px;
   border: 1px solid #ddd;
   cursor: pointer;
   transition: background-color 0.2s;
   position: relative;
-  flex: none; /* 移除 flex 属性 */
+  flex: none;
 }
 
 .time-block:hover {
@@ -95,12 +95,21 @@
   background-color: #4a90e2;
 }
 
+.quality-label {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
 .time-block.selected.good {
-  background-color: #4CAF50; /* 绿色 */
+  background-color: #4CAF50; /* Green */
 }
 
 .time-block.selected.bad {
-  background-color: #F44336; /* 红色 */
+  background-color: #F44336; /* Red */
+}
+
+.time-block.selected.normal {
+  background-color: #FFC107; /* Yellow */
 }
 
 .time-block.start {
@@ -109,14 +118,14 @@
 
 .pattern-info {
   display: flex;
-  justify-content: space-between; /* 改为两端对齐 */
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   margin-top: 5px;
 }
 
 .pattern-info span {
-  flex: 1; /* 让文本占据剩余空间 */
+  flex: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -144,7 +153,6 @@
   cursor: not-allowed;
 }
 
-/* 添加以下样式来改善悬停效果 */
 .time-block:hover::after {
   content: attr(title);
   position: absolute;
@@ -155,10 +163,10 @@
   font-size: 12px;
   white-space: nowrap;
   z-index: 1;
-  bottom: 100%; /* 将提示放在格子上方 */
+  bottom: 100%;
   left: 50%;
   transform: translateX(-50%);
-  pointer-events: none; /* 防止提示框影响鼠标事件 */
+  pointer-events: none;
 }
 
 .clear-button {
@@ -257,7 +265,7 @@
 .action-button {
   display: block;
   width: 100%;
-  max-width: 200px; /* 减小最大宽度，使两个按钮可以并排 */
+  max-width: 200px;
   padding: 10px 20px;
   font-size: 16px;
   font-weight: bold;
@@ -270,11 +278,9 @@
 }
 
 .reset-button {
-  background-color: #4a90e2; /* 使用与分析按钮相同的颜色 */
+  background-color: #4a90e2;
 }
 
 .reset-button:hover {
   background-color: #3a7bc8;
 }
-
-/* 删除之前的 .analyze-button 和 .reset-button 样式，因为它们现在被合并到 .action-button 中 */

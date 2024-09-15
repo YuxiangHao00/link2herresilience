@@ -141,19 +141,13 @@ const SleepPattern = () => {
       durations: `[${durations.join(',')}]`
     });
 
-    console.log('API request URL:', `https://link2herresilience.com.au/sleep_quality/v1.1/analyse?${params.toString()}`);
-
     try {
       const response = await axios.get(`https://link2herresilience.com.au/sleep_quality/v1.1/analyse?${params.toString()}`);
-      console.log('API response:', response.data);
-      setAnalysisResults(response.data.quality_category);
+      const qualityCategories = response.data.quality_category.map(item => item.quality.category);
+      setAnalysisResults(qualityCategories.reverse());
       setIsAnalyzed(true);
     } catch (error) {
       console.error('Error analyzing sleep patterns:', error);
-      if (error.response) {
-        console.error('Error response:', error.response.data);
-        console.error('Error status:', error.response.status);
-      }
     }
   };
 
@@ -172,7 +166,8 @@ const SleepPattern = () => {
     const hours = Array.from({ length: 48 }, (_, i) => (i * 0.5 + 18) % 24);
     const duration = calculateDuration(pattern.start, pattern.end);
     const quality = analysisResults[index];
-    const colorClass = quality ? (quality === 'GOOD' ? 'good' : 'bad') : '';
+    let colorClass = quality ? quality.toLowerCase() : '';
+
     return (
       <div key={index} className="pattern-row">
         <div className="pattern-label">
@@ -181,22 +176,27 @@ const SleepPattern = () => {
         </div>
         <div className="pattern-content">
           <div className="time-blocks">
-            {hours.map((time) => (
-              <div
-                key={time}
-                className={`time-block ${
-                  (pattern.start !== null && pattern.end !== null &&
-                    ((pattern.start <= pattern.end && time >= pattern.start && time < pattern.end) ||
-                     (pattern.start > pattern.end && (time >= pattern.start || time < pattern.end))))
-                    ? `selected ${colorClass}`
-                    : pattern.start === time
-                    ? 'start'
-                    : ''
-                }`}
-                onClick={() => handleTimeSelection(index, time)}
-                title={`${formatTime(time)}`}
-              />
-            ))}
+            {hours.map((time) => {
+              const isSelected = pattern.start !== null && pattern.end !== null &&
+                ((pattern.start <= pattern.end && time >= pattern.start && time < pattern.end) ||
+                 (pattern.start > pattern.end && (time >= pattern.start || time < pattern.end)));
+              
+              const classes = [
+                'time-block',
+                isSelected ? 'selected' : '',
+                isSelected && isAnalyzed && colorClass ? colorClass : '',
+                pattern.start === time ? 'start' : ''
+              ].filter(Boolean).join(' ');
+
+              return (
+                <div
+                  key={time}
+                  className={classes}
+                  onClick={() => handleTimeSelection(index, time)}
+                  title={`${formatTime(time)}`}
+                />
+              );
+            })}
           </div>
           <div className="pattern-info">
             <span>
@@ -208,6 +208,9 @@ const SleepPattern = () => {
                 'Click to select start time'
               )}
             </span>
+            {isAnalyzed && quality && (
+              <span className="quality-label">Quality: {quality}</span>
+            )}
             <button 
               className="clear-button" 
               onClick={() => clearPattern(index)}
