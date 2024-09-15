@@ -8,6 +8,7 @@ import siteName from './images/SitName.svg';
 import SleepQuality from './views/SleepQuality';
 import NoiseDetection from './views/SleepQuality/NoiseDetection';
 import SleepPattern from './views/SleepQuality/SleepPattern';
+import SelfAssess from './views/SleepQuality/SelfAssess';
 import SexualReproductiveHealth from './views/SexualReproductiveHealth';
 const SleepIcon = (props) => (
   <svg
@@ -175,6 +176,7 @@ function AppContent() {
           <Route path="/sleep-quality" element={<SleepQuality />} />
           <Route path="/sleep-quality/noise-detection" element={<NoiseDetection />} />
           <Route path="/sleep-quality/sleep-pattern" element={<SleepPattern />} />
+          <Route path="/sleep-quality/self-assess" element={<SelfAssess />} />
           <Route path="/sexual-reproductive-health" element={<SexualReproductiveHealth />} />
         </Routes>
       </main>
