@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../style.less'
 import bg from './images/bg.png'
 import Triage1 from './Module_1_Triage';
@@ -16,7 +16,18 @@ import Triage8 from './STI_Quiz_1';
 import HIQuiz1 from './HI_Quiz_1';
 
 function SexualReproductiveHealth() {
-  const [type, setType] = useState(0)
+  const [type, setType] = useState(0);
+
+  useEffect(() => {
+    window.resetSexualReproductiveHealth = () => {
+      setType(0);
+    };
+
+    return () => {
+      delete window.resetSexualReproductiveHealth;
+    };
+  }, []);
+
   const actType = (val) => {
     console.log(val)
     setType(val)

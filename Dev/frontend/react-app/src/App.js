@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
 import './App.css';
 import LandPage from './views/LandPage';
 import HealthIssues from './views/HealthIssues';
@@ -48,6 +48,7 @@ const HeartIcon = (props) => (
 );
 
 function AppContent() {
+  const navigate = useNavigate();
   const location = useLocation();
   const [currentPath, setCurrentPath] = useState(location.pathname);
 
@@ -116,24 +117,33 @@ function AppContent() {
   );
 
   const MenuItem = ({ to, icon: Icon, label }) => {
-    const isActive = currentPath === to;
+    const isActive = currentPath.startsWith(to);
+    const handleClick = () => {
+      if (to === '/sexual-reproductive-health') {
+        navigate(to);
+        if (window.resetSexualReproductiveHealth) {
+          window.resetSexualReproductiveHealth();
+        }
+      } else {
+        navigate(to);
+      }
+    };
+
     return (
-      <Link to={to}>
-        <div
-          onClick={() => setCurrentPath(to)}
-          className={`menu-item flex items-center mb-4 px-4 py-6 cursor-pointer  
-            ${isActive ? 'menu-active' : 'text-white'}`}
-        >
-          {isActive && (
-            <>
-              <div className="menu-decoration menu-decoration-top"></div>
-              <div className="menu-decoration menu-decoration-bottom"></div>
-            </>
-          )}
-          <Icon className="w-5 h-5 mr-3" />
-          {label}
-        </div>
-      </Link>
+      <div
+        onClick={handleClick}
+        className={`menu-item flex items-center mb-4 px-4 py-6 cursor-pointer  
+          ${isActive ? 'menu-active' : 'text-white'}`}
+      >
+        {isActive && (
+          <>
+            <div className="menu-decoration menu-decoration-top"></div>
+            <div className="menu-decoration menu-decoration-bottom"></div>
+          </>
+        )}
+        <Icon className="w-5 h-5 mr-3" />
+        {label}
+      </div>
     );
   };
 
@@ -164,7 +174,7 @@ function AppContent() {
           <MenuItem to="/health-issues" icon={HospitalIcon} label="Health issues" />
           <MenuItem to="/suburb-finder" icon={MapIcon} label="Suburb Finder" />
           <MenuItem to="/sleep-quality" icon={SleepIcon} label="Sleep Quality" />
-          <MenuItem to="/sexual-reproductive-health/" icon={HeartIcon} label="Sexual&Reproductive" />
+          <MenuItem to="/sexual-reproductive-health" icon={HeartIcon} label="Sexual&Reproductive" />
         </nav>
       </aside>
       <main className="flex-1 overflow-y-auto bg-[#F3F4F6] ml-64">
