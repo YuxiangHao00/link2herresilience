@@ -30,7 +30,7 @@ class SleepQuality_j48():
                 "institutes & practioners to decrease stress levels & have 6-8 hours of sleep",
             "NORMAL": "Currently, your sleep quality is in normal range which can be enhanced " +\
                 "by mindfully reducing stress & regular sleep of 6-8 hours.",
-            "GOOD": "That's wonderful that your are have quality sleep. You can maintain that " +\
+            "GOOD": "That's wonderful that your are having quality sleep. You can maintain that " +\
                 "by having comfortable bed with reduced light exposure atleast 30 min. before " +\
                 "sleeping and being mindful."
         }
@@ -87,8 +87,8 @@ class SleepQuality_j48():
                             self.sleep_quality['low'] = 6.5
                             self.sleep_quality['fraction'] = 32.0/374.0
             else:
-                self.sleep_quality['high'] = 8.5
-                self.sleep_quality['low'] = 10.0
+                self.sleep_quality['high'] = 10.0
+                self.sleep_quality['low'] = 8.5
                 self.sleep_quality['fraction'] = 71.0/374.0                    
                         
         else:

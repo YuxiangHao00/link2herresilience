@@ -75,9 +75,9 @@ class SleepQuality(Resource):
             # self.analysis_model = {'t_l': 5, 't_h': 9}
             self.analysis_model = SleepQuality_j48()
             self.list_sleep_quality = []
-            self.pattern_analysis = self.analyse_sleep_pattern()
+            # self.pattern_analysis = self.analyse_sleep_pattern()
 
-            return self.pattern_analysis
+            return self.analyse_sleep_pattern()
         else:
             return jsonify({
                 "message": {
@@ -97,7 +97,7 @@ class SleepQuality(Resource):
             self.np_days = np.array([int(x) for x in self.days[1:-1].split(",")])
             self.np_start_time = np.array([[int(x[:2]), int(x[2:])] for x in self.start_time[1:-1].split(",")])
             self.np_durations = np.array([float(x) for x in self.durations[1:-1].split(",")])
-            
+
             # check list length in all
             self.b_input_format = ((len(self.np_days) == len(self.np_start_time)) and\
                                         (len(self.np_start_time) == len(self.np_durations)))
@@ -111,8 +111,8 @@ class SleepQuality(Resource):
                 self.err_code = (1<<2) | self.err_code
                 self.err_msg.append("input days out of range (1-7) for a week")
 
-            if min(self.np_start_time[0,:]) < 0 or max(self.np_start_time[0,:]) > 23 or\
-                  min(self.np_start_time[1,:]) < 0 or max(self.np_start_time[1,:]) > 59:
+            if min(self.np_start_time[:,0]) < 0 or max(self.np_start_time[:,0]) > 23 or\
+                  min(self.np_start_time[:,1]) < 0 or max(self.np_start_time[:,1]) > 59:
                 self.b_input_format = False
                 self.err_code = (1<<3) | self.err_code
                 self.err_msg.append("input start time out of range (0000-2359) for a HHMM format")
@@ -187,10 +187,10 @@ class SleepQuality(Resource):
             
             self.analysis_model.update_input(curr_args)
             self.analysis_model.update_sleep_quality()
-            
+            curr_sleep_quality = self.analysis_model.sleep_quality
             self.list_sleep_quality.append({
                 "day": int(day),
-                "quality": self.analysis_model.sleep_quality})
+                "quality": curr_sleep_quality.copy()})#self.analysis_model.sleep_quality})
         
         return jsonify({
                     "quality_category": self.list_sleep_quality,
@@ -202,4 +202,4 @@ api.add_resource(SleepQuality, '/analyse')
 
 
 if __name__ == '__main__':
-    app3__2_3.run(port=5004)
+    app3__2_3.run(debug=True, port=5004)
