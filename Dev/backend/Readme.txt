@@ -44,3 +44,18 @@ Epic3:
 	- stress_levels range: [0, 10] (float)
 	- heart_rates range: [40, 140] (float)
 	- age range: [0, 150] (float)
+
+
+Epic4:
+* Sexual Health Education
+** API call to fetch quiz questions on a topic from {'sexual health', 'prevention'}
+	- http://0.0.0.0:5005/health_education/v1/quiz?topic=prevention
+
+** API call to get score & report details based on the user response for set of 5 questions
+	- http://0.0.0.0:5005/health_education/v1/quiz?topic=sexual health&questions=[7,1,16,3,14]&answers=[B),B),A),C),C)]
+	- http://0.0.0.0:5005/health_education/v1/quiz?topic=prevention&questions=[7,1,16,3,14]&answers=[B),B),A),C),A)]
+
+	Note:
+	- topic range: {'sexual health', 'prevention'}
+	- questions: must be in range of [0, total_questions_on_topic-1]
+	- answers range: {'A)', 'B)', 'C)', 'D)' 'E)'} (should match "question_id" from quiz)
