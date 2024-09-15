@@ -8,23 +8,32 @@ import img13 from './images/13.png'
 
 const Module2Triage = (props) => {
   return <div className="main-page img" style={{ backgroundImage: 'url(' + bg + ')' }}>
+    
     <header>
       <h1 className="page-title">Get Started by clicking on any one of the following modules</h1>
     </header>
+
     <div className='flex-box'>
-      <li><img src={img13} alt="Module 3" style={{ height: '420px', cursor: 'pointer' }} onClick={() => {
+      <li><img src={img13} alt="Module 3" className="hover-lift" style={{ height: '420px', cursor: 'pointer' }} onClick={() => {
         props.actType(3)
       }} /></li>
-      <li><img src={img11} alt="Module 6" style={{ height: '420px', cursor: 'pointer' }} onClick={() => {
+
+      <li><img src={img11} alt="Module 6" className="hover-lift" style={{ height: '420px', cursor: 'pointer' }} onClick={() => {
         props.actType(6)
       }} /></li>
     </div>
+
     <div className='flex-box' style={{ marginTop: '-120px' }}>
-      <li><img src={img12} alt="Module 5" style={{ height: '420px', cursor: 'pointer' }} onClick={() => {
+      <li><img src={img12} alt="Module 5" className="hover-lift" style={{ height: '420px', cursor: 'pointer' }} onClick={() => {
         props.actType(5)
       }} /></li>
     </div>
-    <img src={img10} alt="Decorative" style={{ height: '220px', position: 'absolute', right: '20px', bottom: '20px' }} />
+    
+    <img src={img10} alt="" className="hover-lift" style={{ height: '220px', position: 'absolute', right: '20px', bottom: '20px' }}
+      onClick={() => { 
+      props.actType(12)      
+    }} />
+    
     <button 
       onClick={() => props.actType(1)} 
       className='main-btn' 

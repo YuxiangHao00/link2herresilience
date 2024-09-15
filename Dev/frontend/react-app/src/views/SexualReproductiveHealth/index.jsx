@@ -12,6 +12,8 @@ import Triage32 from './Module_1_Concent_3';
 import Triage4 from './Module_2_Triage';
 import Triage5 from './Module_2_STI_1';
 import Triage6 from './Module_2_HI_1';
+import Triage8 from './STI_Quiz_1';
+import HIQuiz1 from './HI_Quiz_1';
 
 function SexualReproductiveHealth() {
   const [type, setType] = useState(0)
@@ -64,6 +66,8 @@ function SexualReproductiveHealth() {
     {type === 9 && <Triage4 actType={(val) => { actType(val) }} />}
     {type === 10 && <Triage5 actType={(val) => { actType(val) }} />}
     {type === 11 && <Triage6 actType={(val) => { actType(val) }} />}
+    {type === 12 && <HIQuiz1 actType={(val) => { actType(val) }} />}
+    {type === 13 && <Triage8 actType={(val) => { actType(val) }} />}
   </>
   );
 }

@@ -140,3 +140,129 @@
 
   }
 }
+
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.quiz-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin: 20px;
+}
+
+.quiz-option {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover, &.selected {
+    background-color: #d0d0d0;
+  }
+}
+
+.next-button {
+  display: block;
+  width: 200px;
+  padding: 10px;
+  margin: 20px auto;
+  background-color: #0F296D;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+}
+
+.quiz-results {
+  text-align: left;
+  margin: 20px;
+}
+
+.result-detail {
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 8px;
+
+  h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+  }
+
+  p {
+    margin: 5px 0;
+  }
+
+  &.correct {
+    background-color: #d4edda;
+    color: #155724;
+  }
+
+  &.incorrect {
+    background-color: #f8d7da;
+    color: #721c24;
+  }
+
+  .option {
+    padding: 5px;
+    margin: 2px 0;
+    border-radius: 3px;
+
+    &.selected {
+      font-weight: bold;
+    }
+
+    &.correct {
+      background-color: #d4edda;
+    }
+  }
+}
+
+.question-divider {
+  margin: 30px 0;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.quiz-results {
+  .result-detail {
+    .option {
+      padding: 5px;
+      margin: 2px 0;
+      border-radius: 3px;
+
+      &.selected {
+        font-weight: bold;
+      }
+
+      &.correct {
+        background-color: #d4edda;
+      }
+    }
+  }
+}
+
+.answer-explanation-divider {
+  margin: 10px 0;
+  border: 0;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+}

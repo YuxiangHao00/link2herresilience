@@ -10,15 +10,22 @@ const Module2Triage = (props) => {
     <header>
       <h1 className="page-title">Get Started by clicking on any one of the following modules</h1>
     </header>
+
     <div className='flex-box' style={{ justifyContent: 'center', alignItems: 'center', height: 'calc(100vh - 200px)' }}>
-      <li><img src={img25} alt="Module 3" style={{ height: '600px', cursor: 'pointer', margin: '0 20px' }} onClick={() => {
+      <li><img src={img25} alt="Module 3" className="hover-lift" style={{ height: '600px', cursor: 'pointer', margin: '0 20px' }} onClick={() => {
         props.actType(10)
       }} /></li>
-      <li><img src={img26} alt="Module 6" style={{ height: '650px', cursor: 'pointer', margin: '0 20px' }} onClick={() => {
+      <li><img src={img26} alt="Module 6" className="hover-lift" style={{ height: '650px', cursor: 'pointer', margin: '0 20px' }} onClick={() => {
         props.actType(11)
       }} /></li>
     </div>
-    <img src={img10} alt="Decorative" style={{ height: '220px', position: 'absolute', right: '20px', bottom: '20px' }} />
+
+    <img src={img10} alt="" className="hover-lift" style={{ height: '220px', position: 'absolute', right: '20px', bottom: '20px' }}
+      onClick={() => { 
+      props.actType(13)      
+    }} />
+
+
     <button 
       onClick={() => props.actType(1)} 
       className='main-btn' 
