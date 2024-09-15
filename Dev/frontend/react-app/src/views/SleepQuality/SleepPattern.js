@@ -141,10 +141,10 @@ const SleepPattern = () => {
       durations: `[${durations.join(',')}]`
     });
 
-    console.log('API request URL:', `https://link2herresilience.com.au/sleep_quality/v1/analyse?${params.toString()}`);
+    console.log('API request URL:', `https://link2herresilience.com.au/sleep_quality/v1.1/analyse?${params.toString()}`);
 
     try {
-      const response = await axios.get(`https://link2herresilience.com.au/sleep_quality/v1/analyse?${params.toString()}`);
+      const response = await axios.get(`https://link2herresilience.com.au/sleep_quality/v1.1/analyse?${params.toString()}`);
       console.log('API response:', response.data);
       setAnalysisResults(response.data.quality_category);
       setIsAnalyzed(true);

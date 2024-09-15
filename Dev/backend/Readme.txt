@@ -25,7 +25,7 @@ Epic2:
 Epic3:
 * Sleep Quality
 ** API call for Sleep Pattern analysis:
-	-  0.0.0.0:5004/sleep_quality/v1/analyse?days=[2,3,4]&start=[2122,1133,1134]&durations=[4,5.1,2]
+	-  0.0.0.0:5004/sleep_quality/v1.1/analyse?days=[2,3,4]&start=[2122,1133,1134]&durations=[4,5.1,2]
 	
 	Note:
 	- days, start, durations: str type which is parsed when in correct format
