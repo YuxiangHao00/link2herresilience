@@ -103,7 +103,7 @@ class SexualHealthEducation(Resource):
                 self.err_msg.append("input question id out of range [0, total_questions-1]")
 
             for option in self.list_user_answers:
-                if option not in {'A)', 'B)', 'C)', 'D)' 'E)'}:
+                if option not in {'A)', 'B)', 'C)', 'D)', 'E)'}:
                     self.b_input_format = False
                     self.err_code = (1<<3) | self.err_code
                     self.err_msg.append("input answers out of range of options (A - E)")
