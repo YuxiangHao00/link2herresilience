@@ -8,7 +8,7 @@ Sleep pattern analysis using J48 pruned tree and attributes with high
 correlation with sleep quality
 """
 
-import os
+# import os
 
 class SleepQuality_j48():
     '''
@@ -22,6 +22,18 @@ class SleepQuality_j48():
         self.sleep_quality['high'] = 10.0
         self.sleep_quality['fraction'] = 0.0
         self.sleep_quality['category'] = 'NORMAL'
+        self.sleep_quality['suggestion'] = None
+
+        self.sleep_quality_suggestions = {
+            "BAD": "Your sleep quality is being affected by the factors like " +\
+                "sleep duration and/or stress level. It is recommended by medical " +\
+                "institutes & practioners to decrease stress levels & have 6-8 hours of sleep",
+            "NORMAL": "Currently, your sleep quality is in normal range which can be enhanced " +\
+                "by mindfully reducing stress & regular sleep of 6-8 hours.",
+            "GOOD": "That's wonderful that your are have quality sleep. You can maintain that " +\
+                "by having comfortable bed with reduced light exposure atleast 30 min. before " +\
+                "sleeping and being mindful."
+        }
 
     
     def update_input(self, args=dict()):
@@ -91,13 +103,12 @@ class SleepQuality_j48():
                             self.sleep_quality['high'] = 6
                             self.sleep_quality['low'] = 5.5
                             self.sleep_quality['fraction'] = 96.0/374.0
-                            print('YO--')
                         else:
                             self.sleep_quality['high'] = 5
                             self.sleep_quality['low'] = 4.5
                             self.sleep_quality['fraction'] = 3.0/374.0
                     else:
-                        if self.input['sleep_duration'] <- 6.6:
+                        if self.input['sleep_duration'] <= 6.6:
                             self.sleep_quality['high'] = 5
                             self.sleep_quality['low'] = 4.5
                             self.sleep_quality['fraction'] = 6.0/374.0
@@ -110,10 +121,12 @@ class SleepQuality_j48():
                 self.sleep_quality['low'] = 6.5
                 self.sleep_quality['fraction'] = 6.0/374.0
 
-        # update sleep category
+        # update sleep category & suggestion
         if (self.sleep_quality['high'] + self.sleep_quality['low'])/2 < threshold_low:
             self.sleep_quality['category'] = 'BAD'
         elif (self.sleep_quality['high'] + self.sleep_quality['low'])/2 < threshold_high:
             self.sleep_quality['category'] = 'NORMAL'
         else:
             self.sleep_quality['category'] = 'GOOD'
+        
+        self.sleep_quality['suggestion'] = self.sleep_quality_suggestions[self.sleep_quality['category']]

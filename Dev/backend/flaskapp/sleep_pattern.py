@@ -36,7 +36,6 @@ class SleepQuality(Resource):
         self.b_from_files=True
         self.parser = reqparse.RequestParser()
         self.datadir_path = self.parent_dir_path + '/data/epic3/3.3/'
-        # self.buff = StringIO()
 
         # mean values of args
         self.dict_MEAN = {
@@ -185,16 +184,13 @@ class SleepQuality(Resource):
         
         for i, day in enumerate(self.np_days):
             curr_args = self.one_data_entry_in_np_arr(i)
-            # print(f"{i} entry: {curr_args}")
+            
             self.analysis_model.update_input(curr_args)
             self.analysis_model.update_sleep_quality()
-            # print(f"{i} entry: {self.analysis_model.input}")
-            # print(f"{i} entry: {self.analysis_model.sleep_quality}")
-            self.list_sleep_quality.append({#day: self.analysis_model.sleep_quality})
+            
+            self.list_sleep_quality.append({
                 "day": int(day),
                 "quality": self.analysis_model.sleep_quality})
-            
-            # print(f'Curr qual of {i}: ', self.list_sleep_quality[-1])
         
         return jsonify({
                     "quality_category": self.list_sleep_quality,
