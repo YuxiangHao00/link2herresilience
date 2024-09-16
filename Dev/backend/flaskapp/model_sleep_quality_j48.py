@@ -47,8 +47,8 @@ class SleepQuality_j48():
         '''
         method to update high, low of sleep_quality
         '''
-        threshold_low = 6.1
-        threshold_high = 8.5
+        self.threshold_low = 6.1
+        self.threshold_high = 8.5
 
         # trained J48 pruned tree
         if self.input['stress_level'] <= 6:
@@ -122,9 +122,9 @@ class SleepQuality_j48():
                 self.sleep_quality['fraction'] = 6.0/374.0
 
         # update sleep category & suggestion
-        if (self.sleep_quality['high'] + self.sleep_quality['low'])/2 < threshold_low:
+        if (self.sleep_quality['high'] + self.sleep_quality['low'])/2 < self.threshold_low:
             self.sleep_quality['category'] = 'BAD'
-        elif (self.sleep_quality['high'] + self.sleep_quality['low'])/2 < threshold_high:
+        elif (self.sleep_quality['high'] + self.sleep_quality['low'])/2 < self.threshold_high:
             self.sleep_quality['category'] = 'NORMAL'
         else:
             self.sleep_quality['category'] = 'GOOD'

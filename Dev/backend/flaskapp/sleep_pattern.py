@@ -181,18 +181,38 @@ class SleepQuality(Resource):
         # list_quality_category = list(map(lambda x: 'GOOD' 
         #                                  if x >= self.analysis_model['t_l'] and x <= self.analysis_model['t_h']
         #                                  else 'BAD', self.np_durations))
-        
+        # sleep quality estimate (mean)
+        overall_quality_mean = 0
+
         for i, day in enumerate(self.np_days):
             curr_args = self.one_data_entry_in_np_arr(i)
             
             self.analysis_model.update_input(curr_args)
             self.analysis_model.update_sleep_quality()
             curr_sleep_quality = self.analysis_model.sleep_quality
+            overall_quality_mean += 0.5*(curr_sleep_quality['high'] + curr_sleep_quality['low'])
             self.list_sleep_quality.append({
                 "day": int(day),
                 "quality": curr_sleep_quality.copy()})#self.analysis_model.sleep_quality})
         
+        # overall quality estimate
+        overall_quality_mean = overall_quality_mean/len(self.list_sleep_quality)
+        # update overall sleep category & suggestion
+        if overall_quality_mean < self.analysis_model.threshold_low:
+            overall_quality_category = 'BAD'
+        elif overall_quality_mean < self.analysis_model.threshold_high:
+            overall_quality_category = 'NORMAL'
+        else:
+            overall_quality_category = 'GOOD'
+        
+        overall_suggestion = self.analysis_model.sleep_quality_suggestions[overall_quality_category]
+        
         return jsonify({
+                    "threshold_high": self.analysis_model.threshold_high,
+                    "threshold_low": self.analysis_model.threshold_low,
+                    "overall_quality_mean": overall_quality_mean,
+                    "overall_quality": overall_quality_category,
+                    "overall_suggestion": overall_suggestion,
                     "quality_category": self.list_sleep_quality,
                     "num_days": len(self.list_sleep_quality)
             })
@@ -202,4 +222,4 @@ api.add_resource(SleepQuality, '/analyse')
 
 
 if __name__ == '__main__':
-    app3__2_3.run(debug=True, port=5004)
+    app3__2_3.run(port=5004)
