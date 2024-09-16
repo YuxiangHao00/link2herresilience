@@ -1,12 +1,26 @@
 import React, { useState, useEffect } from 'react';
+import { Button, Modal } from 'antd';
 import axios from 'axios';
 import './SelfAssess.css';
 import e1 from '../../images/SQ/SQ_SA_e1.png';
 import e2 from '../../images/SQ/SQ_SA_e2.png';
 import e3 from '../../images/SQ/SQ_SA_e3.png';
 import { useNavigate } from 'react-router-dom';
+import SleepQualityGauge from './SleepQualityComponent';
+// import Exp from '../../images/SQ/SQ_SA_Exp.jpg';
+import Exp1 from '../../images/SQ/SQ_SA_Exp_1.png';
+import Exp2 from '../../images/SQ/SQ_SA_Exp_2.png';
 
 const SelfAssess = () => {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
   const navigate = useNavigate();
   const [age, setAge] = useState('');
   const [stressLevel, setStressLevel] = useState('');
@@ -15,7 +29,8 @@ const SelfAssess = () => {
   const [heartRate, setHeartRate] = useState('');
   const [error, setError] = useState('');
   const [result, setResult] = useState(null);
-  
+  const [updateKey, setUpdateKey] = useState(0);
+
   const handleInputChange = (setter) => (e) => {
     const value = e.target.value;
     if (value === '' || parseFloat(value) >= 0) {
@@ -38,15 +53,10 @@ const SelfAssess = () => {
   };
 
   const handleAssess = async () => {
-    if (!sleepDuration) {
-      setError('Please enter sleep duration');
+    if (!sleepDuration || !sleepStartTime) {
+      setError('Please enter sleep duration and start time');
       return;
     }
-    if (!sleepStartTime) {
-      setError('Please enter sleep start time');
-      return;
-    }
-
     setError('');
 
     const today = new Date();
@@ -73,6 +83,7 @@ const SelfAssess = () => {
     try {
       const response = await axios.get(`https://link2herresilience.com.au/sleep_quality/v1.1/analyse?${params.toString()}`);
       setResult(response.data);
+      setUpdateKey(prevKey => prevKey + 1);
       setError('');
     } catch (error) {
       console.error('Error:', error);
@@ -84,15 +95,42 @@ const SelfAssess = () => {
   const renderResult = () => {
     if (!result) return null;
 
+    console.log('Rendering result:', result);
+    console.log('Threshold Low:', result.threshold_low);
+    console.log('Threshold High:', result.threshold_high);
+    console.log('Overall Quality Mean:', result.overall_quality_mean);
+    console.log('Overall Quality:', result.overall_quality);
+
     const qualityData = result.quality_category[0].quality;
-    const qualityColor = qualityData.category === 'BAD' ? 'red' : 'green';
+    let qualityColor;
+    switch (qualityData.category) {
+      case 'GOOD':
+        qualityColor = '#4CAF50';
+        break;
+      case 'NORMAL':
+        qualityColor = '#FFC107';
+        break;
+      case 'BAD':
+        qualityColor = '#F44336';
+        break;
+      default:
+        qualityColor = 'black';
+    }
 
     return (
       <div className="result-container">
-        <h3>Sleep Quality Analysis Result</h3>
+        <h3>Sleep Quality Analysis Result:</h3>
+        <div className="gauge-container">
+          <SleepQualityGauge 
+            key={updateKey}
+            overallQualityMean={result.overall_quality_mean}
+            thresholdLow={result.threshold_low}
+            thresholdHigh={result.threshold_high}
+            category={result.overall_quality}
+          />
+        </div>
         <p>Quality Category: <span style={{color: qualityColor, fontWeight: 'bold'}}>{qualityData.category}</span></p>
-        <p>Ratio in Sample Population: {(qualityData.fraction).toFixed(3)}%</p>
-        {/* <p>Quality Range: {qualityData.low} - {qualityData.high}</p> */}
+        <p>Ratio in Sample Population: {(qualityData.fraction * 100).toFixed(3)}%</p>
         <p>Suggestion: {qualityData.suggestion}</p>
       </div>
     );
@@ -202,6 +240,38 @@ const SelfAssess = () => {
         {error && <p className="error">{error}</p>}
         {renderResult()}
       </div>
+
+      <Button 
+        className='size-btn' 
+        type="link" 
+        onClick={showModal}
+        style={{ 
+          background: 'none', 
+          padding: 0,
+          fontSize: '30px',
+          marginLeft: '40px',
+          display: 'inline-block'
+        }}
+      >
+        Know about data
+      </Button>
+      <Modal 
+        title={<div style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '30px' }}>Effects of poor Sleep Quality</div>}
+        open={isModalOpen} 
+        onCancel={handleCancel}
+        width={900}
+        style={{ top: 20 }}
+        bodyStyle={{ maxHeight: 'calc(100vh - 200px)', overflowY: 'auto' }}
+        footer={null}
+        closable={true}
+      >
+        <p style={{fontWeight: 'bold'}}>Source: Australian Institute of Health & Welfare (AIHW)</p>
+        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <img src={Exp1} alt="Sleep Quality Effects 1" style={{ width: '49%', height: 'auto' }} />
+          <img src={Exp2} alt="Sleep Quality Effects 2" style={{ width: '49%', height: 'auto' }} />
+        </div>
+      </Modal>
+
       <button 
         onClick={handleGoBack}
         className="SA-back-button"

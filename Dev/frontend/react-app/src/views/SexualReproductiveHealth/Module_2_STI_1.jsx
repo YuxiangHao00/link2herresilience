@@ -1,5 +1,7 @@
 import '../../style.less'
 import './triage.less'
+import React, { useState } from 'react';
+import { Button, Modal } from 'antd';
 import img27 from './images/27.png'
 import img28 from './images/28.png'
 import img29 from './images/29.png'
@@ -7,8 +9,18 @@ import img30 from './images/30.png'
 import img31 from './images/31.png'
 import img32 from './images/32.png'
 import img33 from './images/33.png'
+import Data_Insights from './images/STI_notifications.svg'
 
 const FamilyPlanningModule = (props) => {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
   return <div className="main-page img">
 
     <header>
@@ -23,6 +35,33 @@ const FamilyPlanningModule = (props) => {
       <h1 className="page-title">Common STIs in Australia</h1>
       <h3 className='subtitle' style={{ color: 'black' }}>{`In this module we discuss the seven most common Sexually Transmitted 
       Infections in Australia and learn about how to prevent them.`}</h3>
+      <br/>
+      <Button 
+        className='size-btn' 
+        type="link" 
+        onClick={showModal}
+        style={{ 
+          background: 'none', 
+          padding: 0,
+          fontSize: '30px',
+          marginLeft: '40px',
+          display: 'inline-block'
+        }}
+      >
+        Data Insights
+      </Button>
+      <Modal 
+        title="STI Notifications in Australia" 
+        open={isModalOpen} 
+        onCancel={handleCancel}
+        width={1000}
+        style={{ top: 20 }}
+        bodyStyle={{ maxHeight: 'calc(100vh - 200px)', overflowY: 'auto' }}
+        footer={null}
+        closable={true}
+      >
+        <img src={Data_Insights} alt="STI notification" style={{ width: '100%', height: 'auto' }} />
+      </Modal>
     </header>
 
     <div className="big-card big-card-sti">
@@ -38,6 +77,14 @@ const FamilyPlanningModule = (props) => {
               <li>Get tested regularly: If you're sexually active, especially under 30, get tested for Chlamydia and other STIs annually.</li>
               <li>Limit sexual partners: Reducing the number of sexual partners lowers the chances of contracting Chlamydia.</li>
             </ul>
+            <Button 
+              type="primary" 
+              href="https://www.healthdirect.gov.au/chlamydia" 
+              target="_blank"
+              className='learnmore-btn'
+            >
+              Learn More About Chlamydia
+            </Button>
           </div>
         </div>
     </div>
@@ -54,6 +101,14 @@ const FamilyPlanningModule = (props) => {
             <li>Use protection: Always use condoms or dental dams during sex to reduce the risk of transmission.</li>
             <li>Avoid contact during outbreaks: Don’t engage in sexual activity when you or your partner have visible sores or symptoms.</li>
           </ul>
+          <Button 
+              type="primary" 
+              href="https://www.healthdirect.gov.au/genital-herpes" 
+              target="_blank"
+              className='learnmore-btn'
+            >
+              Learn More About Genital Herpes
+            </Button>
           <img src={img28} alt="Chlamydia information" className="big-card-image" />
         </div>
       </div>
@@ -72,6 +127,14 @@ const FamilyPlanningModule = (props) => {
               <li>The most common way would obviously using condoms during a sexual encounter.</li>
               <li>Regular STI tests help catch and treat Gonorrhoea early, even if there are no symptoms.</li>
             </ul>
+            <Button 
+              type="primary" 
+              href="https://www.healthdirect.gov.au/gonorrhoea-the-clap" 
+              target="_blank"
+              className='learnmore-btn'
+            >
+              Learn More About Gonorrhoea
+            </Button>
           </div>
         </div>
     </div>
@@ -90,6 +153,14 @@ const FamilyPlanningModule = (props) => {
               <li>Avoid Sharing Needles: Don’t share needles or other drug-related equipment.</li>
               <li>Safe Piercings/Tattoos: Make sure needles are sterile and used only once for tattoos or piercings.</li>
             </ul>
+            <Button 
+              type="primary" 
+              href="https://www.healthdirect.gov.au/hepatitis-b" 
+              target="_blank"
+              className='learnmore-btn'
+            >
+              Learn More About Hepatitis B
+            </Button>
           </div>
         </div>
     </div>
@@ -107,6 +178,14 @@ const FamilyPlanningModule = (props) => {
               <li>Avoid sharing personal items: Such as razors, toothbrushes, or anything that might have blood on it. </li>
               <li>Screening for blood transfusions: Make sure blood products have been tested for Hepatitis C.</li>
             </ul>
+            <Button 
+              type="primary" 
+              href="https://www.healthdirect.gov.au/hepatitis-c" 
+              target="_blank"
+              className='learnmore-btn'
+            >
+              Learn More About Hepatitis C
+            </Button>
           </div>
         </div>
     </div>
@@ -124,6 +203,14 @@ const FamilyPlanningModule = (props) => {
               <li>Use Condoms: Always use condoms during vaginal, anal, or oral sex to reduce the risk of syphilis transmission.</li>
               <li>Get Regular Checkups: Routine STI screenings can catch syphilis early, even if there are no symptoms.</li>
             </ul>
+            <Button 
+              type="primary" 
+              href="https://www.healthdirect.gov.au/syphilis" 
+              target="_blank"
+              className='learnmore-btn'
+            >
+              Learn More About Syphilis
+            </Button>
           </div>
         </div>
     </div>
@@ -141,6 +228,14 @@ const FamilyPlanningModule = (props) => {
               <li>Apart from contraceptives, take PrEP: Pre-exposure prophylaxis (PrEP) is a daily pill that significantly lowers the risk of getting HIV.</li>
               <li>Get Treated if HIV Positive: Antiretroviral therapy (ART) reduces the viral load, lowering the risk of transmitting HIV to others.</li>
             </ul>
+            <Button 
+              type="primary" 
+              href="https://www.healthdirect.gov.au/hiv" 
+              target="_blank"
+              className='learnmore-btn'
+            >
+              Learn More About HIV
+            </Button>
           </div>
         </div>
     </div>

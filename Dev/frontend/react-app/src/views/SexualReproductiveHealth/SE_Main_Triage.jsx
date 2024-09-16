@@ -12,7 +12,7 @@ const SE_Main_Triage = (props) => {
     </header>
     <ul className='flex-box'>
       <li className='li'>
-        <div className='main-card'>
+        <div className='main-card' style={{margin:'10px'}}>
           <img src={srh} alt="Sexual and Reproductive Health" />
           <span className='main-card-tit'>This module covers,</span>
           <ul className='description-list'>
@@ -21,10 +21,10 @@ const SE_Main_Triage = (props) => {
             <li>Consent and Healthy Relationships</li>
           </ul>
         </div>
-        <button onClick={() => { props.actType(2) }} className='main-btn'>Start</button>
+        <button onClick={() => { props.actType(2) }} className='main-btn' style={{padding:'0px'}}>Start</button>
       </li>
       <li className='li'>
-        <div className='main-card'>
+        <div className='main-card' style={{margin:'10px'}}>
           <img src={STI} alt="STI Prevention and Health Awareness" />
           <span className='main-card-tit'>This module covers,</span>
           <ul className='description-list'>
@@ -33,7 +33,7 @@ const SE_Main_Triage = (props) => {
             <li>Healthcare Resources for Migrant Women</li>
           </ul>
         </div>
-        <button onClick={() => { props.actType(9) }} className='main-btn'>Start</button>
+        <button onClick={() => { props.actType(9) }} className='main-btn' style={{padding:'0px'}}>Start</button>
       </li>
     </ul>
   </div>

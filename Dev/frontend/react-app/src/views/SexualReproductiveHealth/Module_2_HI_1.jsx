@@ -5,7 +5,7 @@ import img35 from './images/35.png'
 import img36 from './images/36.png'
 import img37 from './images/37.png'
 import img38 from './images/38.png'
-
+import { Button } from 'antd';
 
 const FamilyPlanningModule = (props) => {
   return <div className="main-page img">
@@ -27,6 +27,14 @@ const FamilyPlanningModule = (props) => {
             <h4 className="subtitle" style={{color:'black'}}>If you’re feeling more tired than usual or your body’s giving you a little “tap on the shoulder,” it might be time to 
               check in with a healthcare provider. Remember, your health is just as important as anyone else’s, and Australia’s healthcare system has got your back—once you know how 
               to navigate it! </h4>
+              <Button 
+              type="primary" 
+              href="https://www.aihw.gov.au/reports-data/health-conditions-disability-deaths/chronic-disease/overview" 
+              target="_blank"
+              className='learnmore-btn'
+            >
+              Learn More About Chronic Diseases
+            </Button>
           </div>
         </div>
     </div>
@@ -41,6 +49,14 @@ const FamilyPlanningModule = (props) => {
             <br/>
             <h4 className="subtitle" style={{color:'black'}}>Whether you're thinking about having a baby or already on the journey, regular check-ups are your best friend. You deserve 
               care that respects both you and your culture—because every mom-to-be deserves a smooth ride! </h4>
+              <Button 
+              type="primary" 
+              href="https://www.aihw.gov.au/reports/mothers-babies/australias-mothers-babies/contents/summary" 
+              target="_blank"
+              className='learnmore-btn'
+            >
+              Learn More About Pregnancy Health
+            </Button>
           </div>
         </div>
     </div>
@@ -55,6 +71,14 @@ const FamilyPlanningModule = (props) => {
             <br/>
             <h4 className="subtitle" style={{color:'black'}}>If you’re coughing or feeling off, it might be more than just the flu—so don’t ignore it! Getting tested can keep you and your 
               community safe. And hey, remember: it’s always better to know early so you can get treated and get back to your usual fabulous self! </h4>
+              <Button 
+              type="primary" 
+              href="https://www.aihw.gov.au/reports-data/health-conditions-disability-deaths/infectious-diseases/overview" 
+              target="_blank"
+              className='learnmore-btn'
+            >
+              Learn More About Infectious Diseases
+            </Button>
           </div>
         </div>
     </div>
@@ -69,6 +93,14 @@ const FamilyPlanningModule = (props) => {
             <br/>
             <h4 className="subtitle" style={{color:'black'}}>Feeling tired or weak? It might not just be the daily grind—it could be a lack of essential nutrients. A balanced diet is key, 
               and no worries—you don’t have to give up your cultural favorites! Mixing the old with the new can keep your body and soul healthy. </h4>
+              <Button 
+              type="primary" 
+              href="https://www.aihw.gov.au/reports-data/behaviours-risk-factors/food-nutrition/overview" 
+              target="_blank"
+              className='learnmore-btn'
+            >
+              Learn More About Food and Nutrition
+            </Button>
           </div>
         </div>
     </div>
@@ -83,8 +115,34 @@ const FamilyPlanningModule = (props) => {
             <br/>
             <h4 className="subtitle" style={{color:'black'}}>Some simple exercises, proper lifting techniques, and rest can make a big difference. Remember, you’re stronger when you’re not 
               carrying the world (or too many boxes) on your back! </h4>
+              <Button 
+              type="primary" 
+              href="https://www.aihw.gov.au/reports/chronic-musculoskeletal-conditions/musculoskeletal-conditions/contents/summary" 
+              target="_blank"
+              className='learnmore-btn'
+            >
+              Learn More About Musculoskeletal Conditions
+            </Button>
           </div>
         </div>
+    </div>
+
+    <div className='flex-box' style={{ marginTop: '20px' }}>
+      <div className="big-card-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        <h4 className='subtitle' style={{ textAlign: 'left' }}>
+          Concerned about having symptoms that might be related to any of these diseases?
+          Follow the link below to fact check your symptoms to ensure that you are safe!
+        </h4>
+        <Button 
+          type="primary" 
+          href="https://www.healthdirect.gov.au/symptom-checker" 
+          target="_blank"
+          className='main-btn'
+          style={{ marginTop: '20px', marginBottom: '20px' }}
+        >
+          Check Symptoms
+        </Button>
+      </div>
     </div>
 
     <button onClick={() => { props.actType(9) }} className='size-btn' style={{ float: 'right', marginRight: '20px' }}>Jump back to the Module</button>

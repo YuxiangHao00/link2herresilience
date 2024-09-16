@@ -18,6 +18,9 @@ const SleepPattern = () => {
   });
   const [analysisResults, setAnalysisResults] = useState([]);
   const [isAnalyzed, setIsAnalyzed] = useState(false);
+  const [overallQuality, setOverallQuality] = useState(null);
+  const [overallQualityMean, setOverallQualityMean] = useState(null);
+  const [overallSuggestion, setOverallSuggestion] = useState(null);
 
   useEffect(() => {
     const allPatternsComplete = patterns.every(pattern => pattern.start !== null && pattern.end !== null);
@@ -146,6 +149,10 @@ const SleepPattern = () => {
       const qualityCategories = response.data.quality_category.map(item => item.quality.category);
       setAnalysisResults(qualityCategories.reverse());
       setIsAnalyzed(true);
+      
+      setOverallQuality(response.data.overall_quality);
+      setOverallQualityMean(response.data.overall_quality_mean);
+      setOverallSuggestion(response.data.overall_suggestion);
     } catch (error) {
       console.error('Error analyzing sleep patterns:', error);
     }
@@ -160,13 +167,32 @@ const SleepPattern = () => {
       yesterday.setDate(yesterday.getDate() - 1);
       return yesterday;
     });
+    setOverallQuality(null);
+    setOverallQualityMean(null);
+    setOverallSuggestion(null);
   };
 
   const renderPatternRow = (pattern, index) => {
     const hours = Array.from({ length: 48 }, (_, i) => (i * 0.5 + 18) % 24);
     const duration = calculateDuration(pattern.start, pattern.end);
     const quality = analysisResults[index];
-    let colorClass = quality ? quality.toLowerCase() : '';
+    let colorClass = '';
+
+    if (quality) {
+      switch(quality) {
+        case 'GOOD':
+          colorClass = 'good';
+          break;
+        case 'NORMAL':
+          colorClass = 'normal';
+          break;
+        case 'BAD':
+          colorClass = 'bad';
+          break;
+        default:
+          colorClass = '';
+      }
+    }
 
     return (
       <div key={index} className="pattern-row">
@@ -209,7 +235,7 @@ const SleepPattern = () => {
               )}
             </span>
             {isAnalyzed && quality && (
-              <span className="quality-label">Quality: {quality}</span>
+              <span className={`quality-label ${colorClass}`}>Quality: {quality}</span>
             )}
             <button 
               className="clear-button" 
@@ -280,6 +306,14 @@ const SleepPattern = () => {
             Reset
           </button>
         </div>
+        {isAnalyzed && overallQuality && (
+          <div className="overall-quality">
+            <h3>Overall Sleep Quality</h3>
+            <p>Quality: {overallQuality}</p>
+            <p>Sleep quality (overall estimate): {overallQualityMean.toFixed(2)}/10.0</p>
+            <p>{overallSuggestion}</p>
+          </div>
+        )}
       </div>
     </div>
   );
