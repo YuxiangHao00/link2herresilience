@@ -11,9 +11,16 @@ function SleepQuality() {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const features = [
-    // { image: US1, path: '/sleep-quality/noise-detection' },
-    { image: US2, path: '/sleep-quality/self-assess' },
-    { image: US3, path: '/sleep-quality/sleep-pattern' },
+    { 
+      image: US2, 
+      path: '/sleep-quality/self-assess',
+      subtitle: 'Sleep Quality estimator'
+    },
+    { 
+      image: US3, 
+      path: '/sleep-quality/sleep-pattern',
+      subtitle: 'Sleeping pattern'
+    },
   ];
 
   const handleNavigate = (path) => {
@@ -40,6 +47,17 @@ function SleepQuality() {
               alt={`Feature ${index + 1}`} 
               className="w-full h-auto object-cover rounded-lg"
             />
+            <p className="text-center mt-3 font-semibold transition-colors duration-300" 
+               style={{ 
+                 fontSize: '40px', 
+                 fontFamily: 'MyCustomFont', 
+                 color: '#16A34A',
+               }}
+               onMouseEnter={(e) => e.target.style.color = '#15803d'}
+               onMouseLeave={(e) => e.target.style.color = '#16A34A'}
+            >
+              {feature.subtitle}
+            </p>
           </div>
         ))}
       </div>
