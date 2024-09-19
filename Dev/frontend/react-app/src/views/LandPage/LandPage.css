@@ -7,14 +7,13 @@
   align-items: center;
   padding: 2rem 0;
   box-sizing: border-box;
-  /* 移除 min-height 和 overflow-y */
 }
 
 h1 {
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: bold;
   text-align: center;
-  margin: 1rem 0; /* 调整上下外边距 */
+  margin: 1rem 0;
 }
 
 .image-wrapper {
@@ -22,21 +21,21 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1rem 0; /* 添加上下外边距 */
+  margin: 1rem 0;
 }
 
 .land-page-image {
   width: 100%;
-  max-width: 100%; /* 限制最大宽度 */
+  max-width: 100%;
   height: auto;
   object-fit: contain;
-  margin-top: -10%; /* 调整顶部外边距 */
-  margin-bottom: 0; /* 调整底部外边距 */
+  margin-top: -10%;
+  margin-bottom: 0;
 }
 
 .title-image {
   width: 50%;
-  max-width: 400px; /* 限制最大宽度 */
+  max-width: 400px;
   float: right;
   margin-right: -50%;
   margin-top: -15%;
@@ -44,7 +43,7 @@ h1 {
 
 .description-image {
   width: 100%;
-  max-width: 1000px; /* 限制最大宽度 */
+  max-width: 1000px;
   height: auto;
   object-fit: contain;
   margin-top: -8%;
@@ -52,7 +51,7 @@ h1 {
 }
 
 .explore-image {
-  width: 100%;
+  width: 50%;
   height: auto;
   cursor: pointer;
   transition: transform 0.3s ease;
@@ -65,10 +64,10 @@ h1 {
 .hp_l_1-wrapper {
   display: flex;
   align-items: center;
-  justify-content: center; /* 水平居中 */
+  justify-content: center;
   margin-top: 2rem;
   width: 100%;
-  max-width: 1500px; /* 限制最大宽度 */
+  max-width: 1500px;
 }
 
 .hp_l_1 {
@@ -83,26 +82,26 @@ h1 {
   font-size: 1rem;
   line-height: 1.5;
   position: relative;
-  text-align: center; /* 文本居中对齐 */
+  text-align: center;
 }
 
 .jump-page {
   width: 30%;
-  max-width: 150px; /* 限制最大宽度 */
+  max-width: 150px;
   height: auto;
-  display: block; /* 确保在下一行 */
-  margin: 1rem auto 0; /* 上外边距1rem，左右自动居中 */
-  float: none; /* 取消浮动 */
+  display: block;
+  margin: 1rem auto 0;
+  float: none;
 }
 
 .hp_l_2-wrapper {
   display: flex;
-  flex-direction: row-reverse; /* 反转子元素的顺序 */
+  flex-direction: row-reverse;
   align-items: center;
-  justify-content: center; /* 水平居中 */
+  justify-content: center;
   margin-top: 2rem;
   width: 100%;
-  max-width: 1500px; /* 限制最大宽度 */
+  max-width: 1500px;
 }
 
 .hp_l_2 {
@@ -113,29 +112,29 @@ h1 {
 
 .hp_l_2-text {
   width: 30%;
-  padding-right: 1rem; /* 改为右侧内边距 */
+  padding-right: 1rem;
   font-size: 1rem;
   line-height: 1.5;
   position: relative;
-  text-align: center; /* 文本居中对齐 */
+  text-align: center;
 }
 
 .jump-page_2 {
   width: 30%;
-  max-width: 150px; /* 限制最大宽度 */
+  max-width: 150px;
   height: auto;
-  display: block; /* 确保在下一行 */
-  margin: 1rem auto 0; /* 上外边距1rem，左右自动居中 */
-  float: none; /* 取消浮动 */
+  display: block;
+  margin: 1rem auto 0;
+  float: none;
 }
 
 .hp_l_3-wrapper {
   display: flex;
   align-items: center;
-  justify-content: center; /* 水平居中 */
+  justify-content: center;
   margin-top: 2rem;
   width: 100%;
-  max-width: 1500px; /* 限制最大宽度 */
+  max-width: 1500px;
 }
 
 .hp_l_3 {
@@ -150,26 +149,26 @@ h1 {
   font-size: 1rem;
   line-height: 1.5;
   position: relative;
-  text-align: center; /* 文本居中对齐 */
+  text-align: center;
 }
 
 .jump-page_3 {
   width: 30%;
-  max-width: 150px; /* 限制最大宽度 */
+  max-width: 150px;
   height: auto;
-  display: block; /* 确保在下一行 */
-  margin: 1rem auto 0; /* 上外边距1rem，左右自动居中 */
-  float: none; /* 取消浮动 */
+  display: block;
+  margin: 1rem auto 0;
+  float: none;
 }
 
 .hp_l_4-wrapper {
   display: flex;
-  flex-direction: row-reverse; /* 反转子元素的顺序 */
+  flex-direction: row-reverse;
   align-items: center;
-  justify-content: center; /* 水平居中 */
+  justify-content: center;
   margin-top: 2rem;
   width: 100%;
-  max-width: 1500px; /* 限制最大宽度 */
+  max-width: 1500px;
 }
 
 .hp_l_4 {
@@ -180,20 +179,20 @@ h1 {
 
 .hp_l_4-text {
   width: 30%;
-  padding-right: 1rem; /* 改为右侧内边距 */
+  padding-right: 1rem;
   font-size: 1rem;
   line-height: 1.5;
   position: relative;
-  text-align: center; /* 文本居中对齐 */
+  text-align: center;
   }
 
 .jump-page_4 {
   width: 30%;
-  max-width: 150px; /* 限制最大宽度 */
+  max-width: 150px;
   height: auto;
-  display: block; /* 确保在下一行 */
-  margin: 1rem auto 0; /* 上外边距1rem，左右自动居中 */
-  float: none; /* 取消浮动 */
+  display: block;
+  margin: 1rem auto 0;
+  float: none;
 }
 
 @media (max-width: 768px) {
@@ -204,14 +203,14 @@ h1 {
   .description-image,
   .title-image {
     width: 100%;
-    float: none; /* 在移动设备上取消浮动 */
-    margin-right: 0; /* 在移动设备上取消右边距 */
-    left: 0; /* 在移动设备上取消左边距 */
+    float: none;
+    margin-right: 0;
+    left: 0;
   }
 
   .hp_l_1-wrapper {
     flex-direction: column;
-    align-items: center; /* 在移动设备上居中对齐 */
+    align-items: center;
   }
 
   .hp_l_1,
@@ -221,8 +220,8 @@ h1 {
   }
 
   .jump-page {
-    width: 20%; /* 在移动设备上调整大小 */
-    margin-top: 1rem; /* 在移动设备上调整位置 */
+    width: 20%;
+    margin-top: 1rem;
   }
 }
 

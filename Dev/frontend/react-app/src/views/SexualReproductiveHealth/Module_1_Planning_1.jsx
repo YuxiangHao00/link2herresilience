@@ -1,4 +1,3 @@
-import bg from './images/bg40.png'
 import '../../style.less'
 import './triage.less'
 import img19 from './images/19.png'
@@ -6,7 +5,7 @@ import img20 from './images/20.png'
 import img21 from './images/21.png'
 
 const FamilyPlanningModule = (props) => {
-  return <div className="main-page img" style={{ backgroundImage: 'url(' + bg + ')' }}>
+  return <div className="main-page img">
     <header>
       <h1 className="page-title">Know About Family Planning</h1>
       <h3 className='subtitle'>{`Welcome to the fun world

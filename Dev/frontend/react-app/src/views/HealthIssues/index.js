@@ -151,6 +151,10 @@ export default function DiseasePrevalenceComponent() {
     fetchJSONData();
   };
 
+  const isSearchDisabled = () => {
+    return !(selectedGender && selectedAgeGroup);
+  };
+
   const handleReset = () => {
     setSelectedGender(null);
     setSelectedAgeGroup(null);
@@ -240,7 +244,13 @@ export default function DiseasePrevalenceComponent() {
               <Select.Option value="80-84 years">80-84 years</Select.Option>
               <Select.Option value="85 years and over">85 years and over</Select.Option>
             </Select>
-            <Button className={buttonStyle} onClick={handleSearch}>Search</Button>
+            <Button 
+              className={`${buttonStyle} ${isSearchDisabled() ? 'opacity-50 cursor-not-allowed' : ''}`} 
+              onClick={handleSearch}
+              disabled={isSearchDisabled()}
+            >
+              Search
+            </Button>
             <Button className={buttonStyle} onClick={handleReset}>Reset</Button>
             <Dropdown menu={menuProps}>
               <Button className={buttonStyle}>
@@ -303,7 +313,13 @@ export default function DiseasePrevalenceComponent() {
               <Select.Option value="Northern Territory">Northern Territory</Select.Option>
               <Select.Option value="Australian Capital Territory">Australian Capital Territory</Select.Option>
             </Select>
-            <Button className={buttonStyle} onClick={handleSearch}>Search</Button>
+            <Button 
+              className={`${buttonStyle} ${isSearchDisabled() ? 'opacity-50 cursor-not-allowed' : ''}`} 
+              onClick={handleSearch}
+              disabled={isSearchDisabled()}
+            >
+              Search
+            </Button>
             <Button className={buttonStyle} onClick={handleReset}>Reset</Button>
             <Dropdown menu={menuProps}>
               <Button className={buttonStyle}>

@@ -7,23 +7,23 @@ const SleepQualityGauge = ({ overallQualityMean, thresholdLow, thresholdHigh }) 
     series: [
       {
         grid: {
-          left: '00%',    // 左侧边距
-          right: '00%',   // 右侧边距
-          top: '00%',     // 上侧边距
-          bottom: '00%',  // 下侧边距
-          containLabel: true  // 是否包含坐标轴标签（防止标签被裁剪）
+          left: '00%',
+          right: '00%',
+          top: '00%',
+          bottom: '00%',
+          containLabel: true
         },
         type: 'gauge',
         max: 10,
-        center: ['50%', '60%'], // 图表中心位置
-        radius: '100%', // 控制图表的半径，保证距离容器边缘有3px
+        center: ['50%', '60%'],
+        radius: '100%',
         axisLine: {
           lineStyle: {
             width: 20,
             color: [
-              [thresholdLow / 10, 'rgba(75, 192, 192, 0.6)'],
-              [thresholdHigh / 10, 'rgba(255, 206, 86, 0.6)'],
-              [10, 'rgba(255, 99, 132, 0.6)']
+              [thresholdLow / 10, 'rgba(255, 0, 0, 0.6)'],
+              [thresholdHigh / 10, 'rgba(255, 165, 0, 0.6)'],
+              [10, 'rgba(60, 179, 113, 0.6)']
             ]
           }
         },

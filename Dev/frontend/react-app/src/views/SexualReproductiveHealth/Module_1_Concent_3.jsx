@@ -31,7 +31,7 @@ const Module1Consent3 = (props) => {
 
     </div>
 
-    <button onClick={() => { props.actType(2) }} className='size-btn' style={{ position: 'absolute', right: '50px', bottom: '30px' }}>Jump back to the Module</button>
+    <button onClick={() => { props.actType(2) }} className='size-btn' style={{ float: 'right', marginRight: '20px' }}>Jump back to the Module</button>
 
   </div>
 };

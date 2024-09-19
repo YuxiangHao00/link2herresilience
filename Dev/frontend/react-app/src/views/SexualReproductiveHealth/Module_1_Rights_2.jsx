@@ -1,11 +1,10 @@
-import bg from './images/bg40.png'
 import '../../style.less'
 import './triage.less'
 import img16 from './images/16.png'
 import img17 from './images/17.png'
 import img18 from './images/18.png'
 const Module1Rights2 = (props) => {
-  return <div className="main-page img" style={{ backgroundImage: 'url(' + bg + ')' }}>
+  return <div className="main-page img">
     <div className='main-card flex zigzag-card small-card'>
       <img src={img18} alt="" />
       <ul style={{ flex: '1' }}>

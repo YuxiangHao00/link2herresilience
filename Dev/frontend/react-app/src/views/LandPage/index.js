@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import './LandPage.css';
 import titleImage from '../../images/SubTital.svg';
 import exploreicon from '../../images/ExploreIcon.svg';
@@ -12,6 +12,12 @@ import jumpPage from '../../images/JumpPage.svg';
 import { Link } from 'react-router-dom';
 
 function LandPage() {
+  const bottomRef = useRef(null);
+
+  const handleExploreClick = () => {
+    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className="land-page">
       <h1>
@@ -31,10 +37,14 @@ function LandPage() {
         <img src={descriptionImage} alt="What makes us better" className="description-image" />
       </div>
       
-      <Link to="/health-issues">
-        <img src={exploreicon} alt="Explore More" className="explore-image" />  
-      </Link>
-
+      <img 
+        src={exploreicon} 
+        alt="Explore More" 
+        className="explore-image" 
+        onClick={handleExploreClick}
+        style={{ cursor: 'pointer' }}
+      />
+      <div ref={bottomRef}></div>
       <div className="hp_l_1-wrapper">
         <img src={hp_l_1} alt="HP_L_1" className="hp_l_1" />
         <div className="hp_l_1-text">

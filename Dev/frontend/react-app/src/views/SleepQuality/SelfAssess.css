@@ -1,16 +1,14 @@
 .self-assess-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
+    max-width: 800px; /* 减小最大宽度 */
+    width: 95%; /* 设置宽度为95%，以在小屏幕上留有一些边距 */
+    margin: 0 auto; /* 居中容器 */
     background-color: #FFF8E7;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     position: relative;
+    padding: 20px;
     padding-bottom: 70px;
+    box-sizing: border-box; /* 确保padding不会增加总宽度 */
   }
   
   .title {
@@ -92,6 +90,11 @@
     background-color: #9CC8D6;
   }
   
+  .assess-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+  }
+  
   .optional-inputs-title {
     position: relative;
     padding-bottom: 10px;
@@ -122,27 +125,8 @@
     word-wrap: break-word;
   }
 
-  .assess-button:disabled {
-    background-color: #cccccc;
-    cursor: not-allowed;
-  }
-
-  input[type="number"]::-webkit-inner-spin-button,
-  input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
-  }
-
-  input[type="number"] {
-    -moz-appearance: textfield;
-    appearance: textfield;
-  }
-
   .result-container {
-    margin-top: 20px;
-    padding: 15px;
     background-color: #f0f0f0;
-    border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
@@ -184,7 +168,68 @@
   }
 
   .gauge-container {
-    width: 450px;
+    width: 100%;
+    max-width: 450px;
     height: 300px;
-    margin: 20px 0 auto;
+    margin: 20px auto;
+  }
+
+  .input-wrapper {
+    position: relative;
+    padding-bottom: 20px;
+  }
+
+  .input-error {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  @media (max-width: 640px) {
+    .self-assess-container {
+      width: 98%;
+      padding: 10px;
+    }
+
+    .info-cards {
+      flex-direction: column;
+    }
+
+    .info-card {
+      margin-bottom: 20px;
+    }
+
+    .form-row {
+      flex-direction: column;
+    }
+
+    label {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .gauge-container {
+      height: 200px;
+    }
+  }
+
+  @media (min-width: 641px) and (max-width: 1024px) {
+    .self-assess-container {
+      width: 90%;
+      padding: 15px;
+    }
+
+    .gauge-container {
+      height: 250px;
+    }
+  }
+
+  @media (min-width: 1025px) {
+    .self-assess-container {
+      width: 85%;
+      padding: 20px;
+    }
   }

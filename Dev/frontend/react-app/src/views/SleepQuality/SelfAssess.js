@@ -7,20 +7,12 @@ import e2 from '../../images/SQ/SQ_SA_e2.png';
 import e3 from '../../images/SQ/SQ_SA_e3.png';
 import { useNavigate } from 'react-router-dom';
 import SleepQualityGauge from './SleepQualityComponent';
-// import Exp from '../../images/SQ/SQ_SA_Exp.jpg';
 import Exp1 from '../../images/SQ/SQ_SA_Exp_1.png';
 import Exp2 from '../../images/SQ/SQ_SA_Exp_2.png';
 
 const SelfAssess = () => {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const showModal = () => {
-    setIsModalOpen(true);
-  };
-  const handleCancel = () => {
-    setIsModalOpen(false);
-  };
-
   const navigate = useNavigate();
   const [age, setAge] = useState('');
   const [stressLevel, setStressLevel] = useState('');
@@ -30,34 +22,112 @@ const SelfAssess = () => {
   const [error, setError] = useState('');
   const [result, setResult] = useState(null);
   const [updateKey, setUpdateKey] = useState(0);
+  const [loading, setLoading] = useState(false);
+  const [heartRateError, setHeartRateError] = useState('');
+  const [ageError, setAgeError] = useState('');
+  const [stressLevelError, setStressLevelError] = useState('');
 
-  const handleInputChange = (setter) => (e) => {
-    const value = e.target.value;
-    if (value === '' || parseFloat(value) >= 0) {
-      setter(value);
-    }
-  };
+  // Universal input handler
+  // const handleInputChange = (setter) => (e) => {
+  //   const value = e.target.value;
+  //   if (/^\d*$/.test(value)) {
+  //     // Prevent leading multiple zeros
+  //     if (value === '' || !/^0{2,}/.test(value)) {
+  //       setter(value);
+  //     }
+  //   }
+  // };
 
+  // Handle sleep duration input with one decimal place
   const handleSleepDurationChange = (e) => {
     const value = e.target.value;
-    if (value === '' || (parseFloat(value) >= 0 && parseFloat(value) <= 24)) {
-      setSleepDuration(value);
+    if (/^\d{0,2}(\.\d{0,1})?$/.test(value)) {
+      const numValue = parseFloat(value);
+      if (value === '' || (numValue > 0 && numValue <= 24)) {
+        setSleepDuration(value);
+      }
     }
   };
 
+  // Handle sleep start time change
+  const handleSleepStartTimeChange = (e) => {
+    setSleepStartTime(e.target.value);
+  };
+
+  //Handle input handler for heart rate
+  const handleHeartRateChange = (e) => {
+    const value = e.target.value;
+    if (/^\d*$/.test(value)) {
+      if (value === '' || !/^0{2,}/.test(value)) {
+        const numValue = parseInt(value, 10);
+        if (numValue > 140) {
+          setHeartRate('');
+          setHeartRateError('Heart rate should be between 40 and 140');
+        } else {
+          setHeartRate(value);
+          setHeartRateError('');
+        }
+      }
+    }
+  };
+
+  // Handle age input
   const handleAgeChange = (e) => {
     const value = e.target.value;
-    if (value === '' || (parseInt(value) >= 0 && parseInt(value) <= 150)) {
-      setAge(value);
+    if (/^\d*$/.test(value)) {
+      if (value === '' || !/^0{2,}/.test(value)) {
+        const numValue = parseInt(value, 10);
+        if (numValue > 150) {
+          setAge('');
+          setAgeError('Age should be between 0 and 150');
+        } else {
+          setAge(value);
+          setAgeError('');
+        }
+      }
     }
   };
 
+  // Handle stress level input
+  const handleStressLevelChange = (e) => {
+    const value = e.target.value;
+    if (/^\d*$/.test(value)) {
+      if (value === '' || !/^0{2,}/.test(value)) {
+        const numValue = parseInt(value, 10);
+        if (numValue > 10) {
+          setStressLevel('');
+          setStressLevelError('Stress level should be between 0 and 10');
+        } else {
+          setStressLevel(value);
+          setStressLevelError('');
+        }
+      }
+    }
+  };
+
+  // Assess sleep quality by calling the backend API
   const handleAssess = async () => {
     if (!sleepDuration || !sleepStartTime) {
       setError('Please enter sleep duration and start time');
       return;
     }
+
+    // Validate inputs
+    if (age && (parseInt(age) < 0 || parseInt(age) > 150)) {
+      setError('Age must be between 0 and 150');
+      return;
+    }
+    if (stressLevel && (parseInt(stressLevel) < 0 || parseInt(stressLevel) > 10)) {
+      setError('Stress level must be between 0 and 10');
+      return;
+    }
+    if (heartRate && (parseInt(heartRate) < 40 || parseInt(heartRate) > 140)) {
+      setError('Heart rate must be between 40 and 140');
+      return;
+    }
+
     setError('');
+    setLoading(true);
 
     const today = new Date();
     const yesterday = new Date(today);
@@ -89,17 +159,14 @@ const SelfAssess = () => {
       console.error('Error:', error);
       setError('An error occurred while analyzing. Please try again.');
       setResult(null);
+    } finally {
+      setLoading(false);
     }
   };
 
+  // Renders sleep quality result
   const renderResult = () => {
     if (!result) return null;
-
-    console.log('Rendering result:', result);
-    console.log('Threshold Low:', result.threshold_low);
-    console.log('Threshold High:', result.threshold_high);
-    console.log('Overall Quality Mean:', result.overall_quality_mean);
-    console.log('Overall Quality:', result.overall_quality);
 
     const qualityData = result.quality_category[0].quality;
     let qualityColor;
@@ -121,7 +188,7 @@ const SelfAssess = () => {
       <div className="result-container">
         <h3>Sleep Quality Analysis Result:</h3>
         <div className="gauge-container">
-          <SleepQualityGauge 
+          <SleepQualityGauge
             key={updateKey}
             overallQualityMean={result.overall_quality_mean}
             thresholdLow={result.threshold_low}
@@ -129,15 +196,16 @@ const SelfAssess = () => {
             category={result.overall_quality}
           />
         </div>
-        <p>Quality Category: <span style={{color: qualityColor, fontWeight: 'bold'}}>{qualityData.category}</span></p>
+        <p>Quality Category: <span style={{ color: qualityColor, fontWeight: 'bold' }}>{qualityData.category}</span></p>
         <p>Ratio in Sample Population: {(qualityData.fraction * 100).toFixed(3)}%</p>
         <p>Suggestion: {qualityData.suggestion}</p>
       </div>
     );
   };
 
+  // Form validation and button disabling logic
   useEffect(() => {
-    const isValid = 
+    const isValid =
       (!age || (parseInt(age) >= 0 && parseInt(age) <= 150)) &&
       (!stressLevel || (parseInt(stressLevel) >= 0 && parseInt(stressLevel) <= 10)) &&
       (!heartRate || (parseInt(heartRate) >= 40 && parseInt(heartRate) <= 140)) &&
@@ -161,18 +229,18 @@ const SelfAssess = () => {
         <div className="info-card">
           <img src={e1} alt="Stress Level" />
           <h3>Stress Level</h3>
-          <p>Reduced stress levels aids in improving health which is inversely related with sleep quality</p>
+          <p>Reduced stress levels aid in improving health which is inversely related to sleep quality</p>
         </div>
 
         <div className="info-card">
-          <img src={e2} alt="Stress Level" />
+          <img src={e2} alt="Heart Rate" />
           <h3>Heart Rate</h3>
-          <p>Resting heart rate of 70-72 bpm (beats per minute) assists in better sleep</p>
+          <p>Resting heart rate of 70-72 bpm assists in better sleep</p>
         </div>
 
         <div className="info-card">
-            <img src={e3} alt="Stress Level" />
-            <h3>Enough Sleep</h3>
+          <img src={e3} alt="Enough Sleep" />
+          <h3>Enough Sleep</h3>
           <p>Sufficient sleep supports cognitive function, emotional well-being, and immune system function.</p>
         </div>
       </div>
@@ -182,97 +250,109 @@ const SelfAssess = () => {
         <div className="form-row">
           <label>
             Past night Sleep duration (hours)
-            <input 
-              type="number" 
-              step="0.1" 
-              min="0" 
-              max="24"
-              value={sleepDuration} 
+            <input
+              type="text"
+              inputMode="decimal"
+              pattern="\d*\.?\d*"
+              value={sleepDuration}
               onChange={handleSleepDurationChange}
-              required 
+              required
+              placeholder="e.g. 7.5"
             />
           </label>
           <label>
             Past night Sleep Start Time (click clock)
-            <input 
-              type="time" 
-              value={sleepStartTime} 
-              onChange={(e) => setSleepStartTime(e.target.value)}
-              required 
+            <input
+              type="time"
+              value={sleepStartTime}
+              onChange={handleSleepStartTimeChange}
+              required
             />
           </label>
         </div>
-        <h4 className="optional-inputs-title">Optional inputs</h4>
+        {/* <h4 className="optional-inputs-title">Optional inputs</h4> */}
         <div className="form-row">
-          <label>
-            Age (0-150)
-            <input 
-              type="number" 
-              min="0" 
-              max="150" 
-              value={age} 
+          <label className="input-wrapper">
+            Age
+            <input
+              type="text"
+              inputMode="numeric"
+              pattern="\d*"
+              value={age}
               onChange={handleAgeChange}
+              // placeholder="0-150"
             />
+            {ageError && <p className="input-error">{ageError}</p>}
           </label>
-          <label>
+          <label className="input-wrapper">
             Stress level (0-10)
-            <input 
-              type="number" 
-              min="0" 
-              max="10" 
-              value={stressLevel} 
-              onChange={handleInputChange(setStressLevel)}
+            <input
+              type="text"
+              inputMode="numeric"
+              pattern="\d*"
+              value={stressLevel}
+              onChange={handleStressLevelChange}
+              placeholder="0-10"
             />
+            {stressLevelError && <p className="input-error">{stressLevelError}</p>}
           </label>
-          <label>
+          <label className="input-wrapper">
             Heart rate (40-140)
-            <input 
-              type="number" 
-              min="40" 
-              max="140" 
-              value={heartRate} 
-              onChange={handleInputChange(setHeartRate)}
+            <input
+              type="text"
+              inputMode="numeric"
+              pattern="\d*"
+              value={heartRate}
+              onChange={handleHeartRateChange}
+              placeholder="40-140"
             />
+            {heartRateError && <p className="input-error">{heartRateError}</p>}
           </label>
         </div>
 
-        <button onClick={handleAssess} className="assess-button" disabled={!sleepDuration || !sleepStartTime}>Assess</button>
+        {loading ? (
+          <div>Loading...</div>
+        ) : (
+          <button onClick={handleAssess} className="assess-button">
+            Assess
+          </button>
+        )}
         {error && <p className="error">{error}</p>}
         {renderResult()}
       </div>
 
-      <Button 
-        className='size-btn' 
-        type="link" 
-        onClick={showModal}
-        style={{ 
-          background: 'none', 
+      <Button
+        className='size-btn'
+        type="link"
+        onClick={() => setIsModalOpen(true)}
+        style={{
+          background: 'none',
           padding: 0,
-          fontSize: '30px',
+          fontSize: '20px',
           marginLeft: '40px',
           display: 'inline-block'
         }}
       >
         Know about data
       </Button>
-      <Modal 
+      <Modal
         title={<div style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '30px' }}>Effects of poor Sleep Quality</div>}
-        open={isModalOpen} 
-        onCancel={handleCancel}
+        open={isModalOpen}
+        onCancel={() => setIsModalOpen(false)}
         width={900}
         style={{ top: 20 }}
         bodyStyle={{ maxHeight: 'calc(100vh - 200px)', overflowY: 'auto' }}
         footer={null}
         closable={true}
       >
-        <p style={{fontWeight: 'bold'}}>Source: Australian Institute of Health & Welfare (AIHW)</p>
+        <p style={{ fontWeight: 'bold' }}>Source: Australian Institute of Health & Welfare (AIHW)</p>
         <div style={{ display: 'flex', justifyContent: 'space-between' }}>
           <img src={Exp1} alt="Sleep Quality Effects 1" style={{ width: '49%', height: 'auto' }} />
           <img src={Exp2} alt="Sleep Quality Effects 2" style={{ width: '49%', height: 'auto' }} />
         </div>
       </Modal>
 
-      <button 
+      <button
         onClick={handleGoBack}
         className="SA-back-button"
       >

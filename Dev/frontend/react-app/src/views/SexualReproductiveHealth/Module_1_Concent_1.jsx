@@ -21,7 +21,7 @@ const Module1Consent1 = (props) => {
         <p className='info-details'>It’s not complicated! Just ask. "Are you comfortable?" or "Is this okay?" are easy ways to check in. Consent can be verbal ("Yes, I’m good!") or non-verbal (a happy nod), but it should always be enthusiastic. If there’s any hesitation, pump the brakes — no one likes being pressured!</p>
       </li>
     </ul>
-    <button onClick={() => { props.actType(7) }} className='size-btn' style={{ position:'absolute',right:'30px',bottom:'30px' }}>Next →</button>
+    <button onClick={() => { props.actType(7) }} className='size-btn' style={{ float: 'right', marginRight: '20px'}}>Next →</button>
   </div>
 }
 

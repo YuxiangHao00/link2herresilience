@@ -1,11 +1,10 @@
-import bg from './images/bg40.png'
 import '../../style.less'
 import './triage.less'
 import img22 from './images/22.png'
 import img23 from './images/23.png'
 
 const Module1Consent2 = (props) => {
-  return <div className="main-page img" style={{ backgroundImage: 'url(' + bg + ')' }}>
+  return <div className="main-page img">
     <div className='main-card flex  small-card'>
       <img src={img22} alt="" />
 
@@ -45,7 +44,7 @@ const Module1Consent2 = (props) => {
       <img src={img23} alt="" />
     </div>
 
-    <button onClick={() => { props.actType(8) }} className='size-btn' style={{ position: 'absolute', right: '30px', bottom: '30px' }}>Next →</button>
+    <button onClick={() => { props.actType(8) }} className='size-btn' style={{ float: 'right', marginRight: '20px' }} >Next →</button>
 
   </div>
 }

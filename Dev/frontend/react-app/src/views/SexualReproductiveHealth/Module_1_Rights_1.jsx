@@ -1,10 +1,9 @@
-import bg from './images/bg40.png'
 import '../../style.less'
 import './triage.less'
 import img15 from './images/15.png'
 
 const Module1Rights1 = (props) => {
-  return <div className="main-page img" style={{ backgroundImage: 'url(' + bg + ')' }}>
+  return <div className="main-page img">
     <div>
       <header>
         <h1 className="page-title">About your Reproductive Rights in Australia</h1>
@@ -31,7 +30,6 @@ const Module1Rights1 = (props) => {
         <button onClick={()=>{props.actType(4)}} className='size-btn' style={{float:'right',marginRight:'20px'}}>Next →</button>
       </div>
     </div>
-
   </div>
 }
 

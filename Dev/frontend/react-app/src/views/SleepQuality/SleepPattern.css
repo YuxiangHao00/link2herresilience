@@ -320,3 +320,9 @@
 .quality-label.bad {
   color: #F44336;
 }
+
+.input-error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}

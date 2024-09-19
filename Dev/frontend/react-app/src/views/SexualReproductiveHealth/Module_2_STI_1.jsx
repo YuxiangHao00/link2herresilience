@@ -45,10 +45,11 @@ const FamilyPlanningModule = (props) => {
           padding: 0,
           fontSize: '30px',
           marginLeft: '40px',
-          display: 'inline-block'
+          display: 'inline-block',
+          color: 'red'
         }}
       >
-        Data Insights
+        Data Insights(Click to view)
       </Button>
       <Modal 
         title="STI Notifications in Australia" 
