@@ -92,7 +92,7 @@ class SleepQuality(Resource):
         '''
         method to check and parse input str to np array
         '''
-        if 1:
+        try:    #if 1:
             self.err_code = 0
             self.np_days = np.array([int(x) for x in self.days[1:-1].split(",")])
             self.np_start_time = np.array([[int(x[:2]), int(x[2:])] for x in self.start_time[1:-1].split(",")])
@@ -147,7 +147,7 @@ class SleepQuality(Resource):
                         self.err_code = (1<<7) | self.err_code
                         self.err_msg.append("input age is out of range (0-150) for a day")
         
-        else:
+        except:    # else:
             self.b_input_format = False
             self.err_code = 1
             self.err_msg = "check_input_args failed to execute"
@@ -167,7 +167,10 @@ class SleepQuality(Resource):
             dict_args['heart_rate'] = self.np_heart_rates[i]
         except:
             dict_args['heart_rate'] = self.dict_MEAN['heart_rate']
-        if 'age' not in dict_args.keys():
+        try:
+            dict_args['age'] = self.age
+        # if 'age' not in dict_args.keys():
+        except:
             dict_args['age'] = self.dict_MEAN['age']
 
         return dict_args 
