@@ -184,7 +184,7 @@ h1 {
   line-height: 1.5;
   position: relative;
   text-align: center;
-  }
+}
 
 .jump-page_4 {
   width: 30%;
@@ -228,5 +228,359 @@ h1 {
 @media (max-height: 600px) {
   .content-container {
     justify-content: flex-start;
+  }
+}
+
+.bottom-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  border-top: 2px solid #000000;
+}
+
+.bottom-link {
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #333;
+  transition: color 0.3s ease;
+  margin-right: 2rem;
+}
+
+.bottom-link:hover {
+  color: #007bff;
+}
+
+@media (max-width: 768px) {
+  .bottom-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+  }
+
+  .bottom-link {
+    margin: 0.5rem 0;
+    margin-right: 0;
+  }
+}
+
+.sub-page {
+  padding: 2rem;
+  background-color: #fff;
+}
+
+.back-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+/* About Us page styles */
+.about-us {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.page-title {
+  font-size: 2.5rem;
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+.sub-title {
+  font-size: 1.8rem;
+  color: #28a745;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.feature-list {
+  padding-left: 1.5rem;
+}
+
+.feature-list li {
+  margin-bottom: 1rem;
+}
+
+.closing {
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .about-us {
+    padding: 1rem;
+  }
+
+  .page-title {
+    font-size: 2rem;
+  }
+
+  .sub-title {
+    font-size: 1.5rem;
+  }
+}
+
+.privacy-policy {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.privacy-policy .page-title {
+  font-size: 2.5rem;
+  color: #007bff;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 0.5rem;
+}
+
+.privacy-policy .sub-title {
+  font-size: 1.8rem;
+  color: #28a745;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.privacy-policy p {
+  margin-bottom: 1rem;
+}
+
+.privacy-policy .feature-list {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.privacy-policy .feature-list li {
+  margin-bottom: 0.5rem;
+}
+
+.privacy-policy .closing {
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-left: 4px solid #007bff;
+}
+
+.privacy-policy .back-button {
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.privacy-policy .back-button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .privacy-policy {
+    padding: 1rem;
+  }
+
+  .privacy-policy .page-title {
+    font-size: 2rem;
+  }
+
+  .privacy-policy .sub-title {
+    font-size: 1.5rem;
+  }
+}
+
+.terms-conditions {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.6;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.terms-conditions .page-title {
+  font-size: 2.5rem;
+  color: #007bff;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 0.5rem;
+}
+
+.terms-conditions .sub-title {
+  font-size: 1.8rem;
+  color: #28a745;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.terms-conditions p {
+  margin-bottom: 1rem;
+}
+
+.terms-conditions .feature-list {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.terms-conditions .feature-list li {
+  margin-bottom: 0.5rem;
+}
+
+.terms-conditions .closing {
+  font-style: italic;
+  font-weight: bold;
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-left: 4px solid #007bff;
+}
+
+.terms-conditions .back-button {
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.terms-conditions .back-button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .terms-conditions {
+    padding: 1rem;
+  }
+
+  .terms-conditions .page-title {
+    font-size: 2rem;
+  }
+
+  .terms-conditions .sub-title {
+    font-size: 1.5rem;
+  }
+}
+
+
+.team-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.team-page .page-title {
+  font-size: 2.5rem;
+  color: #007bff;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #007bff;
+}
+
+.team-description {
+  text-align: center;
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.team-member {
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image-container {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.member-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-member h3 {
+  font-size: 1.3rem;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+}
+
+.team-member p {
+  font-size: 1rem;
+  color: #333;
+}
+
+.team-page .back-button {
+  display: block;
+  margin: 2rem auto 0;
+  padding: 0.75rem 1.5rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+}
+
+.team-page .back-button:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-page .page-title {
+    font-size: 2rem;
+  }
+
+  .team-member {
+    padding: 1rem;
   }
 }
