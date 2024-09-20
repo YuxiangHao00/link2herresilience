@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SQTital from '../../images/SQ/SQ_Tital.svg';
 import SQSubTital from '../../images/SQ/SQ_SubTital.svg';
-// import US1 from '../../images/SQ/SQ_US1.svg';
 import US2 from '../../images/SQ/SQ_US2.svg';
 import US3 from '../../images/SQ/SQ_US3.svg';
 
@@ -14,12 +13,14 @@ function SleepQuality() {
     { 
       image: US2, 
       path: '/sleep-quality/self-assess',
-      subtitle: 'Sleep Quality estimator'
+      subtitle: 'Sleep Quality estimator',
+      description: "It is important to have a good night's sleep which is dependent of factors like one's stress level, sleep duration & heart rate, etc. Find out your past night's sleep quality."
     },
     { 
       image: US3, 
       path: '/sleep-quality/sleep-pattern',
-      subtitle: 'Sleeping pattern'
+      subtitle: 'Sleeping pattern',
+      description: "Analyse your sleeping pattern to be informed about its effect on your health based on the sleep quality"
     },
   ];
 
@@ -57,6 +58,9 @@ function SleepQuality() {
                onMouseLeave={(e) => e.target.style.color = '#16A34A'}
             >
               {feature.subtitle}
+            </p>
+            <p className="text-center mt-2 text-sm text-gray-600">
+              {feature.description}
             </p>
           </div>
         ))}
