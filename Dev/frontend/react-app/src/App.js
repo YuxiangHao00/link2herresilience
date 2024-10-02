@@ -10,6 +10,7 @@ import NoiseDetection from './views/SleepQuality/NoiseDetection';
 import SleepPattern from './views/SleepQuality/SleepPattern';
 import SelfAssess from './views/SleepQuality/SelfAssess';
 import SexualReproductiveHealth from './views/SexualReproductiveHealth';
+import AddictionPrevention from './views/Addiction&DrugAbuse';
 const SleepIcon = (props) => (
   <svg
     {...props}
@@ -116,6 +117,30 @@ function AppContent() {
     </svg>
   );
 
+  const PillIcon = (props) => (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 8v4" />
+      <path d="M12 16v4" />
+      <path d="M12 4v4" />
+      <path d="M12 12v4" />
+      <path d="M12 8h4" />
+      <path d="M12 16h4" />
+      <path d="M12 4h4" />
+      <path d="M12 12h4" />
+    </svg>
+  );
+
   const MenuItem = ({ to, icon: Icon, label }) => {
     const isActive = currentPath.startsWith(to);
     const handleClick = () => {
@@ -174,7 +199,8 @@ function AppContent() {
           <MenuItem to="/health-issues" icon={HospitalIcon} label="Health issues" />
           <MenuItem to="/suburb-finder" icon={MapIcon} label="Suburb Finder" />
           <MenuItem to="/sleep-quality" icon={SleepIcon} label="Sleep Quality" />
-          <MenuItem to="/sexual-reproductive-health" icon={HeartIcon} label="Sexual&Reproductive" />
+          <MenuItem to="/sexual-reproductive-health" icon={HeartIcon} label="Sexual & Reproductive" />
+          <MenuItem to="/addiction-prevention" icon={PillIcon} label="Addiction Prevention" />
         </nav>
       </aside>
       <main className="flex-1 overflow-y-auto bg-[#F3F4F6] ml-64">
@@ -188,6 +214,7 @@ function AppContent() {
           <Route path="/sleep-quality/sleep-pattern" element={<SleepPattern />} />
           <Route path="/sleep-quality/self-assess" element={<SelfAssess />} />
           <Route path="/sexual-reproductive-health" element={<SexualReproductiveHealth />} />
+          <Route path="/addiction-prevention" element={<AddictionPrevention />} />
         </Routes>
       </main>
     </div>

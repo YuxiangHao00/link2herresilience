@@ -1,0 +1,56 @@
+@import '../../style.less';
+
+.addiction-prevention {
+  &.main-page {
+    .main-card {
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #FFF8E7;
+    }
+
+    .page-title {
+      font-size: 2rem;
+      color: #000000 !important; // 使用 !important 来确保覆盖其他样式
+      margin-bottom: 1rem;
+      
+      @media (max-width: 768px) {
+        font-size: 1.5rem;
+      }
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      color: #000000;
+      
+      @media (max-width: 768px) {
+        font-size: 1.25rem;
+      }
+    }
+
+    .info-details {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+      
+      @media (max-width: 768px) {
+        font-size: 0.9rem;
+      }
+    }
+
+    .main-btn {
+      display: block;
+      margin: 1.5rem auto 0;
+      font-size: 1.2rem;
+      padding: 10px 20px;
+      background-color: #0F296D;
+      color: white;
+      line-height: 1;
+      text-align: center;
+      
+      @media (max-width: 768px) {
+        font-size: 1rem;
+        padding: 8px 16px;
+      }
+    }
+  }
+}

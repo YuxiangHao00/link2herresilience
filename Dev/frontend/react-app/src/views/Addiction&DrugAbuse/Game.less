@@ -1,0 +1,198 @@
+@import '../../style.less';
+
+.fork-common {
+  &.main-page {
+    .game-card {
+      background-color: #FFF8E7;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .intro-text {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .step-container {
+      margin-bottom: 30px;
+    }
+
+    .step-image {
+      width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .step-text {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+
+    .step-divider {
+      margin: 30px 0;
+      border-top: 1px solid #d9d9d9;
+    }
+
+    .choices {
+      margin-top: 30px;
+
+      h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        line-height: 1.4;
+      }
+    }
+
+    .choice-card {
+      background-color: #ffffff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .choice-image {
+        width: 100%;
+        height: auto;
+        max-height: 300px;
+        object-fit: contain;
+        border-radius: 8px;
+        margin-bottom: 15px;
+      }
+
+      .choice-text {
+        font-size: 1rem;
+        margin-bottom: 15px;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+
+    .navigation-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+
+      button {
+        min-width: 100px;
+      }
+    }
+
+    .text-center {
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.5rem;
+      margin: 20px 0;
+    }
+
+    .final-card {
+      .afp-badge {
+        width: 100%;
+        max-width: 300px;
+        display: block;
+        margin: 0 auto;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      .ant-typography {
+        margin-bottom: 16px;
+      }
+
+      a {
+        color: #1890ff;
+        text-decoration: underline;
+
+        &:hover {
+          color: #40a9ff;
+        }
+      }
+
+      .full-width-image {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.fork-1, .fork-2 {
+  &:extend(.fork-common);
+}
+
+// Responsive styles
+@media (max-width: 768px) {
+  .fork-common.main-page {
+    .game-card {
+      padding: 15px;
+    }
+
+    .intro-text {
+      font-size: 1.1rem;
+    }
+
+    .step-image {
+      max-height: 300px;
+    }
+
+    .step-text {
+      font-size: 1rem;
+    }
+
+    .choices h2 {
+      font-size: 1.3rem;
+    }
+
+    .choice-card {
+      margin-bottom: 20px;
+
+      .choice-image {
+        max-height: 250px;
+      }
+
+      .choice-text {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 576px) {
+  .fork-common.main-page {
+    .intro-text {
+      font-size: 1rem;
+    }
+
+    .step-image {
+      max-height: 250px;
+    }
+
+    .step-text {
+      font-size: 0.9rem;
+    }
+
+    .choices h2 {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+// ... 现有代码 ...

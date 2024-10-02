@@ -196,7 +196,7 @@ export default function DiseasePrevalenceComponent() {
   };
 
   return (
-    <div className="space-y-8 p-8">
+    <div className="space-y-4 sm:space-y-8 p-4 sm:p-8">
       <Tabs
         defaultActiveKey="1"
         centered
@@ -207,11 +207,11 @@ export default function DiseasePrevalenceComponent() {
         onChange={handleTabChange}
       />
       {activeTab === '1' && (
-        <div className="space-y-10 flex flex-col items-center">
-          <h2 className="text-xl font-bold text-center text-[#0F296D]">Prevalence of different diseases among Australian population</h2>
-          <div className="flex items-center space-x-2">
+        <div className="space-y-6 sm:space-y-10 flex flex-col items-center">
+          <h2 className="text-lg sm:text-xl font-bold text-center text-[#0F296D]">Prevalence of different diseases among Australian population</h2>
+          <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
             <Select 
-              className="w-48" 
+              className="w-full sm:w-48" 
               placeholder="Gender" 
               onChange={handleGenderChange}
               value={selectedGender}
@@ -220,7 +220,7 @@ export default function DiseasePrevalenceComponent() {
               <Select.Option value="Female">Female</Select.Option>
             </Select>
             <Select 
-              className="w-48" 
+              className="w-full sm:w-48" 
               placeholder="Age Group"
               onChange={handleAgeGroupChange}
               value={selectedAgeGroup}
@@ -245,15 +245,15 @@ export default function DiseasePrevalenceComponent() {
               <Select.Option value="85 years and over">85 years and over</Select.Option>
             </Select>
             <Button 
-              className={`${buttonStyle} ${isSearchDisabled() ? 'opacity-50 cursor-not-allowed' : ''}`} 
+              className={`${buttonStyle} w-full sm:w-auto ${isSearchDisabled() ? 'opacity-50 cursor-not-allowed' : ''}`} 
               onClick={handleSearch}
               disabled={isSearchDisabled()}
             >
               Search
             </Button>
-            <Button className={buttonStyle} onClick={handleReset}>Reset</Button>
+            <Button className={`${buttonStyle} w-full sm:w-auto`} onClick={handleReset}>Reset</Button>
             <Dropdown menu={menuProps}>
-              <Button className={buttonStyle}>
+              <Button className={`${buttonStyle} w-full sm:w-auto`}>
                 <Space>
                   Sort
                   <DownOutlined />
@@ -262,8 +262,8 @@ export default function DiseasePrevalenceComponent() {
             </Dropdown>
           </div>
 
-          <div className="w-[60vw] h-[600px] flex">
-            <div className="w-[55%] h-full overflow-y-auto pr-4">
+          <div className="w-full sm:w-[60vw] h-[400px] sm:h-[600px] flex flex-col sm:flex-row">
+            <div className="w-full sm:w-[55%] h-1/2 sm:h-full overflow-y-auto pr-0 sm:pr-4 mb-4 sm:mb-0">
               {loading && <p>Loading data...</p>}
               {error && <p className="text-red-500">{error}</p>}
               {isDataReady && data.length > 0 ? (
@@ -287,7 +287,7 @@ export default function DiseasePrevalenceComponent() {
                 !loading && !error && <p>No data available</p>
               )}
             </div>
-            <div className="w-[45%] h-full">
+            <div className="w-full sm:w-[45%] h-1/2 sm:h-full">
               {isDataReady && data.length > 0 && renderPieChart(data)}
             </div>
           </div>
@@ -295,11 +295,11 @@ export default function DiseasePrevalenceComponent() {
       )}
       
       {activeTab === '2' && (
-        <div className="space-y-10 flex flex-col items-center">
-          <h2 className="text-xl font-bold text-center text-[#0F296D]">Different diseases in different parts of Australia</h2>
-          <div className="flex items-center space-x-2">
+        <div className="space-y-6 sm:space-y-10 flex flex-col items-center">
+          <h2 className="text-lg sm:text-xl font-bold text-center text-[#0F296D]">Different diseases in different parts of Australia</h2>
+          <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
             <Select 
-              className="w-48" 
+              className="w-full sm:w-48" 
               placeholder="Region"
               onChange={handleRegionChange}
               value={selectedRegion}
@@ -314,15 +314,15 @@ export default function DiseasePrevalenceComponent() {
               <Select.Option value="Australian Capital Territory">Australian Capital Territory</Select.Option>
             </Select>
             <Button 
-              className={`${buttonStyle} ${isSearchDisabled() ? 'opacity-50 cursor-not-allowed' : ''}`} 
+              className={`${buttonStyle} w-full sm:w-auto ${isSearchDisabled() ? 'opacity-50 cursor-not-allowed' : ''}`} 
               onClick={handleSearch}
               disabled={isSearchDisabled()}
             >
               Search
             </Button>
-            <Button className={buttonStyle} onClick={handleReset}>Reset</Button>
+            <Button className={`${buttonStyle} w-full sm:w-auto`} onClick={handleReset}>Reset</Button>
             <Dropdown menu={menuProps}>
-              <Button className={buttonStyle}>
+              <Button className={`${buttonStyle} w-full sm:w-auto`}>
                 <Space>
                   Sort
                   <DownOutlined />
@@ -330,8 +330,8 @@ export default function DiseasePrevalenceComponent() {
               </Button>
             </Dropdown>
           </div>
-          <div className="w-[60vw] h-[600px] flex">
-            <div className="w-[55%] h-full overflow-y-auto pr-4">
+          <div className="w-full sm:w-[60vw] h-[400px] sm:h-[600px] flex flex-col sm:flex-row">
+            <div className="w-full sm:w-[55%] h-1/2 sm:h-full overflow-y-auto pr-0 sm:pr-4 mb-4 sm:mb-0">
               {loading && <p>Loading data...</p>}
               {error && <p className="text-red-500">{error}</p>}
               {isDataReady && data.length > 0 ? (
@@ -355,7 +355,7 @@ export default function DiseasePrevalenceComponent() {
                 !loading && !error && <p>No data available</p>
               )}
             </div>
-            <div className="w-[45%] h-full">
+            <div className="w-full sm:w-[45%] h-1/2 sm:h-full">
               {isDataReady && data.length > 0 && renderPieChart(data)}
             </div>
           </div>

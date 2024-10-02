@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './LandPage.css';
 import titleImage from '../../images/SubTital.svg';
 import exploreicon from '../../images/ExploreIcon.svg';
@@ -18,13 +18,28 @@ import Team from './Team';
 function LandPage() {
   const [currentPage, setCurrentPage] = useState('main');
   const bottomRef = useRef(null);
+  const topRef = useRef(null);
+  const contentRef = useRef(null);
+
+  useEffect(() => {
+    if (currentPage === 'main') {
+      topRef.current?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      contentRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [currentPage]);
 
   const handleExploreClick = () => {
     bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const handleBackToMain = () => {
+    setCurrentPage('main');
+  };
+
   return (
     <div className="land-page">
+      <div ref={topRef}></div>
       {currentPage === 'main' && (
         <>
           <h1>
@@ -101,10 +116,12 @@ function LandPage() {
         </>
       )}
       
-      {currentPage === 'about' && <AboutUs onBack={() => setCurrentPage('main')} />}
-      {currentPage === 'privacy' && <Privacy onBack={() => setCurrentPage('main')} />}
-      {currentPage === 'terms' && <Terms onBack={() => setCurrentPage('main')} />}
-      {currentPage === 'team' && <Team onBack={() => setCurrentPage('main')} />}
+      <div ref={contentRef}>
+        {currentPage === 'about' && <AboutUs onBack={handleBackToMain} />}
+        {currentPage === 'privacy' && <Privacy onBack={handleBackToMain} />}
+        {currentPage === 'terms' && <Terms onBack={handleBackToMain} />}
+        {currentPage === 'team' && <Team onBack={handleBackToMain} />}
+      </div>
     </div>
   );
 }
