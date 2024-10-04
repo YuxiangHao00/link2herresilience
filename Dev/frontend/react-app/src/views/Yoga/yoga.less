@@ -1,0 +1,453 @@
+@orange: #FF9800;
+@green: #E8F5E9;
+@white: #FFFFFF;
+@gray: #757575;
+
+.yoga-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: @white;
+
+  .tabs {
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #E0E0E0;
+    margin-bottom: 20px;
+
+    .tab {
+      padding: 10px 20px;
+      text-decoration: none;
+      color: @gray;
+      font-weight: normal;
+      font-size: 16px;
+      transition: color 0.3s, border-bottom 0.3s;
+      border-bottom: 3px solid transparent;
+      margin: 0 10px;
+
+      &.active {
+        color: @orange;
+        border-bottom: 3px solid @orange;
+        font-weight: bold;
+      }
+
+      &:hover {
+        color: @orange;
+      }
+    }
+  }
+
+  .content-wrapper {
+    display: flex;
+    margin-bottom: 30px;
+    align-items: flex-start;
+
+    .main-content {
+      flex: 1;
+      padding-right: 0px;
+
+      h1 {
+        font-size: 18px;
+        font-weight: normal;
+        margin-bottom: 10px;
+        text-align: left;
+
+        .highlight {
+          font-size: 24px;
+          font-weight: bold;
+        }
+      }
+
+      p {
+        margin-bottom: 10px;
+      }
+
+      h2 {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      ul {
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+    }
+
+    .symbol-wrapper {
+      width: 250px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-left: -180px;
+      margin-top: 20px;
+
+      .yoga-symbol {
+        width: 200px;
+        height: 200px;
+        object-fit: contain;
+        margin-bottom: 10px;
+      }
+
+      .sanskrit-text {
+        color: @orange;
+        font-size: 16px;
+        text-align: center;
+        width: 100%;
+      }
+    }
+  }
+
+  .cards-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    .card {
+      width: 32%;
+      background-color: @green;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 10px;
+      box-sizing: border-box;
+
+      img {
+        max-width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      p {
+        padding: 10px;
+        text-align: center;
+        font-weight: bold;
+        width: 100%;
+        border-radius: 5px;
+        margin: 0;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+
+  .history-page {
+    .history-content {
+      h1 {
+        font-size: 28px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .yoga-text {
+        width: 100%;
+        margin-bottom: 30px;
+        border-radius: 8px;
+      }
+
+      .history-main {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .text-content {
+          flex: 1;
+          padding-right: 30px;
+
+          p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #444;
+            font-size: 16px;
+          }
+
+          strong {
+            font-weight: bold;
+            color: #333;
+          }
+        }
+
+        .yoga-seal {
+          width: 20%;
+          height: auto;
+          border-radius: 8px;
+        }
+      }
+    }
+
+    .science-section {
+      margin-top: 30px;
+
+      .science-container {
+        display: flex;
+        align-items: flex-start;
+
+        .stats-images {
+          width: 14%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-right: 20px;
+
+          img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+            border-radius: 8px;
+          }
+        }
+
+        .science-content {
+          flex: 1;
+
+          h2 {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+          }
+
+          p {
+            margin-bottom: 15px;
+            line-height: 1.5;
+            color: #333;
+            font-size: 16px;
+          }
+
+          .effects {
+            p {
+              margin-bottom: 5px;
+              line-height: 1.5;
+              color: #333;
+              font-size: 16px;
+
+              .effect-title {
+                font-weight: bold;
+                margin-right: 5px;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .learn-more {
+      margin-top: 30px;
+      text-align: right;
+
+      .learn-more-link {
+        color: #4CAF50;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 18px;
+        display: inline-block;
+        padding: 5px 10px;
+      }
+    }
+
+    .sanskrit-footer {
+      margin-top: 30px;
+      text-align: center;
+      color: @orange;
+      font-size: 22px;
+      font-weight: bold;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .yoga-container {
+    padding: 15px;
+
+    .content-wrapper {
+      flex-direction: column;
+
+      .main-content {
+        padding-right: 0;
+        margin-bottom: 20px;
+      }
+
+      .symbol-wrapper {
+        width: 100%;
+        margin-left: 0; // 在小屏幕上移除左边距
+        
+        .yoga-symbol {
+          width: 200px; // 在小屏幕上恢复原始大小
+          height: 200px;
+        }
+
+        .sanskrit-text {
+          font-size: 18px; // 在小屏幕上恢复原始字体大小
+        }
+      }
+    }
+
+    .cards-wrapper {
+      flex-wrap: wrap;
+
+      .card {
+        width: 48%;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .yoga-container {
+    .tabs {
+      flex-wrap: wrap;
+
+      .tab {
+        margin-bottom: 10px;
+      }
+    }
+
+    .cards-wrapper {
+      .card {
+        width: 100%;
+      }
+    }
+
+    .history-page {
+      .history-content {
+        .history-main {
+          flex-direction: column;
+
+          .text-content {
+            padding-right: 0;
+            margin-bottom: 20px;
+          }
+
+          .yoga-seal {
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+          }
+        }
+      }
+
+      .science-section {
+        .science-container {
+          flex-direction: column;
+
+          .stats-images {
+            width: 100%;
+            flex-direction: row;
+            justify-content: flex-start; // 改为靠左对齐
+            margin-right: 0;
+            margin-bottom: 20px;
+
+            img {
+              width: 30%; // 在移动设备上，将图片宽度设置为 30%
+              margin-right: 5%; // 添加右边距
+              &:last-child {
+                margin-right: 0; // 最后一个图片不需要右边距
+              }
+            }
+          }
+
+          .science-content {
+            width: 100%;
+          }
+        }
+      }
+
+      .learn-more {
+        text-align: center; // 在移动设备上居中对齐
+      }
+    }
+  }
+}
+
+.practice-page {
+  .intro-text {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #444;
+
+    strong {
+      font-weight: 700;
+      color: #333; // 可以根据需要调整颜色
+    }
+  }
+
+  .asanas-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: left;
+  }
+
+  .asanas-outer-container {
+    background-color: #E9E3DB;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+  .asanas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+
+    .asana-item {
+      padding: 10px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      border-radius: 8px;
+
+      &.row-1 {
+        background-color: #BBD3A9;
+      }
+
+      &.row-2 {
+        background-color: #AECCD1;
+      }
+
+      &.row-3 {
+        background-color: #EACCA1;
+      }
+
+      &.row-4 {
+        background-color: #DBC3D5;
+      }
+
+      .asana-image {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+        }
+      }
+
+      .asana-name {
+        font-size: 14px;
+        color: #333;
+        margin-top: 10px;
+        padding: 5px 0;
+        font-weight: bold; // 添加这一行来确保文字加粗
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .asanas-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}

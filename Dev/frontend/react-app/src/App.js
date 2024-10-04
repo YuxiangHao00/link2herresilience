@@ -11,6 +11,8 @@ import SleepPattern from './views/SleepQuality/SleepPattern';
 import SelfAssess from './views/SleepQuality/SelfAssess';
 import SexualReproductiveHealth from './views/SexualReproductiveHealth';
 import AddictionPrevention from './views/Addiction&DrugAbuse';
+import Yoga from './views/Yoga';
+
 const SleepIcon = (props) => (
   <svg
     {...props}
@@ -48,10 +50,70 @@ const HeartIcon = (props) => (
   </svg>
 );
 
+const YogaIcon = (props) => (
+  <svg
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <circle cx="12" cy="4" r="2" />
+    <path d="M12 6v3" />
+    <path d="M8 10a4 4 0 0 1 8 0" />
+    <path d="M16 19a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v7Z" />
+    <path d="M7 19v-5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v5" />
+    <path d="M5 21h14" />
+  </svg>
+);
+
+const BookIcon = (props) => (
+  <svg
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+    <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+  </svg>
+);
+
+const MenuIcon = (props) => (
+  <svg
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <line x1="3" y1="12" x2="21" y2="12"></line>
+    <line x1="3" y1="6" x2="21" y2="6"></line>
+    <line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+);
+
 function AppContent() {
   const navigate = useNavigate();
   const location = useLocation();
   const [currentPath, setCurrentPath] = useState(location.pathname);
+  const [isMenuOpen, setIsMenuOpen] = useState(true);
 
   useEffect(() => {
     setCurrentPath(location.pathname);
@@ -117,30 +179,6 @@ function AppContent() {
     </svg>
   );
 
-  const PillIcon = (props) => (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M12 8v4" />
-      <path d="M12 16v4" />
-      <path d="M12 4v4" />
-      <path d="M12 12v4" />
-      <path d="M12 8h4" />
-      <path d="M12 16h4" />
-      <path d="M12 4h4" />
-      <path d="M12 12h4" />
-    </svg>
-  );
-
   const MenuItem = ({ to, icon: Icon, label }) => {
     const isActive = currentPath.startsWith(to);
     const handleClick = () => {
@@ -172,11 +210,15 @@ function AppContent() {
     );
   };
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
   return (
     <div className="App flex h-screen overflow-hidden">
-      <aside className="w-64 bg-blue-900 text-white py-4 flex-shrink-0 overflow-y-auto fixed h-full">
-        <div className="flex items-center justify-center h-20">
-          <Link to="/land-page">
+      <aside className={`sidebar ${isMenuOpen ? 'open' : 'closed'} bg-blue-900 text-white py-4 flex-shrink-0 overflow-y-auto fixed h-full`}>
+        <div className="flex flex-col items-center justify-center px-4 h-20 relative">
+          <Link to="/land-page" className="logo-container">
             <img
               src="/logo.jpg"
               alt="Logo"
@@ -186,6 +228,12 @@ function AppContent() {
               style={{ aspectRatio: "50/50", objectFit: "cover" }}
             />
           </Link>
+          <button onClick={toggleMenu} className="text-white close-button absolute top-0 right-0 mt-4 mr-4">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+            </svg>
+          </button>
         </div>
         <div className="flex items-center justify-center h-10">
           <img
@@ -200,10 +248,16 @@ function AppContent() {
           <MenuItem to="/suburb-finder" icon={MapIcon} label="Suburb Finder" />
           <MenuItem to="/sleep-quality" icon={SleepIcon} label="Sleep Quality" />
           <MenuItem to="/sexual-reproductive-health" icon={HeartIcon} label="Sexual & Reproductive" />
-          <MenuItem to="/addiction-prevention" icon={PillIcon} label="Addiction Prevention" />
+          <MenuItem to="/addiction-prevention" icon={BookIcon} label="Addiction Prevention" />
+          <MenuItem to="/yoga" icon={YogaIcon} label="Yoga" />
         </nav>
       </aside>
-      <main className="flex-1 overflow-y-auto bg-[#F3F4F6] ml-64">
+      {!isMenuOpen && (
+        <button onClick={toggleMenu} className="fixed top-4 left-4 z-50 bg-blue-900 text-white p-2 rounded-md">
+          <MenuIcon className="w-6 h-6" />
+        </button>
+      )}
+      <main className={`flex-1 overflow-y-auto bg-[#F3F4F6] ${isMenuOpen ? 'ml-64' : 'ml-0'}`}>
         <Routes>
           <Route path="/" element={<LandPage />} />
           <Route path="/land-page" element={<LandPage />} />
@@ -215,6 +269,7 @@ function AppContent() {
           <Route path="/sleep-quality/self-assess" element={<SelfAssess />} />
           <Route path="/sexual-reproductive-health" element={<SexualReproductiveHealth />} />
           <Route path="/addiction-prevention" element={<AddictionPrevention />} />
+          <Route path="/yoga" element={<Yoga />} />
         </Routes>
       </main>
     </div>

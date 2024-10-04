@@ -1,5 +1,3 @@
-
-
 .App {
   display: flex;
   min-height: 100vh;
@@ -84,5 +82,50 @@ main {
     overflow-y: auto;
     height: auto;
     min-height: 100vh;
+  }
+}
+
+.sidebar {
+  transition: all 0.3s ease-in-out;
+  width: 16rem;
+}
+
+.sidebar .close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar.closed {
+  transform: translateX(-100%);
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100vw !important;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .sidebar.closed {
+    transform: translateX(-100%);
+  }
+
+  main {
+    margin-left: 0 !important;
   }
 }
