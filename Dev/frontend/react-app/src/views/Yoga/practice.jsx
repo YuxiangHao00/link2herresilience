@@ -1,22 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './yoga.less';
+import AsanaDetail from './AsanaDetail';
 
 const yogaAsanas = [
-  { name: 'Pranayam', image: 'A_1.png' },
-  { name: 'Anantasana', image: 'A_2.png' },
-  { name: 'Ardhakati', image: 'A_3.png' },
-  { name: 'Chakrasana', image: 'A_4.png' },
-  { name: 'Bhujangasana', image: 'A_5.png' },
-  { name: 'Kati Chakrasana', image: 'A_6.png' },
-  { name: 'Marjariasana', image: 'A_7.png' },
-  { name: 'Parvatasana', image: 'A_8.png' },
-  { name: 'Sarvangasana', image: 'A_9.png' },
-  { name: 'Tadasana', image: 'A_10.png' },
-  { name: 'Vajrasana', image: 'A_11.png' },
-  { name: 'Viparita Karani', image: 'A_12.png' },
+  { name: 'Pranayam', englishName: 'breathing exercise', image: 'A_1.png' },
+  { name: 'Anantasana', englishName: 'Side reclining leg lift', image: 'A_2.png' },
+  { name: 'Ardhakati', englishName: 'Standing Side Bend', image: 'A_3.png' },
+  { name: 'Chakrasana', englishName: 'Upward Bow Pose', image: 'A_4.png' },
+  { name: 'Bhujangasana', englishName: 'cobra pose', image: 'A_5.png' },
+  { name: 'Kati Chakrasana', englishName: 'Standing Side Stretch Pose', image: 'A_6.png' },
+  { name: 'Marjariasana', englishName: 'cat pose', image: 'A_7.png' },
+  { name: 'Parvatasana', englishName: 'mountain pose', image: 'A_8.png' },
+  { name: 'Sarvangasana', englishName: 'shoulder stand', image: 'A_9.png' },
+  { name: 'Tadasana', englishName: 'palm tree stance', image: 'A_10.png' },
+  { name: 'Vajrasana', englishName: 'diamond pose', image: 'A_11.png' },
+  { name: 'Viparita Karani', englishName: 'Legs up the Wall Pose', image: 'A_12.png' },
 ];
 
 export default function PracticePage() {
+  const [selectedAsana, setSelectedAsana] = useState(null);
+
+  const handleAsanaClick = (asana) => {
+    setSelectedAsana(asana);
+  };
+
+  if (selectedAsana) {
+    return <AsanaDetail asana={selectedAsana} onBack={() => setSelectedAsana(null)} />;
+  }
+
   return (
     <div className="yoga-container practice-page">
       <p className="intro-text">
@@ -27,12 +38,20 @@ export default function PracticePage() {
       <div className="asanas-outer-container">
         <div className="asanas-grid">
           {yogaAsanas.map((asana, index) => (
-            <div key={index} className={`asana-item row-${Math.floor(index / 3) + 1}`}>
+            <button 
+              key={index} 
+              className={`asana-item row-${Math.floor(index / 3) + 1}`}
+              onClick={() => handleAsanaClick(asana)}
+            >
               <div className="asana-image">
                 <img src={require(`./images/${asana.image}`)} alt={asana.name} />
               </div>
-              <p className="asana-name"><strong>{asana.name}</strong></p>
-            </div>
+              <p className="asana-name">
+                <strong>{asana.name}</strong>
+                <br />
+                <span className="english-name">({asana.englishName})</span>
+              </p>
+            </button>
           ))}
         </div>
       </div>

@@ -49,7 +49,6 @@ export default function DiseasePrevalenceComponent() {
             (!selectedAgeGroup || item.age_group === selectedAgeGroup)
           );
         } else {
-          // If no gender or age group is selected, use the country-level data
           filteredData = filteredData.filter(item => 
             item.gender === null && 
             item.age_group === null && 
@@ -64,7 +63,6 @@ export default function DiseasePrevalenceComponent() {
             item.age_group === null
           );
         } else {
-          // If no region is selected, show all regions
           filteredData = filteredData.filter(item => 
             australianRegions.includes(item.region_name) &&
             item.gender === null &&

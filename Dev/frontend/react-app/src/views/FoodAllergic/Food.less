@@ -1,0 +1,208 @@
+.food-allergies-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  
+    .title {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2.5rem;
+      color: #333;
+    }
+  
+    .allergen-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+  
+      .allergen-item {
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        cursor: pointer;
+        aspect-ratio: 1 / 1;
+        display: flex;
+        flex-direction: column;
+  
+        &:hover {
+          transform: scale(1.05);
+        }
+  
+        img {
+          width: 100%;
+          height: 80%;
+          object-fit: cover;
+        }
+  
+        p {
+          padding: 10px;
+          text-align: center;
+          font-weight: bold;
+          color: #333;
+          margin: auto 0;
+        }
+      }
+    }
+  }
+  
+  .modal-content {
+    padding: 20px;
+  
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: #333;
+    }
+  
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #666;
+      margin-bottom: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .food-allergies-container {
+      .title {
+        font-size: 2rem;
+      }
+  
+      .allergen-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .food-allergies-container {
+      .allergen-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+  
+  .ant-tabs {
+    .ant-tabs-nav {
+      margin-bottom: 30px;
+      // 移除这行代码，以保留底部边框
+      // &::before {
+      //   border-bottom: none;
+      // }
+    }
+
+    .ant-tabs-nav-wrap {
+      justify-content: center;  // 使标签居中
+    }
+
+    .ant-tabs-tab {
+      font-size: 18px;
+      padding: 15px 20px;  // 增加水平内边距
+    }
+
+    .ant-tabs-tab-active {
+      font-weight: bold;
+    }
+
+    .ant-tabs-content {
+      padding-top: 20px;
+    }
+  }
+
+  .allergen-recognition {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 20px;
+  
+    .title {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+  
+    p {
+      margin-bottom: 20px;
+      color: #666;
+    }
+  
+    .input-group {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+  
+      .manual-input {
+        width: 200px;
+        margin-right: 10px;
+      }
+  
+      .ant-btn {
+        height: 40px;
+        padding: 0 20px;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .video-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    position: relative;
+    border: 2px solid #e8e8e8;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .video-element {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  .scanning-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    font-size: 1.2em;
+  }
+  
+  .product-info {
+    max-height: 400px;
+    overflow: auto;
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 8px;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+  
+  // 响应式设计
+  @media (max-width: 768px) {
+    .allergen-recognition {
+      .input-group {
+        flex-direction: column;
+        align-items: center;
+  
+        .manual-input {
+          width: 100%;
+          margin-right: 0;
+          margin-bottom: 10px;
+        }
+  
+        .ant-btn {
+          width: 100%;
+        }
+      }
+    }
+  }
+  

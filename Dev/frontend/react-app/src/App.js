@@ -12,6 +12,7 @@ import SelfAssess from './views/SleepQuality/SelfAssess';
 import SexualReproductiveHealth from './views/SexualReproductiveHealth';
 import AddictionPrevention from './views/Addiction&DrugAbuse';
 import Yoga from './views/Yoga';
+import FoodAllergies from './views/FoodAllergic';
 
 const SleepIcon = (props) => (
   <svg
@@ -106,6 +107,34 @@ const MenuIcon = (props) => (
     <line x1="3" y1="12" x2="21" y2="12"></line>
     <line x1="3" y1="6" x2="21" y2="6"></line>
     <line x1="3" y1="18" x2="21" y2="18"></line>
+  </svg>
+);
+
+const FoodAllergyIcon = (props) => (
+  <svg
+    {...props}
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  >
+    <path d="M11 21H4a2 2 0 0 1-2-2V5c0-1.1.9-2 2-2h5" />
+    <path d="M16 3h5a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-7" />
+    <path d="M8 11h.01" />
+    <path d="M8 15h.01" />
+    <path d="M12 15h.01" />
+    <path d="M12 11h.01" />
+    <path d="M16 11h.01" />
+    <path d="M16 15h.01" />
+    <path d="M12 7h.01" />
+    <path d="M20 7h.01" />
+    <path d="M4 7h.01" />
+    <path d="M17 3l-5 9" />
   </svg>
 );
 
@@ -248,6 +277,7 @@ function AppContent() {
           <MenuItem to="/suburb-finder" icon={MapIcon} label="Suburb Finder" />
           <MenuItem to="/sleep-quality" icon={SleepIcon} label="Sleep Quality" />
           <MenuItem to="/sexual-reproductive-health" icon={HeartIcon} label="Sexual & Reproductive" />
+          <MenuItem to="/food-allergies" icon={FoodAllergyIcon} label="Food Allergies" />
           <MenuItem to="/addiction-prevention" icon={BookIcon} label="Addiction Prevention" />
           <MenuItem to="/yoga" icon={YogaIcon} label="Yoga" />
         </nav>
@@ -270,6 +300,7 @@ function AppContent() {
           <Route path="/sexual-reproductive-health" element={<SexualReproductiveHealth />} />
           <Route path="/addiction-prevention" element={<AddictionPrevention />} />
           <Route path="/yoga" element={<Yoga />} />
+          <Route path="/food-allergies" element={<FoodAllergies />} />
         </Routes>
       </main>
     </div>

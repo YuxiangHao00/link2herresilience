@@ -189,7 +189,7 @@
         align-items: flex-start;
 
         .stats-images {
-          width: 14%;
+          width: 20%;
           display: flex;
           flex-direction: column;
           align-items: center;
@@ -275,15 +275,15 @@
 
       .symbol-wrapper {
         width: 100%;
-        margin-left: 0; // 在小屏幕上移除左边距
+        margin-left: 0;
         
         .yoga-symbol {
-          width: 200px; // 在小屏幕上恢复原始大小
+          width: 200px;
           height: 200px;
         }
 
         .sanskrit-text {
-          font-size: 18px; // 在小屏幕上恢复原始字体大小
+          font-size: 18px;
         }
       }
     }
@@ -340,15 +340,15 @@
           .stats-images {
             width: 100%;
             flex-direction: row;
-            justify-content: flex-start; // 改为靠左对齐
+            justify-content: flex-start;
             margin-right: 0;
             margin-bottom: 20px;
 
             img {
-              width: 30%; // 在移动设备上，将图片宽度设置为 30%
-              margin-right: 5%; // 添加右边距
+              width: 30%;
+              margin-right: 5%;
               &:last-child {
-                margin-right: 0; // 最后一个图片不需要右边距
+                margin-right: 0;
               }
             }
           }
@@ -360,7 +360,7 @@
       }
 
       .learn-more {
-        text-align: center; // 在移动设备上居中对齐
+        text-align: center;
       }
     }
   }
@@ -368,14 +368,15 @@
 
 .practice-page {
   .intro-text {
-    font-size: 16px;
-    line-height: 1.5;
-    margin-bottom: 20px;
+    font-size: 18px; // 增加字体大小
+    line-height: 1.6; // 适当增加行高
+    margin-bottom: 25px; // 增加底部边距
     color: #444;
+    text-align: center;
 
     strong {
       font-weight: 700;
-      color: #333; // 可以根据需要调整颜色
+      color: #000;
     }
   }
 
@@ -403,8 +404,23 @@
       text-align: center;
       display: flex;
       flex-direction: column;
+      justify-content: center; // 添加这行
+      align-items: center; // 添加这行
       height: 100%;
       border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(0,123,255,0.5);
+      }
 
       &.row-1 {
         background-color: #BBD3A9;
@@ -427,6 +443,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 100%; // 添加这行
         
         img {
           max-width: 100%;
@@ -440,7 +457,18 @@
         color: #333;
         margin-top: 10px;
         padding: 5px 0;
-        font-weight: bold; // 添加这一行来确保文字加粗
+        font-weight: bold;
+        text-align: center; // 添加这行
+        width: 100%; // 添加这行
+
+        .english-name {
+          font-size: 12px;
+          font-weight: normal;
+          color: #666;
+          display: block;
+          margin-top: 2px;
+          font-weight: bold;
+        }
       }
     }
   }
@@ -449,5 +477,237 @@
     .asanas-grid {
       grid-template-columns: repeat(2, 1fr);
     }
+  }
+}
+
+.asana-detail {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #E9E3DB;
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .asana-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+
+    .left-container, .right-container {
+      width: 48%;
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    .left-container {
+      background-color: #CADAD5;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        margin-bottom: 20px;
+      }
+
+      p {
+        margin-bottom: 10px;
+      }
+
+      .bold-text {
+        font-weight: bold;
+        color: #000;  // 这会使文字变黑
+      }
+    }
+
+    .right-container {
+      background-color: #D9D9D9;
+
+      .video-container {
+        width: 100%;
+        height: 400px; // 增加高度到 400px，你可以根据需要调整这个值
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative; // 添加这行
+      }
+
+      video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .camera-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+
+        button {
+          padding: 10px 15px;
+          font-size: 14px;
+          border: none;
+          background-color: #007bff;
+          color: #fff;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+
+          &:hover {
+            background-color: #0056b3;
+          }
+
+          &:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+          }
+        }
+
+        input[type="range"] {
+          width: 100px;
+        }
+      }
+
+      .countdown-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 120px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 10;
+      }
+
+      .captured-image {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 8px;
+      }
+    }
+  }
+
+  .back-button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    background-color: #FF9800;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #F57C00;
+    }
+  }
+
+  .intro-text {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #444;
+    text-align: center;
+
+    strong {
+      font-weight: 700;
+      color: #000;
+    }
+  }
+
+  .placeholder-box {
+    width: 100%;
+    height: 400px; // 同样增加高度到 400px
+    background-color: #ffffff;
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .asana-detail {
+    .asana-content {
+      flex-direction: column;
+
+      .left-container, .right-container {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
+.placeholder-box {
+  width: 100%;
+  height: 400px; // 同样增加高度到 400px
+  background-color: #ffffff;
+  border: 2px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 16px;
+}
+
+.video-container {
+  width: 100%;
+  height: 300px; /* Adjust height as per requirement */
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.camera-controls button {
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 14px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+@media (max-width: 768px) {
+  .asana-detail {
+    .asana-content {
+      .right-container {
+        .video-container {
+          height: 300px; // 在移动设备上稍微减小高度
+        }
+      }
+    }
+  }
+
+  .placeholder-box {
+    height: 300px; // 同样调整占位框的高度
   }
 }
