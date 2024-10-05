@@ -11,16 +11,16 @@ export default function DiseasePrevalenceComponent() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [isDataReady, setIsDataReady] = useState(false);
-  const [selectedGender, setSelectedGender] = useState(null);
-  const [selectedAgeGroup, setSelectedAgeGroup] = useState(null);
-  const [selectedRegion, setSelectedRegion] = useState(null);
+  const [selectedGender, setSelectedGender] = useState('Female');
+  const [selectedAgeGroup, setSelectedAgeGroup] = useState('20-24 years');
+  const [selectedRegion, setSelectedRegion] = useState('Victoria');
 
   useEffect(() => {
     console.log('Component mounted, fetching data...');
     fetchJSONData();
   }, []);
 
-  const fetchJSONData = () => {
+  const fetchJSONData = (isReset = false) => {
     setLoading(true);
     setError(null);
     setIsDataReady(false);
@@ -42,29 +42,31 @@ export default function DiseasePrevalenceComponent() {
       console.log('Data after initial filtering:', filteredData.length);
 
       if (activeTab === '1') { // Country tab
-        if (selectedGender || selectedAgeGroup) {
+        if (isReset) {
+          // 重置时，使用默认的性别和年龄组
           filteredData = filteredData.filter(item => 
             item.region_name === null &&
-            (!selectedGender || item.gender === selectedGender) &&
-            (!selectedAgeGroup || item.age_group === selectedAgeGroup)
+            item.gender === 'Female' &&
+            item.age_group === '20-24 years'
           );
         } else {
           filteredData = filteredData.filter(item => 
-            item.gender === null && 
-            item.age_group === null && 
-            item.birth_region_name === "Australia"
+            item.region_name === null &&
+            item.gender === selectedGender &&
+            item.age_group === selectedAgeGroup
           );
         }
       } else if (activeTab === '2') { // State tab
-        if (selectedRegion) {
+        if (isReset) {
+          // 重置时，使用默认的州（维多利亚州）
           filteredData = filteredData.filter(item => 
-            item.region_name === selectedRegion &&
+            item.region_name === 'Victoria' &&
             item.gender === null &&
             item.age_group === null
           );
         } else {
           filteredData = filteredData.filter(item => 
-            australianRegions.includes(item.region_name) &&
+            item.region_name === selectedRegion &&
             item.gender === null &&
             item.age_group === null
           );
@@ -126,10 +128,16 @@ export default function DiseasePrevalenceComponent() {
 
   const handleTabChange = (key) => {
     setActiveTab(key);
-    setSelectedGender(null);
-    setSelectedAgeGroup(null);
-    setSelectedRegion(null);
-    fetchJSONData();
+    if (key === '1') {
+      setSelectedGender('Female');
+      setSelectedAgeGroup('20-24 years');
+      setSelectedRegion(null);
+    } else {
+      setSelectedGender(null);
+      setSelectedAgeGroup(null);
+      setSelectedRegion('Victoria');
+    }
+    fetchJSONData(true);
   };
 
   const handleGenderChange = (value) => {
@@ -142,6 +150,9 @@ export default function DiseasePrevalenceComponent() {
 
   const handleRegionChange = (value) => {
     setSelectedRegion(value);
+    if (activeTab === '2') {
+      fetchJSONData();
+    }
   };
 
   const handleSearch = () => {
@@ -150,14 +161,24 @@ export default function DiseasePrevalenceComponent() {
   };
 
   const isSearchDisabled = () => {
-    return !(selectedGender && selectedAgeGroup);
+    if (activeTab === '1') {
+      // 国家标签页：需要同时选择性别和年龄组
+      return !(selectedGender && selectedAgeGroup);
+    } else if (activeTab === '2') {
+      // 州标签页：只需要选择州
+      return !selectedRegion;
+    }
+    return true; // 默认禁用
   };
 
   const handleReset = () => {
-    setSelectedGender(null);
-    setSelectedAgeGroup(null);
-    setSelectedRegion(null);
-    fetchJSONData();
+    if (activeTab === '1') {
+      setSelectedGender('Female');
+      setSelectedAgeGroup('20-24 years');
+    } else {
+      setSelectedRegion('Victoria');
+    }
+    fetchJSONData(true);
   };
 
   const buttonStyle = "bg-[#00BD90] text-white hover:bg-[#00A77D]";
@@ -301,6 +322,7 @@ export default function DiseasePrevalenceComponent() {
               placeholder="Region"
               onChange={handleRegionChange}
               value={selectedRegion}
+              defaultValue="Victoria"
             >
               <Select.Option value="New South Wales">New South Wales</Select.Option>
               <Select.Option value="Victoria">Victoria</Select.Option>

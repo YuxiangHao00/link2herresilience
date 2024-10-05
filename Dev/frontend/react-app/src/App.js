@@ -143,10 +143,20 @@ function AppContent() {
   const location = useLocation();
   const [currentPath, setCurrentPath] = useState(location.pathname);
   const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
     setCurrentPath(location.pathname);
   }, [location]);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Icon components
   const HomeIcon = (props) => (
@@ -219,15 +229,18 @@ function AppContent() {
       } else {
         navigate(to);
       }
+      if (isSmallScreen) {
+        setIsMenuOpen(false);
+      }
     };
 
     return (
       <div
         onClick={handleClick}
         className={`menu-item flex items-center mb-4 px-4 py-6 cursor-pointer  
-          ${isActive ? 'menu-active' : 'text-white'}`}
+          ${isActive ? 'menu-active' : 'text-white'} ${isSmallScreen ? 'small-screen-item' : ''}`}
       >
-        {isActive && (
+        {isActive && !isSmallScreen && (
           <>
             <div className="menu-decoration menu-decoration-top"></div>
             <div className="menu-decoration menu-decoration-bottom"></div>
@@ -245,7 +258,7 @@ function AppContent() {
 
   return (
     <div className="App flex h-screen overflow-hidden">
-      <aside className={`sidebar ${isMenuOpen ? 'open' : 'closed'} bg-blue-900 text-white py-4 flex-shrink-0 overflow-y-auto fixed h-full`}>
+      <aside className={`sidebar ${isMenuOpen ? 'open' : 'closed'} bg-blue-900 text-white py-4 flex-shrink-0 overflow-y-auto fixed h-full ${isSmallScreen ? 'small-screen' : ''}`}>
         <div className="flex flex-col items-center justify-center px-4 h-20 relative">
           <Link to="/land-page" className="logo-container">
             <img
@@ -287,7 +300,7 @@ function AppContent() {
           <MenuIcon className="w-6 h-6" />
         </button>
       )}
-      <main className={`flex-1 overflow-y-auto bg-[#F3F4F6] ${isMenuOpen ? 'ml-64' : 'ml-0'}`}>
+      <main className={`flex-1 overflow-y-auto bg-[#F3F4F6] ${isMenuOpen && !isSmallScreen ? 'ml-64' : 'ml-0'}`}>
         <Routes>
           <Route path="/" element={<LandPage />} />
           <Route path="/land-page" element={<LandPage />} />

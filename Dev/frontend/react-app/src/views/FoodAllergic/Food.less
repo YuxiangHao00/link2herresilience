@@ -115,33 +115,97 @@
     text-align: center;
     max-width: 600px;
     margin: 0 auto 20px;
-  
+
     .title {
-      font-size: 2rem;
+      font-size: 2.5rem;
       margin-bottom: 20px;
-      color: #333;
+      color: #1890ff;
     }
-  
+
     p {
       margin-bottom: 20px;
       color: #666;
+      font-size: 1.1rem;
     }
-  
+
+    .video-container {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto 20px;
+      position: relative;
+      border: 2px solid #1890ff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      aspect-ratio: 4 / 3; // 保持视频容器的宽高比
+    }
+
+    .video-element {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+
+      &.mirror-mode {
+        transform: scaleX(-1);
+      }
+    }
+
+    .scan-line {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #1890ff;
+      box-shadow: 0 0 8px 2px rgba(24, 144, 255, 0.8);
+      animation: scan 4s linear infinite; // 将动画时间从 2s 增加到 4s
+    }
+
+    @keyframes scan {
+      0% {
+        top: 0;
+      }
+      50% {
+        top: 100%;
+      }
+      100% {
+        top: 0;
+      }
+    }
+
     .input-group {
-      display: flex;
-      justify-content: center;
       margin-top: 20px;
-  
+
       .manual-input {
-        width: 200px;
-        margin-right: 10px;
+        width: 100%;
       }
-  
-      .ant-btn {
-        height: 40px;
-        padding: 0 20px;
-        font-size: 16px;
+    }
+
+    .ant-btn {
+      height: 40px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .anticon {
+        margin-right: 8px;
       }
+    }
+
+    .product-info {
+      max-height: 400px;
+      overflow: auto;
+      background-color: #f5f5f5;
+      padding: 15px;
+      border-radius: 8px;
+      font-family: monospace;
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: left;
+      margin-top: 20px;
+      border: 1px solid #d9d9d9;
     }
   }
 
@@ -159,6 +223,13 @@
     width: 100%;
     height: auto;
     display: block;
+
+    &.mirror-mode {
+      transform: scaleX(-1);
+      -webkit-transform: scaleX(-1);
+      -moz-transform: scaleX(-1);
+      -ms-transform: scaleX(-1);
+    }
   }
   
   .scanning-overlay {
@@ -189,20 +260,78 @@
   // 响应式设计
   @media (max-width: 768px) {
     .allergen-recognition {
-      .input-group {
-        flex-direction: column;
-        align-items: center;
-  
-        .manual-input {
-          width: 100%;
-          margin-right: 0;
-          margin-bottom: 10px;
-        }
-  
-        .ant-btn {
-          width: 100%;
+      .title {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .ant-btn {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+  }
+
+  .allergen-recognition {
+    .product-info-card {
+      margin-top: 20px;
+      
+      .ant-card-head-title {
+        text-align: center;
+      }
+
+      .ant-list-item-meta-avatar {
+        font-size: 20px;
+        color: #1890ff;
+      }
+
+      .ant-list-item-meta-title {
+        font-weight: bold;
+      }
+
+      .ant-tag {
+        font-size: 14px;
+        padding: 4px 8px;
+      }
+    }
+  }
+
+  .allergen-recognition {
+    // ... (保持其他样式不变)
+
+    .ant-upload-button {
+      width: 100%;
+      height: 40px;
+      font-size: 16px;
+    }
+  }
+
+  .allergen-recognition {
+    // ... (保持其他样式不变)
+
+    .ant-alert-warning {
+      margin-top: 20px;
+      font-size: 14px;
+      
+      .ant-alert-message {
+        color: #d48806;
+        font-weight: bold;
+      }
+
+      .ant-alert-description {
+        color: rgba(0, 0, 0, 0.65);
+      }
+
+      a {
+        color: #1890ff;
+        text-decoration: underline;
+
+        &:hover {
+          color: #40a9ff;
         }
       }
     }
   }
-  

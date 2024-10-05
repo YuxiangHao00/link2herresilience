@@ -114,18 +114,53 @@ main {
 
 @media (max-width: 768px) {
   .sidebar {
-    width: 100vw !important;
+    width: 100% !important;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
   }
 
-  .sidebar.open {
-    transform: translateX(0);
+  .sidebar.small-screen {
+    height: auto;
+    max-height: 100vh;
+    overflow-y: auto;
   }
 
-  .sidebar.closed {
-    transform: translateX(-100%);
+  .sidebar.small-screen nav {
+    flex-direction: column !important;
+    align-items: center;
+  }
+
+  .sidebar.small-screen .menu-item {
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    margin-bottom: 0;
+  }
+
+  .sidebar.small-screen .menu-active {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 0;
+    margin-left: 0;
+  }
+
+  .sidebar.small-screen .menu-active::before,
+  .sidebar.small-screen .menu-active::after {
+    display: none;
   }
 
   main {
-    margin-left: 0 !important;
+    margin-top: 60px; /* 为固定在顶部的菜单按钮留出空间 */
   }
+}
+
+/* 添加新的样式 */
+.small-screen-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.small-screen-item:last-child {
+  border-bottom: none;
 }
