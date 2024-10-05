@@ -1,7 +1,12 @@
+body {
+  overflow-x: hidden;
+}
+
 .food-allergies-container {
-    max-width: 900px;
+    max-width: 100%; // 改为100%以适应屏幕宽度
     margin: 0 auto;
     padding: 20px;
+    box-sizing: border-box; // 确保padding不会增加总宽度
   
     // 添加响应式padding
     @media (max-width: 768px) {
@@ -115,19 +120,18 @@
   .ant-tabs {
     .ant-tabs-nav {
       margin-bottom: 30px;
-      // 移除这行代码，以保留底部边框
-      // &::before {
-      //   border-bottom: none;
-      // }
+      &::before {
+        border-bottom: none;
+      }
     }
 
     .ant-tabs-nav-wrap {
-      justify-content: center;  // 使标签居中
+      justify-content: center;
     }
 
     .ant-tabs-tab {
       font-size: 18px;
-      padding: 15px 20px;  // 增加水平内边距
+      padding: 15px 20px;
     }
 
     .ant-tabs-tab-active {
@@ -141,10 +145,11 @@
 
   .allergen-recognition {
     text-align: center;
-    max-width: 600px;
+    max-width: 100%;
     margin: 0 auto 20px;
-
-    // 在移动设备上调整最大宽度
+    padding: 0 10px;
+    box-sizing: border-box;
+  
     @media (max-width: 768px) {
         max-width: 100%;
         padding: 0 10px;
@@ -164,16 +169,15 @@
 
     .video-container {
       width: 100%;
-      max-width: 500px;
+      max-width: 100%;
       margin: 0 auto 20px;
       position: relative;
       border: 2px solid #1890ff;
       border-radius: 8px;
       overflow: hidden;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      aspect-ratio: 4 / 3; // 保持视频容器的宽高比
+      aspect-ratio: 4 / 3;
 
-      // 在移动设备上调整最大宽度
       @media (max-width: 768px) {
           max-width: 100%;
       }
@@ -198,7 +202,7 @@
       height: 2px;
       background: #1890ff;
       box-shadow: 0 0 8px 2px rgba(24, 144, 255, 0.8);
-      animation: scan 4s linear infinite; // 将动画时间从 2s 增加到 4s
+      animation: scan 4s linear infinite;
     }
 
     @keyframes scan {
@@ -296,7 +300,6 @@
     line-height: 1.5;
   }
   
-  // 响应式设计
   @media (max-width: 768px) {
     .allergen-recognition {
       .title {
@@ -339,7 +342,6 @@
   }
 
   .allergen-recognition {
-    // ... (保持其他样式不变)
 
     .ant-upload-button {
       width: 100%;
@@ -349,7 +351,6 @@
   }
 
   .allergen-recognition {
-    // ... (保持其他样式不变)
 
     .ant-alert-warning {
       margin-top: 20px;
@@ -374,3 +375,76 @@
       }
     }
   }
+
+// 调整按钮布局
+.ant-row {
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+}
+
+.ant-col {
+  padding-right: 8px !important;
+  padding-left: 8px !important;
+}
+
+// 在小屏幕上调整按钮布局
+@media (max-width: 576px) {
+  .ant-row {
+    flex-direction: column;
+  }
+
+  .ant-col {
+    width: 100% !important;
+    margin-bottom: 10px;
+  }
+}
+
+// ... 其他样式保持不变 ...
+
+// 调整标签页样式
+.ant-tabs-nav {
+  width: 100%;
+  
+  .ant-tabs-nav-wrap {
+    justify-content: flex-start; // 改为左对齐
+  }
+
+  .ant-tabs-tab {
+    padding: 12px 16px; // 减小内边距
+    font-size: 16px; // 减小字体大小
+
+    @media (max-width: 576px) {
+      padding: 8px 12px;
+      font-size: 14px;
+    }
+  }
+}
+
+// 调整产品信息卡片样式
+.product-info-card {
+  .ant-card-body {
+    padding: 16px;
+  }
+
+  .ant-list-item {
+    padding: 8px 0;
+  }
+
+  .ant-list-item-meta-title {
+    font-size: 14px;
+  }
+
+  .ant-list-item-meta-description {
+    font-size: 12px;
+  }
+}
+
+// 调整警告提示样式
+.ant-alert {
+  margin-top: 16px;
+  font-size: 12px;
+
+  .ant-alert-message {
+    font-size: 14px;
+  }
+}
