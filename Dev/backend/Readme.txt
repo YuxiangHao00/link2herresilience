@@ -1,3 +1,16 @@
+Utility app:
+** Media files upload/fetch API call
+	- upload image: POST method with following parameters (form-type): ["sess_id", "file"]
+		http://0.0.0.0:5010/media_files/v1/fetch?sess_id=demo%2301&file_id=a7c5e7a9
+	- fetch image: GET method with parameters: ["sess_id", "file_id"]
+		http://0.0.0.0:5010/media_files/v1/fetch?sess_id=demo%2301&file_id=a7c5e7a9
+	
+	Note:
+	- sess_id: <string> for unique session id
+	- file_id: <string> of length=8, generated using uuid while uploading
+	- file: <File> in format: {"jpg", "png"}, size limit 3*1024*1024
+
+
 Epic2:
 * Air quality API calls:
 	- all states AQI, AQC for each day:
