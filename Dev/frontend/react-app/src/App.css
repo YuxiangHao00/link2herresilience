@@ -5,45 +5,43 @@
   overflow: hidden;
 }
 
-.menu{
+.menu {
   overflow: hidden;
 }
-.menu-active{
-  background: #F3F4F6;
-  color: #1E3A8A;
-  font-weight: bold;
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
-  margin-left: 2vh;
-  transition: all 0.5s ease;
+
+.menu-active {
   position: relative;
+  z-index: 1;
 }
 
+/* 注释掉圆形遮挡效果 */
+/*
 .menu-active::before {
-  z-index: -1;
   content: '';
   position: absolute;
-  top: -100px;
-  right: 0px;
-  width: 100px;
-  height: 100px;
-  background-color:rgb(30, 58, 138) ;
-  border-radius: 50%;
-  box-shadow: 50px 50px 0 0 #F3F4F6;
+  left: -20px;
+  top: 50%;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border-top-right-radius: 20px;
+  box-shadow: 5px -5px 0 5px #F3F4F6;
+  transform: translateY(-50%);
 }
 
 .menu-active::after {
-  z-index: -1;
   content: '';
   position: absolute;
-  bottom: -100px;
-  right: 0px;
-  width: 100px;
-  height: 100px;
-  background-color:rgb(30, 58, 138) ;
-  border-radius: 50%;
-  box-shadow: 50px -50px 0 0 #F3F4F6;
+  left: -20px;
+  bottom: 50%;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  border-bottom-right-radius: 20px;
+  box-shadow: 5px 5px 0 5px #F3F4F6;
+  transform: translateY(50%);
 }
+*/
 
 main {
   flex-grow: 1;
@@ -69,11 +67,12 @@ main {
     width: 100vw !important; 
   }
   aside nav{
-    flex-direction: row !important;
-    justify-content: space-between;
+    flex-direction: column !important;
+    align-items: stretch;
   }
-  .menu-active{
-    border-radius: 0;
+  .menu-active::before,
+  .menu-active::after {
+    display: none;
   }
   main {
     padding: 20px;
@@ -130,25 +129,14 @@ main {
 
   .sidebar.small-screen nav {
     flex-direction: column !important;
-    align-items: center;
+    align-items: stretch;
   }
 
   .sidebar.small-screen .menu-item {
     width: 100%;
-    text-align: center;
-    padding: 15px 0;
-    margin-bottom: 0;
-  }
-
-  .sidebar.small-screen .menu-active {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 0;
-    margin-left: 0;
-  }
-
-  .sidebar.small-screen .menu-active::before,
-  .sidebar.small-screen .menu-active::after {
-    display: none;
+    text-align: left;
+    padding: 15px;
+    margin-bottom: 5px;
   }
 
   main {

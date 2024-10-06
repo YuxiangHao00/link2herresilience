@@ -237,17 +237,11 @@ function AppContent() {
     return (
       <div
         onClick={handleClick}
-        className={`menu-item flex items-center mb-4 px-4 py-6 cursor-pointer  
-          ${isActive ? 'menu-active' : 'text-white'} ${isSmallScreen ? 'small-screen-item' : ''}`}
+        className={`menu-item flex items-center mb-2 px-4 py-3 cursor-pointer rounded-lg transition-all duration-200 ease-in-out
+          ${isActive ? 'menu-active bg-white text-blue-900' : 'text-white hover:bg-blue-800'} ${isSmallScreen ? 'small-screen-item' : ''}`}
       >
-        {isActive && !isSmallScreen && (
-          <>
-            <div className="menu-decoration menu-decoration-top"></div>
-            <div className="menu-decoration menu-decoration-bottom"></div>
-          </>
-        )}
-        <Icon className="w-5 h-5 mr-3" />
-        {label}
+        <Icon className={`w-5 h-5 mr-3 ${isActive ? 'text-blue-900' : 'text-white'}`} />
+        <span className="font-medium">{label}</span>
       </div>
     );
   };
@@ -258,35 +252,26 @@ function AppContent() {
 
   return (
     <div className="App flex h-screen overflow-hidden">
-      <aside className={`sidebar ${isMenuOpen ? 'open' : 'closed'} bg-blue-900 text-white py-4 flex-shrink-0 overflow-y-auto fixed h-full ${isSmallScreen ? 'small-screen' : ''}`}>
-        <div className="flex flex-col items-center justify-center px-4 h-20 relative">
+      <aside className={`sidebar ${isMenuOpen ? 'open' : 'closed'} bg-blue-900 text-white py-6 flex-shrink-0 overflow-y-auto fixed h-full ${isSmallScreen ? 'small-screen' : ''} shadow-lg`}>
+        <div className="flex flex-col items-center justify-center px-4 mb-8 relative">
           <Link to="/land-page" className="logo-container">
             <img
               src="/logo.jpg"
               alt="Logo"
-              className="h-12 w-12"
+              className="h-16 w-16 rounded-full shadow-md"
               width="80"
               height="80"
-              style={{ aspectRatio: "50/50", objectFit: "cover" }}
+              style={{ aspectRatio: "1", objectFit: "cover" }}
             />
           </Link>
-          <button onClick={toggleMenu} className="text-white close-button absolute top-0 right-0 mt-4 mr-4">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <button onClick={toggleMenu} className="text-white close-button absolute top-0 right-0 mt-2 mr-2 p-1 rounded-full hover:bg-blue-800 transition-colors duration-200">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
             </svg>
           </button>
         </div>
-        {/*
-        <div className="flex items-center justify-center h-10">
-          <img
-            src={siteName}
-            alt="Site Name"
-            className="mt-1"
-          />
-        </div>
-        */}
-        <nav className="mt-10 flex flex-col justify-around w-full">
+        <nav className="flex flex-col justify-around w-full px-2">
           <MenuItem to="/land-page" icon={HomeIcon} label="Home" />
           <MenuItem to="/health-issues" icon={HospitalIcon} label="Health issues" />
           <MenuItem to="/suburb-finder" icon={MapIcon} label="Suburb Finder" />
@@ -298,7 +283,7 @@ function AppContent() {
         </nav>
       </aside>
       {!isMenuOpen && (
-        <button onClick={toggleMenu} className="fixed top-4 left-4 z-50 bg-blue-900 text-white p-2 rounded-md">
+        <button onClick={toggleMenu} className="fixed top-4 left-4 z-50 bg-blue-900 text-white p-2 rounded-full shadow-md hover:bg-blue-800 transition-colors duration-200">
           <MenuIcon className="w-6 h-6" />
         </button>
       )}
