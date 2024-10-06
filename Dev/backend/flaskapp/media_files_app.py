@@ -120,7 +120,8 @@ class Images(Resource):
 
             return jsonify({
                 "code": 200,
-                "msg": "File uploaded successfully"})
+                "msg": "File uploaded successfully",
+                "file_id": unique_str})
         
     def get(self,):
         """
