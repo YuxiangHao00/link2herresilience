@@ -1,4 +1,4 @@
-from EfficientPose.utils import helpers
+from models.EfficientPose.utils import helpers
 
 import numpy as np
 import torch

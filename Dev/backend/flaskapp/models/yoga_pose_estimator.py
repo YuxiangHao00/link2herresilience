@@ -10,7 +10,8 @@ Yoga pose estimation pipeline using human pose estimator model
 
 import os
 import pandas as pd
-from EfficientPose import track
+from models import EfficientPose
+from models.EfficientPose import track
 from os.path import join, normpath
 from pymediainfo import MediaInfo
 import numpy as np
@@ -22,8 +23,8 @@ class YogaPoseEstimation():
     """
     class to load pose estimation model
     """
-    def __init__(self, sess_id="0", file_id="0", filename="", filepath="", model_name="II", 
-                 framework="pytorch", b_visualize=True, b_store=True, b_verbose=False):
+    def __init__(self, sess_id="0", file_id="0", filename="", filepath="", path_sess_data="", 
+                 model_name="II", framework="pytorch", b_visualize=True, b_store=True, b_verbose=False):
         """
         class constructor
         """
@@ -32,8 +33,11 @@ class YogaPoseEstimation():
         self.framework = framework
         self.b_visualize = b_visualize
         self.b_store = b_store
-        self.parent_dirpath = os.path.dirname(os.getcwd())
-        self.path_session_data = self.parent_dirpath + "/session_data"
+        if path_sess_data == "":
+            self.parent_dirpath = os.path.dirname(os.getcwd())
+            self.path_session_data = self.parent_dirpath + "/session_data"
+        else:
+            self.path_session_data = path_sess_data
         self.file_id = file_id
         
         self.b_from_csv = True

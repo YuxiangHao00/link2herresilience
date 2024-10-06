@@ -5,7 +5,7 @@ from pymediainfo import MediaInfo
 import numpy as np
 import time
 
-from EfficientPose.utils import helpers
+from models.EfficientPose.utils import helpers
 
 def get_model(framework, model_variant, b_verbose=True):
     """
@@ -34,7 +34,7 @@ def get_model(framework, model_variant, b_verbose=True):
         from tensorflow.compat.v1 import GraphDef
         from tensorflow.compat.v1.keras.backend import get_session
         from tensorflow import import_graph_def
-        f = FastGFile(join("EfficientPose", 'models', 'tensorflow', 'EfficientPose{0}.pb'.format(model_variant.upper())), 'rb')
+        f = FastGFile(join("models", "EfficientPose", 'models', 'tensorflow', 'EfficientPose{0}.pb'.format(model_variant.upper())), 'rb')
         graph_def = GraphDef()
         graph_def.ParseFromString(f.read())
         f.close()
@@ -45,22 +45,22 @@ def get_model(framework, model_variant, b_verbose=True):
     # TensorFlow Lite
     elif framework in ['tensorflowlite', 'tflite']:
         from tensorflow import lite
-        model = lite.Interpreter(model_path=join("EfficientPose", 'models', 'tflite', 'EfficientPose{0}.tflite'.format(model_variant.upper())))
+        model = lite.Interpreter(model_path=join("models", "EfficientPose", 'models', 'tflite', 'EfficientPose{0}.tflite'.format(model_variant.upper())))
         model.allocate_tensors()
     
     # PyTorch
     elif framework in ['pytorch', 'torch']:
         from imp import load_source
         from torch import load, quantization, backends
-        try:
-            MainModel = load_source('MainModel', join("EfficientPose", 'models', 'pytorch', 'EfficientPose{0}.py'.format(model_variant.upper())))
-        except:
+        if 1: #try:
+            MainModel = load_source('MainModel', join("models", "EfficientPose", 'models', 'pytorch', 'EfficientPose{0}.py'.format(model_variant.upper())))
+        else: #except:
             if b_verbose:
                 print('\n##########################################################################################################')
                 print('Desired model "EfficientPose{0}Lite" not available in PyTorch. Please select among "RT", "I", "II", "III" or "IV".'.format(model_variant.split('lite')[0].upper()))
                 print('##########################################################################################################\n')
             return False, False
-        model = load(join("EfficientPose", 'models', 'pytorch', 'EfficientPose{0}'.format(model_variant.upper())))
+        model = load(join("models", "EfficientPose", 'models', 'pytorch', 'EfficientPose{0}'.format(model_variant.upper())))
         model.eval()
         qconfig = quantization.get_default_qconfig('qnnpack')
         backends.quantized.engine = 'qnnpack'
