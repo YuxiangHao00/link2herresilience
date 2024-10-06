@@ -1,3 +1,16 @@
+/* 在文件顶部添加以下样式 */
+.logo-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.website-logo {
+  max-width: 100px; /* 将最大宽度从150px减小到100px */
+  height: auto;
+}
+
 .land-page {
   background-color: #F3F4F6;
   width: 100%;

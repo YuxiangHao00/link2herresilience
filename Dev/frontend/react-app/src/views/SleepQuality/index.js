@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SQTital from '../../images/SQ/SQ_Tital.svg';
 import SQSubTital from '../../images/SQ/SQ_SubTital.svg';
-import US2 from '../../images/SQ/SQ_US2.svg';
+import US2 from '../../images/SQ/SQ_US2.png';
 import US3 from '../../images/SQ/SQ_US3.svg';
 
 function SleepQuality() {

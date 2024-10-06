@@ -4,7 +4,7 @@ import './App.css';
 import LandPage from './views/LandPage';
 import HealthIssues from './views/HealthIssues';
 import SuburbFinder from './views/SuburbFinder';
-import siteName from './images/SitName.svg';
+// import siteName from './images/SitName.svg';
 import SleepQuality from './views/SleepQuality';
 import NoiseDetection from './views/SleepQuality/NoiseDetection';
 import SleepPattern from './views/SleepQuality/SleepPattern';
@@ -277,6 +277,7 @@ function AppContent() {
             </svg>
           </button>
         </div>
+        {/*
         <div className="flex items-center justify-center h-10">
           <img
             src={siteName}
@@ -284,6 +285,7 @@ function AppContent() {
             className="mt-1"
           />
         </div>
+        */}
         <nav className="mt-10 flex flex-col justify-around w-full">
           <MenuItem to="/land-page" icon={HomeIcon} label="Home" />
           <MenuItem to="/health-issues" icon={HospitalIcon} label="Health issues" />

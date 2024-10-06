@@ -3,7 +3,7 @@ import './LandPage.css';
 import titleImage from '../../images/SubTital.svg';
 import exploreicon from '../../images/ExploreIcon.svg';
 import landPageImage from '../../images/LandPage_2.svg';
-import descriptionImage from '../../images/HP_description.svg';
+import descriptionImage from '../../images/HP_description.png';
 import hp_l_1 from '../../images/HP_L_1.svg';
 import hp_l_2 from '../../images/HP_L_2.svg';
 import hp_l_3 from '../../images/HP_L_3.svg';
@@ -42,6 +42,10 @@ function LandPage() {
       <div ref={topRef}></div>
       {currentPage === 'main' && (
         <>
+          <div className="logo-container">
+            <img src="/logo_1.png" alt="Website Logo" className="website-logo" />
+          </div>
+          
           <h1>
             <span className="text-blue-600">Link 2</span>{' '}
             <span className="text-green-600">HerResilience</span>
@@ -70,7 +74,7 @@ function LandPage() {
           <div className="hp_l_1-wrapper">
             <img src={hp_l_1} alt="HP_L_1" className="hp_l_1" />
             <div className="hp_l_1-text">
-              We understand the unique challenges migrant mothers face when it comes to sleep. Our platform provides personalized insights on sleep quality based on your home’s ambient conditions, such as noise levels and temperature.
+              Get insights of different diseases across the country. Our interactive map allows you to see how various health issues are distributed across states and territories, helping you understand the potential risks in your area. 
               <Link to="/health-issues">
                 <img src={jumpPage} alt="JumpPage" className="jump-page" />
               </Link>
@@ -90,7 +94,7 @@ function LandPage() {
           <div className="hp_l_3-wrapper">
             <img src={hp_l_3} alt="HP_L_3" className="hp_l_3" />
             <div className="hp_l_3-text">
-              We understand the unique challenges migrant mothers face when it comes to sleep. Our platform provides personalized insights on sleep quality based on your home’s ambient conditions, such as noise levels and temperature.
+              We understand the unique challenges migrant mothers face when it comes to sleep. Our platform provides personalized insights on sleep quality based on your home’s ambient conditions, such as noise levels and temperature. 
               <Link to="/sleep-quality">
                 <img src={jumpPage} alt="JumpPage" className="jump-page_3" />
               </Link>
@@ -100,7 +104,7 @@ function LandPage() {
           <div className="hp_l_4-wrapper">
             <img src={hp_l_4} alt="HP_L_4" className="hp_l_4" />
             <div className="hp_l_4-text">
-              We understand the unique challenges migrant mothers face when it comes to sleep. Our platform provides personalized insights on sleep quality based on your home’s ambient conditions, such as noise levels and temperature.
+              Access culturally sensitive sexual education and clear information on STI prevention to make informed decisions about your reproductive health, plan your family, and protect your well-being, regardless of cultural barriers.
               <Link to="/health-issues">
                 <img src={jumpPage} alt="JumpPage" className="jump-page_4" />
               </Link>

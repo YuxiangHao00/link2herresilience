@@ -7,6 +7,8 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
   const [countdown, setCountdown] = useState(3);
   const [cameraStarted, setCameraStarted] = useState(false);
   const [isCountingDown, setIsCountingDown] = useState(false);
+  const [cameras, setCameras] = useState([]);
+  const [selectedCamera, setSelectedCamera] = useState(null);
   const videoRef = useRef(null);
   const streamRef = useRef(null);
   const canvasRef = useRef(null);
@@ -24,12 +26,29 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
     }
   }, [cameraStarted]);
 
+  useEffect(() => {
+    async function getCameras() {
+      try {
+        const devices = await navigator.mediaDevices.enumerateDevices();
+        const videoDevices = devices.filter(device => device.kind === 'videoinput');
+        setCameras(videoDevices);
+        if (videoDevices.length > 0) {
+          setSelectedCamera(videoDevices[0].deviceId);
+        }
+      } catch (err) {
+        console.error("Error getting cameras", err);
+      }
+    }
+    getCameras();
+  }, []);
+
   const startCamera = async () => {
     console.log("Starting camera...");
     try {
       console.log("Requesting user media...");
       const stream = await navigator.mediaDevices.getUserMedia({ 
         video: { 
+          deviceId: selectedCamera ? { exact: selectedCamera } : undefined,
           width: { ideal: 1024 },
           height: { ideal: 1024 }
         } 
@@ -50,13 +69,27 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
   };
 
   const stopCamera = () => {
+    console.log("Stopping camera...");
     if (streamRef.current) {
-      streamRef.current.getTracks().forEach(track => track.stop());
+      streamRef.current.getTracks().forEach(track => {
+        track.stop();
+        console.log("Track stopped:", track);
+      });
+      streamRef.current = null;
     }
-    setCameraStarted(false);
     if (videoRef.current) {
       videoRef.current.srcObject = null;
     }
+    setCameraStarted(false);
+    console.log("Camera stopped successfully");
+  };
+
+  const switchCamera = async () => {
+    stopCamera();
+    const currentIndex = cameras.findIndex(camera => camera.deviceId === selectedCamera);
+    const nextIndex = (currentIndex + 1) % cameras.length;
+    setSelectedCamera(cameras[nextIndex].deviceId);
+    await startCamera();
   };
 
   const captureImage = () => {
@@ -71,8 +104,10 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
         canvas.height = 1024;
         canvas.getContext('2d').drawImage(videoRef.current, 0, 0, 1024, 1024);
         canvas.toBlob((blob) => {
-          const file = new File([blob], `${uuidv4()}.png`, { type: 'image/png' });
-          uploadImage(file);
+          const fileId = uuidv4().slice(0, 8);
+          const fileName = `${sessionId}_${fileId}.png`;
+          const file = new File([blob], fileName, { type: 'image/png' });
+          uploadImage(file, fileId);
         }, 'image/png');
         stopCamera();
         setIsCountingDown(false);
@@ -82,7 +117,7 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
     }, 1000);
   };
 
-  const uploadImage = async (file) => {
+  const uploadImage = async (file, fileId) => {
     const formData = new FormData();
     formData.append('sess_id', sessionId);
     formData.append('file', file);
@@ -96,6 +131,7 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
       if (data.code === 200) {
         console.log('Image uploaded successfully', data);
         setCapturedImage(URL.createObjectURL(file));
+        console.log(`File uploaded: ${sessionId}_${fileId}.png`);
       } else {
         console.error('Failed to upload image', data);
       }
@@ -127,13 +163,27 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
     } else {
       onNextStep();
     }
+    // 自动重新开始拍照流程
+    retakePhoto();
   };
+
+  useEffect(() => {
+    // 当步骤改变时，重置摄像头状态
+    setCapturedImage(null);
+    setCountdown(3);
+    if (cameraStarted) {
+      stopCamera();
+      startCamera();
+    }
+  }, [currentStep]);
 
   return (
     <div className="asana-detail">
       <div className="asana-content">
         <div className="left-container">
-          <img src={require(`./images/${getStepImage()}`)} alt={`${asana.name} - Step ${currentStep}`} />
+          <div className="step-image-container fixed-size">
+            <img src={require(`./images/${getStepImage()}`)} alt={`${asana.name} - Step ${currentStep}`} className="step-image" />
+          </div>
           {asanaSequence && (
             <div className="step-description">
               <h3>Step {currentStep}</h3>
@@ -145,66 +195,72 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
           )}
         </div>
         <div className="right-container">
-          {!capturedImage ? (
-            <>
-              <div className="video-container">
-                {cameraStarted ? (
-                  <>
-                    <video 
-                      ref={videoRef} 
-                      autoPlay 
-                      playsInline
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'cover'
-                      }}
-                    />
-                    {isCountingDown && (
-                      <div className="countdown-overlay">
-                        {countdown}
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <div className="placeholder-box">
-                    Click "Start Camera" to begin
-                  </div>
-                )}
-              </div>
-              <div className="camera-controls">
-                {!cameraStarted ? (
-                  <button onClick={startCamera}>
-                    Start Camera
+          <div className="camera-section">
+            {!capturedImage ? (
+              <>
+                <div className="video-container fixed-size">
+                  {cameraStarted ? (
+                    <>
+                      <video 
+                        ref={videoRef} 
+                        autoPlay 
+                        playsInline
+                      />
+                      {isCountingDown && (
+                        <div className="countdown-overlay">
+                          {countdown}
+                        </div>
+                      )}
+                    </>
+                  ) : (
+                    <div className="placeholder-box">
+                      Click "Start Camera" to begin
+                    </div>
+                  )}
+                </div>
+                <div className="camera-controls">
+                  {!cameraStarted ? (
+                    <button onClick={startCamera} className="primary-button">
+                      Start Camera
+                    </button>
+                  ) : (
+                    <>
+                      <button onClick={stopCamera} className="secondary-button">
+                        Stop Camera
+                      </button>
+                      <button onClick={switchCamera} disabled={cameras.length <= 1} className="secondary-button">
+                        Switch Camera
+                      </button>
+                    </>
+                  )}
+                  <button onClick={captureImage} disabled={!cameraStarted || isCountingDown} className="primary-button">
+                    {isCountingDown ? `Capturing in ${countdown}...` : 'Capture'}
                   </button>
-                ) : (
-                  <button onClick={stopCamera}>
-                    Stop Camera
-                </button>
-                )}
-                <button onClick={captureImage} disabled={!cameraStarted || isCountingDown}>
-                  {isCountingDown ? `Capturing in ${countdown}...` : 'Capture'}
-                </button>
-                <input
-                  type="range"
-                  min="1"
-                  max="10"
-                  value={countdown}
-                  onChange={(e) => setCountdown(Number(e.target.value))}
-                  disabled={isCountingDown}
-                />
-                <span>{countdown}s</span>
-              </div>
-            </>
-          ) : (
-            <>
-              <img src={capturedImage} alt="Captured" className="captured-image" />
-              <div className="camera-controls">
-                <button onClick={retakePhoto}>Retake Photo</button>
-                <button onClick={analyzePhoto}>Analyze</button>
-              </div>
-            </>
-          )}
+                </div>
+                <div className="countdown-control">
+                  <input
+                    type="range"
+                    min="1"
+                    max="10"
+                    value={countdown}
+                    onChange={(e) => setCountdown(Number(e.target.value))}
+                    disabled={isCountingDown}
+                  />
+                  <span>{countdown}s</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="captured-image-container fixed-size">
+                  <img src={capturedImage} alt="Captured" className="captured-image" />
+                </div>
+                <div className="camera-controls">
+                  <button onClick={retakePhoto} className="secondary-button">Retake Photo</button>
+                  <button onClick={analyzePhoto} className="primary-button">Analyze</button>
+                </div>
+              </>
+            )}
+          </div>
           <button 
             onClick={handleNextOrRepeat} 
             className="next-step-button"
