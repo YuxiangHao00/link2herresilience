@@ -32,11 +32,11 @@ function SleepQuality() {
     <div className="flex flex-col items-center w-full px-4 py-8">
       <img src={SQTital} alt="Better Sleep for a Healthier Life" className="mb-2 w-full max-w-4xl" />
       <img src={SQSubTital} alt="Understand how your environment affects your Sleep Quality" className="mb-6 w-full max-w-4xl" />
-      <div className="flex justify-center items-center w-full gap-4 max-w-4xl">
+      <div className="flex flex-col md:flex-row justify-center items-center w-full gap-4 max-w-4xl">
         {features.map((feature, index) => (
           <div 
             key={index}
-            className={`cursor-pointer transition-all duration-300 flex-1 ${
+            className={`cursor-pointer transition-all duration-300 w-full md:flex-1 mb-4 md:mb-0 ${
               hoveredIndex === index ? 'filter-none' : 'brightness-75 contrast-75'
             }`}
             onClick={() => handleNavigate(feature.path)}
@@ -50,7 +50,7 @@ function SleepQuality() {
             />
             <p className="text-center mt-3 font-semibold transition-colors duration-300" 
                style={{ 
-                 fontSize: '40px', 
+                 fontSize: 'clamp(24px, 5vw, 40px)', 
                  fontFamily: 'MyCustomFont', 
                  color: '#16A34A',
                }}

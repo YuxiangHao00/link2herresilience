@@ -184,7 +184,7 @@ function NoiseDetection() {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div className="w-full max-w-md mx-auto px-4">
       {/* Recording Card */}
       <Card className="mb-4">
         <div className="flex flex-col items-center space-y-4">

@@ -16,7 +16,7 @@ const SleepQualityGauge = ({ overallQualityMean, thresholdLow, thresholdHigh }) 
         type: 'gauge',
         max: 10,
         center: ['50%', '60%'],
-        radius: '100%',
+        radius: '90%', // 稍微减小半径以适应小屏幕
         axisLine: {
           lineStyle: {
             width: 20,
@@ -73,8 +73,12 @@ const SleepQualityGauge = ({ overallQualityMean, thresholdLow, thresholdHigh }) 
   };
   // 返回Doughnut组件
   return (
-    <div style={{ width: '450px', height: '300px' }}>
-      <ReactECharts option={option} />
+    <div style={{ width: '100%', height: '300px', maxWidth: '450px', margin: '0 auto' }}>
+      <ReactECharts 
+        option={option} 
+        style={{ height: '100%', width: '100%' }}
+        opts={{ renderer: 'svg' }} // 使用 SVG 渲染以获得更好的缩放效果
+      />
       {/* <Doughnut data={data} options={options} plugins={[gaugeText]} /> */}
     </div>
   );

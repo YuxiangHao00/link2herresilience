@@ -333,7 +333,7 @@ const SelfAssess = () => {
           display: 'inline-block'
         }}
       >
-        Know about data
+        Click to know about data
       </Button>
       <Modal
         title={<div style={{ textAlign: 'center', fontWeight: 'bold', fontSize: '30px' }}>Effects of poor Sleep Quality</div>}
