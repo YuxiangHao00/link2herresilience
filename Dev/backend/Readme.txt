@@ -72,3 +72,15 @@ Epic4:
 	- topic range: {'sexual health', 'prevention'}
 	- questions: must be in range of [0, total_questions_on_topic-1]
 	- answers range: {'A)', 'B)', 'C)', 'D)' 'E)'} (should match "question_id" from quiz)
+
+Epic6:
+* Yoga Asana
+** API call to provide response for image(s) captured by users to analyze its pose in the current step of yoga sequence using pose estimation model to support the self-paced yoga practice & provide actionable insights for pose correction
+	- http://0.0.0.0:5007/yoga_asana/v1/analyse?sess_id=demo%2301&asana=Anantasana&step=1&file_id=2cf2efad&type=.jpg
+	
+	Note:
+	- sess_id: <string>
+	- asana: <string> out of 12 yoga asanas (in lower case): {'anantasana', 'ardhakati chakrasana', 'vajrasana', 'tadasana', 'marjariasana', 'parvatasana', 'bhujangasana', 'viparita karani', 'kati chakrasana', 'sarvangasana'}
+	- step: <int> respective step of yoga sequence
+	- file_id: <string> unique file id of length 8, to index uploaded images
+	- type: (supported format) <string> {"image": ["jpeg", "jpg", "png"], "video": ["mp4", "mpeg4"]}

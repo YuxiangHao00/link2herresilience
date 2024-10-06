@@ -182,4 +182,4 @@ api.add_resource(YogaAsana, '/analyse')
 
 
 if __name__ == '__main__':
-    app6.run(port=5007, debug=True)
+    app6.run(port=5007)
