@@ -1,0 +1,297 @@
+{
+    "yogaSequences": [
+      {
+        "id": 1,
+        "pose": "Pranayama",
+        "description": "Ancient exercise to control your breath & movement of life force 'prana'. It is the foundational asana to improve overall well-being and mental health.",
+        "source": "https://www.wikihow.com/Do-Pranayam",
+        "stepsCount": 3,
+        "steps": [
+          {
+            "step": 1,
+            "description": "Sit in a comfortable location, cross-legged, and become aware of your breath."
+          },
+          {
+            "step": 2,
+            "description": "Close the right nostril with the right thumb, and inhale slowly through the left nostril. Count from 4 to 5 while inhaling."
+          },
+          {
+            "step": 3,
+            "description": "Close the left nostril using the right ring finger, release the right nostril, and exhale through the right nostril. Then, inhale through the right nostril. Repeat the process for 3-5 times."
+          }
+        ],
+        "annotation": "Repeat for 3-5 times."
+      },
+      {
+        "id": 2,
+        "pose": "Anantasana",
+        "description": "Also known as the Sleeping Vishnu pose, used for sideways reclining balance. Strengthens obliques, hamstrings, inner thighs, shoulders, and core.",
+        "source": "https://myyogateacher.com/yoga-asana/anantasana",
+        "stepsCount": 5,
+        "steps": [
+          {
+            "step": 1,
+            "description": "Lie down on the ground in a corpse pose (Shavasana), using a yoga mat or any comfortable surface."
+          },
+          {
+            "step": 2,
+            "description": "Turn to the right side, resting your head on your right hand. Inhale and bring your left leg to your waist. Hold your big toe with your left hand and exhale while extending your leg and arm upright."
+          },
+          {
+            "step": 3,
+            "description": "Release your toe and return to corpse pose. Prepare to repeat the sequence on the left side."
+          },
+          {
+            "step": 4,
+            "description": "Roll over to the left side. Inhale and bring your right leg to your waist. Hold your big toe with your right hand and exhale while extending your right leg and arm upright."
+          },
+          {
+            "step": 5,
+            "description": "Finally, release your toe and return to corpse pose."
+          }
+        ],
+        "annotation": "Hold each side pose for 1-2 minutes."
+      },
+      {
+        "id": 3,
+        "pose": "Ardhakati Chakrasana",
+        "description": "Known as half waist wheel pose, beneficial for spine health, increasing flexibility, and improving liver and lung functions.",
+        "source": "https://www.easyayurveda.com/2021/01/19/ardha-kati-chakrasana",
+        "stepsCount": 5,
+        "steps": [
+          {
+            "step": 1,
+            "description": "Stand straight with feet together, extend both arms sideways in an aeroplane pose."
+          },
+          {
+            "step": 2,
+            "description": "Inhale, raise the right hand upright, and lower the left hand down."
+          },
+          {
+            "step": 3,
+            "description": "Exhale and bend towards the left side, making a half wheel pose. Stay in the position for around 30 seconds."
+          },
+          {
+            "step": 4,
+            "description": "Return to the straight standing position, lower the right arm, and raise the left hand upright."
+          },
+          {
+            "step": 5,
+            "description": "Bend towards the right side to create a half wheel pose (lateral arc). Return to standing position."
+          }
+        ],
+        "annotation": "Repeat for 3-5 times."
+      },
+      {
+        "id": 4,
+        "pose": "Chakrasana",
+        "description": "Also known as dhanurasana or full-wheel pose, helpful for stimulating breath, opening up the chest and shoulders, and improving spinal flexibility.",
+        "source": "https://www.healthline.com/health/fitness/chakrasana-benefits",
+        "stepsCount": 4,
+        "steps": [
+          {
+            "step": 1,
+            "description": "Lie on your back on the ground and bend your knees."
+          },
+          {
+            "step": 2,
+            "description": "Reach your arms overhead by bending them. Place your palms flat on the floor next to your ears with fingers pointing forward, and lift your hips from the ground into a flat tabletop position."
+          },
+          {
+            "step": 3,
+            "description": "Increase the height of your hips from the ground level by extending your back upwards to reach a full-wheel pose (an arc). Stay in the pose for 15-20 seconds."
+          },
+          {
+            "step": 4,
+            "description": "Return to the resting position with your hips and back on the ground."
+          }
+        ],
+        "annotation": "Repeat for 2-3 times with regular breathing."
+      },
+      {
+        "id": 5,
+        "pose": "Bhujangasana",
+        "description": "Also called the cobra pose, beneficial for building core strength and improving spine health and flexibility.",
+        "source": "https://www.yogajournal.com/poses/cobra-pose-2",
+        "stepsCount": 3,
+        "steps": [
+          {
+            "step": 1,
+            "description": "Start by lying on your stomach on a flat surface."
+          },
+          {
+            "step": 2,
+            "description": "Bring your hands towards your shoulders and inhale. Press down slightly, lifting your head, chest, and shoulders, rolling them back and down."
+          },
+          {
+            "step": 3,
+            "description": "Exhale and lower your head back down to the ground to return to the resting position."
+          }
+        ],
+        "annotation": "Practice regularly for better spine health."
+      },
+      {
+        "id": 6,
+        "pose": "Kati Chakrasana",
+        "description": "Also known as the standing spinal twist pose, good for constipation, strengthening arms, leg muscles, spine, and waist health.",
+        "source": "https://www.artofliving.org/in-en/yoga/yoga-poses/katichakrasana-standing-spinal-twist",
+        "stepsCount": 4,
+        "steps": [
+          {
+            "step": 1,
+            "description": "Stand upright with legs close together."
+          },
+          {
+            "step": 2,
+            "description": "Put your legs shoulder-width apart, inhale, and extend your arms upward."
+          },
+          {
+            "step": 3,
+            "description": "Twist your waist to the right side while exhaling, turning your head backward."
+          },
+          {
+            "step": 4,
+            "description": "Inhale and return to the front-facing position. Repeat by twisting the waist to the left side. Repeat the sequence 4-5 times."
+          }
+        ],
+        "annotation": "Repeat for 4-5 times."
+      },
+      {
+        "id": 7,
+        "pose": "Marjariasana",
+        "description": "Also known as the cat stretch pose, strengthens wrists and shoulders, and improves spine flexibility and digestion.",
+        "source": "https://www.artofliving.org/au-en/yoga/yoga-poses/cat-stretch-marjariasana",
+        "stepsCount": 4,
+        "steps": [
+          {
+            "step": 1,
+            "description": "Get on your knees and hands on the ground to form a tabletop position."
+          },
+          {
+            "step": 2,
+            "description": "Keeping arms perpendicular to the ground, face straight ahead. Inhale, tilt your head back, raising your chin, pushing your navel down, and raising the tailbone."
+          },
+          {
+            "step": 3,
+            "description": "Exhale while bringing your chin to your chest and arching your back upwards."
+          },
+          {
+            "step": 4,
+            "description": "Return to the initial tabletop pose. Repeat steps 2 and 3 for 5-6 times."
+          }
+        ],
+        "annotation": "Repeat for 5-6 times."
+      },
+      {
+        "id": 8,
+        "pose": "Parvatasana",
+        "description": "Known as seated mountain pose, improves posture, concentration, and prevents joint issues.",
+        "source": "https://www.healthshots.com/fitness/staying-fit/mountain-pose-or-parvatasana",
+        "stepsCount": 4,
+        "steps": [
+          {
+            "step": 1,
+            "description": "Sit straight with legs stretched parallel and close together."
+          },
+          {
+            "step": 2,
+            "description": "Bend your knees to sit with folded legs and place your hands on your thighs."
+          },
+          {
+            "step": 3,
+            "description": "Raise both arms from respective sides while inhaling to shoulder level."
+          },
+          {
+            "step": 4,
+            "description": "Bring your hands to meet on top of your head, forming a mountain pose while holding your breath. Exhale while bringing arms down. Repeat for 3-5 times."
+          }
+        ],
+        "annotation": "Repeat for 3-5 times."
+      },
+      {
+        "id": 9,
+        "pose": "Sarvangasana",
+        "description": "Commonly known as the shoulder stand, it stimulates thyroid glands, strengthens arms and shoulders, and improves spinal flexibility.",
+        "source": "https://www.artofliving.org/in-en/yoga/yoga-poses/sarvangasana-shoulder-stand",
+        "stepsCount": 2,
+        "steps": [
+          {
+            "step": 1,
+            "description": "Lie on your back with hands by your sides in a resting position."
+          },
+          {
+            "step": 2,
+            "description": "Lift your legs upwards while keeping them firm and together. Start lifting your back with the help of your hands, bringing your toes over your nose as if touching the ceiling. Stay for 30-60 seconds, then lower your back and legs. Repeat 4-5 times."
+          }
+        ],
+        "annotation": "Repeat for 4-5 times."
+      },
+      {
+        "id": 10,
+        "pose": "Tadasana",
+        "description": "Commonly called the mountain pose or palm tree stance, helps relieve pain, improve flexibility, posture, and coordination.",
+        "source": "https://www.healthline.com/health/happy-baby-pose#instructions",
+        "stepsCount": 5,
+        "steps": [
+          {
+            "step": 1,
+            "description": "Stand with hands by your side and toes touching each other, evenly distributing weight on them."
+          },
+          {
+            "step": 2,
+            "description": "Lift your arms to chest level, facing forward with palms out, stretching your fingers together."
+          },
+          {
+            "step": 3,
+            "description": "Elevate your arms close to your ears with hands over your head and straight arms, taking slow, deep breaths."
+          },
+          {
+            "step": 4,
+            "description": "Lower your arms to chest level with extended arms and palms out."
+          },
+          {
+            "step": 5,
+            "description": "Finally, bring down your hands by your side and stand in a relaxed position. Repeat the steps for 3-5 times."
+          }
+        ],
+        "annotation": "Repeat for 3-5 times."
+      },
+      {
+        "id": 11,
+        "pose": "Vajrasana",
+        "description": "Improves attention, reduces anxiety, maintains agility, and decreases heart rate and blood pressure. Helpful for managing type 2 diabetes and hypertension.",
+        "source": "https://www.healthline.com/health/benefits-of-vajrasana#how-to-do-it",
+        "stepsCount": 2,
+        "steps": [
+          {
+            "step": 1,
+            "description": "Sit straight with legs stretched parallel and close together."
+          },
+          {
+            "step": 2,
+            "description": "Bend your knees to sit with legs folded and place your hands over your thighs."
+          }
+        ],
+        "annotation": "Practice regularly for better benefits."
+      },
+      {
+        "id": 12,
+        "pose": "Viparita Karani",
+        "description": "Also known as legs up the wall pose, a beginner's version of Sarvangasana. Weight is on the shoulders, less on the throat and neck.",
+        "source": "https://www.healthline.com/health/exercise-fitness/legs-up-the-wall#benefits",
+        "stepsCount": 2,
+        "steps": [
+          {
+            "step": 1,
+            "description": "Lie on your back with hands by your sides in a resting position."
+          },
+          {
+            "step": 2,
+            "description": "Lift your legs upwards while keeping them firm and together. Start lifting your back with the help of your hands at a 45-degree angle, bringing your toes straight. Hold for 30-60 seconds, then lower your back and legs. Repeat 4-5 times."
+          }
+        ],
+        "annotation": "Repeat for 4-5 times."
+      }
+    ]
+  }
+  
