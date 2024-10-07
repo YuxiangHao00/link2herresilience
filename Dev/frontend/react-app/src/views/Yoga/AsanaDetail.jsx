@@ -49,6 +49,8 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
   const videoRef = useRef(null);
   const streamRef = useRef(null);
   const canvasRef = useRef(null);
+  const [analysisResult, setAnalysisResult] = useState(null);
+  const [isAnalyzing, setIsAnalyzing] = useState(false);
 
   useEffect(() => {
     return () => {
@@ -176,6 +178,8 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
         console.log('Image uploaded successfully', data);
         setCapturedImage(URL.createObjectURL(file));
         console.log(`File uploaded: ${sessionId}_${fileId}.png`);
+        // 上传成功后立即调用分析API
+        analyzePhoto(fileId);
       } else {
         console.error('Failed to upload image', data);
       }
@@ -185,15 +189,28 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
     }
   };
 
+  const analyzePhoto = async (fileId) => {
+    setIsAnalyzing(true);
+    try {
+      const url = `https://link2herresilience.com.au/yoga_asana/v1/analyse?sess_id=${sessionId}&asana=${asana.name.toLowerCase()}&step=${currentStep}&file_id=${fileId}&type=.png`;
+      const response = await fetch(url);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      setAnalysisResult(data);
+    } catch (error) {
+      console.error('Error analyzing photo', error);
+      setAnalysisResult({ error: 'Failed to analyze photo' });
+    } finally {
+      setIsAnalyzing(false);
+    }
+  };
+
   const retakePhoto = () => {
     setCapturedImage(null);
     setCountdown(3);
     startCamera();
-  };
-
-  const analyzePhoto = () => {
-    // 这里添加分析功能
-    console.log("Analyzing photo...");
   };
 
   const getStepImage = () => {
@@ -301,11 +318,22 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
                 </div>
                 <div className="camera-controls">
                   <button onClick={retakePhoto} className="secondary-button">Retake Photo</button>
-                  <button onClick={analyzePhoto} className="primary-button">Analyze</button>
                 </div>
               </>
             )}
           </div>
+          {capturedImage && (
+            <div className="analysis-result">
+              <h3>Analysis Result</h3>
+              {isAnalyzing ? (
+                <p>Analyzing your pose...</p>
+              ) : analysisResult ? (
+                <pre>{JSON.stringify(analysisResult, null, 2)}</pre>
+              ) : (
+                <p>No analysis result yet.</p>
+              )}
+            </div>
+          )}
           <button 
             onClick={handleNextOrRepeat} 
             className="next-step-button"

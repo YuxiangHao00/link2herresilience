@@ -3,6 +3,8 @@
 @white: #FFFFFF;
 @gray: #757575;
 
+// 删除新定义的颜色变量
+
 .yoga-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -1034,6 +1036,260 @@ video {
       .step-tab {
         flex: 1 1 100%; // 在极小屏幕上每行显示一个标签
         height: 30px; // 减小高度
+      }
+    }
+  }
+}
+
+.self-assessment {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: @white;
+
+  .intro-text {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #444;
+    text-align: center;
+
+    strong {
+      font-weight: 700;
+      color: #000;
+    }
+  }
+
+  h2 {
+    font-size: 24px;
+    color: @orange;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .questions {
+    background-color: #F5F5F5;
+    padding: 20px;
+    border-radius: 10px;
+
+    .question {
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      p {
+        margin-bottom: 10px;
+        font-size: 16px;
+        color: #333;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .info-icon {
+          cursor: help;
+          color: @orange;
+          font-size: 18px;
+          margin-left: 10px;
+          position: relative;
+
+          &:hover::after {
+            content: attr(title);
+            position: absolute;
+            background: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            width: 200px;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+          }
+        }
+      }
+
+      .answers {
+        display: flex;
+        justify-content: flex-end;
+
+        button {
+          margin-left: 10px;
+          padding: 5px 20px;
+          border: none;
+          border-radius: 5px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+
+          &.active {
+            background-color: @orange;
+            color: white;
+          }
+
+          &:not(.active) {
+            background-color: #E0E0E0;
+            color: #333;
+          }
+
+          &:hover:not(.active) {
+            background-color: darken(#E0E0E0, 10%);
+          }
+        }
+      }
+    }
+  }
+
+  .activity-question {
+    margin-top: 20px;
+    background-color: #F5F5F5;
+    padding: 20px;
+    border-radius: 10px;
+
+    h3 {
+      font-size: 18px;
+      color: @orange;
+      margin-bottom: 15px;
+    }
+
+    .activity-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+
+      th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: lighten(@orange, 35%);
+        color: darken(@orange, 20%);
+      }
+
+      input[type="number"] {
+        width: 100%;
+        padding: 5px;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  .assess-button {
+    display: block;
+    width: 200px;
+    margin: 20px auto 0;
+    padding: 10px;
+    background-color: @orange;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: darken(@orange, 10%);
+    }
+
+    &:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+
+      &:hover {
+        background-color: #cccccc;
+      }
+    }
+  }
+
+  .insight-box, .assessment-result {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f0f0;
+    border-left: 5px solid @orange;
+    border-radius: 5px;
+
+    h3 {
+      color: @orange;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    p {
+      color: #333;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .self-assessment {
+    padding: 10px;
+
+    .intro-text {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 20px;
+    }
+
+    .questions {
+      padding: 10px;
+
+      .question {
+        p {
+          font-size: 14px;
+        }
+
+        .answers {
+          button {
+            padding: 5px 15px;
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    .activity-question {
+      padding: 10px;
+
+      h3 {
+        font-size: 16px;
+      }
+
+      .activity-table {
+        font-size: 14px;
+
+        th, td {
+          padding: 5px;
+        }
+
+        input[type="number"] {
+          padding: 3px;
+        }
+      }
+    }
+
+    .assess-button {
+      width: 100%;
+      font-size: 16px;
+    }
+
+    .insight-box, .assessment-result {
+      padding: 10px;
+
+      h3 {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 14px;
       }
     }
   }

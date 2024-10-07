@@ -2,55 +2,286 @@
 
 .addiction-prevention {
   &.main-page {
-    .main-card {
-      margin: 0 auto;
-      padding: 20px;
-      background-color: #FFF8E7;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 40px 20px;
+    background-color: #f5f5f5;
+
+    .content-wrapper {
+      max-width: 1000px;
+      width: 100%;
+      padding: 30px;
     }
 
     .page-title {
-      font-size: 2rem;
-      color: #000000 !important;
-      margin-bottom: 1rem;
-      
-      @media (max-width: 768px) {
-        font-size: 1.5rem;
-      }
-    }
-
-    .subtitle {
-      font-size: 1.5rem;
-      color: #000000;
-      
-      @media (max-width: 768px) {
-        font-size: 1.25rem;
-      }
+      color: #1E3A8A !important;
+      text-align: left;
+      margin-bottom: 30px;
+      font-size: 48px;
+      font-family: 'Brush Script MT', cursive;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
     }
 
     .info-details {
-      font-size: 1rem;
+      font-size: 16px;
       line-height: 1.6;
-      margin-bottom: 1rem;
-      
-      @media (max-width: 768px) {
-        font-size: 0.9rem;
-      }
+      color: #333;
+      text-align: left;
+      margin-bottom: 15px;
     }
 
-    .main-btn {
-      display: block;
-      margin: 1.5rem auto 0;
-      font-size: 1.2rem;
-      padding: 10px 20px;
-      background-color: #0F296D;
-      color: white;
-      line-height: 1;
+    .module-row {
+      margin-top: 30px;
+      display: flex;
+      justify-content: flex-end; // 将模块行右对齐
+    }
+
+    .module-item {
+      cursor: pointer;
       text-align: center;
-      
-      @media (max-width: 768px) {
-        font-size: 1rem;
-        padding: 8px 16px;
+      max-width: 200px; // 限制每个模块的最大宽度
+      margin-left: 20px; // 在模块之间添加一些间距
+    }
+
+    .module-image {
+      width: 100%;
+      border-radius: 50%;
+      margin-bottom: 16px;
+    }
+
+    .module-title {
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .module-description {
+      font-size: 14px;
+      color: #666;
+    }
+  }
+}
+
+.assess-landpage {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .background-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0;
+
+    .left-image,
+    .right-image {
+      position: absolute;
+      max-width: 50%;
+      height: auto;
+    }
+
+    .left-image {
+      left: 0;
+      bottom: 0;
+    }
+
+    .right-image {
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  .content {
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; // 改为左对齐
+  }
+
+  .page-title {
+    color: #1E3A8A; // 更改为新的颜色
+    font-size: 36px;
+    font-family: 'Brush Script MT', cursive;
+    margin-bottom: 20px;
+    text-align: left; // 标题左对齐
+    align-self: flex-start; // 确保标题左对齐
+  }
+
+  ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+    align-self: flex-start; // 确保列表左对齐
+  }
+
+  p {
+    text-align: left; // 段落左对齐
+    align-self: flex-start; // 确保段落左对齐
+  }
+
+  .start-assessment-btn {
+    background-color: #00308F;
+    border-color: #00308F;
+    font-size: 18px;
+    height: 40px;
+    padding: 0 30px;
+    margin-top: 20px;
+    display: block; // 使按钮成为块级元素
+    margin-left: auto; // 自动左边距
+    margin-right: auto; // 自动右边距
+  }
+}
+
+.stress-assess {
+  width: 100%;
+  padding: 20px;
+
+  .assessment-card {
+    background-color: #F3F4F6;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .question-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .ant-card-head {
+      background-color: #E5E7EB;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+    }
+
+    .ant-card-body {
+      padding: 20px;
+    }
+  }
+
+  .scale-options {
+    width: 100%;
+
+    .scale-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    .scale-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 10px;
+
+      .ant-radio-wrapper {
+        margin-right: 0;
+        margin-bottom: 5px;
+      }
+
+      span {
+        font-size: 12px;
       }
     }
   }
+
+  // 添加问题动画相关的样式
+  .question-transition-enter {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .question-transition-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 500ms, transform 500ms;
+  }
+
+  .question-transition-exit {
+    opacity: 1;
+  }
+
+  .question-transition-exit-active {
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 500ms, transform 500ms;
+  }
+}
+
+// 响应式样式
+@media (max-width: 768px) {
+  .stress-assess {
+    padding: 10px;
+
+    .assessment-card {
+      .ant-card-body {
+        padding: 15px;
+      }
+    }
+
+    .question-card {
+      .ant-card-head-title {
+        font-size: 14px;
+      }
+    }
+
+    .scale-options {
+      .scale-container {
+        justify-content: center;
+      }
+
+      .scale-item {
+        margin: 0 5px 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .stress-assess {
+    padding: 5px;
+
+    .assessment-card {
+      .ant-card-body {
+        padding: 10px;
+      }
+    }
+
+    .question-card {
+      .ant-card-head-title {
+        font-size: 12px;
+      }
+    }
+
+    .scale-options {
+      .scale-item {
+        margin: 0 2px 8px;
+      }
+    }
+  }
+}
+
+// 添加一个新的固定宽度容器
+.fixed-width-container {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
