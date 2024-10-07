@@ -123,7 +123,7 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
     formData.append('file', file);
 
     try {
-      const response = await fetch('http://127.0.0.1:5010/media_files/v1/uploads', {
+      const response = await fetch('https://link2herresilience.com.au/media_files/v1/uploads', {
         method: 'POST',
         body: formData,
       });
