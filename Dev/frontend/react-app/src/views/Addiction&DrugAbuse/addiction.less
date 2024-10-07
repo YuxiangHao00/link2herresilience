@@ -64,13 +64,9 @@
 }
 
 .assess-landpage {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 40px 20px;
   position: relative;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  padding: 40px 20px;
   overflow: hidden;
 
   .background-images {
@@ -86,6 +82,7 @@
       position: absolute;
       max-width: 50%;
       height: auto;
+      opacity: 0.5; // 降低背景图片的不透明度
     }
 
     .left-image {
@@ -102,30 +99,26 @@
   .content {
     position: relative;
     z-index: 1;
+    background-color: rgba(255, 255, 255, 0.9); // 添加半透明白色背景
     padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start; // 改为左对齐
+    border-radius: 10px;
   }
 
   .page-title {
-    color: #1E3A8A; // 更改为新的颜色
+    color: #1E3A8A;
     font-size: 36px;
     font-family: 'Brush Script MT', cursive;
     margin-bottom: 20px;
-    text-align: left; // 标题左对齐
-    align-self: flex-start; // 确保标题左对齐
+    text-align: left;
   }
 
   ul {
     margin-bottom: 20px;
     padding-left: 20px;
-    align-self: flex-start; // 确保列表左对齐
   }
 
   p {
-    text-align: left; // 段落左对齐
-    align-self: flex-start; // 确保段落左对齐
+    text-align: left;
   }
 
   .start-assessment-btn {
@@ -135,9 +128,9 @@
     height: 40px;
     padding: 0 30px;
     margin-top: 20px;
-    display: block; // 使按钮成为块级元素
-    margin-left: auto; // 自动左边距
-    margin-right: auto; // 自动右边距
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
@@ -284,4 +277,89 @@
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box;
+}
+
+.breath-exercise {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+
+  .page-title {
+    color: #1E3A8A;
+    font-size: 36px;
+    font-family: 'Brush Script MT', cursive;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .exercise-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+    position: relative;
+  }
+
+  .breath-image {
+    width: 45%;
+    max-width: 450px;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .breath-progress-bar {
+    width: 30px;
+    height: 300px;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    overflow: hidden;
+    position: absolute;
+    left: calc(45% - 15px); // 使用负距离,使进度条略微重叠在图片上
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .breath-progress {
+    width: 100%;
+    background-color: #4CAF50; // 将颜色改为绿色
+    position: absolute;
+    bottom: 0;
+    // 移除 transition 属性,因为我们现在使用 framer-motion 来处理动画
+  }
+
+  .breath-controls {
+    width: 45%;
+    text-align: center;
+    margin-left: auto; // 将控制部分推到右侧
+  }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+
+  .music-player {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f2f5;
+    border-radius: 8px;
+
+    .ant-select {
+      margin-right: 16px;
+    }
+
+    .volume-control {
+      display: flex;
+      align-items: center;
+      margin-left: 16px;
+    }
+  }
 }

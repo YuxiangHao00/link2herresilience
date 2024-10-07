@@ -17,6 +17,7 @@ import AddictionLandpage from './views/Addiction&DrugAbuse/AddictionLandpage';
 import GameIndex from './views/Addiction&DrugAbuse/GameIndex';
 import AssessLandpage from './views/Addiction&DrugAbuse/AssessLandpage';
 import StressAssess from './views/Addiction&DrugAbuse/StressAssess';
+import Breath from './views/Addiction&DrugAbuse/Breath';
 
 const SleepIcon = (props) => (
   <svg
@@ -308,6 +309,7 @@ function AppContent() {
           <Route path="/addiction-prevention/stress-assess" element={<StressAssess />} />
           <Route path="/yoga" element={<Yoga />} />
           <Route path="/food-allergies" element={<FoodAllergies />} />
+          <Route path="/addiction-prevention/breath" element={<Breath />} />
         </Routes>
       </main>
     </div>
