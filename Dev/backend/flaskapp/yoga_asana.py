@@ -23,6 +23,8 @@ from models.yoga_pose_estimator import YogaPoseEstimation
 
 import json
 import pandas as pd
+import pickle
+from sklearn.neighbors import KNeighborsClassifier
 
 from flask_cors import CORS
 
@@ -61,6 +63,14 @@ class YogaAsana(Resource):
             self.path_sess_data = os.getcwd() + '/session_data'
             self.df_sess_filenames = pd.read_csv(self.path_sess_data + "/sess_filenames.csv")
 
+        # dict of suggestions
+        self.dict_suggestions = {
+            "right": ["Well done, that's performed with right posture!",
+                      "Great going, it's a right yoga pose."],
+            "wrong": ["Oh, that's a wrong posture. ",
+                      "You didn't performed with a right posture. "]
+        }
+
 
     def get(self):
         '''
@@ -98,23 +108,40 @@ class YogaAsana(Resource):
             pose_estimate_result = self.pose_estimator.analyse_pose()
             if not "err_code" in pose_estimate_result.keys():
                 pose_estimate_result = pose_estimate_result["pose_estimation"]
-            print(pose_estimate_result)
+            else:
+                return pose_estimate_result
+            # print(pose_estimate_result)
+
+            # load coordinates file w/ pose estimate
+            coordinates = pd.read_csv("./session_data/" + self.pose_estimator.file_name.split(".")[0] + "_coordinates.csv").to_numpy()
+
+            # classificationf of yoga pose
+            # load classifier model
+            knn_classifier = pickle.load(open("./models/knn_clf/knn_clf-" + self.asana + "_" + str(self.step) + ".pkl", "rb"))
+            predict_class_prob = np.max(knn_classifier.predict_proba(coordinates))
+            predicted_class = knn_classifier.predict(coordinates)
 
             # {basic functionality} classification of the yoga pose 
-            class_probability = np.random.uniform()
-            if class_probability > 0.5:
-                classify_pose = -1
-                suggestion = "Well done, that's performed right!"
+            # class_probability = 
+            if np.random.uniform() > 0.5:
+                suggestion_ind = 1
             else:
-                classify_pose = np.random.choice(len(self.dict_yoga_sequence_wrong_postures[self.asana][str(self.step)]))
+                suggestion_ind = 0
+            if predicted_class == 0:
+                classify_pose = -1
+                suggestion = self.dict_suggestions["right"][suggestion_ind] 
+            else:
+                # classify_pose = np.random.choice(len(self.dict_yoga_sequence_wrong_postures[self.asana][str(self.step)]))
+                classify_pose = predicted_class - 1
                 wrong_posture = self.dict_yoga_sequence_wrong_postures[self.asana][str(self.step)][classify_pose]
-                suggestion = f"Oh, that's a wrong posture. Please try to look into {wrong_posture.lower()} to improve it further."
+                suggestion = self.dict_suggestions["wrong"][suggestion_ind] +\
+                      f"Please try to look into {wrong_posture.lower()} to improve it further."
 
             # result of yoga pose estimation & classification
             result = jsonify({
                 "pose_estimation": pose_estimate_result,
                 "pose_classification": {
-                    "class_probability": class_probability,
+                    "class_probability": predict_class_prob,
                     "right_posture": bool(classify_pose == -1)
                 },
                 "suggestion": suggestion
@@ -135,7 +162,8 @@ class YogaAsana(Resource):
         '''
         method to check and parse input str to np array
         '''
-        try:    #if 1:
+        try:    #
+        # if 1:
             self.err_code = 0
             # check list length in all
             df_subset = self.df_sess_filenames[self.df_sess_filenames["sess_id"] == self.sess_id]["file_id"]
@@ -144,7 +172,7 @@ class YogaAsana(Resource):
             else:
                 self.b_input_format = False
 
-            self.asana = self.asana.lower()
+            # self.asana = self.asana.lower()
             self.step = int(self.step)
             
             if not self.b_input_format:
@@ -156,7 +184,7 @@ class YogaAsana(Resource):
                 self.err_code = (1<<2) | self.err_code
                 self.err_msg.append("input file_id is not of correct length")
 
-            if not self.asana in [x.lower() for x in self.dict_yoga_sequence_wrong_postures.keys()]:
+            if not self.asana.lower() in [x.lower() for x in self.dict_yoga_sequence_wrong_postures.keys()]:
                 self.b_input_format = False
                 self.err_code = (1<<3) | self.err_code
                 self.err_msg.append("input asana is incorrect or not listed in the yoga practice")
@@ -172,7 +200,8 @@ class YogaAsana(Resource):
                 self.err_code = (1<<5) | self.err_code
                 self.err_msg.append("input file type (format) is not supported")
         
-        except:    # else:
+        except:    # 
+        # else:
             self.b_input_format = False
             self.err_code = 1
             self.err_msg = "check_input_args failed to execute"
