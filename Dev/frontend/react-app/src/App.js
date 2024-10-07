@@ -10,9 +10,13 @@ import NoiseDetection from './views/SleepQuality/NoiseDetection';
 import SleepPattern from './views/SleepQuality/SleepPattern';
 import SelfAssess from './views/SleepQuality/SelfAssess';
 import SexualReproductiveHealth from './views/SexualReproductiveHealth';
-import AddictionPrevention from './views/Addiction&DrugAbuse';
+// import AddictionPrevention from './views/Addiction&DrugAbuse';
 import Yoga from './views/Yoga';
 import FoodAllergies from './views/FoodAllergic';
+import AddictionLandpage from './views/Addiction&DrugAbuse/AddictionLandpage';
+import GameIndex from './views/Addiction&DrugAbuse/GameIndex';
+import AssessLandpage from './views/Addiction&DrugAbuse/AssessLandpage';
+import StressAssess from './views/Addiction&DrugAbuse/StressAssess';
 
 const SleepIcon = (props) => (
   <svg
@@ -278,8 +282,8 @@ function AppContent() {
           <MenuItem to="/sleep-quality" icon={SleepIcon} label="Sleep Quality" />
           <MenuItem to="/sexual-reproductive-health" icon={HeartIcon} label="Sexual & Reproductive" />
           <MenuItem to="/food-allergies" icon={FoodAllergyIcon} label="Food Allergies" />
-          <MenuItem to="/addiction-prevention" icon={BookIcon} label="Addiction Prevention" />
-          <MenuItem to="/yoga" icon={YogaIcon} label="Yoga" />
+          <MenuItem to="/yoga" icon={YogaIcon} label="Yoga & exercise" />
+          <MenuItem to="/addiction-prevention" icon={BookIcon} label="Stress and Lifestyle" />
         </nav>
       </aside>
       {!isMenuOpen && (
@@ -298,7 +302,10 @@ function AppContent() {
           <Route path="/sleep-quality/sleep-pattern" element={<SleepPattern />} />
           <Route path="/sleep-quality/self-assess" element={<SelfAssess />} />
           <Route path="/sexual-reproductive-health" element={<SexualReproductiveHealth />} />
-          <Route path="/addiction-prevention" element={<AddictionPrevention />} />
+          <Route path="/addiction-prevention" element={<AddictionLandpage />} />
+          <Route path="/addiction-prevention/game" element={<GameIndex />} />
+          <Route path="/addiction-prevention/assess" element={<AssessLandpage />} />
+          <Route path="/addiction-prevention/stress-assess" element={<StressAssess />} />
           <Route path="/yoga" element={<Yoga />} />
           <Route path="/food-allergies" element={<FoodAllergies />} />
         </Routes>

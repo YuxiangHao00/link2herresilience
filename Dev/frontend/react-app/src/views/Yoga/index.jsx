@@ -7,6 +7,7 @@ import yogaPractice from './images/Y_3.png';
 import yogaRisk from './images/Y_4.png';
 import HistoryPage from './history';
 import PracticePage from './practice';
+import SelfAssessment from './SelfAssessment';
 
 export default function YogaPage() {
   const [currentTab, setCurrentTab] = useState('yoga');
@@ -18,7 +19,7 @@ export default function YogaPage() {
       case 'practice':
         return <PracticePage />;
       case 'risks':
-        return <div>Risks content</div>;
+        return <SelfAssessment />;
       default:
         return (
           <>
