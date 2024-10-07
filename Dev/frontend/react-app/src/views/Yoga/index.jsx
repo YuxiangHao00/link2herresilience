@@ -39,18 +39,24 @@ export default function YogaPage() {
               </div>
             </div>
             <div className="cards-wrapper">
-              <div className="card" onClick={() => setCurrentTab('history')}>
-                <img src={yogaHistory} alt="Brief history of yoga & its science" />
-                <p>Brief history of yoga & its science</p>
-              </div>
-              <div className="card" onClick={() => setCurrentTab('practice')}>
-                <img src={yogaPractice} alt="Practice of yoga & its types" />
-                <p>Practice of yoga & its types</p>
-              </div>
-              <div className="card" onClick={() => setCurrentTab('risks')}>
-                <img src={yogaRisk} alt="Self-assess its associated risk" />
-                <p>Self-assess its associated risk</p>
-              </div>
+              <button className="card" onClick={() => setCurrentTab('history')}>
+                <div className="card-content">
+                  <img src={yogaHistory} alt="Brief history of yoga & its science" />
+                  <p>Brief history of yoga & its science</p>
+                </div>
+              </button>
+              <button className="card" onClick={() => setCurrentTab('practice')}>
+                <div className="card-content">
+                  <img src={yogaPractice} alt="Practice of yoga & its types" />
+                  <p>Practice of yoga & its types</p>
+                </div>
+              </button>
+              <button className="card" onClick={() => setCurrentTab('risks')}>
+                <div className="card-content">
+                  <img src={yogaRisk} alt="Self-assess its associated risk" />
+                  <p>Self-assess its associated risk</p>
+                </div>
+              </button>
             </div>
           </>
         );

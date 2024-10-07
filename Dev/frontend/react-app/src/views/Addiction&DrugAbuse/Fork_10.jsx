@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Row, Col, Button, Divider } from 'antd';
+import { Row, Col, Button, Divider, Typography } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
 import D13 from './images/D_13.png';
 import C11 from './images/C_11.png';
@@ -7,6 +7,8 @@ import C12 from './images/C_12.png';
 import Fork_7 from './Fork_7';
 import Fork_11 from './Fork_11';
 import './Game.less';
+
+const { Title, Paragraph } = Typography;
 
 const Fork_10 = ({ onPrevious, onReturn }) => {
   const [showFork7, setShowFork7] = useState(false);
@@ -19,8 +21,8 @@ const Fork_10 = ({ onPrevious, onReturn }) => {
   ];
 
   const choices = [
-    { image: C11, text: "Enticing: After hearing his proposal, you decide to try the product out yourself." },
-    { image: C12, text: "Repudiate: Although his offer might be tempting, you stand on your decision." },
+    { image: C11, text: "Enticing: After hearing his proposal, you decide to try the product out yourself.", onClick: () => setShowFork7(true) },
+    { image: C12, text: "Repudiate: Although his offer might be tempting, you stand on your decision.", onClick: () => setShowFork11(true) },
   ];
 
   if (showFork7) {
@@ -36,26 +38,25 @@ const Fork_10 = ({ onPrevious, onReturn }) => {
       <Row justify="center">
         <Col xs={24} sm={22} md={20} lg={18} xl={16}>
           <div className="game-card">
-            <p className="intro-text">{introText}</p>
+            <Paragraph className="intro-text">{introText}</Paragraph>
             {steps.map((step, index) => (
               <React.Fragment key={index}>
                 <Divider className="step-divider" />
                 <div className="step-container">
                   <img src={step.image} alt={`Step ${index + 1}`} className="step-image" />
-                  <p className="step-text">{step.text}</p>
+                  <Paragraph className="step-text">{step.text}</Paragraph>
                 </div>
               </React.Fragment>
             ))}
             <Divider className="step-divider" />
             <div className="choices">
-              <h2>You can choose any one of the following options to continue with the story.</h2>
+              <Title level={4}>You can choose any one of the following options to continue with the story.</Title>
               <Row gutter={[16, 16]}>
                 {choices.map((choice, index) => (
                   <Col xs={24} sm={12} key={index}>
-                    <div className="choice-card">
+                    <div className="choice-card" onClick={choice.onClick}>
                       <img src={choice.image} alt={`Choice ${index + 1}`} className="choice-image" />
-                      <p className="choice-text">{choice.text}</p>
-                      <Button onClick={() => index === 0 ? setShowFork7(true) : setShowFork11(true)}>Select</Button>
+                      <Paragraph className="choice-text">{choice.text}</Paragraph>
                     </div>
                   </Col>
                 ))}

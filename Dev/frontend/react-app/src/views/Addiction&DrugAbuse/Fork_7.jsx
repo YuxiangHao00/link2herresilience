@@ -17,20 +17,20 @@ const Fork_7 = ({ onPrevious, onReturn }) => {
   const introText = "Great! You've made a fantastic decision. This is your chance of Redeeming. You finally confront Heisenberg and this is your chance to take action on the dealer.";
 
   const steps = [
-    { image: D9, text: "" },
+    { image: D9, text: "You gather your courage and approach Heisenberg, determined to make things right." },
   ];
 
   const choices = [
-    { image: C9, text: "Mercy: You give him a chance to disappear!" },
-    { image: C10, text: "Vengeance: You plan to hand him over to the cops!" },
+    { image: C9, text: "Mercy: You give him a chance to disappear!", onClick: () => setShowFork8(true) },
+    { image: C10, text: "Vengeance: You plan to hand him over to the cops!", onClick: () => setShowFork9(true) },
   ];
 
   if (showFork8) {
-    return <Fork_8 onReturn={onReturn} />;
+    return <Fork_8 onPrevious={() => setShowFork8(false)} onReturn={onReturn} />;
   }
 
   if (showFork9) {
-    return <Fork_9 onReturn={onReturn} />;
+    return <Fork_9 onPrevious={() => setShowFork9(false)} onReturn={onReturn} />;
   }
 
   return (
@@ -38,25 +38,25 @@ const Fork_7 = ({ onPrevious, onReturn }) => {
       <Row justify="center">
         <Col xs={24} sm={22} md={20} lg={18} xl={16}>
           <div className="game-card">
-            <Title level={4}>{introText}</Title>
+            <Paragraph className="intro-text">{introText}</Paragraph>
             {steps.map((step, index) => (
               <React.Fragment key={index}>
                 <Divider className="step-divider" />
                 <div className="step-container">
                   <img src={step.image} alt={`Step ${index + 1}`} className="step-image" />
+                  <Paragraph className="step-text">{step.text}</Paragraph>
                 </div>
               </React.Fragment>
             ))}
             <Divider className="step-divider" />
             <div className="choices">
-              <Paragraph>You can make any of the following choices, to continue with the story.</Paragraph>
+              <Title level={4}>You can make any of the following choices, to continue with the story:</Title>
               <Row gutter={[16, 16]}>
                 {choices.map((choice, index) => (
                   <Col xs={24} sm={12} key={index}>
-                    <div className="choice-card">
+                    <div className="choice-card" onClick={choice.onClick}>
                       <img src={choice.image} alt={`Choice ${index + 1}`} className="choice-image" />
-                      <Paragraph strong>{choice.text}</Paragraph>
-                      <Button onClick={() => index === 0 ? setShowFork8(true) : setShowFork9(true)}>Select</Button>
+                      <Paragraph className="choice-text">{choice.text}</Paragraph>
                     </div>
                   </Col>
                 ))}

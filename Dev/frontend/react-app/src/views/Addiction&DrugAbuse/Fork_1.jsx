@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Row, Col, Button, Divider } from 'antd';
+import { Row, Col, Divider, Button } from 'antd';
+import { LeftOutlined } from '@ant-design/icons';
 import D1 from './images/D_1.jpg';
 import D2 from './images/D_2.png';
 import D3 from './images/D_3.png';
@@ -22,8 +23,8 @@ const Fork_1 = ({ onReturn }) => {
   ];
 
   const choices = [
-    { image: C1, text: "Accept it" },
-    { image: C2, text: "Deny it" },
+    { image: C1, text: "Accept it", onClick: () => setShowFork2(true) },
+    { image: C2, text: "Deny it", onClick: () => setShowFork10(true) },
   ];
 
   if (showFork2) {
@@ -55,14 +56,17 @@ const Fork_1 = ({ onReturn }) => {
               <Row gutter={[16, 16]}>
                 {choices.map((choice, index) => (
                   <Col xs={24} sm={12} key={index}>
-                    <div className="choice-card">
+                    <div className="choice-card" onClick={choice.onClick}>
                       <img src={choice.image} alt={`Choice ${index + 1}`} className="choice-image" />
                       <p className="choice-text">{choice.text}</p>
-                      <Button onClick={() => index === 0 ? setShowFork2(true) : setShowFork10(true)}>Select</Button>
                     </div>
                   </Col>
                 ))}
               </Row>
+            </div>
+            <div className="navigation-buttons">
+              <Button onClick={onReturn} icon={<LeftOutlined />}>Return to Start</Button>
+              <Button type="primary" onClick={() => {}}>Continue</Button>
             </div>
           </div>
         </Col>

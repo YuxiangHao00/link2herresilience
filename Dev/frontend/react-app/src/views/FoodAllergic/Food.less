@@ -15,14 +15,45 @@ body {
   
     .title {
       text-align: center;
-      margin-bottom: 30px;
-      font-size: 2.5rem;
-      color: #333;
+      margin-bottom: 40px;
+      font-size: 3rem;
+      color: #1890ff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+      font-weight: bold;
+      letter-spacing: 1px;
+      position: relative;
+      padding-bottom: 15px;
   
-      // 在移动设备上减小字体大小
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100px;
+        height: 4px;
+        background-color: #1890ff;
+        border-radius: 2px;
+      }
+  
       @media (max-width: 768px) {
-          font-size: 2rem;
-          margin-bottom: 20px;
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+  
+        &::after {
+          width: 80px;
+          height: 3px;
+        }
+      }
+  
+      @media (max-width: 480px) {
+        font-size: 2rem;
+        margin-bottom: 25px;
+  
+        &::after {
+          width: 60px;
+          height: 2px;
+        }
       }
     }
   
@@ -44,11 +75,11 @@ body {
       }
   
       .allergen-item {
-        background-color: #f5f5f5;
-        border-radius: 10px;
+        background-color: #ffffff;
+        border-radius: 15px;
         overflow: hidden;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
         cursor: pointer;
         aspect-ratio: 1 / 1;
         display: flex;
@@ -60,20 +91,27 @@ body {
         }
   
         &:hover {
-          transform: scale(1.05);
+          transform: translateY(-5px);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
         }
   
         img {
           width: 100%;
-          height: 80%;
+          height: 75%;
           object-fit: cover;
+          transition: transform 0.3s ease;
+        }
+  
+        &:hover img {
+          transform: scale(1.05);
         }
   
         p {
-          padding: 10px;
+          padding: 15px;
           text-align: center;
           font-weight: bold;
           color: #333;
+          font-size: 1.1rem;
           margin: auto 0;
         }
       }
@@ -119,7 +157,7 @@ body {
   
   .ant-tabs {
     .ant-tabs-nav {
-      margin-bottom: 30px;
+      margin-bottom: 40px;
       &::before {
         border-bottom: none;
       }
@@ -130,12 +168,26 @@ body {
     }
 
     .ant-tabs-tab {
-      font-size: 18px;
-      padding: 15px 20px;
+      font-size: 20px;
+      padding: 15px 25px;
+      transition: all 0.3s ease;
+  
+      &:hover {
+        color: #1890ff;
+      }
     }
 
     .ant-tabs-tab-active {
       font-weight: bold;
+  
+      .ant-tabs-tab-btn {
+        color: #1890ff;
+      }
+    }
+
+    .ant-tabs-ink-bar {
+      background-color: #1890ff;
+      height: 3px;
     }
 
     .ant-tabs-content {
@@ -446,5 +498,134 @@ body {
 
   .ant-alert-message {
     font-size: 14px;
+  }
+}
+
+.allergen-modal {
+  .ant-modal-content {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .modal-content {
+    padding: 30px;
+
+    .allergen-image {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 32px;
+      color: #1890ff;
+      margin-bottom: 20px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 25px;
+      white-space: pre-line;
+    }
+
+    .allergen-links {
+      margin-bottom: 25px;
+
+      a {
+        display: inline-block;
+        color: #1890ff;
+        margin-bottom: 10px;
+        margin-right: 15px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid transparent;
+
+        &:hover {
+          color: #40a9ff;
+          border-bottom-color: #40a9ff;
+        }
+      }
+    }
+
+    .ant-btn {
+      font-size: 16px;
+      height: 45px;
+      padding: 0 25px;
+      border-radius: 25px;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(24, 144, 255, 0.3);
+      }
+    }
+  }
+}
+
+// 在文件末尾添加以下样式
+
+.allergen-modal {
+  .ant-modal-content {
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .modal-content {
+    padding: 24px;
+
+    .allergen-image {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-size: 28px;
+      color: #1890ff;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 20px;
+      white-space: pre-line;
+    }
+
+    .allergen-links {
+      margin-bottom: 20px;
+
+      a {
+        display: block;
+        color: #1890ff;
+        margin-bottom: 8px;
+        text-decoration: underline;
+
+        &:hover {
+          color: #40a9ff;
+        }
+      }
+    }
+
+    .ant-btn {
+      font-size: 16px;
+      height: 40px;
+      padding: 0 20px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .allergen-modal {
+    .modal-content {
+      .allergen-image {
+        margin-bottom: 20px;
+      }
+    }
   }
 }

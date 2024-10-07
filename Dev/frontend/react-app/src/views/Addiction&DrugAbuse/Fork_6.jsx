@@ -1,38 +1,38 @@
 import React from 'react';
-import { Row, Col, Button, Typography } from 'antd';
+import { Row, Col, Button, Typography, Divider } from 'antd';
 import { LeftOutlined } from '@ant-design/icons';
 import F1 from './images/F_1.png';
 import './Game.less';
 
-const { Title, Paragraph, Text } = Typography;
+const { Title, Paragraph } = Typography;
 
-const Fork_6 = ({ onReturn }) => {
+const Fork_6 = ({ onPrevious, onReturn }) => {
+  const introText = "You're under arrest! You've been caught trying to buy drugs, only to discover the dealer is actually an undercover police officer. What seemed like a way to satisfy your addiction has now led to serious legal consequences.";
+
+  const steps = [
+    { image: F1, text: "Australian law enforcement agencies, including the Australian Federal Police (AFP) and local police, use undercover operations as a crucial method to combat drug crime." },
+    { text: "Getting caught in a drug deal can have severe repercussions, including:" },
+    { text: "• Criminal Charges: You could be charged with possession, intent to distribute, or even trafficking. These charges can result in significant fines, a criminal record, or imprisonment." },
+    { text: "• Permanent Record: A conviction for drug offences in Australia can stay on your record and affect your future opportunities—making it harder to find a job, apply for certain visas, or even rent a place to live." },
+    { text: "• Impact on Migration Status: If you're a migrant or hold a temporary visa, drug-related offences can jeopardize your immigration status, leading to potential visa cancellations or deportation." },
+  ];
+
   return (
     <div className="fork-common main-page">
       <Row justify="center">
         <Col xs={24} sm={22} md={20} lg={18} xl={16}>
           <div className="game-card final-card">
-            <Title level={3}>You're under arrest! You've been caught trying to buy drugs, only to discover the dealer is actually an undercover police officer. What seemed like a way to satisfy your addiction has now led to serious legal consequences.</Title>
-            
-            <Row gutter={[16, 16]} align="middle">
-              <Col xs={24} md={12}>
-                <img src={F1} alt="Australian Federal Police Badge" className="afp-badge" />
-              </Col>
-              <Col xs={24} md={12}>
-                <Paragraph>
-                  Australian law enforcement agencies, including the Australian Federal Police (AFP) and local police, use undercover operations as a crucial method to combat drug crime.
-                </Paragraph>
-                <Paragraph>
-                  Getting caught in a drug deal can have severe repercussions, including:
-                </Paragraph>
-                <ul>
-                  <li>Criminal Charges: You could be charged with possession, intent to distribute, or even trafficking. These charges can result in significant fines, a criminal record, or imprisonment.</li>
-                  <li>Permanent Record: A conviction for drug offences in Australia can stay on your record and affect your future opportunities—making it harder to find a job, apply for certain visas, or even rent a place to live.</li>
-                  <li>Impact on Migration Status: If you're a migrant or hold a temporary visa, drug-related offences can jeopardize your immigration status, leading to potential visa cancellations or deportation.</li>
-                </ul>
-              </Col>
-            </Row>
-
+            <Paragraph className="intro-text">{introText}</Paragraph>
+            {steps.map((step, index) => (
+              <React.Fragment key={index}>
+                {index > 0 && <Divider className="step-divider" />}
+                <div className="step-container">
+                  {step.image && <img src={step.image} alt={`Step ${index + 1}`} className="step-image" />}
+                  {step.text && <Paragraph className="step-text">{step.text}</Paragraph>}
+                </div>
+              </React.Fragment>
+            ))}
+            <Divider className="step-divider" />
             <Paragraph>
               Next time, think carefully about the choices you make. If you're struggling with substance abuse, there are resources available.
             </Paragraph>
@@ -54,7 +54,8 @@ const Fork_6 = ({ onReturn }) => {
             </Paragraph>
 
             <div className="navigation-buttons">
-              <Button onClick={onReturn} icon={<LeftOutlined />}>Return to Start</Button>
+              <Button onClick={onPrevious} icon={<LeftOutlined />}>Previous</Button>
+              <Button onClick={onReturn} type="primary">Return to Start</Button>
             </div>
           </div>
         </Col>
