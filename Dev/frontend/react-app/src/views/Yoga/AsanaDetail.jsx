@@ -2,6 +2,43 @@ import React, { useState, useRef, useEffect } from 'react';
 import './yoga.less';
 import { v4 as uuidv4 } from 'uuid';
 
+// 修改压缩函数以保持 PNG 格式
+const compressImage = (file, maxSizeMB = 1) => {
+  return new Promise((resolve) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = (event) => {
+      const img = new Image();
+      img.src = event.target.result;
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        let width = img.width;
+        let height = img.height;
+        
+        // 计算缩放比例
+        const maxSize = Math.max(width, height);
+        if (maxSize > 1024) {
+          const scale = 1024 / maxSize;
+          width *= scale;
+          height *= scale;
+        }
+
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        ctx.drawImage(img, 0, 0, width, height);
+        
+        canvas.toBlob((blob) => {
+          resolve(new File([blob], file.name, {
+            type: 'image/png',
+            lastModified: Date.now()
+          }));
+        }, 'image/png', 0.7); // 使用 PNG 格式，质量为 0.7
+      };
+    };
+  });
+};
+
 export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack, onNextStep, sessionId, onRepeat }) {
   const [capturedImage, setCapturedImage] = useState(null);
   const [countdown, setCountdown] = useState(3);
@@ -103,12 +140,16 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
         canvas.width = 1024;
         canvas.height = 1024;
         canvas.getContext('2d').drawImage(videoRef.current, 0, 0, 1024, 1024);
-        canvas.toBlob((blob) => {
+        canvas.toBlob(async (blob) => {
           const fileId = uuidv4().slice(0, 8);
           const fileName = `${sessionId}_${fileId}.png`;
           const file = new File([blob], fileName, { type: 'image/png' });
-          uploadImage(file, fileId);
-        }, 'image/png');
+          
+          // 压缩图片
+          const compressedFile = await compressImage(file);
+          
+          uploadImage(compressedFile, fileId);
+        }, 'image/png', 0.9); // 使用 PNG 格式，质量为 0.9
         stopCamera();
         setIsCountingDown(false);
       } else {
@@ -127,6 +168,9 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
         method: 'POST',
         body: formData,
       });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       const data = await response.json();
       if (data.code === 200) {
         console.log('Image uploaded successfully', data);
@@ -137,6 +181,7 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
       }
     } catch (error) {
       console.error('Error uploading image', error);
+      // 在这里可以添加一些用户反馈，比如显示一个错误消息
     }
   };
 
