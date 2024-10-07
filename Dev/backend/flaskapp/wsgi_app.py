@@ -12,7 +12,6 @@ from air_quality import app2_1
 from allergic_pollen import app2_2
 from sleep_pattern import app3__2_3
 from health_education import app4
-from yoga_asana import app6
 
 if __name__ == "__main__":
     app0.run(host="0.0.0.0", port=5010)
@@ -22,5 +21,3 @@ if __name__ == "__main__":
     app3__2_3.run(host="0.0.0.0", port=5004)
 
     app4.run(host="0.0.0.0", port=5005)
-
-    app6.run(host="0.0.0.0", port=5007)
