@@ -151,7 +151,7 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
           const compressedFile = await compressImage(file);
           
           uploadImage(compressedFile, fileId);
-        }, 'image/png', 0.9); // 使用 PNG 格式，质量为 0.9
+        }, 'image/png', 0.9);
         stopCamera();
         setIsCountingDown(false);
       } else {
@@ -178,8 +178,9 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
         console.log('Image uploaded successfully', data);
         setCapturedImage(URL.createObjectURL(file));
         console.log(`File uploaded: ${sessionId}_${fileId}.png`);
-        // 上传成功后立即调用分析API
-        analyzePhoto(fileId);
+        console.log(`API returned file_id: ${data.file_id}`);
+        // 使用 API 返回的 file_id 调用分析 API
+        analyzePhoto(data.file_id);
       } else {
         console.error('Failed to upload image', data);
       }
@@ -189,10 +190,10 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
     }
   };
 
-  const analyzePhoto = async (fileId) => {
+  const analyzePhoto = async (apiFileId) => {
     setIsAnalyzing(true);
     try {
-      const url = `https://link2herresilience.com.au/yoga_asana/v1/analyse?sess_id=${sessionId}&asana=${asana.name.toLowerCase()}&step=${currentStep}&file_id=${fileId}&type=.png`;
+      const url = `https://link2herresilience.com.au/yoga_asana/v1/analyse?sess_id=${sessionId}&asana=${asana.name.toLowerCase()}&step=${currentStep}&file_id=${apiFileId}&type=.png`;
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);

@@ -52,6 +52,12 @@ export default function PracticePage() {
     return (
       <div className="asana-detail-wrapper">
         <h1>{selectedAsana.name} ({selectedAsana.englishName})</h1>
+        
+        <div className="asana-description">
+          <p>{asanaSequence.description}</p>
+          <a href={asanaSequence.source} target="_blank" rel="noopener noreferrer">Learn more</a>
+        </div>
+        
         <div className="step-tabs">
           {Array.from({ length: asanaSequence.stepsCount }, (_, i) => i + 1).map((step) => (
             <div
