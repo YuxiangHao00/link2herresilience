@@ -20,10 +20,14 @@ const AddictionLandpage = () => {
     navigate('/addiction-prevention/assess');
   };
 
+  const handleStartBreathing = () => {
+    navigate('/addiction-prevention/breath');
+  };
+
   const modules = [
     { title: "Game Based Learning Module", image: S1, action: handleStartGame, description: "You are in control of the Game and be careful because the choices you make affects your outcome!" },
     { title: "Risk Assessment", image: S2, action: handleStartAssessment, description: "Answer a few questions and find out if you're in risky of involving in a potential substance abuse" },
-    { title: "Stress Relief", image: S3, description: "Your self-guided breathing and mindfulness tool to help reduce stress." }
+    { title: "Stress Relief", image: S3, action: handleStartBreathing, description: "Your self-guided breathing and mindfulness tool to help reduce stress." }
   ];
 
   return (
