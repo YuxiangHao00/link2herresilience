@@ -147,7 +147,7 @@ function AppContent() {
   const navigate = useNavigate();
   const location = useLocation();
   const [currentPath, setCurrentPath] = useState(location.pathname);
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(window.innerWidth > 768);  // 根据初始屏幕宽度设置菜单状态
   const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
@@ -156,10 +156,16 @@ function AppContent() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth <= 768);
+      const smallScreen = window.innerWidth <= 768;
+      setIsSmallScreen(smallScreen);
+      setIsMenuOpen(!smallScreen);  // 在大屏幕上打开菜单，小屏幕上关闭
     };
 
+    // 在组件挂载和窗口大小变化时调用handleResize
+    handleResize();
     window.addEventListener('resize', handleResize);
+
+    // 清理函数
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
@@ -257,7 +263,7 @@ function AppContent() {
 
   return (
     <div className="App flex h-screen overflow-hidden">
-      <aside className={`sidebar ${isMenuOpen ? 'open' : 'closed'} bg-blue-900 text-white py-6 flex-shrink-0 overflow-y-auto fixed h-full ${isSmallScreen ? 'small-screen' : ''} shadow-lg`}>
+      <aside className={`sidebar ${isMenuOpen ? 'open' : 'closed'} bg-blue-900 text-white py-6 flex-shrink-0 overflow-y-auto fixed h-full ${isSmallScreen ? 'small-screen' : ''} shadow-lg transition-all duration-300`}>
         <div className="flex flex-col items-center justify-center px-4 mb-8 relative">
           <Link to="/land-page" className="logo-container">
             <img
@@ -292,7 +298,7 @@ function AppContent() {
           <MenuIcon className="w-6 h-6" />
         </button>
       )}
-      <main className={`flex-1 overflow-y-auto bg-[#F3F4F6] ${isMenuOpen && !isSmallScreen ? 'ml-64' : 'ml-0'}`}>
+      <main className={`flex-1 overflow-y-auto bg-[#F3F4F6] transition-all duration-300 ${isMenuOpen && !isSmallScreen ? 'ml-64' : 'ml-0'}`}>
         <Routes>
           <Route path="/" element={<LandPage />} />
           <Route path="/land-page" element={<LandPage />} />

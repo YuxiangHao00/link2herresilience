@@ -232,16 +232,35 @@
     .question-card {
       .ant-card-head-title {
         font-size: 14px;
+        // 添加这行以确保长文本会换行
+        white-space: normal;
       }
+
+      // 为问题内容添加样式
+      .ant-card-body {
+        font-size: 14px;
+      }
+    }
+
+    // 修改选项的样式以适应小屏幕
+    .ant-radio-group,
+    .ant-select {
+      width: 100%;
     }
 
     .scale-options {
       .scale-container {
-        justify-content: center;
+        justify-content: space-between;
       }
 
       .scale-item {
-        margin: 0 5px 10px;
+        margin: 0 2px 10px;
+        flex: 0 0 18%; // 每行显示5个选项
+        max-width: 18%;
+
+        span {
+          font-size: 10px;
+        }
       }
     }
   }
@@ -261,11 +280,22 @@
       .ant-card-head-title {
         font-size: 12px;
       }
+
+      // 为问题内容添加样式
+      .ant-card-body {
+        font-size: 12px;
+      }
     }
 
     .scale-options {
       .scale-item {
-        margin: 0 2px 8px;
+        flex: 0 0 30%; // 每行显示3个选项
+        max-width: 30%;
+        margin: 0 1px 8px;
+
+        span {
+          font-size: 9px;
+        }
       }
     }
   }

@@ -232,6 +232,26 @@ const StressAssess = () => {
   };
 
   const renderQuestion = (question) => {
+    return (
+      <Card 
+        className="question-card"
+        title={
+          <Paragraph strong style={{ fontSize: '16px', marginBottom: '10px', whiteSpace: 'normal' }}>
+            {question.question.split(' ').reduce((acc, word, index) => {
+              if (index % 8 === 0 && index !== 0) {
+                return [...acc, <br key={index} />, word];
+              }
+              return [...acc, ' ', word];
+            }, [])}
+          </Paragraph>
+        }
+      >
+        {renderQuestionContent(question)}
+      </Card>
+    );
+  };
+
+  const renderQuestionContent = (question) => {
     switch (question.type) {
       case 'select':
         return (
@@ -290,12 +310,7 @@ const StressAssess = () => {
                   classNames="question-transition"
                 >
                   <div>
-                    <Card 
-                      className="question-card"
-                      title={<Paragraph strong style={{ fontSize: '16px', marginBottom: '10px' }}>{question.question}</Paragraph>}
-                    >
-                      {renderQuestion(question)}
-                    </Card>
+                    {renderQuestion(question)}
                     {index < currentQuestions.length - 1 && <Divider style={{ margin: '20px 0' }} />}
                   </div>
                 </CSSTransition>
