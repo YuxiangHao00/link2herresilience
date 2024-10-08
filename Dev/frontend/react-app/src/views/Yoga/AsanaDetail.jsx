@@ -193,7 +193,7 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
   const analyzePhoto = async (apiFileId) => {
     setIsAnalyzing(true);
     try {
-      const url = `https://link2herresilience.com.au/yoga_asana/v1/analyse?sess_id=${sessionId}&asana=${asana.name.toLowerCase()}&step=${currentStep}&file_id=${apiFileId}&type=png`;
+      const url = `https://link2herresilience.com.au/yoga_asana/v1/analyse?sess_id=${sessionId}&asana=${asana.name}&step=${currentStep}&file_id=${apiFileId}&type=png`;
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
