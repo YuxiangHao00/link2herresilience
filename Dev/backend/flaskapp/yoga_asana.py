@@ -142,7 +142,9 @@ class YogaAsana(Resource):
                 "pose_estimation": pose_estimate_result,
                 "pose_classification": {
                     "class_probability": predict_class_prob,
-                    "right_posture": bool(classify_pose == -1)
+                    "probability_comment": "Estimation of class probability out of 1 right posture class"\
+                        f" and {len(self.dict_yoga_sequence_wrong_postures[self.asana][str(self.step)])} wrong posture(s) classes",
+                    "right_posture": bool(classify_pose == -1),
                 },
                 "suggestion": suggestion
             })
@@ -199,7 +201,6 @@ class YogaAsana(Resource):
                 self.b_input_format = False
                 self.err_code = (1<<5) | self.err_code
                 self.err_msg.append("input file type (format) is not supported")
-        
         except:    # 
         # else:
             self.b_input_format = False
