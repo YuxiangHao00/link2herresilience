@@ -329,7 +329,9 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
               {isAnalyzing ? (
                 <p>Analyzing your pose...</p>
               ) : analysisResult ? (
-                <pre>{JSON.stringify(analysisResult, null, 2)}</pre>
+                <pre style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
+                  {JSON.stringify(analysisResult, null, 2)}
+                </pre>
               ) : (
                 <p>No analysis result yet.</p>
               )}

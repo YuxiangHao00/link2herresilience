@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import './LandPage.css';
 import titleImage from '../../images/SubTital.svg';
-import exploreicon from '../../images/ExploreIcon.svg';
-import landPageImage from '../../images/LandPage_2.svg';
+// import exploreicon from '../../images/ExploreIcon.svg';
+import landPageImage from '../../images/LandPage_2_V2.png';
 import descriptionImage from '../../images/HP_description.png';
 import hp_l_1 from '../../images/HP_L_1.svg';
 import hp_l_2 from '../../images/HP_L_2.svg';
@@ -42,20 +42,17 @@ function LandPage() {
       <div ref={topRef}></div>
       {currentPage === 'main' && (
         <>
-          <div className="logo-container">
+          <div className="logo-container" style={{ marginTop: '-1.5rem' }}>
             <img src="/logo_1.png" alt="Website Logo" className="website-logo" />
           </div>
           
-          <h1>
+          <h1 style={{ marginTop: '-2.5rem' }}>
             <span className="text-blue-600">Link 2</span>{' '}
             <span className="text-green-600">HerResilience</span>
           </h1>
           
           <div className="image-wrapper">
             <img src={landPageImage} alt="Women in colorful clothes" className="land-page-image" />
-          </div>
-          
-          <div className="image-wrapper">
             <img src={titleImage} alt="Empowering her for a better tomorrow" className="title-image" />
           </div>
           
@@ -63,13 +60,13 @@ function LandPage() {
             <img src={descriptionImage} alt="What makes us better" className="description-image" />
           </div>
           
-          <img 
+          {/* <img 
             src={exploreicon} 
             alt="Explore More" 
             className="explore-image" 
             onClick={handleExploreClick}
             style={{ cursor: 'pointer' }}
-          />
+          /> */}
           <div ref={bottomRef}></div>
           <div className="hp_l_1-wrapper">
             <img src={hp_l_1} alt="HP_L_1" className="hp_l_1" />

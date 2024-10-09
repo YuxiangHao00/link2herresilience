@@ -1,3 +1,17 @@
+.page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+}
+
+.main-page {
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: 30% auto;
+  min-height: 100vh;
+}
+
 .flex-box {
   display: flex;
   justify-content: space-around;
@@ -7,27 +21,61 @@
     width: 100%;
     max-width: 37.5rem;
     margin-bottom: 1.875rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    background-color: #f0f8ff;  // 淡蓝色背景
+    border-radius: 20px;  // 添加圆角
+    overflow: hidden;  // 确保内容不会超出圆角
+
+    &:hover {
+      transform: translateY(-15px);  // 增加上浮距离，从 -5px 改为 -15px
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);  // 增加阴影效果
+      background-color: #e6f3ff;  // 保持背景色变化
+    }
 
     img {
       width: 70%;
       max-width: 18.75rem;
-      margin: 0 auto;
+      margin: 0 auto 1rem;
+      border-radius: 10px;  // 图片也添加圆角
     }
 
     .main-card {
       height: auto;
       min-height: 18.75rem;
       padding: 1.25rem;
+      border-radius: 20px;  // 内部内容也添加圆角
     }
 
     .main-card-tit {
       font-size: 1.5rem;
+      color: #2c3e50;  // 深蓝色标题
+      margin-bottom: 1rem;
     }
 
     .main-btn {
-      margin: 0 auto;
-      margin-top: 1.25rem;
-      display: block;
+      margin: 20px 0;
+      padding: 12px 24px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 30px;
+      border: none;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+      }
+    }
+
+    .description-list {
+      li {
+        margin-top: 0.625rem;
+        margin-left: 1.25rem;
+        color: #34495e;  // 深灰色文字
+      }
     }
   }
 
@@ -307,5 +355,151 @@
   
   &:hover {
     color: #1890ff;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 90%;  // 增加宽度到90%
+  max-width: 1400px;  // 设置最大宽度，防在特大屏幕上过宽
+  margin: 0 auto;  // 居中显示
+}
+
+.info-column {
+  flex: 1 1 100%;  // 让它占满整个宽度
+  max-width: 100%;
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    width: 95%;  // 在小屏幕上可以稍微增加宽度
+  }
+  
+  .info-column {
+    flex: 1 1 100%;
+    max-width: 100%;
+  }
+}
+
+.main-page {
+  background-position: right bottom;
+  background-repeat: no-repeat;
+  background-size: 30% auto;
+  min-height: 100vh;
+}
+
+.main-btn {
+  margin: 20px 0;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 30px;
+  border: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// 在文件末尾添加以下样式
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 20px;
+  max-width: 800px;  // 限制最大宽度，使图片更小
+  margin: 0 auto;    // 居中显示
+}
+
+.grid-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.grid-item img {
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+  max-height: 300px;  // 限制图片最大高度
+  object-fit: contain;  // 保持图片比例
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;  // 增加与图片的间距
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.main-btn-small {
+  padding: 3px 6px;     // 进一步减小内边距
+  font-size: 9px;       // 进一步减小字体大小
+  max-width: 80px;      // 进一步减小最大宽度
+  width: auto;          // 保持自适应宽度
+  border-radius: 12px;  // 调整圆角以适应更小的按钮
+  line-height: 1.1;     // 调整行高以确保文字在按钮中垂直居中
+  min-height: 20px;     // 设置最小高度以确保按钮不会太扁
+}
+
+.home-btn {
+  margin-top: 4px;      // 进一步减少与上方内容的间距
+}
+
+.two-column-layout {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.left-column, .right-column {
+  width: 48%; // 给两列之间留一些间距
+}
+
+@media (max-width: 768px) {
+  .two-column-layout {
+    flex-direction: column;
+  }
+
+  .left-column, .right-column {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+// 可能需要调整以下样式以确保列表样式正确
+.info-item {
+  list-style-type: none;
+}
+
+.description-list {
+  padding-left: 20px;
+
+  li {
+    list-style-type: disc;
+    margin-bottom: 10px;
   }
 }
