@@ -244,6 +244,37 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
     }
   }, [currentStep]);
 
+  // 添加这个新的组件来格式化分析结果
+  const FormattedAnalysisResult = ({ result }) => {
+    if (!result) return null;
+
+    const poseProbability = result.pose_classification?.class_probability;
+    const isRightPosture = result.pose_classification?.right_posture;
+    const success = result.pose_estimation?.success;
+    const suggestion = result.suggestion;
+
+    return (
+      <div className="formatted-analysis-result">
+        <h3>Analysis Result</h3>
+        {poseProbability !== undefined && (
+          <p>Pose Accuracy: <strong>{Math.round(poseProbability * 100)}%</strong></p>
+        )}
+        {isRightPosture !== undefined && (
+          <p>Correct Posture: <strong>{isRightPosture ? 'Yes' : 'No'}</strong></p>
+        )}
+        {success !== undefined && (
+          <p>Analysis Successful: <strong>{success ? 'Yes' : 'No'}</strong></p>
+        )}
+        {suggestion && (
+          <div className="suggestion">
+            <h4>Suggestion:</h4>
+            <p>{suggestion}</p>
+          </div>
+        )}
+      </div>
+    );
+  };
+
   return (
     <div className="asana-detail">
       <div className="asana-content">
@@ -329,13 +360,10 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
           </div>
           {capturedImage && (
             <div className="analysis-result">
-              <h3>Analysis Result</h3>
               {isAnalyzing ? (
                 <p>Analyzing your pose...</p>
               ) : analysisResult ? (
-                <pre style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
-                  {JSON.stringify(analysisResult, null, 2)}
-                </pre>
+                <FormattedAnalysisResult result={analysisResult} />
               ) : (
                 <p>No analysis result yet.</p>
               )}
