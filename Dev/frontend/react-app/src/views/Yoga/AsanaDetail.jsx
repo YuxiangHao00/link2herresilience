@@ -53,6 +53,7 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
   const canvasRef = useRef(null);
   const [analysisResult, setAnalysisResult] = useState(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
+  const [analysisTimeout, setAnalysisTimeout] = useState(null);
 
   useEffect(() => {
     return () => {
@@ -196,6 +197,12 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
 
   const analyzePhoto = async (apiFileId) => {
     setIsAnalyzing(true);
+    const timeoutId = setTimeout(() => {
+      setIsAnalyzing(false);
+      setAnalysisResult({ error: 'Analysis timed out. Please try taking a clearer photo with less background clutter.' });
+    }, 50000); // 50 seconds timeout
+    setAnalysisTimeout(timeoutId);
+
     try {
       const url = `https://link2herresilience.com.au/yoga_asana/v1/analyse?sess_id=${sessionId}&asana=${asana.name}&step=${currentStep}&file_id=${apiFileId}&type=png`;
       const response = await fetch(url);
@@ -203,14 +210,24 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
+      clearTimeout(timeoutId);
       setAnalysisResult(data);
     } catch (error) {
       console.error('Error analyzing photo', error);
-      setAnalysisResult({ error: 'Failed to analyze photo' });
+      setAnalysisResult({ error: 'Failed to analyze photo. Please try again.' });
     } finally {
+      clearTimeout(timeoutId);
       setIsAnalyzing(false);
     }
   };
+
+  useEffect(() => {
+    return () => {
+      if (analysisTimeout) {
+        clearTimeout(analysisTimeout);
+      }
+    };
+  }, [analysisTimeout]);
 
   const retakePhoto = () => {
     setCapturedImage(null);
@@ -245,21 +262,32 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
   }, [currentStep]);
 
   // 添加这个新的组件来格式化分析结果
-  const FormattedAnalysisResult = ({ result }) => {
+  const FormattedAnalysisResult = ({ result, asanaName }) => {
     if (!result) return null;
+
+    if (result.error) {
+      return (
+        <div className="formatted-analysis-result error">
+          <h3>Analysis Error</h3>
+          <p>{result.error}</p>
+        </div>
+      );
+    }
 
     const poseProbability = result.pose_classification?.class_probability;
     const isRightPosture = result.pose_classification?.right_posture;
     const success = result.pose_estimation?.success;
     const suggestion = result.suggestion;
 
+    const isPranayamaOrChakrasana = asanaName === 'Pranayama' || asanaName === 'Chakrasana';
+
     return (
       <div className="formatted-analysis-result">
         <h3>Analysis Result</h3>
-        {poseProbability !== undefined && (
+        {!isPranayamaOrChakrasana && poseProbability !== undefined && (
           <p>Pose Accuracy: <strong>{Math.round(poseProbability * 100)}%</strong></p>
         )}
-        {isRightPosture !== undefined && (
+        {!isPranayamaOrChakrasana && isRightPosture !== undefined && (
           <p>Correct Posture: <strong>{isRightPosture ? 'Yes' : 'No'}</strong></p>
         )}
         {success !== undefined && (
@@ -270,6 +298,9 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
             <h4>Suggestion:</h4>
             <p>{suggestion}</p>
           </div>
+        )}
+        {isPranayamaOrChakrasana && (
+          <p>For {asanaName}, specific pose accuracy and correctness are not displayed. Please refer to the suggestion for guidance.</p>
         )}
       </div>
     );
@@ -361,9 +392,12 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
           {capturedImage && (
             <div className="analysis-result">
               {isAnalyzing ? (
-                <p>Analyzing your pose...</p>
+                <div className="analyzing-message">
+                  <p>Analyzing your pose, please wait...</p>
+                  <div className="loading-spinner"></div>
+                </div>
               ) : analysisResult ? (
-                <FormattedAnalysisResult result={analysisResult} />
+                <FormattedAnalysisResult result={analysisResult} asanaName={asana.name} />
               ) : (
                 <p>No analysis result yet.</p>
               )}
