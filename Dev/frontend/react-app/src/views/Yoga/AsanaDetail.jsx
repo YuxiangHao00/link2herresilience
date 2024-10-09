@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import './yoga.less';
 import { v4 as uuidv4 } from 'uuid';
 
-// 修改压缩函数以保持 PNG 格式
+// 压缩函数以使用 RGB PNG 格式
 const compressImage = (file, maxSizeMB = 1) => {
   return new Promise((resolve) => {
     const reader = new FileReader();
@@ -25,7 +25,9 @@ const compressImage = (file, maxSizeMB = 1) => {
 
         canvas.width = width;
         canvas.height = height;
-        const ctx = canvas.getContext('2d');
+        const ctx = canvas.getContext('2d', { alpha: false });
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, width, height);
         ctx.drawImage(img, 0, 0, width, height);
         
         canvas.toBlob((blob) => {
@@ -33,7 +35,7 @@ const compressImage = (file, maxSizeMB = 1) => {
             type: 'image/png',
             lastModified: Date.now()
           }));
-        }, 'image/png', 0.7); // 使用 PNG 格式，质量为 0.7
+        }, 'image/png');
       };
     };
   });
@@ -141,17 +143,19 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
         const canvas = canvasRef.current;
         canvas.width = 1024;
         canvas.height = 1024;
-        canvas.getContext('2d').drawImage(videoRef.current, 0, 0, 1024, 1024);
+        const ctx = canvas.getContext('2d', { alpha: false }); // 确保使用 RGB
+        ctx.fillStyle = 'white';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(videoRef.current, 0, 0, 1024, 1024);
         canvas.toBlob(async (blob) => {
           const fileId = uuidv4().slice(0, 8);
           const fileName = `${sessionId}_${fileId}.png`;
           const file = new File([blob], fileName, { type: 'image/png' });
           
-          // 压缩图片
           const compressedFile = await compressImage(file);
           
           uploadImage(compressedFile, fileId);
-        }, 'image/png', 0.9);
+        }, 'image/png');
         stopCamera();
         setIsCountingDown(false);
       } else {
