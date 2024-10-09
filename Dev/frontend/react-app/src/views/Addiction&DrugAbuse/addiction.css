@@ -1,0 +1,155 @@
+.addiction-prevention.main-page {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 40px 20px;
+  background-color: #f5f5f5;
+  font-family: 'Arial', sans-serif;
+}
+
+.addiction-prevention .content-wrapper {
+  max-width: 1200px;
+  width: 100%;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 改为左对齐 */
+}
+
+.addiction-prevention .page-title {
+  color: #1E3A8A !important;
+  text-align: left; /* 改为左对齐 */
+  margin-bottom: 30px;
+  font-size: 48px;
+  font-family: 'Brush Script MT', cursive;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  letter-spacing: 1px;
+}
+
+.addiction-prevention .info-details {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #333;
+  text-align: left; /* 改为左对齐 */
+  margin-bottom: 20px;
+  max-width: 800px;
+  align-self: flex-start; /* 确保段落左对齐 */
+}
+
+.addiction-prevention .info-details:first-of-type {
+  font-size: 24px;
+  font-weight: bold;
+  color: #1E3A8A;
+  margin-bottom: 25px;
+}
+
+.addiction-prevention .info-details:nth-child(2),
+.addiction-prevention .info-details:nth-child(3) {
+  font-size: 28px;
+  font-weight: bold;
+  color: #1E3A8A;
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
+.addiction-prevention .info-details:nth-child(3) {
+  font-size: 24px;
+  font-style: italic;
+  color: #2E5CB8;
+}
+
+.addiction-prevention .info-details:last-of-type {
+  font-style: italic;
+  color: #555;
+}
+
+.addiction-prevention .module-row {
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.addiction-prevention .module-item {
+  flex: 0 1 calc(33.33% - 20px);
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+.addiction-prevention .module-item:hover {
+  transform: translateY(-5px);
+}
+
+.addiction-prevention .module-image {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 16px;
+}
+
+.addiction-prevention .module-title {
+  margin-bottom: 12px;
+  font-size: 22px;
+  color: #1E3A8A;
+  font-weight: bold;
+}
+
+.addiction-prevention .module-description {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* 响应式样式 */
+@media (max-width: 992px) {
+  .addiction-prevention .page-title {
+    font-size: 40px;
+  }
+  
+  .addiction-prevention .info-details {
+    font-size: 16px;
+  }
+  
+  .addiction-prevention .info-details:first-of-type {
+    font-size: 20px;
+  }
+  
+  .addiction-prevention .info-details:nth-child(2),
+  .addiction-prevention .info-details:nth-child(3) {
+    font-size: 24px;
+  }
+  
+  .addiction-prevention .info-details:nth-child(3) {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .addiction-prevention .page-title {
+    font-size: 36px;
+  }
+  
+  .addiction-prevention .info-details {
+    font-size: 14px;
+  }
+  
+  .addiction-prevention .info-details:first-of-type {
+    font-size: 18px;
+  }
+  
+  .addiction-prevention .info-details:nth-child(2),
+  .addiction-prevention .info-details:nth-child(3) {
+    font-size: 20px;
+  }
+  
+  .addiction-prevention .info-details:nth-child(3) {
+    font-size: 18px;
+  }
+}

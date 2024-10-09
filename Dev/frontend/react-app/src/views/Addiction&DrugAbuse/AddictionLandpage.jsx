@@ -1,8 +1,8 @@
 import React from 'react';
-import { Typography, Row, Col } from 'antd';
+import { Typography } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import './addiction.less';
+import './addiction.css';
 import S1 from './images/S_1.png';
 import S2 from './images/S_2.png';
 import S3 from './images/S_3.png';
@@ -33,7 +33,7 @@ const AddictionLandpage = () => {
   return (
     <div className="addiction-prevention main-page">
       <div className="content-wrapper">
-        <Title level={2} className="page-title" style={{ color: '#1E3A8A' }}>Stress and LifeStyle</Title>
+        <Title level={2} className="page-title">Stress and LifeStyle</Title>
         <Paragraph className="info-details">
           Welcome to the Stress and Lifestyle Hub
         </Paragraph>
@@ -50,22 +50,21 @@ const AddictionLandpage = () => {
           Ready to take control of your health?
           Explore our three key areas below to find the right support for you:
         </Paragraph>
-        <Row gutter={[16, 16]} justify="center" className="module-row">
+        <div className="module-row">
           {modules.map((module, index) => (
-            <Col xs={24} sm={8} key={index}>
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={module.action}
-                className="module-item"
-              >
-                <img src={module.image} alt={module.title} className="module-image" />
-                <Title level={4} className="module-title">{module.title}</Title>
-                <Paragraph className="module-description">{module.description}</Paragraph>
-              </motion.div>
-            </Col>
+            <motion.div
+              key={index}
+              className="module-item"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={module.action}
+            >
+              <img src={module.image} alt={module.title} className="module-image" />
+              <Title level={4} className="module-title">{module.title}</Title>
+              <Paragraph className="module-description">{module.description}</Paragraph>
+            </motion.div>
           ))}
-        </Row>
+        </div>
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import hp_l_3 from '../../images/HP_L_3.svg';
 import hp_l_4 from '../../images/HP_L_4.svg';
 import hp_l_5 from '../../images/HP_L_5.svg';
 import hp_l_6 from '../../images/HP_L_6.svg';
+import hp_l_7 from '../../images/HP_L_7.svg';
 import f_icon_1 from '../../images/Functional_icon_1.png';
 import f_icon_2 from '../../images/Functional_icon_2.png';
 import f_icon_3 from '../../images/Functional_icon_3.png';
@@ -67,30 +68,30 @@ function LandPage() {
           <div className="what-we-do-section">
             <h2 className="what-we-do-title">What we do...</h2>
             <div className="functional-icons-container">
-              <div className="functional-icon-wrapper">
+              <Link to="/health-issues" className="functional-icon-wrapper">
                 <img src={f_icon_1} alt="Tackle Asthma and other Health issues" className="functional-icon" />
                 <p className="icon-description">Tackle Asthma and other Health issues</p>
-              </div>
-              <div className="functional-icon-wrapper">
+              </Link>
+              <Link to="/sleep-quality" className="functional-icon-wrapper">
                 <img src={f_icon_2} alt="Get personalised sleep recommendations" className="functional-icon" />
                 <p className="icon-description">Get personalised sleep recommendations</p>
-              </div>
-              <div className="functional-icon-wrapper">
+              </Link>
+              <Link to="/sexual-reproductive-health" className="functional-icon-wrapper">
                 <img src={f_icon_3} alt="Acquire classified Sexual education through interactive modules" className="functional-icon" />
                 <p className="icon-description">Acquire classified Sexual education through interactive modules</p>
-              </div>
-              <div className="functional-icon-wrapper">
+              </Link>
+              <Link to="/food-allergies" className="functional-icon-wrapper">
                 <img src={f_icon_4} alt="Learn about common Allergens in Australia" className="functional-icon" />
                 <p className="icon-description">Learn about common Allergens in Australia</p>
-              </div>
-              <div className="functional-icon-wrapper">
+              </Link>
+              <Link to="/yoga" className="functional-icon-wrapper">
                 <img src={f_icon_5} alt="Gain personal insights on Yoga" className="functional-icon" />
                 <p className="icon-description">Gain personal insights on Yoga</p>
-              </div>
-              <div className="functional-icon-wrapper">
+              </Link>
+              <Link to="/addiction-prevention" className="functional-icon-wrapper">
                 <img src={f_icon_6} alt="Learn how to manage Stress and substance abuse prevention" className="functional-icon" />
                 <p className="icon-description">Learn how to manage Stress and substance abuse prevention</p>
-              </div>
+              </Link>
             </div>
           </div>
           
@@ -128,7 +129,7 @@ function LandPage() {
             <img src={hp_l_4} alt="HP_L_4" className="hp-image" />
             <div className="hp-text">
               Access culturally sensitive sexual education and clear information on STI prevention to make informed decisions about your reproductive health, plan your family, and protect your well-being, regardless of cultural barriers.
-              <Link to="/health-issues">
+              <Link to="/sexual-reproductive-health">
                 <img src={jumpPage} alt="JumpPage" className="jump-page" />
               </Link>
             </div>
@@ -163,6 +164,21 @@ function LandPage() {
             </div>
           </div>
 
+          <div className="hp-wrapper">
+            <img src={hp_l_7} alt="HP_L_7" className="hp-image" />
+            <div className="hp-text">
+              <p>
+                Is the pressure of daily life increasing your stress levels, and worried about getting unethical escapes?
+              </p>
+              <p>
+                We’ve got a solution for you! Our AI-powered tool assesses your stress levels and lifestyle to predict your risk of substance abuse and provides tailored recommendations to keep you in control.
+              </p>
+              <Link to="/addiction-prevention/stress-assess">
+                <img src={jumpPage} alt="JumpPage" className="jump-page" />
+              </Link>
+            </div>
+          </div>
+          
           <div className="bottom-container">
             <div className="bottom-link" onClick={() => setCurrentPage('about')}>About Us</div>
             <div className="bottom-link" onClick={() => setCurrentPage('privacy')}>Privacy</div>

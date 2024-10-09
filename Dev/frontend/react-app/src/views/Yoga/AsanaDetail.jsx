@@ -243,7 +243,7 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
 
   const handleNextOrRepeat = () => {
     if (isLastStep) {
-      onRepeat(); // 调用传入的 onRepeat 函数
+      onRepeat(); // 调用传入 onRepeat 函数
     } else {
       onNextStep();
     }
@@ -276,6 +276,7 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
 
     const poseProbability = result.pose_classification?.class_probability;
     const isRightPosture = result.pose_classification?.right_posture;
+    const probabilityComment = result.pose_classification?.probability_comment;
     const success = result.pose_estimation?.success;
     const suggestion = result.suggestion;
 
@@ -284,11 +285,18 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
     return (
       <div className="formatted-analysis-result">
         <h3>Analysis Result</h3>
-        {!isPranayamaOrChakrasana && poseProbability !== undefined && (
-          <p>Pose Accuracy: <strong>{Math.round(poseProbability * 100)}%</strong></p>
-        )}
-        {!isPranayamaOrChakrasana && isRightPosture !== undefined && (
-          <p>Correct Posture: <strong>{isRightPosture ? 'Yes' : 'No'}</strong></p>
+        {!isPranayamaOrChakrasana && (
+          <>
+            {poseProbability !== undefined && (
+              <p>Pose Accuracy: <strong>{Math.round(poseProbability * 100)}%</strong></p>
+            )}
+            {isRightPosture !== undefined && (
+              <p>Correct Posture: <strong>{isRightPosture ? 'Yes' : 'No'}</strong></p>
+            )}
+            {probabilityComment && (
+              <p className="probability-comment">{probabilityComment}</p>
+            )}
+          </>
         )}
         {success !== undefined && (
           <p>Analysis Successful: <strong>{success ? 'Yes' : 'No'}</strong></p>
@@ -298,9 +306,6 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
             <h4>Suggestion:</h4>
             <p>{suggestion}</p>
           </div>
-        )}
-        {isPranayamaOrChakrasana && (
-          <p>For {asanaName}, specific pose accuracy and correctness are not displayed. Please refer to the suggestion for guidance.</p>
         )}
       </div>
     );

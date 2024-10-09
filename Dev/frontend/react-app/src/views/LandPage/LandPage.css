@@ -94,6 +94,12 @@ h1 {
   text-align: center;
   padding: 0.25rem;
   box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
+}
+
+.functional-icon-wrapper:hover {
+  text-decoration: none;
 }
 
 .functional-icon {
