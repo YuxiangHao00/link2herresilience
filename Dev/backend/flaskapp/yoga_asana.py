@@ -132,7 +132,7 @@ class YogaAsana(Resource):
                 suggestion = self.dict_suggestions["right"][suggestion_ind] 
             else:
                 # classify_pose = np.random.choice(len(self.dict_yoga_sequence_wrong_postures[self.asana][str(self.step)]))
-                classify_pose = predicted_class - 1
+                classify_pose = int(predicted_class - 1)
                 wrong_posture = self.dict_yoga_sequence_wrong_postures[self.asana][str(self.step)][classify_pose]
                 suggestion = self.dict_suggestions["wrong"][suggestion_ind] +\
                       f"Please try to look into {wrong_posture.lower()} to improve it further."
