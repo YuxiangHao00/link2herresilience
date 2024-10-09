@@ -1,0 +1,1590 @@
+ * Serving Flask app 'air_quality'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5001
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-586-226
+ * Serving Flask app 'allergic_pollen'
+ * Debug mode: on
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5002
+Press CTRL+C to quit
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 104-586-226
+127.0.0.1 - - [04/Sep/2024 12:24:11] "GET /air_quality/v1/states HTTP/1.1" 200 -
+ * Serving Flask app 'air_quality'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5001
+Press CTRL+C to quit
+127.0.0.1 - - [04/Sep/2024 14:59:34] "GET /air_quality/v1/suburbs?state=vic HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2024 09:20:28] "GET /air_quality/v1/states HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2024 11:00:19] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:03:49] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:03:59] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:04:02] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:04:07] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:04:09] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:04:23] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:09:15] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:09:20] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:10:50] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:10:50] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:17:18] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:18:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:18:59] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:29:16] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:29:16] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:29:18] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:29:18] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:29:39] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:29:40] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:30:35] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:30:35] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:35:52] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:35:52] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:36:16] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:36:16] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:36:22] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:36:22] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:38:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:38:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:38:52] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:38:52] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:40:27] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:40:27] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:45:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:45:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 11:45:39] "GET /air_quality/v1/suburbs HTTP/1.0" 400 -
+127.0.0.1 - - [05/Sep/2024 11:45:39] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 12:40:34] "GET /air_quality/v1/states HTTP/1.0" 200 -
+[2024-09-05 12:41:02,366] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [05/Sep/2024 12:41:02] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [05/Sep/2024 12:41:13] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 12:42:45] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 12:43:05] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 12:45:08] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 12:45:15] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 12:45:55] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 12:46:37] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 12:46:45] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 12:54:07] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 12:54:15] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 12:54:24] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 12:59:42] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 13:00:26] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 13:00:30] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 13:52:03] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 13:52:18] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+ * Serving Flask app 'allergic_pollen'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on http://127.0.0.1:5002
+Press CTRL+C to quit
+127.0.0.1 - - [05/Sep/2024 14:11:50] code 400, message Bad request version ("\x11l\x16¿jèÒÀ;z\x9ajä:\x8aÒ¹ô\x00H\x13\x02\x13\x03\x13\x01\x13\x04À,À0Ì©Ì¨À\xadÀ+À/À¬À#À'À")
+127.0.0.1 - - [05/Sep/2024 14:11:50] "\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03©»Fúô\x0dödÑ\x07qôç¼FãÁ2¤\x17jû¯¾\x17ê;ì\x85?äN «ú\x7fñSÙÀp´ãûy\x94\x1d\x11l\x16¿jèÒÀ;z\x9ajä:\x8aÒ¹ô\x00H\x13\x02\x13\x03\x13\x01\x13\x04À,À0Ì©Ì¨À­À+À/À¬À#À'À" HTTPStatus.BAD_REQUEST -
+127.0.0.1 - - [05/Sep/2024 14:12:59] "GET /air_quality/v1/states?state=vic HTTP/1.1" 200 -
+127.0.0.1 - - [05/Sep/2024 14:23:30] "GET /air_quality/v1/states HTTP/1.0" 200 -
+[2024-09-05 14:23:44,665] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [05/Sep/2024 14:23:44] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [05/Sep/2024 14:23:54] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 14:56:42] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 14:56:59] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+[2024-09-05 14:57:06,464] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [05/Sep/2024 14:57:06] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [05/Sep/2024 15:03:57] "GET /air_quality/v1/states HTTP/1.0" 200 -
+[2024-09-05 15:04:05,509] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [05/Sep/2024 15:04:05] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [05/Sep/2024 15:04:11] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 23:03:59] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 23:04:05] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [05/Sep/2024 23:11:55] "GET /allergic_pollen/v1/pollens?state=vic HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2024 00:16:50] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:16:50] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:17:27] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:17:27] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:18:21] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:18:29] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:20:12] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:25:14] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:41:03] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:41:03] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:41:06] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:41:16] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:41:41] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:41:41] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:41:43] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:41:51] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:42:36] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:42:37] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:42:41] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=plantago HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:42:58] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:43:22] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=plantago HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:43:38] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:43:38] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:43:42] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:43:42] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:44:10] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:44:24] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:44:38] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=plantago HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:44:39] code 400, message Bad request version ("ë>:&Ä7w1\x87\x87@©µ£2\x00H\x13\x02\x13\x03\x13\x01\x13\x04À,À0Ì©Ì¨À\xadÀ+À/À¬À#À'À")
+127.0.0.1 - - [06/Sep/2024 00:44:39] "\x16\x03\x01\x02\x00\x01\x00\x01ü\x03\x03®\x81\x1fñ'\x08¿½\x19A^2yG\x84H\x9d\x93Ý´spª|vù\x89»³oïæ \x0bÑC\x95\x1e\x1d:\x9aFÿûSì \x96×\x1dë>:&Ä7w1\x87\x87@©µ£2\x00H\x13\x02\x13\x03\x13\x01\x13\x04À,À0Ì©Ì¨À­À+À/À¬À#À'À" HTTPStatus.BAD_REQUEST -
+127.0.0.1 - - [06/Sep/2024 00:44:50] "GET /air_quality/v1/states?state=vic HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2024 00:45:35] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:45:35] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:45:39] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:45:39] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:46:11] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:46:11] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:46:16] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:46:16] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:47:33] "GET /allergic_pollen/v1/pollens?state=vic HTTP/1.1" 200 -
+127.0.0.1 - - [06/Sep/2024 00:52:11] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:52:11] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:52:19] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 00:52:21] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 01:04:10] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 01:22:53] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 01:25:32] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 01:43:26] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 01:44:00] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 01:55:47] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 01:55:53] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:08:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:08:25] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:08:29] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:08:52] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:08:57] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:09:05] "GET /allergic_pollen/v1/stateCount?state=nt&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:09:13] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:09:23] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:09:47] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=quercus HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:09:54] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:09:55] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:09:59] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+[2024-09-06 02:10:02,813] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [06/Sep/2024 02:10:02] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [06/Sep/2024 02:10:10] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:10:19] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:10:29] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:10:32] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:10:56] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:10:57] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+[2024-09-06 02:11:20,174] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [06/Sep/2024 02:11:20] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [06/Sep/2024 02:11:25] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:11:27] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:11:33] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:12:02] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:12:02] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:18:04] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:18:04] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:18:07] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:18:10] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=plantago HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:22:23] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:22:23] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:23:47] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:24:00] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:24:03] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:24:09] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=pinus HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:24:28] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=quercus HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:24:30] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=quercus HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:24:32] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:24:34] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:24:34] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:24:34] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:24:36] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=plantago HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:24:37] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=plantago HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:25:33] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:28:11] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:28:18] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:28:18] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:28:20] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:28:23] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=plantago HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:28:33] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:29:00] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:30:04] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=quercus HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:31:39] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+[2024-09-06 02:31:44,469] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [06/Sep/2024 02:31:44] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [06/Sep/2024 02:31:49] "GET /air_quality/v1/states HTTP/1.0" 200 -
+[2024-09-06 02:31:55,615] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [06/Sep/2024 02:31:55] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [06/Sep/2024 02:32:00] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:32:13] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=plantago HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:32:31] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=pinus HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:32:40] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=plantago HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:33:28] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:34:59] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:35:06] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:40:14] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:41:09] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:41:28] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:41:42] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:41:55] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=plantago HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:42:31] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:42:32] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:43:32] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:45:50] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 02:45:55] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 05:36:25] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 08:54:18] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 08:54:32] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 08:54:41] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 08:55:46] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 08:56:17] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=quercus HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 08:59:56] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=oleaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 09:00:06] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=pinus HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 09:00:07] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=pinus HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 09:00:09] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=acacia HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 09:00:10] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=acacia HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 09:00:17] "GET /allergic_pollen/v1/stateCount?state=nt&pollen=pinus HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 09:01:14] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 09:01:25] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 09:01:33] "GET /allergic_pollen/v1/stateCount?state=wa&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 09:13:40] "GET /air_quality/v1/states HTTP/1.0" 200 -
+[2024-09-06 09:13:48,803] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [06/Sep/2024 09:13:48] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [06/Sep/2024 09:14:26] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 09:14:35] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 09:15:11] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 09:26:15] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=plantago HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 09:30:21] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=plantago HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 09:30:25] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 09:30:28] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=oleaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 09:30:39] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 09:49:56] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 09:50:11] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 10:32:44] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 10:32:48] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Sep/2024 10:32:59] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 05:04:16] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 05:04:19] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 05:04:27] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 05:04:32] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 05:04:46] "GET /allergic_pollen/v1/stateCount?state=nt&pollen=pinus HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:26:15] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:26:16] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:26:22] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=plantago HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:34:42] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:34:42] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:34:43] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:34:51] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=quercus HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:38:49] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:38:53] "GET /allergic_pollen/v1/stateCount?state=nt&pollen=pinus HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:40:48] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:41:14] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:41:14] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:41:16] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:41:20] "GET /allergic_pollen/v1/stateCount?state=nt&pollen=chenopodiaceae HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:41:32] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:41:32] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:42:42] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:42:49] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:42:58] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:43:27] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:43:32] "GET /allergic_pollen/v1/stateCount?state=nt&pollen=acacia HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:44:09] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:44:21] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:44:26] "GET /allergic_pollen/v1/stateCount?state=tas&pollen=coprosma HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:44:38] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:44:44] "GET /allergic_pollen/v1/stateCount?state=tas&pollen=pinus HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:44:52] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:44:56] "GET /allergic_pollen/v1/stateCount?state=wa&pollen=poaceae HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:45:09] "GET /allergic_pollen/v1/stateCount?state=wa&pollen=myrtaceae HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:45:52] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 07:45:56] "GET /allergic_pollen/v1/stateCount?state=nt&pollen=acacia HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 08:20:32] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 08:20:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 08:35:22] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 08:35:22] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 08:45:16] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 08:45:16] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 08:52:59] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 08:53:00] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 08:53:17] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 08:53:20] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 08:53:21] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 08:53:28] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 09:08:27] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 09:11:10] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 09:11:26] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 09:11:27] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 09:28:54] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 09:28:58] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 09:36:43] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 09:50:52] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 09:50:57] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 09:50:57] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 09:54:55] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 09:54:55] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 09:55:57] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 09:55:57] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 09:56:02] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 09:56:02] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 09:56:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 09:56:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 10:33:29] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 10:34:28] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 16:41:05] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 16:41:11] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 16:41:14] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [07/Sep/2024 16:41:23] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=pinus HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 07:31:53] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 07:39:44] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 07:39:44] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 07:42:54] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 07:48:40] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 07:48:40] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 07:50:49] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 07:50:49] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 07:50:53] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 07:50:53] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 07:52:26] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 07:52:26] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 07:54:37] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 07:54:37] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 07:57:02] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 07:57:02] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 07:58:29] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 07:58:29] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 08:04:16] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 08:04:16] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 08:13:00] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 08:13:00] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 08:13:01] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 08:13:01] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 08:37:42] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 08:37:42] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 08:38:34] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 08:38:34] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 08:38:38] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 08:38:38] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 08:42:04] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 08:42:04] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 08:49:18] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 08:49:18] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 10:54:08] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 10:54:08] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 11:02:14] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 11:02:14] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 11:03:29] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 11:03:29] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 11:07:23] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 11:07:37] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 11:09:32] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 11:09:32] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 11:09:36] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 11:09:36] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 11:09:37] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 11:09:37] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 12:47:21] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 12:47:21] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 12:57:26] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 12:57:26] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 12:58:35] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 12:58:35] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 12:58:40] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 12:58:40] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 13:06:47] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 13:06:47] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 13:24:41] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 13:24:41] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 13:25:47] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 13:25:47] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 13:27:51] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 13:27:51] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 13:28:54] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 13:28:54] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 13:31:01] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 13:31:01] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 13:33:22] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [08/Sep/2024 13:33:22] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 09:04:14] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 09:04:14] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 09:09:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 09:09:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 09:12:32] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 09:12:32] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 09:12:40] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 09:12:40] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 09:20:15] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 09:20:15] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 09:44:15] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 09:44:15] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 10:03:00] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 10:03:00] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 10:25:34] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 10:25:34] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 11:00:27] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 11:00:27] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 12:25:00] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 12:25:05] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 12:26:29] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 12:26:29] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 13:12:29] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 13:12:29] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 13:12:52] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 13:12:52] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 13:12:54] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 13:12:59] "GET /allergic_pollen/v1/stateCount?state=nt&pollen=pinus HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 13:55:38] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 13:56:04] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 14:23:26] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 14:23:26] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:01:42] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:01:42] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:02:21] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:02:21] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:02:31] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:02:31] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:06:31] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:06:31] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:07:39] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:07:39] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:07:45] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:07:45] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:08:47] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:08:47] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:10:08] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:10:09] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:10:20] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:10:20] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:10:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:10:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:10:34] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:10:34] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:10:51] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:10:51] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:11:43] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:11:43] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:12:05] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [09/Sep/2024 15:12:05] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 00:10:58] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 00:53:39] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 01:21:07] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 01:21:07] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 01:21:58] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 01:21:58] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 01:23:11] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 01:23:11] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 01:23:54] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 01:23:54] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 01:34:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 01:34:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 01:34:56] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 01:48:13] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 02:04:34] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 02:04:34] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 02:05:34] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 02:05:34] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 02:28:12] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 02:28:12] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 02:40:48] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 02:40:48] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 02:41:01] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [10/Sep/2024 02:41:01] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 10:43:36] "GET /air_quality/v1/states HTTP/1.0" 200 -
+[2024-09-13 10:43:57,753] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [13/Sep/2024 10:43:57] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [13/Sep/2024 10:43:59] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 10:44:02] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 10:44:13] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=cyperaceae HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 12:54:48] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 12:56:21] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 13:11:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 13:11:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 13:13:46] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 13:13:47] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 13:20:21] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 13:20:21] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 13:21:07] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 13:21:07] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 13:21:35] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 13:21:35] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 13:49:06] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 13:49:06] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 19:47:26] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 19:49:18] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 19:49:20] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 19:49:38] "GET /allergic_pollen/v1/stateCount?state=wa&pollen=pinus HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 19:50:07] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=quercus HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 19:50:27] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 19:50:50] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 19:51:46] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [13/Sep/2024 19:52:30] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [14/Sep/2024 03:58:09] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [14/Sep/2024 03:58:18] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [14/Sep/2024 05:05:43] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [14/Sep/2024 05:57:00] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [14/Sep/2024 05:57:01] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [14/Sep/2024 06:09:39] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [14/Sep/2024 06:09:39] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [14/Sep/2024 06:37:35] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [14/Sep/2024 06:37:35] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [14/Sep/2024 07:51:02] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [14/Sep/2024 11:28:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [14/Sep/2024 11:28:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 01:11:58] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 08:16:54] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 08:19:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 09:27:11] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 09:51:30] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 09:54:06] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 09:58:10] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 10:04:43] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 10:04:56] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 10:05:28] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 10:05:44] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 10:07:37] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 10:08:06] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+[2024-09-15 10:08:21,554] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [15/Sep/2024 10:08:21] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [15/Sep/2024 10:08:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+[2024-09-15 10:08:30,898] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [15/Sep/2024 10:08:30] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [15/Sep/2024 10:08:40] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 10:08:46] "GET /allergic_pollen/v1/stateCount?state=wa&pollen=pinus HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 12:08:41] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 14:55:34] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 14:58:42] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 17:47:30] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 17:47:30] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 17:47:40] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 17:47:40] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 18:26:00] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 18:29:09] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 18:29:09] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 18:38:17] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 18:43:27] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 18:44:32] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 19:30:18] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 20:05:20] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 20:07:43] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 20:08:10] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 20:08:47] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [15/Sep/2024 20:09:17] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=quercus HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 01:28:45] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 05:16:11] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 05:34:46] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 05:34:50] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 06:33:10] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 07:20:47] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 07:21:14] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 07:21:34] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 07:21:47] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=quercus HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 07:28:25] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 07:35:41] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 07:35:57] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 07:50:12] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 08:15:28] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 08:49:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 08:49:30] "GET /air_quality/v1/states HTTP/1.0" 200 -
+[2024-09-16 08:49:54,420] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [16/Sep/2024 08:49:54] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [16/Sep/2024 08:50:10] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 11:12:47] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 11:12:47] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 12:06:16] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 12:06:16] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 12:06:30] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 12:06:30] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 12:06:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 12:06:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 12:28:54] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 12:28:54] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 12:51:37] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 14:19:04] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 14:19:23] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 15:12:40] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 15:12:40] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 15:12:40] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 15:12:41] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 15:12:41] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 15:12:41] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 16:26:41] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 16:26:41] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 16:27:35] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 16:27:35] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 16:27:57] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 16:27:57] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 16:50:39] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 16:51:48] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 16:51:48] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 16:59:35] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 17:54:26] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 17:54:26] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 19:38:48] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 19:40:39] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 19:43:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 19:45:48] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [16/Sep/2024 19:55:28] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:19:11] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:19:14] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:19:32] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:19:34] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:20:14] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:20:17] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:23:01] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:24:59] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:31:00] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:31:28] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:31:30] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:31:44] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:31:45] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:31:56] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:31:59] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:32:12] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=pinus HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:32:12] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:34:31] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=quercus HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:39:21] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:39:29] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:39:34] "GET /air_quality/v1/states HTTP/1.0" 200 -
+[2024-09-17 00:39:38,840] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [17/Sep/2024 00:39:38] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [17/Sep/2024 00:39:46] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:40:03] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:40:10] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:40:28] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:40:51] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:41:15] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:41:19] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:41:20] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:41:21] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:41:32] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:43:00] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:43:11] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:43:24] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:43:32] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=quercus HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:44:59] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:45:55] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:46:02] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:46:09] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:46:22] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+[2024-09-17 00:46:25,948] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [17/Sep/2024 00:46:25] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [17/Sep/2024 00:46:32] "GET /air_quality/v1/states HTTP/1.0" 200 -
+[2024-09-17 00:46:40,282] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [17/Sep/2024 00:46:40] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [17/Sep/2024 00:46:45] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:46:58] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:47:01] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:47:03] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:47:07] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:47:18] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=poaceae HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:47:21] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=casuarina HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:47:30] "GET /allergic_pollen/v1/stateCount?state=nt&pollen=acacia HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:47:49] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:49:48] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:51:13] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:51:37] "GET /air_quality/v1/states HTTP/1.0" 200 -
+[2024-09-17 00:51:46,750] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [17/Sep/2024 00:51:46] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [17/Sep/2024 00:52:06] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:52:21] "GET /allergic_pollen/v1/stateCount?state=nt&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:53:00] "GET /allergic_pollen/v1/stateCount?state=nt&pollen=pinus HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:53:05] "GET /allergic_pollen/v1/stateCount?state=nt&pollen=arecaceae HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:53:16] "GET /allergic_pollen/v1/stateCount?state=nt&pollen=chenopodiaceae HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:53:16] "GET /air_quality/v1/states HTTP/1.0" 200 -
+[2024-09-17 00:53:23,118] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [17/Sep/2024 00:53:23] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [17/Sep/2024 00:53:46] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:54:06] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+[2024-09-17 00:54:42,029] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [17/Sep/2024 00:54:42] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [17/Sep/2024 00:54:57] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:54:58] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:55:05] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:55:06] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:55:12] "GET /allergic_pollen/v1/stateCount?state=wa&pollen=asteraceae HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:55:13] "GET /allergic_pollen/v1/stateCount?state=wa&pollen=asteraceae HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 00:55:43] "GET /allergic_pollen/v1/stateCount?state=qld&pollen=plantago HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 01:07:31] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 01:15:45] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 01:15:45] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 01:29:50] "GET /air_quality/v1/states HTTP/1.0" 200 -
+[2024-09-17 01:29:56,834] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [17/Sep/2024 01:29:56] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [17/Sep/2024 01:30:02] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 01:30:07] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 01:30:12] "GET /air_quality/v1/states HTTP/1.0" 200 -
+[2024-09-17 01:30:18,231] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [17/Sep/2024 01:30:18] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [17/Sep/2024 01:30:20] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 01:30:26] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 02:26:13] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 02:26:22] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 02:42:44] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 02:42:45] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 02:42:51] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=plantago HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 05:30:41] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 05:31:08] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 05:53:58] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 05:54:09] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 06:13:50] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 06:19:13] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 06:20:08] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 06:23:51] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 06:25:54] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 06:25:54] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 06:30:19] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 06:30:24] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 06:33:56] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 06:34:04] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 06:34:19] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 06:34:19] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 06:35:18] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 06:35:22] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 11:52:46] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 11:53:20] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [17/Sep/2024 11:53:24] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [18/Sep/2024 02:53:29] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [18/Sep/2024 02:54:50] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [18/Sep/2024 15:26:03] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [18/Sep/2024 15:26:18] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [18/Sep/2024 15:26:21] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 04:31:50] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 04:31:50] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 04:31:55] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 04:31:55] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 04:32:00] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 04:32:03] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 04:32:03] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 04:32:28] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 04:32:32] "GET /allergic_pollen/v1/stateCount?state=nt&pollen=chenopodiaceae HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 04:33:55] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 04:33:55] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 06:03:49] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 06:03:49] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 06:10:02] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 06:10:02] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 06:14:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 06:14:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 06:22:11] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 06:22:11] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 06:28:40] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 06:28:40] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 07:27:56] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 07:28:16] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 07:58:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 08:52:35] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 08:52:35] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 09:04:57] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 09:28:18] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 09:34:31] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 10:53:04] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 10:53:04] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 11:25:21] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 12:51:47] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 14:08:02] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 17:37:53] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [19/Sep/2024 17:41:36] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 00:27:11] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 00:27:11] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 00:28:32] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 00:28:48] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 01:01:49] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 01:02:41] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 01:02:41] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 01:02:47] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 01:02:47] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 01:02:49] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 01:02:53] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=cyperaceae HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 01:03:36] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 01:03:36] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 01:03:37] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 01:03:37] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 01:03:42] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 01:03:42] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 01:03:44] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 01:03:44] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 01:04:13] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 01:04:13] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 02:07:47] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 02:28:58] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 02:31:03] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 03:53:57] "GET /air_quality/v1/states HTTP/1.0" 200 -
+[2024-09-20 03:54:04,191] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [20/Sep/2024 03:54:04] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [20/Sep/2024 03:54:10] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 03:54:15] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 03:54:23] "GET /allergic_pollen/v1/stateCount?state=nt&pollen=pinus HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 04:00:28] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 10:18:06] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 10:20:18] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [20/Sep/2024 10:20:27] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [22/Sep/2024 14:14:43] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [25/Sep/2024 00:06:36] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [25/Sep/2024 05:52:21] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [26/Sep/2024 06:41:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [26/Sep/2024 06:42:09] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [26/Sep/2024 06:42:25] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [26/Sep/2024 06:42:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [26/Sep/2024 06:42:46] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [26/Sep/2024 06:43:09] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [26/Sep/2024 06:44:00] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [26/Sep/2024 06:44:04] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [26/Sep/2024 06:44:09] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [28/Sep/2024 08:51:47] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [28/Sep/2024 08:52:37] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [28/Sep/2024 12:04:07] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [30/Sep/2024 01:30:29] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [30/Sep/2024 01:30:49] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+[2024-09-30 01:31:03,803] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [30/Sep/2024 01:31:03] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [30/Sep/2024 01:31:09] "GET /air_quality/v1/states HTTP/1.0" 200 -
+[2024-09-30 01:31:15,124] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [30/Sep/2024 01:31:15] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [30/Sep/2024 01:31:26] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+[2024-09-30 01:31:32,811] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [30/Sep/2024 01:31:32] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [30/Sep/2024 01:31:35] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [01/Oct/2024 01:00:28] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [01/Oct/2024 01:00:28] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [01/Oct/2024 02:31:52] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [01/Oct/2024 02:31:52] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [01/Oct/2024 02:33:38] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [01/Oct/2024 02:33:38] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [01/Oct/2024 02:33:53] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [01/Oct/2024 02:33:53] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [01/Oct/2024 02:35:07] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [01/Oct/2024 02:35:07] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [01/Oct/2024 02:36:57] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [01/Oct/2024 02:36:57] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [01/Oct/2024 02:54:48] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [01/Oct/2024 02:54:48] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [01/Oct/2024 02:54:51] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [01/Oct/2024 02:54:51] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [01/Oct/2024 05:15:53] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [01/Oct/2024 05:17:46] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [01/Oct/2024 05:19:34] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [02/Oct/2024 11:43:09] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [02/Oct/2024 11:43:09] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [02/Oct/2024 11:51:59] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [02/Oct/2024 11:51:59] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [02/Oct/2024 12:00:03] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [02/Oct/2024 12:00:03] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [02/Oct/2024 13:45:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [02/Oct/2024 13:45:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [03/Oct/2024 14:59:11] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [03/Oct/2024 14:59:11] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [03/Oct/2024 22:28:57] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 01:24:21] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 01:24:27] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+[2024-10-04 01:24:41,071] ERROR in app: Exception on /air_quality/v1/suburbs [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 147, in get
+  File "/usr/share/nginx/html/link2herresilience/Dev/backend/flaskapp/air_quality.py", line 156, in get_suburb_aq_data
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/pandas/io/common.py", line 873, in get_handle
+    handle = open(
+FileNotFoundError: [Errno 2] No such file or directory: '/usr/share/nginx/link2herresilience/Dev/backend/data/epic2/2.1//_aq_data.csv'
+127.0.0.1 - - [04/Oct/2024 01:24:41] "GET /air_quality/v1/suburbs?state= HTTP/1.0" 500 -
+127.0.0.1 - - [04/Oct/2024 01:25:06] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 01:25:46] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 01:25:57] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 01:26:11] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 01:26:18] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=pinus HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 01:28:03] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=chenopodiaceae HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 01:28:59] "GET /allergic_pollen/v1/stateCount?state=nt&pollen=acacia HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 01:29:12] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=pinus HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 01:29:42] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 01:29:47] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=acacia HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 01:29:53] "GET /allergic_pollen/v1/stateCount?state=vic&pollen=ulmus HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 01:30:07] "GET /allergic_pollen/v1/stateCount?state=wa&pollen=asteraceae HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 01:30:12] "GET /allergic_pollen/v1/stateCount?state=wa&pollen=poaceae HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 01:31:24] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 01:31:30] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=ulmus HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 01:31:36] "GET /allergic_pollen/v1/stateCount?state=nsw&pollen=rumex HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 01:32:12] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 01:47:19] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 02:47:29] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 02:47:29] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 04:01:43] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 04:02:56] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 11:20:27] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [04/Oct/2024 11:20:27] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:00:43] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:00:43] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:00:44] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:00:48] "GET /allergic_pollen/v1/stateCount?state=nt&pollen=pinus HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:00:50] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:00:50] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:01:00] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:01:00] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:08:31] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:08:31] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:08:37] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:08:38] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:08:38] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:08:44] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:08:44] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:56:32] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:56:32] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:56:38] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:56:38] "GET /air_quality/v1/suburbs?state=vic HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:56:43] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [05/Oct/2024 12:56:43] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:17:40] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:17:40] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:23:54] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:23:54] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:24:09] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:24:09] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:27:30] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:27:30] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:27:37] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:27:37] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:29:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:29:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:29:28] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:29:28] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:30:02] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:30:02] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:30:13] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:30:13] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:41:21] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:41:26] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:45:21] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:45:31] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:46:57] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:52:35] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 09:52:35] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 10:03:03] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 10:03:03] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 10:05:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 10:05:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 10:05:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 10:05:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 10:05:37] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 10:05:37] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 12:41:24] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 13:04:29] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 13:04:34] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 13:08:46] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 13:09:02] "GET /allergic_pollen/v1/pollens HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 13:09:10] "GET /allergic_pollen/v1/stateCount?state=wa&pollen=asteraceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 13:09:17] "GET /allergic_pollen/v1/stateCount?state=wa&pollen=cupressaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 13:09:23] "GET /allergic_pollen/v1/stateCount?state=nt&pollen=cyperaceae HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 13:09:44] "GET /air_quality/v1/states HTTP/1.0" 200 -
+127.0.0.1 - - [06/Oct/2024 13:39:33] "GET /air_quality/v1/states HTTP/1.0" 200 -
