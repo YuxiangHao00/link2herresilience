@@ -1,0 +1,7 @@
+127.0.0.1 - - [09/Oct/2024:09:37:29 +0000] "GET /yoga_asana/v1/analyse?sess_id=demo%2301&asana=Anantasana&step=2&file_id=5a70da00&type=.jpg HTTP/1.0" 200 347 "-" "PostmanRuntime/7.42.0"
+127.0.0.1 - ta18! [09/Oct/2024:09:43:01 +0000] "GET /yoga_asana/v1/analyse?sess_id=0df4bf48&asana=Bhujangasana&step=3&file_id=7718a126&type=png HTTP/1.0" 200 337 "https://link2herresilience.com.au/yoga" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36"
+127.0.0.1 - - [09/Oct/2024:09:45:50 +0000] "GET /yoga_asana/v1/analyse?sess_id=1d4a117d&asana=Marjariasana&step=1&file_id=bb3f2d03&type=png HTTP/1.0" 200 348 "-" "PostmanRuntime/7.39.1"
+127.0.0.1 - ta18! [09/Oct/2024:09:49:12 +0000] "GET /yoga_asana/v1/analyse?sess_id=93f71d10&asana=Viparita%20Karani&step=2&file_id=4bbab2c2&type=png HTTP/1.0" 500 37 "https://link2herresilience.com.au/yoga" "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Mobile Safari/537.36"
+127.0.0.1 - - [09/Oct/2024:10:01:18 +0000] "GET /yoga_asana/v1/analyse?sess_id=1d4a117d&asana=Marjariasana&step=1&file_id=bb3f2d03&type=png HTTP/1.0" 200 348 "-" "PostmanRuntime/7.39.1"
+127.0.0.1 - - [09/Oct/2024:10:03:10 +0000] "GET /yoga_asana/v1/analyse?sess_id=5bdfec76&asana=Marjariasana&step=1&file_id=ad116b20&type=png HTTP/1.0" 500 37 "-" "PostmanRuntime/7.39.1"
+127.0.0.1 - - [09/Oct/2024:10:23:31 +0000] "GET /yoga_asana/v1/analyse?sess_id=demo%2301&asana=Anantasana&step=1&file_id=5a70da00&type=.jpg HTTP/1.0" 500 37 "-" "PostmanRuntime/7.42.0"

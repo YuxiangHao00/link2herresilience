@@ -1,0 +1,14 @@
+[2024-10-09 10:42:37 +0000] [116007] [INFO] Starting gunicorn 23.0.0
+[2024-10-09 10:42:37 +0000] [116007] [INFO] Listening at: http://0.0.0.0:5007 (116007)
+[2024-10-09 10:42:37 +0000] [116007] [INFO] Using worker: sync
+[2024-10-09 10:42:37 +0000] [116008] [INFO] Booting worker with pid: 116008
+[2024-10-09 10:42:37 +0000] [116010] [INFO] Booting worker with pid: 116010
+[2024-10-09 10:42:47 +0000] [116007] [INFO] Handling signal: int
+[2024-10-09 10:42:47 +0000] [116010] [INFO] Worker exiting (pid: 116010)
+[2024-10-09 10:42:47 +0000] [116008] [INFO] Worker exiting (pid: 116008)
+[2024-10-09 10:42:48 +0000] [116007] [INFO] Shutting down: Master
+[2024-10-09 10:42:51 +0000] [116016] [INFO] Starting gunicorn 23.0.0
+[2024-10-09 10:42:51 +0000] [116016] [INFO] Listening at: http://0.0.0.0:5007 (116016)
+[2024-10-09 10:42:51 +0000] [116016] [INFO] Using worker: sync
+[2024-10-09 10:42:51 +0000] [116017] [INFO] Booting worker with pid: 116017
+[2024-10-09 10:42:51 +0000] [116019] [INFO] Booting worker with pid: 116019
