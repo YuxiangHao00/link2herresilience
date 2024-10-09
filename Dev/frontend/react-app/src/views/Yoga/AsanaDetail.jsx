@@ -288,7 +288,7 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
         {!isPranayamaOrChakrasana && (
           <>
             {poseProbability !== undefined && (
-              <p>Pose Accuracy: <strong>{Math.round(poseProbability * 100)}%</strong></p>
+              <p>Pose estimation: <strong>{Math.round(poseProbability * 100)}%</strong></p>
             )}
             {isRightPosture !== undefined && (
               <p>Correct Posture: <strong>{isRightPosture ? 'Yes' : 'No'}</strong></p>
