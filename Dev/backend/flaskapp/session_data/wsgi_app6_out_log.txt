@@ -12,3 +12,184 @@
 [2024-10-09 10:42:51 +0000] [116016] [INFO] Using worker: sync
 [2024-10-09 10:42:51 +0000] [116017] [INFO] Booting worker with pid: 116017
 [2024-10-09 10:42:51 +0000] [116019] [INFO] Booting worker with pid: 116019
+[2024-10-09 12:47:00 +0000] [120212] [INFO] Starting gunicorn 23.0.0
+[2024-10-09 12:47:00 +0000] [120212] [ERROR] Connection in use: ('0.0.0.0', 5007)
+[2024-10-09 12:47:00 +0000] [120212] [ERROR] connection to ('0.0.0.0', 5007) failed: [Errno 98] Address already in use
+[2024-10-09 12:47:01 +0000] [120212] [ERROR] Connection in use: ('0.0.0.0', 5007)
+[2024-10-09 12:47:01 +0000] [120212] [ERROR] connection to ('0.0.0.0', 5007) failed: [Errno 98] Address already in use
+[2024-10-09 12:47:02 +0000] [120212] [ERROR] Connection in use: ('0.0.0.0', 5007)
+[2024-10-09 12:47:02 +0000] [120212] [ERROR] connection to ('0.0.0.0', 5007) failed: [Errno 98] Address already in use
+[2024-10-09 12:47:03 +0000] [120212] [ERROR] Connection in use: ('0.0.0.0', 5007)
+[2024-10-09 12:47:03 +0000] [120212] [ERROR] connection to ('0.0.0.0', 5007) failed: [Errno 98] Address already in use
+[2024-10-09 12:47:04 +0000] [120212] [ERROR] Connection in use: ('0.0.0.0', 5007)
+[2024-10-09 12:47:04 +0000] [120212] [ERROR] connection to ('0.0.0.0', 5007) failed: [Errno 98] Address already in use
+[2024-10-09 12:47:05 +0000] [120212] [ERROR] Can't connect to ('0.0.0.0', 5007)
+[2024-10-09 12:47:39 +0000] [116017] [INFO] Parent changed, shutting down: <Worker 116017>
+[2024-10-09 12:47:39 +0000] [116017] [INFO] Worker exiting (pid: 116017)
+[2024-10-09 12:47:39 +0000] [116019] [INFO] Parent changed, shutting down: <Worker 116019>
+[2024-10-09 12:47:39 +0000] [116019] [INFO] Worker exiting (pid: 116019)
+[2024-10-09 12:47:53 +0000] [120277] [INFO] Starting gunicorn 23.0.0
+[2024-10-09 12:47:53 +0000] [120277] [INFO] Listening at: http://0.0.0.0:5007 (120277)
+[2024-10-09 12:47:53 +0000] [120277] [INFO] Using worker: sync
+[2024-10-09 12:47:53 +0000] [120278] [INFO] Booting worker with pid: 120278
+[2024-10-09 12:47:53 +0000] [120279] [INFO] Booting worker with pid: 120279
+[2024-10-09 13:02:50 +0000] [120277] [INFO] Handling signal: hup
+[2024-10-09 13:02:50 +0000] [120277] [INFO] Hang up: Master
+[2024-10-09 13:02:50 +0000] [120791] [INFO] Booting worker with pid: 120791
+[2024-10-09 13:02:50 +0000] [120792] [INFO] Booting worker with pid: 120792
+[2024-10-09 13:02:50 +0000] [120277] [ERROR] Worker (pid:120279) was sent SIGHUP!
+[2024-10-09 13:02:50 +0000] [120277] [ERROR] Worker (pid:120278) was sent SIGHUP!
+[2024-10-09 13:35:50,660] ERROR in app: Exception on /yoga_asana/v1/analyse [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/link2herresilience/Dev/backend/flaskapp/yoga_asana.py", line 108, in get
+    pose_estimate_result = self.pose_estimator.analyse_pose()
+  File "/usr/share/nginx/link2herresilience/Dev/backend/flaskapp/models/yoga_pose_estimator.py", line 60, in analyse_pose
+    print("model_name:", self.pose_estimator)
+OSError: [Errno 5] Input/output error
+[2024-10-09 13:41:38,233] ERROR in app: Exception on /yoga_asana/v1/analyse [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/link2herresilience/Dev/backend/flaskapp/yoga_asana.py", line 108, in get
+    pose_estimate_result = self.pose_estimator.analyse_pose()
+  File "/usr/share/nginx/link2herresilience/Dev/backend/flaskapp/models/yoga_pose_estimator.py", line 60, in analyse_pose
+    print("model_name:", self.pose_estimator)
+OSError: [Errno 5] Input/output error
+[2024-10-10 02:02:17,665] ERROR in app: Exception on /yoga_asana/v1/analyse [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/link2herresilience/Dev/backend/flaskapp/yoga_asana.py", line 108, in get
+    pose_estimate_result = self.pose_estimator.analyse_pose()
+  File "/usr/share/nginx/link2herresilience/Dev/backend/flaskapp/models/yoga_pose_estimator.py", line 60, in analyse_pose
+    print("model_name:", self.pose_estimator)
+OSError: [Errno 5] Input/output error
+[2024-10-10 02:02:28,906] ERROR in app: Exception on /yoga_asana/v1/analyse [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/link2herresilience/Dev/backend/flaskapp/yoga_asana.py", line 108, in get
+    pose_estimate_result = self.pose_estimator.analyse_pose()
+  File "/usr/share/nginx/link2herresilience/Dev/backend/flaskapp/models/yoga_pose_estimator.py", line 60, in analyse_pose
+    print("model_name:", self.pose_estimator)
+OSError: [Errno 5] Input/output error
+[2024-10-10 08:31:20,621] ERROR in app: Exception on /yoga_asana/v1/analyse [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/link2herresilience/Dev/backend/flaskapp/yoga_asana.py", line 108, in get
+    pose_estimate_result = self.pose_estimator.analyse_pose()
+  File "/usr/share/nginx/link2herresilience/Dev/backend/flaskapp/models/yoga_pose_estimator.py", line 60, in analyse_pose
+    print("model_name:", self.pose_estimator)
+OSError: [Errno 5] Input/output error
+[2024-10-10 10:35:35,393] ERROR in app: Exception on /yoga_asana/v1/analyse [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/link2herresilience/Dev/backend/flaskapp/yoga_asana.py", line 108, in get
+    pose_estimate_result = self.pose_estimator.analyse_pose()
+  File "/usr/share/nginx/link2herresilience/Dev/backend/flaskapp/models/yoga_pose_estimator.py", line 60, in analyse_pose
+    print("model_name:", self.pose_estimator)
+OSError: [Errno 5] Input/output error
+[2024-10-10 10:36:20,559] ERROR in app: Exception on /yoga_asana/v1/analyse [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/link2herresilience/Dev/backend/flaskapp/yoga_asana.py", line 108, in get
+    pose_estimate_result = self.pose_estimator.analyse_pose()
+  File "/usr/share/nginx/link2herresilience/Dev/backend/flaskapp/models/yoga_pose_estimator.py", line 60, in analyse_pose
+    print("model_name:", self.pose_estimator)
+OSError: [Errno 5] Input/output error
+[2024-10-10 10:46:41,286] ERROR in app: Exception on /yoga_asana/v1/analyse [GET]
+Traceback (most recent call last):
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 489, in wrapper
+    resp = resource(*args, **kwargs)
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask/views.py", line 110, in view
+    return current_app.ensure_sync(self.dispatch_request)(**kwargs)  # type: ignore[no-any-return]
+  File "/home/ec2-user/.local/lib/python3.9/site-packages/flask_restful/__init__.py", line 604, in dispatch_request
+    resp = meth(*args, **kwargs)
+  File "/usr/share/nginx/link2herresilience/Dev/backend/flaskapp/yoga_asana.py", line 108, in get
+    pose_estimate_result = self.pose_estimator.analyse_pose()
+  File "/usr/share/nginx/link2herresilience/Dev/backend/flaskapp/models/yoga_pose_estimator.py", line 60, in analyse_pose
+    print("model_name:", self.pose_estimator)
+OSError: [Errno 5] Input/output error
+[2024-10-10 10:47:06 +0000] [120791] [INFO] Parent changed, shutting down: <Worker 120791>
+[2024-10-10 10:47:06 +0000] [120791] [INFO] Worker exiting (pid: 120791)
+[2024-10-10 10:47:11 +0000] [120792] [INFO] Parent changed, shutting down: <Worker 120792>
+[2024-10-10 10:47:11 +0000] [120792] [INFO] Worker exiting (pid: 120792)
+[2024-10-10 16:30:41 +0000] [174305] [INFO] Starting gunicorn 23.0.0
+[2024-10-10 16:30:41 +0000] [174305] [INFO] Listening at: http://0.0.0.0:5007 (174305)
+[2024-10-10 16:30:41 +0000] [174305] [INFO] Using worker: gthread
+[2024-10-10 16:30:41 +0000] [174306] [INFO] Booting worker with pid: 174306
+[2024-10-10 16:30:41 +0000] [174308] [INFO] Booting worker with pid: 174308
+[2024-10-10 16:31:13 +0000] [174305] [INFO] Handling signal: int
+[2024-10-10 16:31:13 +0000] [174308] [INFO] Worker exiting (pid: 174308)
+[2024-10-10 16:31:13 +0000] [174306] [INFO] Worker exiting (pid: 174306)
+[2024-10-10 16:31:14 +0000] [174305] [INFO] Shutting down: Master
+[2024-10-10 16:31:24 +0000] [174323] [INFO] Starting gunicorn 23.0.0
+[2024-10-10 16:31:24 +0000] [174323] [INFO] Listening at: http://0.0.0.0:5007 (174323)
+[2024-10-10 16:31:24 +0000] [174323] [INFO] Using worker: gthread
+[2024-10-10 16:31:24 +0000] [174324] [INFO] Booting worker with pid: 174324
+[2024-10-10 16:31:25 +0000] [174326] [INFO] Booting worker with pid: 174326
