@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Typography, Radio, Select, Button, Space, Progress, Card, Divider, Row, Col } from 'antd';
+import { Typography, Radio, Select, Button, Space, Progress, Card, Divider, Row, Col, message, Tag } from 'antd';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import axios from 'axios';
+import { v4 as uuidv4 } from 'uuid';
 import './addiction.less';
+import questionnaireData from '../../data/7.3-questionnaire_data.json';
+import { CheckCircleOutlined, WarningOutlined, CloseCircleOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 
 const { Title, Paragraph } = Typography;
 const { Option } = Select;
@@ -10,289 +15,198 @@ const StressAssess = () => {
   const [currentSection, setCurrentSection] = useState(1);
   const [answers, setAnswers] = useState({});
   const [progress, setProgress] = useState(0);
-  const [currentQuestions, setCurrentQuestions] = useState([]);
-
-  const sections = {
-    1: [
-      { 
-        question: "What is your age range?", 
-        type: "select",
-        options: ["18-24", "25-34", "35-44", "45+"]
-      },
-      { 
-        question: "How do you identify your gender?", 
-        type: "select",
-        options: ["Male", "Female", "Non-binary", "Prefer not to say"]
-      },
-      {
-        question: "What is your current occupation?",
-        type: "select",
-        options: ["Student", "Employed", "Self-employed", "Unemployed", "Other"]
-      },
-      {
-        question: "What is your migration status?",
-        type: "select",
-        options: ["Student", "Permanent Resident", "Temporary Resident", "Refugee", "Other"]
-      },
-      {
-        question: "How long have you been living in Australia?",
-        type: "select",
-        options: ["Less than 6 months", "6 months to 1 year", "1-3 years", "More than 3 years"]
-      },
-      {
-        question: "What is your highest level of education?",
-        type: "select",
-        options: ["High school", "Undergraduate", "Graduate", "Other"]
-      }
-    ],
-    2: [
-      {
-        question: "On a scale of 1-10, how often do you feel stressed on a daily basis?",
-        type: "radio",
-        options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-      },
-      {
-        question: "How often do you feel overwhelmed during stressful situations?",
-        type: "select",
-        options: ["Never", "Sometimes", "Often", "Always"],
-        condition: (answers) => answers["On a scale of 1-10, how often do you feel stressed on a daily basis?"] >= 7
-      },
-      {
-        question: "On a scale of 1-10, how often do you feel anxious or worried?",
-        type: "radio",
-        options: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-      },
-      {
-        question: "Have you ever felt physically unwell when stopping alcohol or substance use?",
-        type: "select",
-        options: ["Never", "Occasionally", "Frequently", "Always"],
-        condition: (answers) => answers["On a scale of 1-10, how often do you feel anxious or worried?"] >= 7
-      },
-      {
-        question: "How often do you consume alcohol?",
-        type: "select",
-        options: ["Never", "Once a month", "Once a week", "Multiple times a week"]
-      },
-      {
-        question: "How in control do you feel over your alcohol or substance use?",
-        type: "select",
-        options: ["Completely in control", "Somewhat in control", "Not in control"],
-        condition: (answers) => ["Once a week", "Multiple times a week"].includes(answers["How often do you consume alcohol?"])
-      },
-      {
-        question: "Do you use recreational drugs?",
-        type: "select",
-        options: ["Yes", "No", "Prefer not to say"]
-      },
-      {
-        question: "Have you ever tried to cut back on alcohol or substance use but found it difficult?",
-        type: "select",
-        options: ["Never", "Once or twice", "Frequently", "Always"],
-        condition: (answers) => answers["Do you use recreational drugs?"] === "Yes"
-      },
-      {
-        question: "How easy is it for you to obtain alcohol or recreational substances?",
-        type: "select",
-        options: ["Not easy", "Somewhat easy", "Very easy"]
-      }
-    ],
-    3: [
-      {
-        question: "How often do you attend social gatherings?",
-        type: "select",
-        options: ["Rarely", "Once a month", "Once a week", "More than once a week"]
-      },
-      {
-        question: "Do you feel pressured by others to drink alcohol or use substances?",
-        type: "select",
-        options: ["Never", "Sometimes", "Often", "Always"],
-        condition: (answers) => ["Once a week", "More than once a week"].includes(answers["How often do you attend social gatherings?"])
-      },
-      {
-        question: "How often do you exercise?",
-        type: "select",
-        options: ["Never", "Once a week", "Multiple times a week", "Daily"]
-      },
-      {
-        question: "Have you noticed changes in your routine, like skipping meals or avoiding exercise due to substance use?",
-        type: "select",
-        options: ["No", "Occasionally", "Frequently", "Always"],
-        condition: (answers) => answers["How often do you exercise?"] === "Never"
-      },
-      {
-        question: "How many hours do you usually sleep at night?",
-        type: "select",
-        options: ["Less than 5", "5-7", "7-9", "More than 9"]
-      },
-      {
-        question: "How often does alcohol or substance use disrupt your sleep?",
-        type: "select",
-        options: ["Never", "Occasionally", "Frequently", "Always"],
-        condition: (answers) => ["Less than 5", "5-7"].includes(answers["How many hours do you usually sleep at night?"])
-      },
-      {
-        question: "How would you describe your diet?",
-        type: "select",
-        options: ["Healthy", "Average", "Unhealthy"]
-      }
-    ],
-    4: [
-      {
-        question: "When stressed, how do you usually cope?",
-        type: "select",
-        options: ["Exercise", "Meditation", "Alcohol", "Drugs", "Talking to friends", "Other"]
-      },
-      {
-        question: "How often do you regret using alcohol or substances to manage stress?",
-        type: "select",
-        options: ["Never", "Sometimes", "Often", "Always"],
-        condition: (answers) => ["Alcohol", "Drugs"].includes(answers["When stressed, how do you usually cope?"])
-      },
-      {
-        question: "How would you rate your work/life balance?",
-        type: "select",
-        options: ["Very poor", "Poor", "Average", "Good", "Excellent"]
-      },
-      {
-        question: "How often do you use alcohol or substances as a 'reward' after a tough day?",
-        type: "select",
-        options: ["Never", "Occasionally", "Frequently", "Always"],
-        condition: (answers) => ["Very poor", "Poor"].includes(answers["How would you rate your work/life balance?"])
-      },
-      {
-        question: "How often do you practice mindfulness or self-reflection (e.g., journaling, meditation) to manage stress?",
-        type: "select",
-        options: ["Never", "Occasionally", "Frequently", "Always"]
-      }
-    ],
-    5: [
-      {
-        question: "Do your close friends or family regularly consume alcohol or use substances?",
-        type: "select",
-        options: ["Yes", "No", "Sometimes"]
-      },
-      {
-        question: "Do you think substance use is common in your community?",
-        type: "select",
-        options: ["Yes", "No", "Not sure"],
-        condition: (answers) => ["Yes", "Sometimes"].includes(answers["Do your close friends or family regularly consume alcohol or use substances?"])
-      },
-      {
-        question: "Do you have someone to talk to when you feel stressed or anxious?",
-        type: "select",
-        options: ["Yes", "No", "Sometimes"]
-      }
-    ],
-    6: [
-      {
-        question: "Have you ever sought professional help for stress or anxiety?",
-        type: "select",
-        options: ["Yes", "No", "Considering it"]
-      },
-      {
-        question: "Have you taken any actions to prevent or reduce stress, anxiety, or substance use in the past 6 months?",
-        type: "select",
-        options: ["Yes", "No", "Considering it"],
-        condition: (answers) => answers["Have you ever sought professional help for stress or anxiety?"] === "Yes"
-      },
-      {
-        question: "Do you have family or close friends who support you emotionally?",
-        type: "select",
-        options: ["Yes", "No", "Sometimes"]
-      }
-    ]
-  };
+  const [questionnaire, setQuestionnaire] = useState(questionnaireData);
+  const [sessionId, setSessionId] = useState('');
+  const [result, setResult] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    updateCurrentQuestions();
-  }, [currentSection, answers]);
+    setSessionId(uuidv4().substring(0, 8));
+    console.log('Questionnaire data:', questionnaire);
+  }, []);
 
-  const updateCurrentQuestions = () => {
-    const sectionQuestions = sections[currentSection];
-    const filteredQuestions = sectionQuestions.filter(q => !q.condition || q.condition(answers));
-    setCurrentQuestions(filteredQuestions);
+  useEffect(() => {
+    if (questionnaire.length > 0) {
+      // 修改这里，使用 Math.floor 来向下取整
+      setProgress(Math.floor((currentSection - 1) / questionnaire.length * 100));
+    }
+  }, [currentSection, questionnaire]);
+
+  const handleAnswer = (questionId, answerId) => {
+    setAnswers(prev => ({ ...prev, [questionId]: answerId }));
   };
 
-  const handleAnswer = (question, answer) => {
-    setAnswers(prev => ({ ...prev, [question]: answer }));
-  };
+  const nextSection = async () => {
+    const currentQuestions = questionnaire[currentSection - 1]?.questions || [];
+    const unansweredRequiredQuestions = currentQuestions.filter(
+      q => q.is_require === 1 && !answers[q.question_id]
+    );
 
-  const nextSection = () => {
-    if (currentSection < Object.keys(sections).length) {
+    if (unansweredRequiredQuestions.length > 0) {
+      message.error('Please answer all required questions before proceeding.');
+      return;
+    }
+
+    if (currentSection < questionnaire.length) {
       setCurrentSection(prev => prev + 1);
-      setProgress(prev => prev + (100 / Object.keys(sections).length));
+      // 清除下一部分的答案
+      const nextSectionQuestions = questionnaire[currentSection]?.questions || [];
+      const nextSectionAnswers = {};
+      nextSectionQuestions.forEach(q => {
+        nextSectionAnswers[q.question_id] = null;
+      });
+      setAnswers(prev => ({ ...prev, ...nextSectionAnswers }));
+      // 滚动到页面顶部
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     } else {
-      // Submit answers or navigate to results page
-      console.log(answers);
+      // 提交答案
+      try {
+        const answeredQuestions = questionnaire.flatMap(section => 
+          section.questions.filter(q => answers[q.question_id])
+            .map(q => ({ ...q, section_id: section.section_id }))
+        );
+
+        const sectionIds = answeredQuestions.map(q => q.section_id).join(',');
+        const questionIds = answeredQuestions.map(q => q.question_id).join(',');
+        const responseIds = answeredQuestions.map(q => answers[q.question_id]).join(',');
+
+        const baseUrl = 'https://link2herresilience.com.au/lifestyle/v1/analyse_risk';
+        const params = new URLSearchParams({
+          session_id: sessionId,
+          section_id: `[${sectionIds}]`,
+          question_id: `[${questionIds}]`,
+          response_id: `[${responseIds}]`
+        });
+        const url = `${baseUrl}?${params}`;
+
+        console.log('Full URL:', url);
+
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            // 如果需要，添加其他headers
+          },
+        });
+        if (!response.ok) {
+          const errorText = await response.text();
+          throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+        }
+        const data = await response.json();
+        setResult(data);
+      } catch (error) {
+        console.error('Error submitting answers:', error);
+        console.error('Error details:', error.message);
+        message.error(`An error occurred: ${error.message}`);
+      }
     }
   };
 
-  const formatPercent = (percent) => {
-    return `${Math.round(percent)}%`;
+  const prevSection = () => {
+    if (currentSection > 1) {
+      setCurrentSection(prev => prev - 1);
+      // 清除当前部分的答案
+      const currentSectionQuestions = questionnaire[currentSection - 1]?.questions || [];
+      const currentSectionAnswers = {};
+      currentSectionQuestions.forEach(q => {
+        currentSectionAnswers[q.question_id] = null;
+      });
+      setAnswers(prev => ({ ...prev, ...currentSectionAnswers }));
+      // 滚动到页面顶部
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const returnToHome = () => {
+    navigate('/addiction-prevention');
   };
 
   const renderQuestion = (question) => {
     return (
       <Card 
+        key={question.question_id}
         className="question-card"
         title={
           <Paragraph strong style={{ fontSize: '16px', marginBottom: '10px', whiteSpace: 'normal' }}>
-            {question.question.split(' ').reduce((acc, word, index) => {
-              if (index % 8 === 0 && index !== 0) {
-                return [...acc, <br key={index} />, word];
-              }
-              return [...acc, ' ', word];
-            }, [])}
+            {question.question}
+            {question.is_require === 1 && <span style={{ color: 'red' }}> *</span>}
           </Paragraph>
         }
       >
-        {renderQuestionContent(question)}
+        <Select 
+          style={{ width: '100%' }} 
+          placeholder="Select an option"
+          onChange={(value) => handleAnswer(question.question_id, value)}
+          value={answers[question.question_id] || undefined}
+        >
+          {question.responses.map(option => (
+            <Option key={option.response_id} value={option.response_id.toString()}>{option.response}</Option>
+          ))}
+        </Select>
       </Card>
     );
   };
 
-  const renderQuestionContent = (question) => {
-    switch (question.type) {
-      case 'select':
-        return (
-          <Select 
-            style={{ width: '100%' }} 
-            placeholder="Select an option"
-            onChange={(value) => handleAnswer(question.question, value)}
-          >
-            {question.options.map(option => (
-              <Option key={option} value={option}>{option}</Option>
-            ))}
-          </Select>
-        );
-      case 'radio':
-        return (
-          <Radio.Group 
-            onChange={(e) => handleAnswer(question.question, e.target.value)}
-            className={question.options.length === 10 ? "scale-options" : ""}
-          >
-            {question.options.length === 10 ? (
-              <div className="scale-container">
-                {question.options.map(option => (
-                  <div key={option} className="scale-item">
-                    <Radio value={option} />
-                    <span>{option}</span>
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <Space direction="vertical">
-                {question.options.map(option => (
-                  <Radio key={option} value={option}>{option}</Radio>
-                ))}
-              </Space>
+  if (result) {
+    const getRiskColor = (level) => {
+      switch (level) {
+        case 'low': return 'success';
+        case 'medium': return 'warning';
+        case 'high': return 'error';
+        default: return 'default';
+      }
+    };
+
+    const getRiskIcon = (level) => {
+      switch (level) {
+        case 'low': return <CheckCircleOutlined />;
+        case 'medium': return <WarningOutlined />;
+        case 'high': return <CloseCircleOutlined />;
+        default: return null;
+      }
+    };
+
+    return (
+      <Row justify="center">
+        <Col xs={24} sm={24} md={20} lg={18} xl={16}>
+          <Card className="result-card">
+            <Title level={2}>Assessment Result</Title>
+            <Row gutter={[16, 16]} align="middle">
+              <Col span={12}>
+                <Tag icon={getRiskIcon(result.predicted_risk_level)} color={getRiskColor(result.predicted_risk_level)} style={{ padding: '8px 16px', fontSize: '18px' }}>
+                  Risk Level: {result.predicted_risk_level.charAt(0).toUpperCase() + result.predicted_risk_level.slice(1)}
+                </Tag>
+              </Col>
+              <Col span={12}>
+                <Progress
+                  type="circle"
+                  percent={Math.round(result.class_probability * 100)}
+                  format={(percent) => `${percent}%`}
+                  width={80}
+                  status={getRiskColor(result.predicted_risk_level)}
+                />
+              </Col>
+            </Row>
+            <Paragraph style={{ marginTop: '20px', fontSize: '16px' }}>
+              <strong>Suggestion:</strong> {result.suggestion}
+            </Paragraph>
+            {result.possible_effect && (
+              <Paragraph style={{ marginTop: '20px', fontSize: '16px' }}>
+                <strong>Possible Effect:</strong> {result.possible_effect}
+              </Paragraph>
             )}
-          </Radio.Group>
-        );
-      default:
-        return null;
-    }
-  };
+            <Button 
+              type="primary" 
+              onClick={returnToHome}
+              style={{ marginTop: '20px', width: '100%' }}
+            >
+              Return to Home
+            </Button>
+          </Card>
+        </Col>
+      </Row>
+    );
+  }
 
   return (
     <Row justify="center">
@@ -300,46 +214,61 @@ const StressAssess = () => {
         <div className="stress-assess">
           <Card className="assessment-card">
             <Title level={2} style={{ textAlign: 'center', marginBottom: '20px', color: '#1E3A8A' }}>Stress Assessment</Title>
-            <Progress percent={progress} status="active" style={{ marginBottom: '30px' }} format={formatPercent} />
-            <Title level={3} style={{ marginBottom: '20px', color: '#4B5563' }}>Section {currentSection}: {getSectionTitle(currentSection)}</Title>
-            <TransitionGroup>
-              {currentQuestions.map((question, index) => (
-                <CSSTransition
-                  key={question.question}
-                  timeout={500}
-                  classNames="question-transition"
-                >
-                  <div>
-                    {renderQuestion(question)}
-                    {index < currentQuestions.length - 1 && <Divider style={{ margin: '20px 0' }} />}
-                  </div>
-                </CSSTransition>
-              ))}
-            </TransitionGroup>
-            <Button 
-              type="primary" 
-              onClick={nextSection} 
-              style={{ marginTop: '30px', width: '100%', height: '40px', fontSize: '16px' }}
-            >
-              {currentSection < Object.keys(sections).length ? "Next Section" : "Submit"}
-            </Button>
+            <Progress 
+              percent={progress} 
+              status="active" 
+              style={{ marginBottom: '30px' }} 
+              format={percent => `${Math.floor(percent)}%`}
+            />
+            {questionnaire.length > 0 ? (
+              <>
+                <Title level={3} style={{ marginBottom: '20px', color: '#4B5563' }}>
+                  Section {currentSection}: {questionnaire[currentSection - 1]?.section_name}
+                </Title>
+                <TransitionGroup>
+                  {questionnaire[currentSection - 1]?.questions.map((question, index) => (
+                    <CSSTransition
+                      key={question.question_id}
+                      timeout={500}
+                      classNames="question-transition"
+                    >
+                      <div>
+                        {renderQuestion(question)}
+                        {index < questionnaire[currentSection - 1].questions.length - 1 && <Divider style={{ margin: '20px 0' }} />}
+                      </div>
+                    </CSSTransition>
+                  ))}
+                </TransitionGroup>
+                <Row gutter={16} style={{ marginTop: '30px' }}>
+                  <Col span={12}>
+                    <Button 
+                      onClick={prevSection} 
+                      style={{ width: '100%', height: '40px', fontSize: '16px' }}
+                      disabled={currentSection === 1}
+                    >
+                      Previous Section
+                    </Button>
+                  </Col>
+                  <Col span={12}>
+                    <Button 
+                      type="primary" 
+                      onClick={nextSection} 
+                      style={{ width: '100%', height: '40px', fontSize: '16px' }}
+                      disabled={questionnaire.length === 0}
+                    >
+                      {currentSection < questionnaire.length ? "Next Section" : "Submit"}
+                    </Button>
+                  </Col>
+                </Row>
+              </>
+            ) : (
+              <Paragraph>No questions available.</Paragraph>
+            )}
           </Card>
         </div>
       </Col>
     </Row>
   );
 };
-
-function getSectionTitle(sectionNumber) {
-  const titles = [
-    "Demographic Information",
-    "Behavioral Patterns",
-    "Social and Lifestyle Choices",
-    "Mental and Emotional Well-Being",
-    "Community and Environmental Factors",
-    "Mental Health Awareness"
-  ];
-  return titles[sectionNumber - 1];
-}
 
 export default StressAssess;

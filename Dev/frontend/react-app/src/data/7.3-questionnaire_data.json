@@ -1,0 +1,400 @@
+[
+    {
+      "section_id": 1,
+      "section_name": "Demographic Information",
+      "questions": [
+        {
+          "question_id": "1",
+          "question": "What is your age range?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "18-24"},
+            {"response_id": 2, "response": "25-34"},
+            {"response_id": 3, "response": "45+"}
+          ]
+        },
+        {
+          "question_id": "2",
+          "question": "How do you identify your gender?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "Male"},
+            {"response_id": 2, "response": "Female"},
+            {"response_id": 3, "response": "Non-binary"},
+            {"response_id": 4, "response": "Prefer not to say"}
+          ]
+        },
+        {
+          "question_id": "3",
+          "question": "What is your current occupation?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "Student"},
+            {"response_id": 2, "response": "Employed"},
+            {"response_id": 3, "response": "Self-employed"},
+            {"response_id": 4, "response": "Unemployed"},
+            {"response_id": 5, "response": "Other"}
+          ]
+        },
+        {
+          "question_id": "4",
+          "question": "What is your migration status?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "Student"},
+            {"response_id": 2, "response": "Permanent Resident"},
+            {"response_id": 3, "response": "Temporary Resident"},
+            {"response_id": 4, "response": "Refugee"},
+            {"response_id": 5, "response": "Other"}
+          ]
+        },
+        {
+          "question_id": "5",
+          "question": "Time in Australia: How long have you been living in Australia?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "Less than 6 months"},
+            {"response_id": 2, "response": "6 months to 1 year"},
+            {"response_id": 3, "response": "1-3 years"},
+            {"response_id": 4, "response": "More than 3 years"}
+          ]
+        },
+        {
+          "question_id": "6",
+          "question": "Education Level: What is your highest level of education?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "High school"},
+            {"response_id": 2, "response": "Undergraduate"},
+            {"response_id": 3, "response": "Graduate"},
+            {"response_id": 4, "response": "Other"}
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": 2,
+      "section_name": "Behavioral Patterns",
+      "questions": [
+        {
+          "question_id": "1",
+          "question": "On a scale of 1-10, how often do you feel stressed on a daily basis?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "1"},
+            {"response_id": 2, "response": "2"},
+            {"response_id": 3, "response": "3"},
+            {"response_id": 4, "response": "4"},
+            {"response_id": 5, "response": "5"},
+            {"response_id": 6, "response": "6"},
+            {"response_id": 7, "response": "7"},
+            {"response_id": 8, "response": "8"},
+            {"response_id": 9, "response": "9"},
+            {"response_id": 10, "response": "10"}
+          ]
+        },
+        {
+          "question_id": "2",
+          "question": "How often do you feel overwhelmed during stressful situations?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "Never"},
+            {"response_id": 2, "response": "Sometimes"},
+            {"response_id": 3, "response": "Often"},
+            {"response_id": 4, "response": "Always"}
+          ]
+        },
+        {
+          "question_id": "3a",
+          "question": "How often do you consume alcohol?",
+          "is_require": 1,
+          "responses": [
+            {"response_id": 1, "response": "Never"},
+            {"response_id": 2, "response": "Once a month"},
+            {"response_id": 3, "response": "Once a week"},
+            {"response_id": 4, "response": "Multiple times a week"}
+          ]
+        },
+        {
+          "question_id": "3b",
+          "question": "Do you use recreational drugs?",
+          "is_require": 1,
+          "responses": [
+            {"response_id": 1, "response": "Yes"},
+            {"response_id": 2, "response": "No"},
+            {"response_id": 3, "response": "Prefer not to say"}
+          ]
+        },
+        {
+          "question_id": "3c",
+          "question": "Do you smoke?",
+          "is_require": 1,
+          "responses": [
+            {"response_id": 1, "response": "Yes"},
+            {"response_id": 2, "response": "No"},
+            {"response_id": 3, "response": "Occasionally"}
+          ]
+        },
+        {
+          "question_id": "4",
+          "question": "How in control do you feel over your alcohol or substance use?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "Not in control"},
+            {"response_id": 2, "response": "Somewhat in control"},
+            {"response_id": 3, "response": "Completely in control"}
+          ]
+        },
+        {
+          "question_id": "5",
+          "question": "Have you ever tried to cut back on alcohol or substance use but found it difficult?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "Never"},
+            {"response_id": 2, "response": "Once or twice"},
+            {"response_id": 3, "response": "Frequently"},
+            {"response_id": 4, "response": "Always"}
+          ]
+        },
+        {
+          "question_id": "6",
+          "question": "Substance Availability: How easy is it for you to obtain alcohol or recreational substances?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "Not easy"},
+            {"response_id": 2, "response": "Somewhat easy"},
+            {"response_id": 3, "response": "Very easy"}
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": 3,
+      "section_name": "Social and Lifestyle Choices",
+      "questions": [
+        {
+          "question_id": "1",
+          "question": "How often do you attend social gatherings?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "Rarely"},
+            {"response_id": 2, "response": "Once a month"},
+            {"response_id": 3, "response": "Once a week"},
+            {"response_id": 4, "response": "More than once a week"}
+          ]
+        },
+        {
+          "question_id": "2",
+          "question": "Do you feel pressured by others to drink alcohol or use substances?",
+          "is_require": 1,
+          "responses": [
+            {"response_id": 1, "response": "Never"},
+            {"response_id": 2, "response": "Sometimes"},
+            {"response_id": 3, "response": "Often"},
+            {"response_id": 4, "response": "Always"}
+          ]
+        },
+        {
+          "question_id": "3",
+          "question": "How often do you exercise?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "Never"},
+            {"response_id": 2, "response": "Once a week"},
+            {"response_id": 3, "response": "Multiple times a week"},
+            {"response_id": 4, "response": "Daily"}
+          ]
+        },
+        {
+          "question_id": "4",
+          "question": "How many hours do you usually sleep at night?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "Less than 5"},
+            {"response_id": 2, "response": "5-7"},
+            {"response_id": 3, "response": "7-9"},
+            {"response_id": 4, "response": "More than 9"}
+          ]
+        },
+        {
+          "question_id": "5",
+          "question": "How often does alcohol or substance use disrupt your sleep?",
+          "is_require": 1,
+          "responses": [
+            {"response_id": 1, "response": "Never"},
+            {"response_id": 2, "response": "Occasionally"},
+            {"response_id": 3, "response": "Frequently"},
+            {"response_id": 4, "response": "Always"}
+          ]
+        },
+        {
+          "question_id": "6",
+          "question": "How would you describe your diet?",
+          "is_require": 1,
+          "responses": [
+            {"response_id": 1, "response": "Healthy"},
+            {"response_id": 2, "response": "Average"},
+            {"response_id": 3, "response": "Unhealthy"}
+          ]
+        },
+        {
+          "question_id": "7",
+          "question": "Have you noticed changes in your routine, like skipping meals or avoiding exercise due to substance use?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "No"},
+            {"response_id": 2, "response": "Occasionally"},
+            {"response_id": 3, "response": "Frequently"},
+            {"response_id": 4, "response": "Always"}
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": 4,
+      "section_name": "Mental and Emotional Well-Being",
+      "questions": [
+        {
+          "question_id": "1",
+          "question": "When stressed, how do you usually cope?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "Exercise"},
+            {"response_id": 2, "response": "Meditation"},
+            {"response_id": 3, "response": "Alcohol"},
+            {"response_id": 4, "response": "Drugs"},
+            {"response_id": 5, "response": "Talking to friends"},
+            {"response_id": 6, "response": "Other"}
+          ]
+        },
+        {
+          "question_id": "2",
+          "question": "How often do you regret using alcohol or substances to manage stress?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "Never"},
+            {"response_id": 2, "response": "Sometimes"},
+            {"response_id": 3, "response": "Often"},
+            {"response_id": 4, "response": "Always"}
+          ]
+        },
+        {
+          "question_id": "3",
+          "question": "Have you ever felt physically unwell when stopping alcohol or substance use?",
+          "is_require": 1,
+          "responses": [
+            {"response_id": 1, "response": "Never"},
+            {"response_id": 2, "response": "Occasionally"},
+            {"response_id": 3, "response": "Frequently"},
+            {"response_id": 4, "response": "Always"}
+          ]
+        },
+        {
+          "question_id": "4",
+          "question": "How would you rate your work/life balance?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "Very poor"},
+            {"response_id": 2, "response": "Poor"},
+            {"response_id": 3, "response": "Average"},
+            {"response_id": 4, "response": "Good"},
+            {"response_id": 5, "response": "Excellent"}
+          ]
+        },
+        {
+          "question_id": "5",
+          "question": "How often do you use alcohol or substances as a \"reward\" after a tough day?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "Never"},
+            {"response_id": 2, "response": "Occasionally"},
+            {"response_id": 3, "response": "Frequently"},
+            {"response_id": 4, "response": "Always"}
+          ]
+        },
+        {
+          "question_id": "6",
+          "question": "How often do you practice mindfulness or self-reflection (e.g., journaling, meditation) to manage stress?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "Never"},
+            {"response_id": 2, "response": "Occasionally"},
+            {"response_id": 3, "response": "Frequently"},
+            {"response_id": 4, "response": "Always"}
+          ]
+        }
+      ]
+    },
+    {
+      "section_id": 5,
+      "section_name": "Community and Environmental Factors",
+      "questions": [
+        {
+          "question_id": "1",
+          "question": "Do your close friends or family regularly consume alcohol or use substances?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "Yes"},
+            {"response_id": 2, "response": "No"},
+            {"response_id": 3, "response": "Sometimes"}
+          ]
+        },
+        {
+          "question_id": "2",
+          "question": "Do you think substance use is common in your community?",
+          "is_require": 0,
+          "responses": [
+            {"response_id": 1, "response": "Yes"},
+            {"response_id": 2, "response": "No"},
+            {"response_id": 3, "response": "Not sure"}
+          ]
+        },
+        {
+          "question_id": "3",
+          "question": "Do you have someone to talk to when you feel stressed or anxious?",
+          "is_require": 1,
+          "responses": [
+            {"response_id": 1, "response": "Yes"},
+            {"response_id": 2, "response": "No"},
+            {"response_id": 3, "response": "Sometimes"}
+          ]
+        }
+      ]
+    },
+    {
+        "section_id": 6,
+        "section_name": "Mental Health Awareness",
+        "questions": [
+          {
+            "question_id": "1",
+            "question": "Have you ever sought professional help or seek support from support group for stress or anxiety?",
+            "is_require": 1,
+            "responses": [
+              {"response_id": 1, "response": "Yes"},
+              {"response_id": 2, "response": "No"},
+              {"response_id": 3, "response": "Considering it"}
+            ]
+          },
+          {
+            "question_id": "2",
+            "question": "Do you have family or close friends who support you emotionally?",
+            "is_require": 0,
+            "responses": [
+              {"response_id": 1, "response": "Yes"},
+              {"response_id": 2, "response": "No"},
+              {"response_id": 3, "response": "Sometimes"}
+            ]
+          },
+          {
+            "question_id": "3",
+            "question": "Have you taken any actions to prevent or reduce stress, anxiety, or substance use in the past 6 months?",
+            "is_require": 0,
+            "responses": [
+              {"response_id": 1, "response": "Yes"},
+              {"response_id": 2, "response": "No"},
+              {"response_id": 3, "response": "Considering it"}
+            ]
+          }
+        ]
+    }
+]
