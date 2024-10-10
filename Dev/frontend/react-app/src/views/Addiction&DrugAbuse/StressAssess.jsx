@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Typography, Radio, Select, Button, Space, Progress, Card, Divider, Row, Col, message, Tag } from 'antd';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import axios from 'axios';
@@ -19,6 +19,7 @@ const StressAssess = () => {
   const [sessionId, setSessionId] = useState('');
   const [result, setResult] = useState(null);
   const navigate = useNavigate();
+  const topRef = useRef(null);
 
   useEffect(() => {
     setSessionId(uuidv4().substring(0, 8));
@@ -34,6 +35,10 @@ const StressAssess = () => {
 
   const handleAnswer = (questionId, answerId) => {
     setAnswers(prev => ({ ...prev, [questionId]: answerId }));
+  };
+
+  const scrollToTop = () => {
+    topRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const nextSection = async () => {
@@ -56,8 +61,11 @@ const StressAssess = () => {
         nextSectionAnswers[q.question_id] = null;
       });
       setAnswers(prev => ({ ...prev, ...nextSectionAnswers }));
-      // 滚动到页面顶部
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      // 使用 requestAnimationFrame 来确保在下一帧执行滚动
+      requestAnimationFrame(() => {
+        scrollToTop();
+      });
     } else {
       // 提交答案
       try {
@@ -112,8 +120,11 @@ const StressAssess = () => {
         currentSectionAnswers[q.question_id] = null;
       });
       setAnswers(prev => ({ ...prev, ...currentSectionAnswers }));
-      // 滚动到页面顶部
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      
+      // 使用 requestAnimationFrame 来确保在下一帧执行滚动
+      requestAnimationFrame(() => {
+        scrollToTop();
+      });
     }
   };
 
@@ -211,7 +222,7 @@ const StressAssess = () => {
   return (
     <Row justify="center">
       <Col xs={24} sm={24} md={20} lg={18} xl={16}>
-        <div className="stress-assess">
+        <div ref={topRef} className="stress-assess">
           <Card className="assessment-card">
             <Title level={2} style={{ textAlign: 'center', marginBottom: '20px', color: '#1E3A8A' }}>Stress Assessment</Title>
             <Progress 
