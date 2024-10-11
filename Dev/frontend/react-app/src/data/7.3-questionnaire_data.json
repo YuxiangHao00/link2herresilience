@@ -138,7 +138,7 @@
         {
           "question_id": "4",
           "question": "How in control do you feel over your alcohol or substance use?",
-          "is_require": 0,
+          "is_require": 1,
           "responses": [
             {"response_id": 1, "response": "Not in control"},
             {"response_id": 2, "response": "Somewhat in control"},
@@ -148,7 +148,7 @@
         {
           "question_id": "5",
           "question": "Have you ever tried to cut back on alcohol or substance use but found it difficult?",
-          "is_require": 0,
+          "is_require": 1,
           "responses": [
             {"response_id": 1, "response": "Never"},
             {"response_id": 2, "response": "Once or twice"},

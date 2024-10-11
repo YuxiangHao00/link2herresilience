@@ -50,7 +50,7 @@ const AddictionLandpage = () => {
           Ready to take control of your health?
           Explore our three key areas below to find the right support for you:
         </Paragraph>
-        <div className="module-row">
+        <div className="module-container">
           {modules.map((module, index) => (
             <motion.div
               key={index}

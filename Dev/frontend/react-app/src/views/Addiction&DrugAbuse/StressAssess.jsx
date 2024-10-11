@@ -21,6 +21,9 @@ const StressAssess = () => {
   const navigate = useNavigate();
   const topRef = useRef(null);
 
+  const [allAnswers, setAllAnswers] = useState({});
+  const [currentSectionAnswers, setCurrentSectionAnswers] = useState({});
+
   useEffect(() => {
     setSessionId(uuidv4().substring(0, 8));
     console.log('Questionnaire data:', questionnaire);
@@ -34,7 +37,8 @@ const StressAssess = () => {
   }, [currentSection, questionnaire]);
 
   const handleAnswer = (questionId, answerId) => {
-    setAnswers(prev => ({ ...prev, [questionId]: answerId }));
+    setCurrentSectionAnswers(prev => ({ ...prev, [questionId]: answerId }));
+    setAllAnswers(prev => ({ ...prev, [questionId]: answerId }));
   };
 
   const scrollToTop = () => {
@@ -44,7 +48,7 @@ const StressAssess = () => {
   const nextSection = async () => {
     const currentQuestions = questionnaire[currentSection - 1]?.questions || [];
     const unansweredRequiredQuestions = currentQuestions.filter(
-      q => q.is_require === 1 && !answers[q.question_id]
+      q => q.is_require === 1 && !currentSectionAnswers[q.question_id]
     );
 
     if (unansweredRequiredQuestions.length > 0) {
@@ -54,49 +58,23 @@ const StressAssess = () => {
 
     if (currentSection < questionnaire.length) {
       setCurrentSection(prev => prev + 1);
-      // 清除下一部分的答案
-      const nextSectionQuestions = questionnaire[currentSection]?.questions || [];
-      const nextSectionAnswers = {};
-      nextSectionQuestions.forEach(q => {
-        nextSectionAnswers[q.question_id] = null;
-      });
-      setAnswers(prev => ({ ...prev, ...nextSectionAnswers }));
-      
-      // 使用 requestAnimationFrame 来确保在下一帧执行滚动
-      requestAnimationFrame(() => {
-        scrollToTop();
-      });
+      setCurrentSectionAnswers({}); // 清空当前部分的答案
+      scrollToTop();
     } else {
-      // 提交答案
       try {
-        const answeredQuestions = questionnaire.flatMap(section => 
-          section.section_id !== 1 ? // 排除 Section 1
-            section.questions.filter(q => answers[q.question_id])
-              .map(q => ({ ...q, section_id: section.section_id }))
-            : []
-        );
+        const fixedSectionIds = [2,2,2,3,3,3,4,5,6];
+        const fixedQuestionIds = ['3a','3b','3c','2','5','6','3','3','1'];
+        const responseIds = fixedQuestionIds.map(qId => allAnswers[qId] || '');
 
-        const sectionIds = answeredQuestions.map(q => q.section_id).join(',');
-        const questionIds = answeredQuestions.map(q => q.question_id).join(',');
-        const responseIds = answeredQuestions.map(q => answers[q.question_id]).join(',');
-
-        // 添加详细的日志输出
         console.log('API Call Details:');
-        console.log('Answered Questions:', JSON.stringify(answeredQuestions, null, 2));
-        console.log('Section IDs:', sectionIds);
-        console.log('Question IDs:', questionIds);
+        console.log('Section IDs:', fixedSectionIds);
+        console.log('Question IDs:', fixedQuestionIds);
         console.log('Response IDs:', responseIds);
 
         const baseUrl = 'https://link2herresilience.com.au/lifestyle/v1/analyse_risk';
-        // http://127.0.0.1:5008/lifestyle/v1/analyse_risk
-        // https://link2herresilience.com.au/lifestyle/v1/analyse_risk
-        const params = new URLSearchParams({
-          session_id: sessionId,
-          section_id: `[${sectionIds}]`,
-          question_id: `[${questionIds}]`,
-          response_id: `[${responseIds}]`
-        });
-        const url = `${baseUrl}?${params}`;
+        
+        // 直接构建 URL 字符串
+        const url = `${baseUrl}?session_id=${sessionId}&section_id=[${fixedSectionIds.join(',')}]&question_id=[${fixedQuestionIds.join(',')}]&response_id=[${responseIds.join(',')}]`;
 
         console.log('Full API URL:', url);
 
@@ -107,7 +85,6 @@ const StressAssess = () => {
           },
         });
 
-        // 添加响应日志
         console.log('API Response Status:', response.status);
         const responseText = await response.text();
         console.log('API Response Text:', responseText);
@@ -130,15 +107,6 @@ const StressAssess = () => {
   const prevSection = () => {
     if (currentSection > 1) {
       setCurrentSection(prev => prev - 1);
-      // 清除当前部分的答案
-      const currentSectionQuestions = questionnaire[currentSection - 1]?.questions || [];
-      const currentSectionAnswers = {};
-      currentSectionQuestions.forEach(q => {
-        currentSectionAnswers[q.question_id] = null;
-      });
-      setAnswers(prev => ({ ...prev, ...currentSectionAnswers }));
-      
-      // 使用 requestAnimationFrame 来确保在下一帧执行滚动
       requestAnimationFrame(() => {
         scrollToTop();
       });
@@ -153,11 +121,11 @@ const StressAssess = () => {
     return (
       <Card 
         key={question.question_id}
-        className="question-card"
+        className={`question-card ${question.is_require === 1 ? 'required-question' : ''}`}
         title={
           <Paragraph strong style={{ fontSize: '16px', marginBottom: '10px', whiteSpace: 'normal' }}>
             {`${index + 1}. ${question.question}`}
-            {question.is_require === 1 && <span style={{ color: 'red' }}> *</span>}
+            {question.is_require === 1 && <span style={{ color: 'red', marginLeft: '5px' }}> *</span>}
           </Paragraph>
         }
       >
@@ -165,7 +133,7 @@ const StressAssess = () => {
           style={{ width: '100%' }} 
           placeholder="Select an option"
           onChange={(value) => handleAnswer(question.question_id, value)}
-          value={answers[question.question_id] || undefined}
+          value={currentSectionAnswers[question.question_id]}
         >
           {question.responses.map(option => (
             <Option key={option.response_id} value={option.response_id.toString()}>{option.response}</Option>
