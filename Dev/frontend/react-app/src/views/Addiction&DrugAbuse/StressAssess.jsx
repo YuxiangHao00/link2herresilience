@@ -70,15 +70,26 @@ const StressAssess = () => {
       // 提交答案
       try {
         const answeredQuestions = questionnaire.flatMap(section => 
-          section.questions.filter(q => answers[q.question_id])
-            .map(q => ({ ...q, section_id: section.section_id }))
+          section.section_id !== 1 ? // 排除 Section 1
+            section.questions.filter(q => answers[q.question_id])
+              .map(q => ({ ...q, section_id: section.section_id }))
+            : []
         );
 
         const sectionIds = answeredQuestions.map(q => q.section_id).join(',');
         const questionIds = answeredQuestions.map(q => q.question_id).join(',');
         const responseIds = answeredQuestions.map(q => answers[q.question_id]).join(',');
 
+        // 添加详细的日志输出
+        console.log('API Call Details:');
+        console.log('Answered Questions:', JSON.stringify(answeredQuestions, null, 2));
+        console.log('Section IDs:', sectionIds);
+        console.log('Question IDs:', questionIds);
+        console.log('Response IDs:', responseIds);
+
         const baseUrl = 'https://link2herresilience.com.au/lifestyle/v1/analyse_risk';
+        // http://127.0.0.1:5008/lifestyle/v1/analyse_risk
+        // https://link2herresilience.com.au/lifestyle/v1/analyse_risk
         const params = new URLSearchParams({
           session_id: sessionId,
           section_id: `[${sectionIds}]`,
@@ -87,20 +98,26 @@ const StressAssess = () => {
         });
         const url = `${baseUrl}?${params}`;
 
-        console.log('Full URL:', url);
+        console.log('Full API URL:', url);
 
         const response = await fetch(url, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            // 如果需要，添加其他headers
           },
         });
+
+        // 添加响应日志
+        console.log('API Response Status:', response.status);
+        const responseText = await response.text();
+        console.log('API Response Text:', responseText);
+
         if (!response.ok) {
-          const errorText = await response.text();
-          throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+          throw new Error(`HTTP error! status: ${response.status}, message: ${responseText}`);
         }
-        const data = await response.json();
+
+        const data = JSON.parse(responseText);
+        console.log('Parsed API Response:', JSON.stringify(data, null, 2));
         setResult(data);
       } catch (error) {
         console.error('Error submitting answers:', error);
@@ -132,14 +149,14 @@ const StressAssess = () => {
     navigate('/addiction-prevention');
   };
 
-  const renderQuestion = (question) => {
+  const renderQuestion = (question, index) => {
     return (
       <Card 
         key={question.question_id}
         className="question-card"
         title={
           <Paragraph strong style={{ fontSize: '16px', marginBottom: '10px', whiteSpace: 'normal' }}>
-            {question.question}
+            {`${index + 1}. ${question.question}`}
             {question.is_require === 1 && <span style={{ color: 'red' }}> *</span>}
           </Paragraph>
         }
@@ -177,6 +194,10 @@ const StressAssess = () => {
       }
     };
 
+    // 添加一个安全检查
+    const riskLevel = result.predicted_risk_level ? result.predicted_risk_level.toLowerCase() : 'unknown';
+    const riskLevelCapitalized = riskLevel.charAt(0).toUpperCase() + riskLevel.slice(1);
+
     return (
       <Row justify="center">
         <Col xs={24} sm={24} md={20} lg={18} xl={16}>
@@ -184,22 +205,22 @@ const StressAssess = () => {
             <Title level={2}>Assessment Result</Title>
             <Row gutter={[16, 16]} align="middle">
               <Col span={12}>
-                <Tag icon={getRiskIcon(result.predicted_risk_level)} color={getRiskColor(result.predicted_risk_level)} style={{ padding: '8px 16px', fontSize: '18px' }}>
-                  Risk Level: {result.predicted_risk_level.charAt(0).toUpperCase() + result.predicted_risk_level.slice(1)}
+                <Tag icon={getRiskIcon(riskLevel)} color={getRiskColor(riskLevel)} style={{ padding: '8px 16px', fontSize: '18px' }}>
+                  Risk Level: {riskLevelCapitalized}
                 </Tag>
               </Col>
               <Col span={12}>
                 <Progress
                   type="circle"
-                  percent={Math.round(result.class_probability * 100)}
+                  percent={Math.round((result.class_probability || 0) * 100)}
                   format={(percent) => `${percent}%`}
                   width={80}
-                  status={getRiskColor(result.predicted_risk_level)}
+                  status={getRiskColor(riskLevel)}
                 />
               </Col>
             </Row>
             <Paragraph style={{ marginTop: '20px', fontSize: '16px' }}>
-              <strong>Suggestion:</strong> {result.suggestion}
+              <strong>Suggestion:</strong> {result.suggestion || 'No suggestion available.'}
             </Paragraph>
             {result.possible_effect && (
               <Paragraph style={{ marginTop: '20px', fontSize: '16px' }}>
@@ -244,7 +265,7 @@ const StressAssess = () => {
                       classNames="question-transition"
                     >
                       <div>
-                        {renderQuestion(question)}
+                        {renderQuestion(question, index)}
                         {index < questionnaire[currentSection - 1].questions.length - 1 && <Divider style={{ margin: '20px 0' }} />}
                       </div>
                     </CSSTransition>
