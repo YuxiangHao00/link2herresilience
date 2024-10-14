@@ -55,7 +55,8 @@ class YogaPoseEstimation():
         """
         method to analyse the human pose in the file
         """
-        if 1: #try:
+        # if 1: 
+        try:
             if 'Image' in [track.track_type for track in MediaInfo.parse(self.file_path).tracks]:
                 print("model_name:", self.pose_estimator)
                 b_tracked = track.perform_tracking(video=False, file_path=normpath(self.file_path), 
@@ -83,7 +84,8 @@ class YogaPoseEstimation():
                     "err_code": 201,
                     "msg": 'Ensure supplied file "{0}" is a video or image'.format(self.file_name)
                 }
-        else: #except:
+        # else: 
+        except:
             return {
                 "err_code": 101,
                 "msg": f"exception in yoga pose estimator to analyse pose from {self.file_name} file"
