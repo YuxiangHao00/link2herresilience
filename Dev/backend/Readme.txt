@@ -84,3 +84,15 @@ Epic6:
 	- step: <int> respective step of yoga sequence
 	- file_id: <string> unique file id of length 8, to index uploaded images
 	- type: (supported format) <string> {"image": ["jpeg", "jpg", "png"], "video": ["mp4", "mpeg4"]}
+
+
+Epic7:
+* Predictive model for addiction &/or substance abuse risk
+** API call to provide response for risk prediction of stressful lifestyle, addiction & substance abuse & provide actionable insights
+	- http://0.0.0.0:5008/lifestyle/v1/analyse_risk?session_id=demo_F1n@l&section_id=[2,2,2,2,3,3,3,4,5,6]&question_id=[3a,3b,3c,4,2,5,6,3,3,1]&response_id=[2,1,1,3,3,2,1,3,2,1]
+
+	Note:
+	- session_id: <str> from client side
+	- section_id: mandatory sections: (range 2-6)
+	- question_id: mandatory questions: [3a,3b,3c,4,2,5,6,3,3,1]
+	- response_id: range (1-3 or 1-4 as per NSDUH attribute)

@@ -334,8 +334,8 @@ class RiskPrediction(Resource):
         '''
         method to check and parse input str to np array
         '''
-        # try:    
-        if 1:
+        try:    
+        # if 1:
             self.err_code = 0
             self.np_section_id = np.array([int(x) for x in self.list_section_id[1:-1].split(",")])
             self.np_question_id = np.array([x for x in self.list_question_id[1:-1].split(",")])
@@ -385,8 +385,8 @@ class RiskPrediction(Resource):
                             self.np_response_vec[ques_index] = self.questionnaire_mapping[section_id][self.np_question_id[i]][self.np_response_id[i]]
 
         
-        # except:    
-        else:
+        except:    
+        # else:
             self.b_input_format = False
             self.err_code = 1
             self.err_msg = "check_input_args failed to execute"
@@ -396,4 +396,4 @@ api.add_resource(RiskPrediction, '/analyse_risk')
 
 
 if __name__ == '__main__':
-    app7.run(port=5008, debug=True)
+    app7.run(port=5008)
