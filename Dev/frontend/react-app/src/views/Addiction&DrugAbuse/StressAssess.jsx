@@ -62,9 +62,9 @@ const StressAssess = () => {
       scrollToTop();
     } else {
       try {
-        const fixedSectionIds = [2,2,2,3,3,3,4,5,6];
-        const fixedQuestionIds = ['3a','3b','3c','2','5','6','3','3','1'];
-        const responseIds = fixedQuestionIds.map(qId => allAnswers[qId] || '');
+        const fixedSectionIds = [2,2,2,2,2,3,3,3,4,5,6];
+        const fixedQuestionIds = ['3a','3b','3c','4','5','2','5','6','3','3','1'];
+        const responseIds = fixedQuestionIds.map(qId => allAnswers[qId] || '1'); // 默认值设为'1'
 
         console.log('API Call Details:');
         console.log('Section IDs:', fixedSectionIds);
@@ -73,7 +73,7 @@ const StressAssess = () => {
 
         const baseUrl = 'https://link2herresilience.com.au/lifestyle/v1/analyse_risk';
         
-        // 直接构建 URL 字符串
+        // 构建URL字符串
         const url = `${baseUrl}?session_id=${sessionId}&section_id=[${fixedSectionIds.join(',')}]&question_id=[${fixedQuestionIds.join(',')}]&response_id=[${responseIds.join(',')}]`;
 
         console.log('Full API URL:', url);
@@ -162,7 +162,6 @@ const StressAssess = () => {
       }
     };
 
-    // 添加一个安全检查
     const riskLevel = result.predicted_risk_level ? result.predicted_risk_level.toLowerCase() : 'unknown';
     const riskLevelCapitalized = riskLevel.charAt(0).toUpperCase() + riskLevel.slice(1);
 
@@ -188,12 +187,22 @@ const StressAssess = () => {
               </Col>
             </Row>
             <Paragraph style={{ marginTop: '20px', fontSize: '16px' }}>
+              <strong>Class Probability:</strong> {(result.class_probability * 100).toFixed(2)}%
+            </Paragraph>
+            <Paragraph style={{ marginTop: '20px', fontSize: '16px' }}>
               <strong>Suggestion:</strong> {result.suggestion || 'No suggestion available.'}
             </Paragraph>
-            {result.possible_effect && (
-              <Paragraph style={{ marginTop: '20px', fontSize: '16px' }}>
-                <strong>Possible Effect:</strong> {result.possible_effect}
-              </Paragraph>
+            {result.possible_effect && result.possible_effect.length > 0 && (
+              <div style={{ marginTop: '20px' }}>
+                <Title level={4}>Possible Effects:</Title>
+                <ul>
+                  {result.possible_effect.map((effect, index) => (
+                    <li key={index} style={{ marginBottom: '10px' }}>
+                      {effect.effect_description}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             )}
             <Button 
               type="primary" 
