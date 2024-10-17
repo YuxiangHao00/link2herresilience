@@ -184,14 +184,12 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
         setCapturedImage(URL.createObjectURL(file));
         console.log(`File uploaded: ${sessionId}_${fileId}.png`);
         console.log(`API returned file_id: ${data.file_id}`);
-        // 使用 API 返回的 file_id 调用分析 API
         analyzePhoto(data.file_id);
       } else {
         console.error('Failed to upload image', data);
       }
     } catch (error) {
       console.error('Error uploading image', error);
-      // 在这里可以添加一些用户反馈，比如显示一个错误消息
     }
   };
 

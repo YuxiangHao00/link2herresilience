@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Select, Button, Dropdown, Space, message, Tabs } from "antd";
 import { DownOutlined, UserOutlined } from '@ant-design/icons';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip } from 'recharts';
+import { useNavigate } from 'react-router-dom';  // 导入 useNavigate
 import longTermConditionData from '../../data/long-term_condition.json';
 import './index.css';
 
-export default function DiseasePrevalenceComponent() {
+export default function HealthIssuesComponent() {
+  const navigate = useNavigate();  // 使用 useNavigate hook
   const [activeTab, setActiveTab] = useState('1');
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -214,20 +216,44 @@ export default function DiseasePrevalenceComponent() {
     );
   };
 
+  const handleSuburbFinderClick = () => {
+    navigate('/suburb-finder');  // 跳转到 SuburbFinder 页面
+  };
+
   return (
     <div className="space-y-4 sm:space-y-8 p-4 sm:p-8">
+      <div className="mb-6">
+        <h1 className="text-3xl font-oregano text-blue-800 mb-4 text-left" style={{ marginTop: '1rem' }}>Explore the Air Quality and Common Allergens in Australia</h1>
+        <p className="text-black text-lg mb-2">
+          Our platform provides you with insights into the most common diseases affecting migrant women across Australia. The information is presented in an easy-to-understand format, allowing you to explore health trends based on gender, age, and location.
+        </p>
+        <p className="text-black text-lg mb-2">
+         By default, you'll see the most prevalent diseases among young women aged 20-24 years in Australia. This age and gender group is specifically selected to reflect the health concerns of young migrant women like you.
+        </p>
+        <p className="text-black text-lg">
+          Explore by Gender and Age
+        </p>
+        <p className="text-black text-lg">
+          Want to see how diseases differ by gender or age?
+        </p>
+        <p className="text-black text-lg">
+          Simply use the gender filter to switch between health data for men and women.
+        </p>
+      </div>
+
       <Tabs
         defaultActiveKey="1"
         centered
         items={[
-          { label: 'Country', key: '1' },
-          { label: 'State', key: '2' },
+          { label: 'Air Quality', key: '1' },
+          { label: 'Allergic Pollens', key: '2' },
         ]}
         onChange={handleTabChange}
       />
+
       {activeTab === '1' && (
         <div className="space-y-6 sm:space-y-10 flex flex-col items-center">
-          <h2 className="text-lg sm:text-xl font-bold text-center text-[#0F296D]">Prevalence of different diseases among Australian population</h2>
+          <h2 className="text-lg sm:text-xl font-bold text-center text-[#0F296D]">Air Quality Index in Australian States</h2>
           <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
             <Select 
               className="w-full sm:w-48" 
@@ -315,7 +341,7 @@ export default function DiseasePrevalenceComponent() {
       
       {activeTab === '2' && (
         <div className="space-y-6 sm:space-y-10 flex flex-col items-center">
-          <h2 className="text-lg sm:text-xl font-bold text-center text-[#0F296D]">Different diseases in different parts of Australia</h2>
+          <h2 className="text-lg sm:text-xl font-bold text-center text-[#0F296D]">Common Allergens in Different Parts of Australia</h2>
           <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
             <Select 
               className="w-full sm:w-48" 
@@ -381,6 +407,16 @@ export default function DiseasePrevalenceComponent() {
           </div>
         </div>
       )}
+      
+      <div className="mt-8 text-center">
+        <p className="text-gray-600 mb-4">Worried about Asthma being so dominant in Australia? We've got your back, with our Air Quality indicator based on particular suburbs, know your safe place to be! Click the button to explore more!</p>
+        <Button 
+          onClick={handleSuburbFinderClick}
+          className="bg-[#00BD90] hover:bg-[#00A77D] text-white font-bold py-2 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105"
+        >
+          Air Quality Index
+        </Button>
+      </div>
     </div>
   );
 }

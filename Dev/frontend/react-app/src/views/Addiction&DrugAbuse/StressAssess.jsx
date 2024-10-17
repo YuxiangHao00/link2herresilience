@@ -31,7 +31,7 @@ const StressAssess = () => {
 
   useEffect(() => {
     if (questionnaire.length > 0) {
-      // 修改这里，使用 Math.floor 来向下取整
+      //使用 Math.floor 来向下取整
       setProgress(Math.floor((currentSection - 1) / questionnaire.length * 100));
     }
   }, [currentSection, questionnaire]);
@@ -58,22 +58,20 @@ const StressAssess = () => {
 
     if (currentSection < questionnaire.length) {
       setCurrentSection(prev => prev + 1);
-      setCurrentSectionAnswers({}); // 清空当前部分的答案
+      setCurrentSectionAnswers({});
       scrollToTop();
     } else {
       try {
         const fixedSectionIds = [2,2,2,2,2,3,3,3,4,5,6];
         const fixedQuestionIds = ['3a','3b','3c','4','5','2','5','6','3','3','1'];
-        const responseIds = fixedQuestionIds.map(qId => allAnswers[qId] || '1'); // 默认值设为'1'
+        const responseIds = fixedQuestionIds.map(qId => allAnswers[qId] || '1');
 
         console.log('API Call Details:');
         console.log('Section IDs:', fixedSectionIds);
         console.log('Question IDs:', fixedQuestionIds);
         console.log('Response IDs:', responseIds);
 
-        const baseUrl = 'https://link2herresilience.com.au/lifestyle/v1/analyse_risk';
-        
-        // 构建URL字符串
+        const baseUrl = 'http://127.0.0.1:5008/lifestyle/v1/analyse_risk';
         const url = `${baseUrl}?session_id=${sessionId}&section_id=[${fixedSectionIds.join(',')}]&question_id=[${fixedQuestionIds.join(',')}]&response_id=[${responseIds.join(',')}]`;
 
         console.log('Full API URL:', url);

@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Oregano&display=swap');
+
 .ant-tabs-tab-btn {
   color: #00BD90 !important;
-  font-size: 14px; /* 在移动设备上减小字体大小 */
+  font-size: 14px;
 }
 
 @media (min-width: 640px) {
@@ -17,4 +19,34 @@
   .ant-select-dropdown {
     max-width: 90vw;
   }
+}
+
+.bg-blue-100 {
+  background-color: #E6F3FF;
+}
+
+.text-blue-800 {
+  color: #1E40AF;
+}
+
+.text-blue-600 {
+  color: #2563EB;
+}
+
+.font-oregano {
+  font-family: 'Oregano', cursive;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+.text-left {
+  text-align: left;
 }

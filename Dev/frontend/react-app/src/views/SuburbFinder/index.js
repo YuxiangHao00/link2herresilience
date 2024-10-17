@@ -8,6 +8,7 @@ import axios from 'axios';
 import './index.css';
 import Country from './country';
 import City from './city1';
+import { useNavigate } from 'react-router-dom';
 
 const { Option } = Select;
 
@@ -87,6 +88,7 @@ const MapUpdater = ({ center, zoom }) => {
 };
 
 function SuburbFinder() {
+    const navigate = useNavigate();
     const [showCity, setShowCity] = useState(false);
     const [selectedState, setSelectedState] = useState('');
     const [selectedCity, setSelectedCity] = useState('');
@@ -176,8 +178,30 @@ function SuburbFinder() {
         popupAnchor: [1, -34],
     });
 
+    const handleHealthIssuesClick = () => {
+        navigate('/health-issues');
+    };
+
     return (
         <div className="text-center">
+            <div className="mb-6 text-left px-4 sm:px-8">
+                <h1 className="text-3xl font-oregano text-blue-800 mb-4 text-left" style={{ marginTop: '1rem' }}>Explore the Air Quality and Common Allergens in Australia</h1>
+                <p className="text-black text-lg mb-2">
+                    Stay informed about the air quality and common allergens that could affect your health in New South Wales
+                    and Victoria. Our platform provides real-time insights on the Air Quality Index (AQI), as well as information on
+                    the most prevalent pollens that may trigger allergies.
+                </p>
+                <p className="text-black text-lg mb-2">
+                    You can view the latest air quality levels for New South Wales and Victoria. The AQI will help you understand
+                    how clean or polluted the air is in these regions, along with potential health risks associated with varying
+                    levels of air pollution.
+                </p>
+                <p className="text-black text-lg">
+                    Curious about the allergens that may trigger respiratory issues or seasonal allergies? Switch to Allergic
+                    Pollens Tab.
+                </p>
+            </div>
+
             <Tabs
                 defaultActiveKey="1"
                 centered
