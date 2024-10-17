@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.c28e911c.css",
-    "main.js": "/static/js/main.86fd1e37.js",
+    "main.css": "/static/css/main.d55dfdff.css",
+    "main.js": "/static/js/main.370785a5.js",
     "static/js/453.a4931bc7.chunk.js": "/static/js/453.a4931bc7.chunk.js",
     "static/media/Ambient Sound.mp3": "/static/media/Ambient Sound.137b74b82ff48d050cd3.mp3",
     "static/media/Rain.mp3": "/static/media/Rain.838d0de60a687f2d1b6c.mp3",
@@ -118,15 +118,20 @@
     "static/media/Y_4.png": "/static/media/Y_4.9a779bb845760ac6108c.png",
     "static/media/STI_notifications.svg": "/static/media/STI_notifications.d118ee8a53ac46b6b9d81fd60e704d04.svg",
     "static/media/TeamM_4.png": "/static/media/TeamM_4.1b1fd1cfd0ef8a2c5c8a.png",
+    "static/media/nunito-latin-ext-400-normal.woff": "/static/media/nunito-latin-ext-400-normal.71b591df087b973d02ed.woff",
     "static/media/P_6_3.png": "/static/media/P_6_3.18cb0bbcd6d28d62a16f.png",
     "static/media/P_6_4.png": "/static/media/P_6_4.32d60a17df89df4169d7.png",
+    "static/media/nunito-latin-400-normal.woff": "/static/media/nunito-latin-400-normal.993d6c50aeb5ceefdfc6.woff",
     "static/media/TeamM_2.png": "/static/media/TeamM_2.1af2c15d4dff370d611b.png",
     "static/media/TeamM_1.png": "/static/media/TeamM_1.3cd147b85ed50972df91.png",
     "static/media/Functional_icon_6.png": "/static/media/Functional_icon_6.ec0fa685aa749dd1ac4b.png",
     "static/media/TeamM_3.png": "/static/media/TeamM_3.d0e8881288b057bf6be7.png",
     "static/media/P_5_2.png": "/static/media/P_5_2.9f3bcdfbc6c67cc53014.png",
+    "static/media/nunito-latin-400-normal.woff2": "/static/media/nunito-latin-400-normal.9f3f4583bd7c435a198c.woff2",
     "static/media/Y_7.png": "/static/media/Y_7.d091669acbe1e7d127f6.png",
     "static/media/P_10_3.png": "/static/media/P_10_3.1df1397feb510836d328.png",
+    "static/media/nunito-latin-ext-400-normal.woff2": "/static/media/nunito-latin-ext-400-normal.ca34ca0f04c144c14d57.woff2",
+    "static/media/nunito-cyrillic-ext-400-normal.woff": "/static/media/nunito-cyrillic-ext-400-normal.bbc8ddfbf7a68744ec73.woff",
     "static/media/Y_1.png": "/static/media/Y_1.dc4d2a56b77942cdae76.png",
     "static/media/P_7_4.png": "/static/media/P_7_4.6c8042d80b1ac04f531c.png",
     "static/media/P_3_2.png": "/static/media/P_3_2.e876fea2cb2bb00acc01.png",
@@ -141,16 +146,21 @@
     "static/media/P_3_1.png": "/static/media/P_3_1.09286f721e442b5899b3.png",
     "static/media/P_3_3.png": "/static/media/P_3_3.ecb85d64ea6e5ac3d2aa.png",
     "static/media/Y_8.png": "/static/media/Y_8.a8751ea8d603c6d8e9d8.png",
+    "static/media/nunito-cyrillic-ext-400-normal.woff2": "/static/media/nunito-cyrillic-ext-400-normal.c74946f28a2a3bf21fa5.woff2",
     "static/media/P_6_2.png": "/static/media/P_6_2.c9b7761cefb4fe109048.png",
+    "static/media/nunito-cyrillic-400-normal.woff": "/static/media/nunito-cyrillic-400-normal.953b7e54b868ff59dd91.woff",
     "static/media/P_8_3.png": "/static/media/P_8_3.d57a243be18566c8872b.png",
     "static/media/P_2_2.png": "/static/media/P_2_2.779cb5be1412af5ca3ae.png",
+    "static/media/nunito-vietnamese-400-normal.woff": "/static/media/nunito-vietnamese-400-normal.1221888234e9ce4d67a2.woff",
+    "static/media/nunito-cyrillic-400-normal.woff2": "/static/media/nunito-cyrillic-400-normal.d849bc0e78e41c04b19a.woff2",
+    "static/media/nunito-vietnamese-400-normal.woff2": "/static/media/nunito-vietnamese-400-normal.a83bae0c745757608a84.woff2",
     "index.html": "/index.html",
-    "main.c28e911c.css.map": "/static/css/main.c28e911c.css.map",
-    "main.86fd1e37.js.map": "/static/js/main.86fd1e37.js.map",
+    "main.d55dfdff.css.map": "/static/css/main.d55dfdff.css.map",
+    "main.370785a5.js.map": "/static/js/main.370785a5.js.map",
     "453.a4931bc7.chunk.js.map": "/static/js/453.a4931bc7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c28e911c.css",
-    "static/js/main.86fd1e37.js"
+    "static/css/main.d55dfdff.css",
+    "static/js/main.370785a5.js"
   ]
 }

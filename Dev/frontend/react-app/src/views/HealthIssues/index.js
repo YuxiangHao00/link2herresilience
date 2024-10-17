@@ -223,7 +223,7 @@ export default function HealthIssuesComponent() {
   return (
     <div className="space-y-4 sm:space-y-8 p-4 sm:p-8">
       <div className="mb-6">
-        <h1 className="text-3xl font-oregano text-blue-800 mb-4 text-left" style={{ marginTop: '1rem' }}>Explore the Air Quality and Common Allergens in Australia</h1>
+        <h1 className="text-3xl font-oregano text-blue-800 mb-4 text-left" style={{ marginTop: '1rem' }}>Empowering Migrant Women for a Healthier Future</h1>
         <p className="text-black text-lg mb-2">
           Our platform provides you with insights into the most common diseases affecting migrant women across Australia. The information is presented in an easy-to-understand format, allowing you to explore health trends based on gender, age, and location.
         </p>

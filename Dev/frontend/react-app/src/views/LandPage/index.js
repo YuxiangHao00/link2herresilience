@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import '@fontsource/nunito';
 import './LandPage.css';
 import titleImage from '../../images/SubTital.svg';
 // import exploreicon from '../../images/ExploreIcon.svg';
@@ -55,9 +56,9 @@ function LandPage() {
             <img src="/logo_1.png" alt="Website Logo" className="website-logo" />
           </div>
           
-          <h1 style={{ marginTop: '-2.5rem' }}>
-            <span className="text-blue-600">Link 2</span>{' '}
-            <span className="text-green-600">HerResilience</span>
+          <h1 style={{ marginTop: '-2.5rem', fontFamily: 'Nunito, sans-serif' }}>
+            <span className="text-blue-600">Link2 Her</span>
+            <span className="text-green-600">Resilience</span>
           </h1>
           
           <div className="image-wrapper">
@@ -184,6 +185,7 @@ function LandPage() {
             <div className="bottom-link" onClick={() => setCurrentPage('privacy')}>Privacy</div>
             <div className="bottom-link" onClick={() => setCurrentPage('terms')}>Terms and Conditions</div>
             <div className="bottom-link" onClick={() => setCurrentPage('team')}>The Team</div>
+            <div className="version-number">Internal testing version: 3.5.6</div>
           </div>
         </>
       )}
