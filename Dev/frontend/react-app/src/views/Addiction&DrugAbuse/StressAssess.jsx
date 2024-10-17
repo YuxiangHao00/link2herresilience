@@ -71,7 +71,9 @@ const StressAssess = () => {
         console.log('Question IDs:', fixedQuestionIds);
         console.log('Response IDs:', responseIds);
 
-        const baseUrl = 'http://127.0.0.1:5008/lifestyle/v1/analyse_risk';
+        const baseUrl = 'https://link2herresilience.com.au/lifestyle/v1/analyse_risk';
+        //link2herresilience.com.au/lifestyle/v1/analyse_risk
+        //http://127.0.0.1:5008/lifestyle/v1/analyse_risk
         const url = `${baseUrl}?session_id=${sessionId}&section_id=[${fixedSectionIds.join(',')}]&question_id=[${fixedQuestionIds.join(',')}]&response_id=[${responseIds.join(',')}]`;
 
         console.log('Full API URL:', url);
