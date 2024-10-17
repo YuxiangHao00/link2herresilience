@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Typography, Radio, Select, Button, Space, Progress, Card, Divider, Row, Col, message, Tag } from 'antd';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import axios from 'axios';
@@ -14,7 +14,6 @@ const { Option } = Select;
 const StressAssess = () => {
   const [currentSection, setCurrentSection] = useState(1);
   const [answers, setAnswers] = useState({});
-  const [progress, setProgress] = useState(0);
   const [questionnaire, setQuestionnaire] = useState(questionnaireData);
   const [sessionId, setSessionId] = useState('');
   const [result, setResult] = useState(null);
@@ -29,12 +28,12 @@ const StressAssess = () => {
     console.log('Questionnaire data:', questionnaire);
   }, []);
 
-  useEffect(() => {
+  const progress = useMemo(() => {
     if (questionnaire.length > 0) {
-      //使用 Math.floor 来向下取整
-      setProgress(Math.floor((currentSection - 1) / questionnaire.length * 100));
+      return Math.floor((currentSection - 1) / questionnaire.length * 100);
     }
-  }, [currentSection, questionnaire]);
+    return 0;
+  }, [currentSection, questionnaire.length]);
 
   const handleAnswer = (questionId, answerId) => {
     setCurrentSectionAnswers(prev => ({ ...prev, [questionId]: answerId }));
@@ -56,27 +55,14 @@ const StressAssess = () => {
       return;
     }
 
-    if (currentSection < questionnaire.length) {
-      setCurrentSection(prev => prev + 1);
-      setCurrentSectionAnswers({});
-      scrollToTop();
-    } else {
+    if (currentSection === questionnaire.length) {
       try {
         const fixedSectionIds = [2,2,2,2,2,3,3,3,4,5,6];
         const fixedQuestionIds = ['3a','3b','3c','4','5','2','5','6','3','3','1'];
         const responseIds = fixedQuestionIds.map(qId => allAnswers[qId] || '1');
 
-        console.log('API Call Details:');
-        console.log('Section IDs:', fixedSectionIds);
-        console.log('Question IDs:', fixedQuestionIds);
-        console.log('Response IDs:', responseIds);
-
         const baseUrl = 'https://link2herresilience.com.au/lifestyle/v1/analyse_risk';
-        //link2herresilience.com.au/lifestyle/v1/analyse_risk
-        //http://127.0.0.1:5008/lifestyle/v1/analyse_risk
         const url = `${baseUrl}?session_id=${sessionId}&section_id=[${fixedSectionIds.join(',')}]&question_id=[${fixedQuestionIds.join(',')}]&response_id=[${responseIds.join(',')}]`;
-
-        console.log('Full API URL:', url);
 
         const response = await fetch(url, {
           method: 'GET',
@@ -85,22 +71,21 @@ const StressAssess = () => {
           },
         });
 
-        console.log('API Response Status:', response.status);
-        const responseText = await response.text();
-        console.log('API Response Text:', responseText);
-
         if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}, message: ${responseText}`);
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
 
-        const data = JSON.parse(responseText);
+        const data = await response.json();
         console.log('Parsed API Response:', JSON.stringify(data, null, 2));
         setResult(data);
       } catch (error) {
         console.error('Error submitting answers:', error);
-        console.error('Error details:', error.message);
         message.error(`An error occurred: ${error.message}`);
       }
+    } else {
+      setCurrentSection(prev => prev + 1);
+      setCurrentSectionAnswers({});
+      scrollToTop();
     }
   };
 
