@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
-import { Typography, Radio, Select, Button, Space, Progress, Card, Divider, Row, Col, message, Tag } from 'antd';
+import { Typography, Radio, Select, Button, Space, Progress, Card, Divider, Row, Col, message, Tag, Statistic, List } from 'antd';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
@@ -129,65 +129,52 @@ const StressAssess = () => {
   };
 
   if (result) {
-    const getRiskColor = (level) => {
-      switch (level) {
-        case 'low': return 'success';
-        case 'medium': return 'warning';
-        case 'high': return 'error';
-        default: return 'default';
-      }
+    const riskLevelColor = {
+      low: '#52c41a',
+      medium: '#faad14',
+      high: '#f5222d'
     };
-
-    const getRiskIcon = (level) => {
-      switch (level) {
-        case 'low': return <CheckCircleOutlined />;
-        case 'medium': return <WarningOutlined />;
-        case 'high': return <CloseCircleOutlined />;
-        default: return null;
-      }
-    };
-
-    const riskLevel = result.predicted_risk_level ? result.predicted_risk_level.toLowerCase() : 'unknown';
-    const riskLevelCapitalized = riskLevel.charAt(0).toUpperCase() + riskLevel.slice(1);
 
     return (
       <Row justify="center">
         <Col xs={24} sm={24} md={20} lg={18} xl={16}>
           <Card className="result-card">
             <Title level={2}>Assessment Result</Title>
-            <Row gutter={[16, 16]} align="middle">
+            <Paragraph>
+              Thank you for completing the assessment. Based on your responses, we have generated a personalized report. Please remember that this is not a medical diagnosis, but rather a tool to help you understand your current situation better.
+            </Paragraph>
+            <Row align="middle" gutter={[16, 16]}>
               <Col span={12}>
-                <Tag icon={getRiskIcon(riskLevel)} color={getRiskColor(riskLevel)} style={{ padding: '8px 16px', fontSize: '18px' }}>
-                  Risk Level: {riskLevelCapitalized}
-                </Tag>
+                <Statistic
+                  title="Risk Level"
+                  value={result.predicted_risk_level.toUpperCase()}
+                  valueStyle={{ color: riskLevelColor[result.predicted_risk_level] }}
+                />
               </Col>
               <Col span={12}>
-                <Progress
-                  type="circle"
-                  percent={Math.round((result.class_probability || 0) * 100)}
-                  format={(percent) => `${percent}%`}
-                  width={80}
-                  status={getRiskColor(riskLevel)}
+                <Statistic
+                  title="Risk Probability"
+                  value={`${(result.class_probability * 100).toFixed(2)}%`}
+                  valueStyle={{ color: riskLevelColor[result.predicted_risk_level] }}
                 />
               </Col>
             </Row>
-            <Paragraph style={{ marginTop: '20px', fontSize: '16px' }}>
-              <strong>Class Probability:</strong> {(result.class_probability * 100).toFixed(2)}%
-            </Paragraph>
-            <Paragraph style={{ marginTop: '20px', fontSize: '16px' }}>
-              <strong>Suggestion:</strong> {result.suggestion || 'No suggestion available.'}
-            </Paragraph>
+            <Divider />
+            <Title level={4}>Suggestion:</Title>
+            <Paragraph>{result.suggestion}</Paragraph>
             {result.possible_effect && result.possible_effect.length > 0 && (
-              <div style={{ marginTop: '20px' }}>
+              <>
+                <Divider />
                 <Title level={4}>Possible Effects:</Title>
-                <ul>
-                  {result.possible_effect.map((effect, index) => (
-                    <li key={index} style={{ marginBottom: '10px' }}>
-                      {effect.effect_description}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                <List
+                  dataSource={result.possible_effect}
+                  renderItem={(item, index) => (
+                    <List.Item>
+                      <Typography.Text mark>[Effect {index + 1}]</Typography.Text> {item.effect_description}
+                    </List.Item>
+                  )}
+                />
+              </>
             )}
             <Button 
               type="primary" 
