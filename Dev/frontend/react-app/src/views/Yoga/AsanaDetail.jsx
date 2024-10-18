@@ -166,11 +166,13 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
   };
 
   const uploadImage = async (file, fileId) => {
+    console.log(`Starting image upload: ${file.name}`);
     const formData = new FormData();
     formData.append('sess_id', sessionId);
     formData.append('file', file);
 
     try {
+      console.log('Sending upload request...');
       const response = await fetch('https://link2herresilience.com.au/media_files/v1/uploads', {
         method: 'POST',
         body: formData,
@@ -179,10 +181,11 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
+      console.log('Received upload response:', data);
       if (data.code === 200) {
         console.log('Image uploaded successfully', data);
         setCapturedImage(URL.createObjectURL(file));
-        console.log(`File uploaded: ${sessionId}_${fileId}.png`);
+        console.log(`Uploaded file: ${sessionId}_${fileId}.png`);
         console.log(`API returned file_id: ${data.file_id}`);
         analyzePhoto(data.file_id);
       } else {
@@ -194,8 +197,10 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
   };
 
   const analyzePhoto = async (apiFileId) => {
+    console.log(`Starting photo analysis, file_id: ${apiFileId}`);
     setIsAnalyzing(true);
     const timeoutId = setTimeout(() => {
+      console.log('Analysis timed out');
       setIsAnalyzing(false);
       setAnalysisResult({ error: 'Analysis timed out. Please try taking a clearer photo with less background clutter.' });
     }, 50000); // 50 seconds timeout
@@ -203,11 +208,13 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
 
     try {
       const url = `https://link2herresilience.com.au/yoga_asana/v1/analyse?sess_id=${sessionId}&asana=${asana.name}&step=${currentStep}&file_id=${apiFileId}&type=png`;
+      console.log(`Sending analysis request: ${url}`);
       const response = await fetch(url);
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
       const data = await response.json();
+      console.log('Received analysis response:', data);
       clearTimeout(timeoutId);
       setAnalysisResult(data);
     } catch (error) {
@@ -216,6 +223,7 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
     } finally {
       clearTimeout(timeoutId);
       setIsAnalyzing(false);
+      console.log('Analysis process completed');
     }
   };
 
