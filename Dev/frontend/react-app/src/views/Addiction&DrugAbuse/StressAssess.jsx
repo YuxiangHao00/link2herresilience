@@ -61,7 +61,7 @@ const StressAssess = () => {
         const fixedQuestionIds = ['3a','3b','3c','4','5','2','5','6','3','3','1'];
         const responseIds = fixedQuestionIds.map(qId => allAnswers[qId] || '1');
 
-        const baseUrl = 'http://127.0.0.1:5008/lifestyle/v1/analyse_risk';
+        const baseUrl = 'https://link2herresilience.com.au/lifestyle/v1/analyse_risk';
         const url = `${baseUrl}?session_id=${sessionId}&section_id=[${fixedSectionIds.join(',')}]&question_id=[${fixedQuestionIds.join(',')}]&response_id=[${responseIds.join(',')}]`;
 
         const response = await fetch(url, {
