@@ -188,7 +188,7 @@ function SuburbFinder() {
                 <h1 className="text-3xl font-oregano text-blue-800 mb-4 text-left" style={{ marginTop: '1rem' }}>Explore the Air Quality and Common Allergens in Australia</h1>
                 <p className="text-black text-lg mb-2">
                     Stay informed about the air quality and common allergens that could affect your health in New South Wales
-                    and Victoria. Our platform provides real-time insights on the Air Quality Index (AQI), as well as information on
+                    and Victoria. Our platform provides recent insights on the Air Quality Index (AQI), as well as information on
                     the most prevalent pollens that may trigger allergies.
                 </p>
                 <p className="text-black text-lg mb-2">

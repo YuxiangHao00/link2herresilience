@@ -208,6 +208,7 @@ export default function AsanaDetail({ asana, asanaSequence, currentStep, onBack,
 
     try {
       const url = `https://link2herresilience.com.au/yoga_asana/v1/analyse?sess_id=${sessionId}&asana=${asana.name}&step=${currentStep}&file_id=${apiFileId}&type=png`;
+      console.log(`Full API call: ${url}`);
       console.log(`Sending analysis request: ${url}`);
       const response = await fetch(url);
       if (!response.ok) {
