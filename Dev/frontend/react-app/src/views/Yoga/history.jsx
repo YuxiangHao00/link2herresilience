@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import yogaText from './images/Y_5.png';
 import yogaSeal from './images/Y_6.png';
 import yogaStats from './images/Y_7.png';
 import yogaPractitioners from './images/Y_8.png';
 
 export default function HistoryPage({ setCurrentTab }) {
+  const [enlargedImage, setEnlargedImage] = useState(null);
+
+  const handleImageClick = (image) => {
+    setEnlargedImage(image);
+  };
+
+  const closeEnlargedImage = () => {
+    setEnlargedImage(null);
+  };
+
   return (
     <div className="yoga-container history-page">
       <div className="history-content">
@@ -21,8 +31,24 @@ export default function HistoryPage({ setCurrentTab }) {
       <div className="science-section">
         <div className="science-container">
           <div className="stats-images">
-            <img src={yogaStats} alt="Yoga Statistics" className="yoga-stats" />
-            <img src={yogaPractitioners} alt="Yoga Practitioners" className="yoga-practitioners" />
+            <div className="image-wrapper">
+              <img 
+                src={yogaStats} 
+                alt="Yoga Statistics" 
+                className="yoga-stats" 
+                onClick={() => handleImageClick(yogaStats)}
+              />
+              <div className="zoom-hint">Click to enlarge</div>
+            </div>
+            <div className="image-wrapper">
+              <img 
+                src={yogaPractitioners} 
+                alt="Yoga Practitioners" 
+                className="yoga-practitioners" 
+                onClick={() => handleImageClick(yogaPractitioners)}
+              />
+              <div className="zoom-hint">Click to enlarge</div>
+            </div>
           </div>
           <div className="science-content">
             <h2>Science of yoga & insights</h2>
@@ -42,14 +68,22 @@ export default function HistoryPage({ setCurrentTab }) {
       </div>
       
       <div className="learn-more">
-        <a href="#" className="learn-more-link" onClick={() => setCurrentTab('practice')}>
+        <button className="learn-more-link" onClick={() => setCurrentTab('practice')}>
           Learn more about practice of yoga asanas
-        </a>
+        </button>
       </div>
       
       <div className="sanskrit-footer">
         <p>स्थिरसुखमासनम् ॥</p>
       </div>
+      
+      {enlargedImage && (
+        <div className="enlarged-image-overlay" onClick={closeEnlargedImage}>
+          <div className="enlarged-image-container">
+            <img src={enlargedImage} alt="Enlarged view" className="enlarged-image" />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -1,14 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.d55dfdff.css",
-    "main.js": "/static/js/main.fa66fda9.js",
+    "main.css": "/static/css/main.7896a169.css",
+    "main.js": "/static/js/main.731b795d.js",
     "static/js/453.a4931bc7.chunk.js": "/static/js/453.a4931bc7.chunk.js",
     "static/media/Ambient Sound.mp3": "/static/media/Ambient Sound.137b74b82ff48d050cd3.mp3",
     "static/media/Rain.mp3": "/static/media/Rain.838d0de60a687f2d1b6c.mp3",
     "static/media/Sound of Waves.mp3": "/static/media/Sound of Waves.02ecdd769ea0a92cbcc4.mp3",
     "static/media/Birds Chirping.mp3": "/static/media/Birds Chirping.852ed129e61baf53e7e2.mp3",
     "static/media/HP_L_3.svg": "/static/media/HP_L_3.83910d995435bbb441ddd44c7bec05a8.svg",
+    "static/media/Y_7.png": "/static/media/Y_7.902edd2472f5e558a838.png",
     "static/media/HP_L_4.svg": "/static/media/HP_L_4.3555ebf90485abfaf9b61e7b01b0354b.svg",
+    "static/media/Y_8.png": "/static/media/Y_8.a3f570144f14c343b80c.png",
     "static/media/bg60.png": "/static/media/bg60.02df50f4bee7e8888164.png",
     "static/media/LandPage_2_V2.png": "/static/media/LandPage_2_V2.e1f2d465d34a8b8e21d4.png",
     "static/media/A_1.png": "/static/media/A_1.419e36ccc8c668cdc69a.png",
@@ -128,7 +130,6 @@
     "static/media/TeamM_3.png": "/static/media/TeamM_3.d0e8881288b057bf6be7.png",
     "static/media/P_5_2.png": "/static/media/P_5_2.9f3bcdfbc6c67cc53014.png",
     "static/media/nunito-latin-400-normal.woff2": "/static/media/nunito-latin-400-normal.9f3f4583bd7c435a198c.woff2",
-    "static/media/Y_7.png": "/static/media/Y_7.d091669acbe1e7d127f6.png",
     "static/media/P_10_3.png": "/static/media/P_10_3.1df1397feb510836d328.png",
     "static/media/nunito-latin-ext-400-normal.woff2": "/static/media/nunito-latin-ext-400-normal.ca34ca0f04c144c14d57.woff2",
     "static/media/nunito-cyrillic-ext-400-normal.woff": "/static/media/nunito-cyrillic-ext-400-normal.bbc8ddfbf7a68744ec73.woff",
@@ -145,7 +146,6 @@
     "static/media/P_10_4.png": "/static/media/P_10_4.2429f16990e7b51f484e.png",
     "static/media/P_3_1.png": "/static/media/P_3_1.09286f721e442b5899b3.png",
     "static/media/P_3_3.png": "/static/media/P_3_3.ecb85d64ea6e5ac3d2aa.png",
-    "static/media/Y_8.png": "/static/media/Y_8.a8751ea8d603c6d8e9d8.png",
     "static/media/nunito-cyrillic-ext-400-normal.woff2": "/static/media/nunito-cyrillic-ext-400-normal.c74946f28a2a3bf21fa5.woff2",
     "static/media/P_6_2.png": "/static/media/P_6_2.c9b7761cefb4fe109048.png",
     "static/media/nunito-cyrillic-400-normal.woff": "/static/media/nunito-cyrillic-400-normal.953b7e54b868ff59dd91.woff",
@@ -155,12 +155,12 @@
     "static/media/nunito-cyrillic-400-normal.woff2": "/static/media/nunito-cyrillic-400-normal.d849bc0e78e41c04b19a.woff2",
     "static/media/nunito-vietnamese-400-normal.woff2": "/static/media/nunito-vietnamese-400-normal.a83bae0c745757608a84.woff2",
     "index.html": "/index.html",
-    "main.d55dfdff.css.map": "/static/css/main.d55dfdff.css.map",
-    "main.fa66fda9.js.map": "/static/js/main.fa66fda9.js.map",
+    "main.7896a169.css.map": "/static/css/main.7896a169.css.map",
+    "main.731b795d.js.map": "/static/js/main.731b795d.js.map",
     "453.a4931bc7.chunk.js.map": "/static/js/453.a4931bc7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.d55dfdff.css",
-    "static/js/main.fa66fda9.js"
+    "static/css/main.7896a169.css",
+    "static/js/main.731b795d.js"
   ]
 }

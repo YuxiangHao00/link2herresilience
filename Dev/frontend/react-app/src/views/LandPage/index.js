@@ -27,7 +27,7 @@ import Team from './Team';
 
 function LandPage() {
   const [currentPage, setCurrentPage] = useState('main');
-  const bottomRef = useRef(null);
+  // const bottomRef = useRef(null);
   const topRef = useRef(null);
   const contentRef = useRef(null);
 
@@ -39,9 +39,9 @@ function LandPage() {
     }
   }, [currentPage]);
 
-  const handleExploreClick = () => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
+  // const handleExploreClick = () => {
+  //   bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+  // };
 
   const handleBackToMain = () => {
     setCurrentPage('main');
@@ -185,7 +185,7 @@ function LandPage() {
             <div className="bottom-link" onClick={() => setCurrentPage('privacy')}>Privacy</div>
             <div className="bottom-link" onClick={() => setCurrentPage('terms')}>Terms and Conditions</div>
             <div className="bottom-link" onClick={() => setCurrentPage('team')}>The Team</div>
-            <div className="version-number">Internal testing version: 3.5.6</div>
+            <div className="version-number">Internal testing version: 3.5.7</div>
           </div>
         </>
       )}
