@@ -245,15 +245,15 @@ export default function HealthIssuesComponent() {
         defaultActiveKey="1"
         centered
         items={[
-          { label: 'Air Quality', key: '1' },
-          { label: 'Allergic Pollens', key: '2' },
+          { label: 'Health Issues By Age', key: '1' },
+          { label: 'Health Issues By Region', key: '2' },
         ]}
         onChange={handleTabChange}
       />
 
       {activeTab === '1' && (
         <div className="space-y-6 sm:space-y-10 flex flex-col items-center">
-          <h2 className="text-lg sm:text-xl font-bold text-center text-[#0F296D]">Air Quality Index in Australian States</h2>
+          <h2 className="text-lg sm:text-xl font-bold text-center text-[#0F296D]">Common Health Issues (aggregate by age and gender)</h2>
           <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
             <Select 
               className="w-full sm:w-48" 
@@ -341,7 +341,7 @@ export default function HealthIssuesComponent() {
       
       {activeTab === '2' && (
         <div className="space-y-6 sm:space-y-10 flex flex-col items-center">
-          <h2 className="text-lg sm:text-xl font-bold text-center text-[#0F296D]">Common Allergens in Different Parts of Australia</h2>
+          <h2 className="text-lg sm:text-xl font-bold text-center text-[#0F296D]">Common Health Issues in Different Australian States</h2>
           <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-2">
             <Select 
               className="w-full sm:w-48" 
